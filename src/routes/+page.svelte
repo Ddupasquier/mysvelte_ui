@@ -42,7 +42,6 @@
     to understand and use. So why not give our library a try today and see how
     it can simplify your development process?
   </p>
-  <FireButton />
 </section>
 
 <style>

@@ -1,6 +1,4 @@
 <script lang="ts">
-  import github from '$lib/images/github.svg';
-
   const purple = '#c50eff';
 </script>
 
@@ -120,10 +118,7 @@
 ]]>
     </script>
   </svg>
-
-  <button>
-    <object type="image/svg+xml" data={github} title="github" />
-  </button>
+  <slot />
 </div>
 
 <style lang="scss">
@@ -143,37 +138,5 @@
       height: 100%;
       fill: white;
     }
-    button {
-      z-index: 1;
-      background: #f0c1ff;
-      border: none;
-      border-radius: 50rem;
-      width: 3.45rem;
-      aspect-ratio: 1/1;
-      position: relative;
-      top: 1.76rem;
-      left: -0.1rem;
-      cursor: pointer;
-      object {
-        &:active {
-          animation: bouncy 0.2s ease-in-out;
-        }
-      }
-    }
-
-      @keyframes bouncy {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(0.9);
-        }
-        75% {
-            transform: scale(1.1);
-        }
-        100% {
-            transform: scale(1);
-        }
-      }
   }
 </style>

@@ -3,53 +3,68 @@
   import { NavComponentOptions } from '$lib/constants';
   import { slide } from 'svelte/transition';
   import logo from '$lib/images/svelte-logo.svg';
+  import FireButton from '$lib/buttons/FireButton.svelte';
+  import github from '$lib/images/github.svg';
 
   $: optionsOpen = false;
 </script>
 
 <div class="sidebar">
   <nav>
-    <object
-      type="image/svg+xml"
-      data={logo}
-      class="logo"
-      title="my_svelte_ui"
-    />
-
-    <ul>
-      <li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-        <a href="/">Home</a>
-      </li>
-
-      <div class="option-container">
-        <li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-          <button on:click={() => (optionsOpen = !optionsOpen)}
-            >Components</button
-          >
-        </li>
-
-        {#if optionsOpen}
-          <div class="options" transition:slide={{ delay: 100, duration: 200 }}>
-            <ul>
-              {#each NavComponentOptions as option}
-                <li
-                  aria-current={$page.url.pathname ===
-                  '/components' + option.path
-                    ? 'page'
-                    : undefined}
-                >
-                  <a href={'/components' + option.path}>{option.name}</a>
-                </li>
-              {/each}
-            </ul>
-          </div>
-        {/if}
+    <div class="top">
+      <div class="logo">
+        <object type="image/svg+xml" data={logo} title="my_svelte_ui" />
       </div>
 
-      <li aria-current={$page.url.pathname === '/contact' ? 'page' : undefined}>
-        <a href="/contact">Contact</a>
-      </li>
-    </ul>
+      <ul>
+        <li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
+          <a href="/">Home</a>
+        </li>
+
+        <div class="option-container">
+          <li
+            aria-current={$page.url.pathname === '/about' ? 'page' : undefined}
+          >
+            <button on:click={() => (optionsOpen = !optionsOpen)}
+              >Components</button
+            >
+          </li>
+
+          {#if optionsOpen}
+            <div
+              class="options"
+              transition:slide={{ delay: 100, duration: 200 }}
+            >
+              <ul>
+                {#each NavComponentOptions as option}
+                  <li
+                    aria-current={$page.url.pathname ===
+                    '/components' + option.path
+                      ? 'page'
+                      : undefined}
+                  >
+                    <a href={'/components' + option.path}>{option.name}</a>
+                  </li>
+                {/each}
+              </ul>
+            </div>
+          {/if}
+        </div>
+
+        <li
+          aria-current={$page.url.pathname === '/contact' ? 'page' : undefined}
+        >
+          <a href="/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <div class="bottom">
+      <FireButton>
+        <button class="github">
+          <object type="image/svg+xml" data={github} title="github" />
+        </button>
+      </FireButton>
+    </div>
   </nav>
 </div>
 
@@ -65,14 +80,15 @@
   nav {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
     background-color: var(--menu-color);
   }
 
   .logo {
-    width: 5rem;
-    padding: 1rem;
-    fill: var(--color-theme-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     align-self: center;
   }
 
@@ -132,6 +148,43 @@
     color: var(--color-theme-1);
   }
 
+  .bottom {
+    align-self: center;
+  }
+
+  .github {
+    z-index: 1;
+    background: #f0c1ff;
+    border: none;
+    border-radius: 50rem;
+    width: 3.45rem;
+    aspect-ratio: 1/1;
+    position: relative;
+    top: 1.76rem;
+    left: -0.1rem;
+    cursor: pointer;
+    object {
+      &:active {
+        animation: bouncy 0.2s ease-in-out;
+      }
+    }
+  }
+
+  @keyframes bouncy {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    75% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
   @media screen and (max-width: 1250px) {
     .sidebar {
       position: relative;
@@ -141,8 +194,9 @@
     }
 
     .logo {
-      width: 3rem;
-      padding: 0.5rem;
+      object {
+        width: 70px;
+      }
     }
 
     nav {
@@ -167,6 +221,17 @@
 
     .options {
       margin: 0;
+    }
+
+    .top {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .bottom {
+      display: none;
     }
   }
 </style>
