@@ -1,7 +1,10 @@
 <script>
   import { page } from '$app/stores';
-  import { goto } from '$app/navigation';
+  import { NavComponentOptions } from '$lib/constants';
+  import { slide } from 'svelte/transition';
   import logo from '$lib/images/svelte-logo.svg';
+
+  $: optionsOpen = false;
 </script>
 
 <div class="sidebar">
@@ -12,16 +15,37 @@
       class="logo"
       title="my_svelte_ui"
     />
+
     <ul>
       <li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
         <a href="/">Home</a>
       </li>
-      <li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-        <a href="/about">About</a>
-      </li>
-      <li aria-current={$page.url.pathname === '/blog' ? 'page' : undefined}>
-        <a href="/blog">Blog</a>
-      </li>
+
+      <div class="option-container">
+        <li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
+          <button on:click={() => (optionsOpen = !optionsOpen)}
+            >Components</button
+          >
+        </li>
+
+        {#if optionsOpen}
+          <div class="options" transition:slide={{ delay: 100, duration: 200 }}>
+            <ul>
+              {#each NavComponentOptions as option}
+                <li
+                  aria-current={$page.url.pathname ===
+                  '/components' + option.path
+                    ? 'page'
+                    : undefined}
+                >
+                  <a href={'/components' + option.path}>{option.name}</a>
+                </li>
+              {/each}
+            </ul>
+          </div>
+        {/if}
+      </div>
+
       <li aria-current={$page.url.pathname === '/contact' ? 'page' : undefined}>
         <a href="/contact">Contact</a>
       </li>
@@ -49,6 +73,7 @@
     width: 5rem;
     padding: 1rem;
     fill: var(--color-theme-1);
+    align-self: center;
   }
 
   ul {
@@ -78,7 +103,8 @@
     border-left: var(--size) solid var(--color-theme-1);
   }
 
-  nav a {
+  nav a,
+  nav button {
     display: flex;
     align-items: center;
     color: var(--color-text);
@@ -88,6 +114,18 @@
     letter-spacing: 0.1em;
     text-decoration: none;
     transition: color 0.2s linear;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .options {
+    margin-left: 1rem;
+    a {
+      font-size: 0.7rem;
+    }
   }
 
   a:hover {
@@ -119,17 +157,16 @@
       }
 
       li[aria-current='page']::before {
-        --size: 8px;
-        content: '';
-        width: 0;
-        height: 0;
-        position: absolute;
-        top: 0;
-        left: 40%;
-        right: calc(100% - var(--size));
-        border: var(--size) solid transparent;
-        border-top: var(--size) solid var(--color-theme-1);
+        border: none;
       }
+    }
+
+    .options ul {
+      flex-direction: column;
+    }
+
+    .options {
+      margin: 0;
     }
   }
 </style>
