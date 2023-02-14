@@ -76,7 +76,6 @@
     right: calc(100% - var(--size));
     border: var(--size) solid transparent;
     border-left: var(--size) solid var(--color-theme-1);
-    transition: all 0.2s linear;
   }
 
   nav a {
@@ -93,5 +92,44 @@
 
   a:hover {
     color: var(--color-theme-1);
+  }
+
+  @media screen and (max-width: 1250px) {
+    .sidebar {
+      position: relative;
+      flex-direction: row;
+      height: auto;
+      width: 100vw;
+    }
+
+    .logo {
+      width: 3rem;
+      padding: 0.5rem;
+    }
+
+    nav {
+      width: 100%;
+      flex-direction: row;
+      height: auto;
+
+      ul {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+      }
+
+      li[aria-current='page']::before {
+        --size: 8px;
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 40%;
+        right: calc(100% - var(--size));
+        border: var(--size) solid transparent;
+        border-top: var(--size) solid var(--color-theme-1);
+      }
+    }
   }
 </style>

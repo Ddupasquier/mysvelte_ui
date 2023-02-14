@@ -26,5 +26,12 @@
 		max-width: 64rem;
 		margin: 0 auto;
 		box-sizing: border-box;
+		background: rgba(255, 255, 255, 0.5);
 	}
+
+	@media screen and (max-width: 1250px) {
+		.app {
+			flex-direction: column;
+		}
+	} 
 </style>
