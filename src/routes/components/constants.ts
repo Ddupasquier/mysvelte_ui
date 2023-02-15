@@ -12,6 +12,7 @@ export const buttons = [
         },
       },
     ],
+    code: '<button>Default</button>',
   },
   {
     header: 'Primary',

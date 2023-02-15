@@ -21,7 +21,7 @@
     navigator.clipboard.writeText(text);
   };
 
-  const htmlCode = (component: any) => {
+  const htmlCode = (component: any): string | undefined => {
     if (component) {
       const container = document.createElement('div');
       const instance = new component.component({
@@ -31,7 +31,7 @@
       const html = container.innerHTML;
 
       instance.$destroy();
-      console.log(html);
+      console.log(typeof html);
       return html;
     }
   };
@@ -51,13 +51,17 @@
       <svelte:component this={example.component} {...example.props} />
     {/each}
   </div>
-  {#each examples as example}
+  {#each examples as example, i}
     <div
       class="code"
       on:mouseenter={() => (copyShown = true)}
       on:mouseleave={() => (copyShown = false)}
     >
-      <Highlight language={typescript} code={() => htmlCode(example.component)} let:highlighted>
+      <Highlight
+        language={typescript}
+        code={() => htmlCode(example.component)}
+        let:highlighted
+      >
         <LineNumbers {highlighted} wrapLines />
         {#if copyShown}
           <button class="copy" on:click={() => copyToClipboard(code)}>
