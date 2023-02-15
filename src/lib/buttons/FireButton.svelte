@@ -1,4 +1,5 @@
 <script lang="ts">
+  export let disabled = false;
   const purple = '#c50eff';
 </script>
 
@@ -118,7 +119,7 @@
 ]]>
     </script>
   </svg>
-  <slot />
+  <slot disabled={disabled} />
 </div>
 
 <style lang="scss">

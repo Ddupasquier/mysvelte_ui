@@ -10,12 +10,30 @@
   export let description: string = '';
 
   let copyShown = false;
+
   onMount(() => {
-    code = code.split(';').join('\n');
+    code = code.split(';').slice(0, -1).join('\n');
+
+    htmlCode(examples[0]);
   });
 
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
+  };
+
+  const htmlCode = (component: any) => {
+    if (component) {
+      const container = document.createElement('div');
+      const instance = new component.component({
+        target: container,
+        props: component.props,
+      });
+      const html = container.innerHTML;
+
+      instance.$destroy();
+      console.log(html);
+      return html;
+    }
   };
 </script>
 
@@ -30,24 +48,25 @@
   </p>
   <div class="examples">
     {#each examples as example}
-      {example}
+      <svelte:component this={example.component} {...example.props} />
     {/each}
   </div>
-  <div
-    class="code"
-    on:mouseenter={() => (copyShown = true)}
-    on:mouseleave={() => (copyShown = false)}
-  >
-    <Highlight language={typescript} {code} let:highlighted>
-      <LineNumbers {highlighted} wrapLines />
-    </Highlight>
-
-    {#if copyShown}
-      <button class="copy" on:click={() => copyToClipboard(code)}>
-        Copy
-      </button>
-    {/if}
-  </div>
+  {#each examples as example}
+    <div
+      class="code"
+      on:mouseenter={() => (copyShown = true)}
+      on:mouseleave={() => (copyShown = false)}
+    >
+      <Highlight language={typescript} code={() => htmlCode(example.component)} let:highlighted>
+        <LineNumbers {highlighted} wrapLines />
+        {#if copyShown}
+          <button class="copy" on:click={() => copyToClipboard(code)}>
+            Copy
+          </button>
+        {/if}
+      </Highlight>
+    </div>
+  {/each}
 </div>
 
 <style lang="scss">
@@ -71,10 +90,6 @@
     justify-content: space-evenly;
   }
 
-  .code {
-    position: relative;
-  }
-
   .copy {
     position: absolute;
     top: 0;
@@ -91,11 +106,12 @@
     }
   }
 
-  code {
+  .code {
+    position: relative;
     display: block;
     padding: 1rem;
     font-size: 0.875rem;
-    line-height: 1.5;
+    line-height: 0.25;
     color: #333;
     white-space: pre-wrap;
   }

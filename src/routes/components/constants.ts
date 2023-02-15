@@ -1,9 +1,17 @@
+import Button from '$lib/buttons/Button.svelte';
+
 export const buttons = [
   {
     header: 'Default',
     description: 'Default button',
-    examples: [],
-    code: 'const add = (a: number, b: number) => a + b;const add = (a: number, b: number) => a + b;const add = (a: number, b: number) => a + b;const add = (a: number, b: number) => a + b;const add = (a: number, b: number) => a + b;const add = (a: number, b: number) => a + b;',
+    examples: [
+      {
+        component: Button,
+        props: {
+          disabled: false,
+        },
+      },
+    ],
   },
   {
     header: 'Primary',
