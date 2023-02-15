@@ -2,30 +2,13 @@
   import Highlight, { LineNumbers } from 'svelte-highlight';
   import typescript from 'svelte-highlight/languages/typescript';
   import github from 'svelte-highlight/styles/github';
+  import { copyToClipboard, htmlCode } from './utils';
 
   export let header: string = '';
   export let examples: any[] = [];
   export let description: string = '';
 
   let copyShown = false;
-
-  const copyToClipboard = (text: string | undefined): void => {
-    if (text === typeof 'string') navigator.clipboard.writeText(text);
-  };
-
-  const htmlCode = (component: any): string | undefined => {
-    if (component) {
-      const container = document.createElement('div');
-      const instance = new component({
-        target: container,
-        props: component.props,
-      });
-      const html = container.innerHTML;
-
-      instance.$destroy();
-      return html;
-    }
-  };
 </script>
 
 <svelte:head>
