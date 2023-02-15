@@ -12,18 +12,15 @@ export const buttons = [
         },
       },
     ],
-    code: '<button>Default</button>',
   },
   {
     header: 'Primary',
     description: 'Primary button',
     examples: [],
-    code: '<button class="primary">Primary</button>',
   },
   {
     header: 'Secondary',
     description: 'Secondary button',
     examples: [],
-    code: '<button class="secondary">Secondary</button>',
   },
 ];

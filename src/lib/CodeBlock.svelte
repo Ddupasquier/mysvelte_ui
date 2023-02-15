@@ -1,23 +1,15 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import Highlight, { LineNumbers } from 'svelte-highlight';
   import typescript from 'svelte-highlight/languages/typescript';
   import github from 'svelte-highlight/styles/github';
 
-  export let code: string;
   export let header: string = '';
   export let examples: any[] = [];
   export let description: string = '';
 
   let copyShown = false;
 
-  onMount(() => {
-    code = code.split(';').slice(0, -1).join('\n');
-
-    htmlCode(examples[0]);
-  });
-
-  const copyToClipboard = (text: string) => {
+  const copyToClipboard = (text: string): void => {
     navigator.clipboard.writeText(text);
   };
 
@@ -31,6 +23,8 @@
       const html = container.innerHTML;
 
       instance.$destroy();
+
+      // This is a string
       console.log(typeof html);
       return html;
     }
@@ -51,7 +45,7 @@
       <svelte:component this={example.component} {...example.props} />
     {/each}
   </div>
-  {#each examples as example, i}
+  {#each examples as example}
     <div
       class="code"
       on:mouseenter={() => (copyShown = true)}
@@ -63,11 +57,11 @@
         let:highlighted
       >
         <LineNumbers {highlighted} wrapLines />
-        {#if copyShown}
+        <!-- {#if copyShown}
           <button class="copy" on:click={() => copyToClipboard(code)}>
             Copy
           </button>
-        {/if}
+        {/if} -->
       </Highlight>
     </div>
   {/each}

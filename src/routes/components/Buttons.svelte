@@ -7,7 +7,6 @@
 
 {#each buttons as button}
   <CodeBlock
-    code={button.code}
     header={button.header}
     examples={button.examples}
     description={button.description}
