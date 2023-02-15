@@ -9,23 +9,20 @@
 
   let copyShown = false;
 
-  const copyToClipboard = (text: string): void => {
-    navigator.clipboard.writeText(text);
+  const copyToClipboard = (text: string | undefined): void => {
+    if (text === typeof 'string') navigator.clipboard.writeText(text);
   };
 
   const htmlCode = (component: any): string | undefined => {
     if (component) {
       const container = document.createElement('div');
-      const instance = new component.component({
+      const instance = new component({
         target: container,
         props: component.props,
       });
       const html = container.innerHTML;
 
       instance.$destroy();
-
-      // This is a string
-      console.log(typeof html);
       return html;
     }
   };
@@ -45,6 +42,7 @@
       <svelte:component this={example.component} {...example.props} />
     {/each}
   </div>
+
   {#each examples as example}
     <div
       class="code"
@@ -53,15 +51,18 @@
     >
       <Highlight
         language={typescript}
-        code={() => htmlCode(example.component)}
+        code={htmlCode(example.component)}
         let:highlighted
       >
         <LineNumbers {highlighted} wrapLines />
-        <!-- {#if copyShown}
-          <button class="copy" on:click={() => copyToClipboard(code)}>
+        {#if copyShown}
+          <button
+            class="copy"
+            on:click={() => copyToClipboard(htmlCode(example.component))}
+          >
             Copy
           </button>
-        {/if} -->
+        {/if}
       </Highlight>
     </div>
   {/each}
