@@ -1,7 +1,7 @@
 <script lang="ts">
   import Highlight, { LineNumbers } from 'svelte-highlight';
   import typescript from 'svelte-highlight/languages/typescript';
-  import { copyToClipboard } from './utils';
+  import { copyToClipboard } from '$lib/utils';
 
   export let code: string;
 
