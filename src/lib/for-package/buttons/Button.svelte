@@ -3,7 +3,7 @@
   export let background = '#c50eff';
   export let color = '#fff';
   export let size = 'medium';
-  export let text: string;
+  export let text: null;
 
   $: size =
     size === 'medium'
