@@ -1,5 +1,13 @@
 import Button from '$lib/for-package/buttons/Button.svelte';
 
+interface ButtonProps {
+  background?: string;
+  color?: string;
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  disabled?: boolean;
+  text?: string;
+}
+
 export const buttons = [
   {
     header: 'Background Button',
@@ -11,7 +19,7 @@ export const buttons = [
         props: {
           background: '#c50eff',
           text: 'Purple',
-        },
+        } as ButtonProps,
         code: '<Button background="#c50eff">Purple</Button>',
       },
       {
@@ -19,7 +27,7 @@ export const buttons = [
         props: {
           background: '#ff00d9',
           text: 'Pink',
-        },
+        } as ButtonProps,
         code: '<Button background="#ff00d9">Pink</Button>',
       },
       {
@@ -27,7 +35,7 @@ export const buttons = [
         props: {
           background: '#FF3579',
           text: 'Salmon',
-        },
+        } as ButtonProps,
         code: '<Button background="#FF3579">Salmon</Button>',
       },
       {
@@ -35,7 +43,7 @@ export const buttons = [
         props: {
           background: '#FF8C4C',
           text: 'Orange',
-        },
+        } as ButtonProps,
         code: '<Button background="#FF8C4C">Orange</Button>',
       },
       {
@@ -43,7 +51,7 @@ export const buttons = [
         props: {
           background: '#FFC844',
           text: 'Gold',
-        },
+        } as ButtonProps,
         code: '<Button background="#FFC844">Gold</Button>',
       },
       {
@@ -51,7 +59,7 @@ export const buttons = [
         props: {
           background: '#F9F871',
           text: 'Yellow',
-        },
+        } as ButtonProps,
         code: '<Button background="#F9F871">Yellow</Button>',
       },
     ],
@@ -66,7 +74,7 @@ export const buttons = [
         props: {
           color: 'black',
           text: 'Black',
-        },
+        } as ButtonProps,
         code: '<Button color="black">Purple</Button>',
       },
       {
@@ -75,7 +83,7 @@ export const buttons = [
           background: 'gray',
           color: 'turquoise',
           text: 'Turquoise',
-        },
+        } as ButtonProps,
         code: '<Button color="turquoise">Turquoise</Button>',
       },
       {
@@ -84,7 +92,7 @@ export const buttons = [
           background: 'black',
           color: 'red',
           text: 'Red',
-        },
+        } as ButtonProps,
         code: '<Button color="red">Salmon</Button>',
       },
     ],
@@ -99,7 +107,7 @@ export const buttons = [
         props: {
           size: 'xsmall',
           text: 'XSmall',
-        },
+        } as ButtonProps,
         code: '<Button size="xsmall">XSmall</Button>',
       },
       {
@@ -107,7 +115,7 @@ export const buttons = [
         props: {
           size: 'small',
           text: 'Small',
-        },
+        } as ButtonProps,
         code: '<Button size="small">Small</Button>',
       },
       {
@@ -115,7 +123,7 @@ export const buttons = [
         props: {
           size: 'medium',
           text: 'Medium',
-        },
+        } as ButtonProps,
         code: '<Button size="medium">Medium</Button>',
       },
       {
@@ -123,7 +131,7 @@ export const buttons = [
         props: {
           size: 'large',
           text: 'Large',
-        },
+        } as ButtonProps,
         code: '<Button size="large">Large</Button>',
       },
       {
@@ -131,7 +139,7 @@ export const buttons = [
         props: {
           size: 'xlarge',
           text: 'XLarge',
-        },
+        } as ButtonProps,
         code: '<Button size="xlarge">XLarge</Button>',
       },
       {
@@ -139,28 +147,28 @@ export const buttons = [
         props: {
           size: 'large',
           text: 'Large',
-        },
+        } as ButtonProps,
       },
       {
         component: Button,
         props: {
           size: 'medium',
           text: 'Medium',
-        },
+        } as ButtonProps,
       },
       {
         component: Button,
         props: {
           size: 'small',
           text: 'Small',
-        },
+        } as ButtonProps,
       },
       {
         component: Button,
         props: {
           size: 'xsmall',
           text: 'XSmall',
-        },
+        } as ButtonProps,
       },
     ],
   },
@@ -174,7 +182,7 @@ export const buttons = [
         props: {
           disabled: true,
           text: 'Disabled',
-        },
+        } as ButtonProps,
         code: '<Button disabled>Disabled</Button>',
       },
     ],

@@ -8,7 +8,7 @@
 </svelte:head>
 
 <section>
-  <Button background="orange" size="medium" color="black" text={null}>Test</Button>
+  <Button background="orange" size="medium" color="black">Test</Button>
   <p>
     Welcome to our Svelte component library! We are dedicated to providing
     developers with a library that is not only functional but also incredibly

@@ -3,7 +3,7 @@
   export let background = '#c50eff';
   export let color = '#fff';
   export let size = 'medium';
-  export let text: null;
+  export let text = '';
 
   $: size =
     size === 'medium'
@@ -24,11 +24,9 @@
 </script>
 
 <button {disabled} style={disabled ? disabledStyle : enabledStyle}>
-  {#if text}
+  <slot>
     {text}
-  {:else}
-    <slot />
-  {/if}
+  </slot>
 </button>
 
 <style lang="scss">
