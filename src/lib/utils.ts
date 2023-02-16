@@ -13,5 +13,5 @@ export const htmlCode = (component: any): string | undefined => {
 };
 
 export const copyToClipboard = (text: string | undefined): void => {
-  if (text === typeof 'string') navigator.clipboard.writeText(text);
+  if (text) navigator.clipboard.writeText(text);
 };

@@ -37,7 +37,7 @@
         code={htmlCode(example.component)}
         let:highlighted
       >
-        <LineNumbers {highlighted} wrapLines />
+        <LineNumbers {highlighted} />
         {#if copyShown}
           <button
             class="copy"
