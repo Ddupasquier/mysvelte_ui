@@ -20,7 +20,6 @@
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.28.0",
     "eslint-plugin-svelte3": "^4.0.0",
-    "mysvelte-ui": "file:package",
     "svelte": "^3.54.0",
     "svelte-check": "^3.0.1",
     "svelte-highlight": "^7.2.0",
@@ -30,6 +29,7 @@
   },
   "type": "module",
   "dependencies": {
+    "mysvelte-ui": "^0.0.5",
     "sass": "^1.58.1"
   }
 }
