@@ -1,5 +1,5 @@
 <script>
-  import FireButton from '$lib/buttons/FireButton.svelte';
+  import FireButton from '$lib/for-package/buttons/FireButton.svelte';
 </script>
 
 <svelte:head>
