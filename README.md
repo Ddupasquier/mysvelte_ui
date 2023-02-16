@@ -20,3 +20,10 @@ The content of the button is determined by slotting the content.
 ```ts
 <Button>{slotted content}</Button>
 ```
+
+## Links
+[Github](https://github.com/Ddupasquier/mysvelte_ui)
+
+[Linkedin](https://www.linkedin.com/in/dylan-dupasquier/)
+
+[Website](https://ddupasquier.dev)
