@@ -1,12 +1,12 @@
 <script>
-  import CodeBlock from '$lib/CodeBlock.svelte';
+  import DisplayCard from '$lib/DisplayCard.svelte';
   import { buttons } from './constants';
 </script>
 
 <h1>Buttons</h1>
 
 {#each buttons as button}
-  <CodeBlock
+  <DisplayCard
     header={button.header}
     examples={button.examples}
     description={button.description}
