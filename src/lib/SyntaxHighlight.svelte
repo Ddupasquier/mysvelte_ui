@@ -2,6 +2,7 @@
   import { copyToClipboard } from '$lib/utils';
   import { onMount } from 'svelte';
 
+  export let isDarkMode: boolean;
   export let code: string;
   let codeArray: string[];
 
@@ -18,7 +19,7 @@
 
 {#if codeArray}
   <div
-    class="code"
+    class={isDarkMode ? 'code dark' : 'code light'}
     on:mouseenter={() => (copyShown = true)}
     on:mouseleave={() => (copyShown = false)}
   >
@@ -63,12 +64,24 @@
     font-weight: 600;
     letter-spacing: 0.05rem;
     line-height: 2;
-    color: #d5d5d5;
-    background: rgb(34, 34, 34);
-    border-bottom: 3px solid rgb(34, 34, 34);
     transition: 0.5s;
+  }
+
+  .code.dark {
+    background: rgb(38, 34, 39);
+    color: white;
+    border-bottom: 3px solid rgb(68, 68, 68);
     &:hover {
-      border-bottom: 3px solid #616161;
+      border-bottom: 3px solid #b8b8b8;
+    }
+  }
+
+  .code.light {
+    background: var(--menu-color);
+    color: black;
+    border-bottom: 3px solid rgb(234, 234, 234);
+    &:hover {
+      border-bottom: 3px solid #b8b8b8;
     }
   }
 
