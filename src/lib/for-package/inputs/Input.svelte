@@ -1,9 +1,10 @@
 <script lang="ts">
   export let disabled = false;
-  export let background = '#c50eff';
-  export let color = '#fff';
+  export let background = '#fcf7ff';
+  export let color = '#000';
   export let size = 'medium';
-  export let text = '';
+  export let value = '';
+  export let placeholder = 'Search';
   export let isLoading = false;
   export let isError = false;
   export let style = '';
@@ -36,8 +37,11 @@
     style;
 </script>
 
-<button
+<input
+  type="text"
+  {placeholder}
   {disabled}
+  {value}
   style={disabled
     ? disabledStyle
     : isLoading
@@ -46,20 +50,20 @@
     ? errorStyle
     : enabledStyle}
   class={isLoading ? 'loading' : isError ? 'error' : ''}
->
-  <slot>
-    {text}
-  </slot>
-</button>
+/>
 
 <style lang="scss">
-  button {
+  input {
     border: none;
-    border-radius: 0.3rem;
-    color: #fff;
+    border-radius: 50rem;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      filter: hue-rotate(40deg) brightness(0.95);
+      outline: none;
+    }
   }
 
   .loading {

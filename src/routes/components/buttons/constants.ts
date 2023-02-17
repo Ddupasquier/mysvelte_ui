@@ -11,6 +11,7 @@ interface ButtonProps {
 
 export const buttons = [
   {
+    id: 'background',
     header: 'Background Button',
     description:
       'You can easily change the background of a button by adding the background prop. (default: purple)',
@@ -66,6 +67,7 @@ export const buttons = [
     ],
   },
   {
+    id: 'color',
     header: 'Color Text Button',
     description:
       'You can easily change the color of the text by adding the color prop. (default: white)',
@@ -99,6 +101,7 @@ export const buttons = [
     ],
   },
   {
+    id: 'size',
     header: 'Resize Button',
     description:
       'By adding the size prop you can grow || shrink your button with small, medium, large, and xlarge (default: medium)',
@@ -174,6 +177,7 @@ export const buttons = [
     ],
   },
   {
+    id: 'css',
     header: 'Custom Button',
     description:
       'Adding custom styling is easy as pie. Just do your usual style="..." in string format. Your styles can override || accompany the default styles.',
@@ -207,7 +211,8 @@ export const buttons = [
     ],
   },
   {
-    header: 'Disable Button',
+    id: 'state',
+    header: 'Stateful Button',
     description:
       'There are multiple states a button can be in. Here is my rendition of some fun UI for them. (default all: false)',
     examples: [

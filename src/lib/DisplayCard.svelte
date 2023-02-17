@@ -4,6 +4,7 @@
   import { SunIcon, MoonIcon } from '$lib/icons';
 
   let codes: string[] = [];
+  export let id: string = '';
   export let header: string = '';
   export let examples: any[] = [];
   export let description: string = '';
@@ -15,7 +16,7 @@
   });
 </script>
 
-<div class={isDarkMode ? 'container dark' : 'container light'}>
+<div {id} class={isDarkMode ? 'container dark' : 'container light'}>
   <button class="toggle" on:click={() => (isDarkMode = !isDarkMode)}>
     {#if isDarkMode}
       <SunIcon />

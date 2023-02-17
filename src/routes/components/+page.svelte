@@ -1,8 +1,8 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  import Buttons from './Buttons.svelte';
-  import Inputs from './Inputs.svelte';
-  import Segments from './Segments.svelte';
+  import Buttons from './buttons/Buttons.svelte';
+  import Inputs from './inputs/Inputs.svelte';
+  import Segments from './segments/Segments.svelte';
 
   $: items = $page.url.searchParams.get('items');
 </script>

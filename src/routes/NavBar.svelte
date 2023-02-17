@@ -5,6 +5,7 @@
   import logo from '$lib/images/svelte-logo.svg';
   import FireButton from '$lib/for-package/buttons/FireButton.svelte';
   import github from '$lib/images/github.svg';
+  import Search from '$lib/Search.svelte';
 
   $: optionsOpen = false;
 </script>
@@ -14,6 +15,9 @@
     <div class="top">
       <div class="logo">
         <object type="image/svg+xml" data={logo} title="my_svelte_ui" />
+        <div class="search-container">
+          <Search />
+        </div>
       </div>
 
       <ul>
@@ -86,6 +90,7 @@
   }
 
   .logo {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,7 +121,7 @@
     left: 0;
     right: calc(100% - var(--size));
     border: var(--size) solid transparent;
-    border-left: var(--size) solid var(--color-theme-1);
+    border-left: var(--size) solid black;
   }
 
   nav a,
@@ -203,6 +208,7 @@
       width: 100%;
       flex-direction: row;
       height: auto;
+      padding-right: 0.5rem;
 
       ul {
         width: 100%;
@@ -233,5 +239,13 @@
     .bottom {
       display: none;
     }
+  }
+
+  .search-container {
+    position: absolute;
+    bottom: -1rem;
+    left: 6.4rem;
+    height: fit-content;
+    width: fit-content;
   }
 </style>
