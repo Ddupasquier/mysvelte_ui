@@ -8,6 +8,9 @@
   export let examples: any[] = [];
   export let description: string = '';
 
+  let isDarkMode: boolean = false;
+  let container: HTMLDivElement
+
   onMount(() => {
     codes = examples.map((example) => example.code);
   });
@@ -17,7 +20,7 @@
   {@html github}
 </svelte:head>
 
-<div class="container">
+<div class="container" bind:this={container}>
   <h2>{header}</h2>
   <p>
     {description}
@@ -40,7 +43,8 @@
     position: relative;
     margin: 2rem 0;
     padding: 1rem;
-    background: #fff;
+    background: rgb(38, 34, 39);
+    color: white;
     border-radius: 0.25rem;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.2s ease-in-out;

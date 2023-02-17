@@ -1,32 +1,37 @@
 <script lang="ts">
-  import Highlight from 'svelte-highlight';
-  import typescript from 'svelte-highlight/languages/typescript';
-
   import { copyToClipboard } from '$lib/utils';
   import { onMount } from 'svelte';
 
   export let code: string;
+  let codeArray: string[];
 
-  // const highlightString = (code: string) => {
-  //   const words = code.split(' ');
-  //   console.log(words);
-  // };
+  const splitString = (code: string) => {
+    if (typeof code === 'undefined') return [];
+    const atSpaces = code.split(/([<=>/])|\s+/);
+    return atSpaces;
+  };
 
-  // onMount(() => {
-  //   code = String(highlightString(code));
-  // });
+  onMount(() => (codeArray = splitString(code)));
 
   let copyShown = false;
 </script>
 
-{#if code}
+{#if codeArray}
   <div
     class="code"
     on:mouseenter={() => (copyShown = true)}
     on:mouseleave={() => (copyShown = false)}
   >
-    <!-- <Highlight language={typescript} {code} /> -->
-    {code}
+    {#each codeArray as item, i}
+      {#if i > 0 && (codeArray[i - 1] === '<' || codeArray[i - 1] === '/')}
+        <span class="red">{item || ' '}</span>
+      {:else if i < codeArray.length - 1 && codeArray[i + 1] === '='}
+        <span class="green">{item || ' '}</span>
+      {:else}
+        {item || ' '}
+      {/if}
+    {/each}
+
     {#if copyShown}
       <button class="copy" on:click={() => copyToClipboard(code)}>
         Copy
@@ -55,21 +60,23 @@
   .code {
     position: relative;
     font-size: 0.875rem;
-    color: #333;
-    border-bottom: 3px solid #f6f8fa;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    line-height: 2;
+    color: #d5d5d5;
+    background: rgb(34, 34, 34);
+    border-bottom: 3px solid rgb(34, 34, 34);
     transition: 0.5s;
     &:hover {
-      border-bottom: 3px solid #d8dcdf;
+      border-bottom: 3px solid #616161;
     }
   }
 
-  :global(.svelte-11sh29b) {
-    padding: 0;
-    margin: 0;
-    font-size: 12px;
-    overflow: hidden;
-    .hljs {
-      overflow-x: hidden;
-    }
+  .red {
+    color: #9d343d;
+  }
+
+  .green {
+    color: #3b7015;
   }
 </style>

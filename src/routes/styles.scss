@@ -65,11 +65,18 @@ a:hover {
 h1 {
   font-size: 2rem;
   text-align: center;
+  margin-bottom: 0;
 }
 
 h2 {
   font-size: 1.2rem;
   margin-bottom: 0;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
 }
 
 pre {
