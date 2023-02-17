@@ -101,7 +101,7 @@ export const buttons = [
   {
     header: 'Resize Button',
     description:
-      'By adding the size prop you can grow or shrink your button with small, medium, large, and xlarge (default: medium)',
+      'By adding the size prop you can grow || shrink your button with small, medium, large, and xlarge (default: medium)',
     examples: [
       {
         component: Button,
@@ -170,6 +170,39 @@ export const buttons = [
           size: 'xsmall',
           text: 'XSmall',
         } as ButtonProps,
+      },
+    ],
+  },
+  {
+    header: 'Custom Button',
+    description:
+      'Adding custom styling is easy as pie. Just do your usual style="..." in string format. Your styles can override || accompany the default styles.',
+    examples: [
+      {
+        component: Button,
+        props: {
+          text: 'Custom',
+          style: 'border: 1px solid black; border-radius: 5px; padding: 10px;',
+        } as ButtonProps,
+        code: '<Button style="border: 1px solid black; border-radius: 5px; padding: 10px;">Custom</Button>',
+      },
+      {
+        component: Button,
+        props: {
+          text: 'Custom',
+          style:
+            'border-radius: 2rem; padding: 10px; background: #FFC844;',
+        } as ButtonProps,
+        code: '<Button style="border-radius: 2rem; padding: 10px; background: #FFC844;">Custom</Button>',
+      },
+      {
+        component: Button,
+        props: {
+          text: 'Custom',
+          style:
+            'border-radius: 5px; padding: .4rem; height: 4rem; width: 6rem; background: #F9F871; color: black; display: flex; justify-content: flex-end; align-items: flex-start;',
+        } as ButtonProps,
+        code: '<Button style="border-radius: 5px; padding: .4rem; height: 4rem; width: 6rem; background: #F9F871; color: black; display: flex; justify-content: flex-end; align-items: start;">Custom</Button>',
       },
     ],
   },

@@ -1,5 +1,5 @@
 <script>
-  import {Button} from 'mysvelte-ui'
+  import { Button } from 'mysvelte-ui';
 </script>
 
 <svelte:head>
@@ -8,7 +8,7 @@
 </svelte:head>
 
 <section>
-  <Button background="orange" size="large" color="black">Test</Button>
+  <Button background="orange" size="xsmall" color="black" class="custom-button">Test</Button>
   <p>
     Welcome to our Svelte component library! We are dedicated to providing
     developers with a library that is not only functional but also incredibly

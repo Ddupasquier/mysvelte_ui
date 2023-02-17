@@ -15,3 +15,4 @@
 export const copyToClipboard = (text: string | undefined): void => {
   if (text) navigator.clipboard.writeText(text);
 };
+

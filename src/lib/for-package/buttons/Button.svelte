@@ -6,6 +6,7 @@
   export let text = '';
   export let isLoading = false;
   export let isError = false;
+  export let style = '';
 
   $: size =
     size === 'medium'
@@ -20,13 +21,13 @@
       ? '1rem 2rem'
       : size;
 
-  $: enabledStyle = `background: ${background}; color: ${color}; padding: ${size};`;
+  $: enabledStyle = `background: ${background}; color: ${color}; padding: ${size};` + style;
 
-  $: disabledStyle = `background: #ccc; pointer-events: none; padding: ${size};`;
+  $: disabledStyle = `background: #ccc; pointer-events: none; padding: ${size};` + style;
 
-  $: loadingStyle = `background: #ccc; color: ${color}; border: 2px solid ${background}; padding: ${size};`;
+  $: loadingStyle = `background: #ccc;  pointer-events: none; color: ${color}; border: 2px solid ${background}; padding: ${size};` + style;
 
-  $: errorStyle = `background: #ccc; color: ${color}; border: 2px solid red; padding: ${size};`;
+  $: errorStyle = `background: #ccc;  pointer-events: none; color: ${color}; border: 2px solid red; padding: ${size};` + style;
 </script>
 
 <button
@@ -56,42 +57,28 @@
   }
 
   .loading {
-    animation: double-pulse 1.5s infinite ease-in-out;
+    animation: double-pulse-gray 1.5s infinite ease-in-out;
   }
 
   .error {
-    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+    animation: double-pulse-red 1.5s infinite ease-in-out;
   }
 
-  @keyframes shake {
-    10%,
-    90% {
-      transform: translate3d(-1px, 0, 0);
-    }
-
-    20%,
-    80% {
-      transform: translate3d(1px, 0, 0);
-    }
-
-    30%,
-    50%,
-    70% {
-      transform: translate3d(-1px, 0, 0);
-    }
-
-    40%,
-    60% {
-      transform: translate3d(1px, 0, 0);
-    }
-  }
-
-  @keyframes double-pulse {
+  @keyframes double-pulse-gray {
     0% {
       box-shadow: 0 0 5rem 1rem rgba(0, 0, 0, 0) inset;
     }
     100% {
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2) inset;
+    }
+  }
+  
+  @keyframes double-pulse-red {
+    0% {
+      box-shadow: 0 0 5rem 1rem rgba(0, 0, 0, 0) inset;
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.5) inset;
     }
   }
 </style>
