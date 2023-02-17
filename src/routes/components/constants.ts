@@ -6,6 +6,7 @@ interface ButtonProps {
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   disabled?: boolean;
   text?: string;
+  isLoading?: boolean;
 }
 
 export const buttons = [
@@ -175,7 +176,7 @@ export const buttons = [
   {
     header: 'Disable Button',
     description:
-      'Disabling a button is as simple as adding the disabled prop. You can make this dynamic by binding to a boolean value. (default: false)',
+      'There are multiple states a button can be in. Here is my rendition of some fun UI for them. (default all: false)',
     examples: [
       {
         component: Button,
@@ -184,6 +185,22 @@ export const buttons = [
           text: 'Disabled',
         } as ButtonProps,
         code: '<Button disabled>Disabled</Button>',
+      },
+      {
+        component: Button,
+        props: {
+          isLoading: true,
+          text: 'Loading',
+        } as ButtonProps,
+        code: '<Button isLoading={true}>Loading</Button>',
+      },
+      {
+        component: Button,
+        props: {
+          isError: true,
+          text: 'Error',
+        } as ButtonProps,
+        code: '<Button isError={true}>Error</Button>',
       },
     ],
   },
