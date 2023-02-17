@@ -11,9 +11,9 @@ const config = {
     adapter: adapter(),
   },
 
-  package: {
-    source: 'src/lib/for-package',
-  },
+  // package: {
+  //   source: 'src/lib/for-package',
+  // },
 };
 
 export default config;
