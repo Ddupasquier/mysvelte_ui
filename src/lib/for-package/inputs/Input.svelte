@@ -3,11 +3,12 @@
   export let background = '#fcf7ff';
   export let color = '#000';
   export let size = 'medium';
-  export let value = '';
   export let placeholder = 'Search';
   export let isLoading = false;
   export let isError = false;
   export let style = '';
+  export let value = '';
+  export let onInput: (value: string) => void;
 
   $: size =
     size === 'medium'
@@ -35,6 +36,11 @@
   $: errorStyle =
     `background: #ccc;  pointer-events: none; color: ${color}; border: 2px solid red; padding: ${size};` +
     style;
+
+   const  handleInput = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    onInput(target.value);
+  }
 </script>
 
 <input
@@ -42,6 +48,7 @@
   {placeholder}
   {disabled}
   {value}
+  on:input={handleInput}
   style={disabled
     ? disabledStyle
     : isLoading

@@ -13,3 +13,5 @@ declare namespace App {}
 //   description: string;
 //   examples: Example[];
 // }
+
+type ComponentPropertyString = `${string}_${string}`;

@@ -16,3 +16,7 @@ export const copyToClipboard = (text: string | undefined): void => {
   if (text) navigator.clipboard.writeText(text);
 };
 
+export const splitSearchResult = (result: ComponentPropertyString) => {
+  const [id, component] = result.split('_');
+  return { id, component };
+};

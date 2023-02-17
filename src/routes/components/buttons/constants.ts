@@ -194,8 +194,7 @@ export const buttons = [
         component: Button,
         props: {
           text: 'Custom',
-          style:
-            'border-radius: 2rem; padding: 10px; background: #FFC844;',
+          style: 'border-radius: 2rem; padding: 10px; background: #FFC844;',
         } as ButtonProps,
         code: '<Button style="border-radius: 2rem; padding: 10px; background: #FFC844;">Custom</Button>',
       },

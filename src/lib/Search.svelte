@@ -1,9 +1,23 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
+  import { fade, slide } from 'svelte/transition';
   import Input from './for-package/inputs/Input.svelte';
   import { MagnifyingGlassIcon } from '$lib/icons';
+  import { componentIds } from '$lib/stores/componentStore';
+  import { splitSearchResult } from '$lib/utils';
 
-  let isOpen = true;
+  let isOpen = false;
+  $: searchTerm = '';
+  $: searchResults =
+    searchTerm.toLowerCase() === 'all'
+      ? $componentIds
+      : $componentIds.filter((id) =>
+          id.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+  $: if (!isOpen) searchTerm = '';
+
+  const handleSearchTermInput = (value: string) => {
+    searchTerm = value;
+  };
 </script>
 
 <div class={isOpen ? 'outer expanded' : 'outer'}>
@@ -19,13 +33,39 @@
           duration: 100,
         }}
       >
-        <Input />
+        <Input
+          value={searchTerm}
+          onInput={handleSearchTermInput}
+          placeholder="Search || 'all'"
+        />
       </div>
     {/if}
     <button class="activate" on:click={() => (isOpen = !isOpen)}
       ><MagnifyingGlassIcon color="gray" /></button
     >
   </div>
+
+  {#if searchTerm !== ''}
+    {#if searchResults.length === 0}
+      <div class="search-results" transition:slide>
+        <div class="result">No results found</div>
+      </div>
+    {:else}
+      <div class="search-results" transition:slide>
+        {#each searchResults as id}
+          {@const { component, id: componentId } = splitSearchResult(id)}
+          <a href={`/components?items=${component + 's'}#${componentId}`}>
+            <div class="result">
+              <span class="component">{component}</span>:
+              <span class="hash">#</span><span class="property">
+                {componentId}
+              </span>
+            </div>
+          </a>
+        {/each}
+      </div>
+    {/if}
+  {/if}
 </div>
 
 <style lang="scss">
@@ -38,11 +78,12 @@
   }
 
   .outer {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     background: var(--color-bg-0);
-    height: 2.75rem;
+    height: fit-content;
     width: 2.75rem;
     padding: 0.2rem;
     border-radius: 50rem;
@@ -66,9 +107,70 @@
   .expanded {
     width: 20rem;
     .inner {
-      justify-content: flex-end;
-      padding-left: 1rem;
+      justify-content: space-between;
+      padding-left: 0.4rem;
       gap: 1rem;
     }
+  }
+
+  .search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    position: absolute;
+    top: 110%;
+    left: 1rem;
+    width: 17rem;
+    max-height: 10rem;
+    background: white;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-bg-1);
+    box-shadow: 0 0 0.5rem var(--color-bg-1);
+    padding: 0.5rem;
+    overflow: auto;
+    z-index: 1;
+  }
+
+  .search-results::-webkit-scrollbar {
+    width: 10px;
+    background-color: #aaaaaa00;
+    border-radius: 5px;
+  }
+
+  .search-results::-webkit-scrollbar-thumb {
+    background-color: var(--color-bg-1);
+    border-radius: 5px;
+  }
+
+  .result {
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background: var(--color-bg-1);
+    }
+  }
+
+  .hash {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-theme-1);
+  }
+
+  .component {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 0.2rem;
+  }
+
+  .property {
+    font-size: 1rem;
+    margin-left: 0.2rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 </style>

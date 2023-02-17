@@ -79,6 +79,7 @@
     flex-direction: column;
     width: fit-content;
     height: 100vh;
+    z-index: 1000;
   }
 
   nav {
