@@ -1,5 +1,5 @@
 <script>
-  import { Button, Input } from 'mysvelte-ui';
+  // import { Button, Input } from 'mysvelte-ui';
 </script>
 
 <svelte:head>
@@ -8,8 +8,8 @@
 </svelte:head>
 
 <section>
-  <Button background="green" size="xlarge" color="black">Test</Button>
-  <Input placeholder="Test" />
+  <!-- <Button background="green" size="xlarge" color="black">Test</Button>
+  <Input placeholder="Test" /> -->
   <p>
     Welcome to our Svelte component library! We are dedicated to providing
     developers with a library that is not only functional but also incredibly
