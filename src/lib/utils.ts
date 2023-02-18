@@ -12,8 +12,11 @@
 //   }
 // };
 
-export const copyToClipboard = (text: string | undefined): void => {
-  if (text) navigator.clipboard.writeText(text);
+export const copyToClipboard = (text: string | string[] | undefined): void => {
+  if (text) {
+    const clipboardText = Array.isArray(text) ? text.join('\n') : text;
+    navigator.clipboard.writeText(clipboardText);
+  }
 };
 
 export type ComponentPropertyString = `${string}_${string}`;

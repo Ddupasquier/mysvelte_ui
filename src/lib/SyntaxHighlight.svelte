@@ -3,13 +3,22 @@
   import { onMount } from 'svelte';
 
   export let isDarkMode: boolean;
-  export let code: string;
+  export let code: string | string[];
   let codeArray: string[];
 
-  const splitString = (code: string) => {
+  const splitString = (code: string | string[]) => {
     if (typeof code === 'undefined') return [];
-    const atSpaces = code.split(/([<=>/])|\s+/);
-    return atSpaces;
+
+    if (typeof code === 'string') {
+      return code.split(/([<=>/])|\s+/);
+    } else {
+      return code
+        .map((c, i) => [
+          ...c.split(/([<=>/])|\s+/),
+          i === code.length - 1 ? '' : '\n',
+        ])
+        .flat();
+    }
   };
 
   onMount(() => (codeArray = splitString(code)));
@@ -26,8 +35,10 @@
     {#each codeArray as item, i}
       {#if i > 0 && (codeArray[i - 1] === '<' || codeArray[i - 1] === '/')}
         <span class="red">{item || ' '}</span>
-      {:else if i < codeArray.length - 1 && codeArray[i + 1] === '='}
+      {:else if (i < codeArray.length - 1 && codeArray[i + 1] === '=') || codeArray[i - 2] === '$:'}
         <span class="green">{item || ' '}</span>
+      {:else if codeArray[i] === '\n'}
+        <br />
       {:else}
         {item || ' '}
       {/if}

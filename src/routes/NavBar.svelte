@@ -205,10 +205,11 @@
       position: relative;
       flex-direction: row;
       height: auto;
-      width: 100vw;
+      width: 100%;
     }
 
     .logo {
+      z-index: 2;
       object {
         width: 70px;
       }
