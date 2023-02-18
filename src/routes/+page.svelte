@@ -4,7 +4,7 @@
 
 <svelte:head>
   <title>MySvelteUI</title>
-  <meta name="description" content="Svelte demo app" />
+  <meta name="description" content="Svelte demo app" /> 
 </svelte:head>
 
 <section>
