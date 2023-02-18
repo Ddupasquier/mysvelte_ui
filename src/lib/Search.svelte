@@ -1,6 +1,6 @@
 <script lang="ts">
   import { fade, slide } from 'svelte/transition';
-  import Input from './for-package/inputs/Input.svelte';
+  import Input from './inputs/Input.svelte';
   import { MagnifyingGlassIcon } from '$lib/icons';
   import { componentIds } from '$lib/stores/componentStore';
   import { splitSearchResult } from '$lib/utils';
@@ -101,13 +101,15 @@
       background: rgb(255, 255, 255);
       justify-content: center;
       height: 85%;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
     }
   }
 
   .expanded {
     width: 20rem;
     .inner {
-      justify-content: space-between;
+      justify-content: flex-end;
       padding-left: 0.4rem;
       gap: 1rem;
     }

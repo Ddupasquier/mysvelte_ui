@@ -3,7 +3,7 @@
   import { NavComponentOptions } from '$lib/constants';
   import { slide } from 'svelte/transition';
   import logo from '$lib/images/svelte-logo.svg';
-  import FireButton from '$lib/for-package/buttons/FireButton.svelte';
+  import FireButton from '$lib/buttons/FireButton.svelte';
   import github from '$lib/images/github.svg';
   import Search from '$lib/Search.svelte';
 

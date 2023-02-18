@@ -1,4 +1,4 @@
-import Button from '$lib/for-package/buttons/Button.svelte';
+import Button from '$lib/buttons/Button.svelte';
 
 interface ButtonProps {
   background?: string;

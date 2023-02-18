@@ -14,15 +14,17 @@
 {:else if items === 'segments'}
   <Segments />
 {:else}
-  <h1>Components</h1>
-  <p>
-    This is where some components would be... If there were any... <span
-      class="shrug">¯\_(ツ)_/¯</span
-    >
-  </p>
-  <p>
-    If you have any questions or suggestions, please feel free to contact me.
-  </p>
+  <div class="oops">
+    <h1>Components</h1>
+    <p>
+      This is where some components would be... If there were any... <span
+        class="shrug">¯\_(ツ)_/¯</span
+      >
+    </p>
+    <p>
+      If you have any questions or suggestions, please feel free to contact me.
+    </p>
+  </div>
 {/if}
 
 <style lang="scss">
@@ -30,5 +32,14 @@
     font-size: 1.5rem;
     font-weight: 900;
   }
-  
+
+  .oops {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+    text-align: center;
+  }
 </style>
