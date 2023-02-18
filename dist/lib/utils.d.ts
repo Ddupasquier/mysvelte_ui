@@ -1,5 +1,6 @@
 export declare const copyToClipboard: (text: string | undefined) => void;
+export type ComponentPropertyString = `${string}_${string}`;
 export declare const splitSearchResult: (result: ComponentPropertyString) => {
-    id: any;
-    component: any;
+    id: string;
+    component: string;
 };

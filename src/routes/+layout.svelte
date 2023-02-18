@@ -29,7 +29,7 @@
     background: rgba(255, 255, 255, 0.5);
   }
 
-  @media screen and (max-width: 1250px) {
+  @media screen and (max-width: 1400px) {
     .app {
       flex-direction: column;
     }
