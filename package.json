@@ -28,6 +28,8 @@
   "peerDependencies": {
     "svelte": "^3.54.0"
   },
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "devDependencies": {
     "@fontsource/fira-mono": "^4.5.10",
     "@neoconfetti/svelte": "^1.0.0",
@@ -51,7 +53,5 @@
     "mysvelte-ui": "^0.0.11",
     "sass": "^1.58.1"
   },
-  "svelte": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "type": "module"
 }
