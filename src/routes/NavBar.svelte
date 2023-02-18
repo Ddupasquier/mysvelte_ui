@@ -73,6 +73,7 @@
 </div>
 
 <style lang="scss">
+  @use 'src/routes/breakpoints.scss' as breakpoints;
   .sidebar {
     position: fixed;
     display: flex;
@@ -191,7 +192,15 @@
     }
   }
 
-  @media screen and (max-width: 1400px) {
+   .search-container {
+    position: absolute;
+    bottom: -1rem;
+    left: 6.4rem;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  @media screen and (max-width: breakpoints.$col-breakpoint) {
     .sidebar {
       position: relative;
       flex-direction: row;
@@ -240,13 +249,11 @@
     .bottom {
       display: none;
     }
+
+    .search-container {
+      left: 4rem;
+    }
   }
 
-  .search-container {
-    position: absolute;
-    bottom: -1rem;
-    left: 6.4rem;
-    height: fit-content;
-    width: fit-content;
-  }
+ 
 </style>

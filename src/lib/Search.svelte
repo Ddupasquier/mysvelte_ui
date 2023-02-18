@@ -69,7 +69,7 @@
 </div>
 
 <style lang="scss">
-  @mixin shared {
+@mixin shared {
     display: flex;
     align-items: center;
     background: rgb(255, 255, 255);
@@ -103,6 +103,10 @@
       height: 85%;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
+      z-index: 1;
+    }
+    .activate * {
+      pointer-events: none;
     }
   }
 

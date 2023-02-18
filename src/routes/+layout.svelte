@@ -10,7 +10,8 @@
   </main>
 </div>
 
-<style>
+<style lang="scss">
+  @use 'src/routes/breakpoints.scss' as breakpoints;
   .app {
     display: flex;
     flex-direction: column;
@@ -29,7 +30,7 @@
     background: rgba(255, 255, 255, 0.5);
   }
 
-  @media screen and (max-width: 1400px) {
+  @media screen and (max-width: breakpoints.$col-breakpoint) {
     .app {
       flex-direction: column;
     }
