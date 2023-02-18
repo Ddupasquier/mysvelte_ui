@@ -1,21 +1,21 @@
-<script>import { fade, slide } from "svelte/transition";
-import Input from "./inputs/Input.svelte";
-import { MagnifyingGlassIcon } from "./icons";
-import { componentIds } from "./stores/componentStore";
-import { splitSearchResult } from "./utils";
-let isOpen = false;
-$:
-  searchTerm = "";
-$:
-  searchResults = searchTerm.toLowerCase() === "all" ? $componentIds : $componentIds.filter(
-    (id) => id.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-$:
-  if (!isOpen)
-    searchTerm = "";
-const handleSearchTermInput = (value) => {
-  searchTerm = value;
-};
+<script>
+  import { fade, slide } from 'svelte/transition';
+  import Input from './inputs/Input.svelte';
+  import { MagnifyingGlassIcon } from './icons';
+  import { componentIds } from './stores/componentStore';
+  import { splitSearchResult } from './utils';
+  let isOpen = false;
+  $: searchTerm = '';
+  $: searchResults =
+    searchTerm.toLowerCase() === 'all'
+      ? $componentIds
+      : $componentIds.filter((id) =>
+          id.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+  $: if (!isOpen) searchTerm = '';
+  const handleSearchTermInput = (value) => {
+    searchTerm = value;
+  };
 </script>
 
 <div class={isOpen ? 'outer expanded' : 'outer'}>
@@ -66,109 +66,115 @@ const handleSearchTermInput = (value) => {
   {/if}
 </div>
 
-<style>.outer {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--color-bg-0);
-  height: fit-content;
-  width: 2.75rem;
-  padding: 0.2rem;
-  border-radius: 50rem;
-  transition: all 0.3s ease-in-out;
-  animation: pop-out 0.3s ease-in-out;
-}
-.outer .inner {
-  display: flex;
-  align-items: center;
-  background: rgb(255, 255, 255);
-  border-radius: 50rem;
-  border: none;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-.outer .activate {
-  display: flex;
-  align-items: center;
-  background: rgb(255, 255, 255);
-  border-radius: 50rem;
-  border: none;
-  aspect-ratio: 1/1;
-  background: rgb(255, 255, 255);
-  justify-content: center;
-  height: 85%;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
+<style>
+  .outer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-bg-0);
+    height: fit-content;
+    width: 2.75rem;
+    padding: 0.2rem;
+    border-radius: 50rem;
+    transition: all 0.3s ease-in-out;
+    animation: pop-out 0.3s ease-in-out;
+  }
+  .outer .inner {
+    display: flex;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    border-radius: 50rem;
+    border: none;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .outer .activate {
+    display: flex;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    border-radius: 50rem;
+    border: none;
+    aspect-ratio: 1/1;
+    background: rgb(255, 255, 255);
+    justify-content: center;
+    height: 85%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+  }
+  .outer .activate * {
+    pointer-events: none;
+  }
 
-.expanded {
-  width: 20rem;
-}
-.expanded .inner {
-  justify-content: flex-end;
-  padding-left: 0.4rem;
-  gap: 1rem;
-}
+  .expanded {
+    width: 20rem;
+  }
+  .expanded .inner {
+    justify-content: flex-end;
+    padding-left: 0.4rem;
+    gap: 1rem;
+  }
 
-.search-results {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  position: absolute;
-  top: 110%;
-  left: 1rem;
-  width: 17rem;
-  max-height: 10rem;
-  background: white;
-  border-radius: 0.5rem;
-  border: 1px solid var(--color-bg-1);
-  box-shadow: 0 0 0.5rem var(--color-bg-1);
-  padding: 0.5rem;
-  overflow: auto;
-  z-index: 1;
-}
+  .search-results {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    position: absolute;
+    top: 110%;
+    left: 1rem;
+    width: 17rem;
+    max-height: 10rem;
+    background: white;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-bg-1);
+    box-shadow: 0 0 0.5rem var(--color-bg-1);
+    padding: 0.5rem;
+    overflow: auto;
+    z-index: 1;
+  }
 
-.search-results::-webkit-scrollbar {
-  width: 10px;
-  background-color: rgba(170, 170, 170, 0);
-  border-radius: 5px;
-}
+  .search-results::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(170, 170, 170, 0);
+    border-radius: 5px;
+  }
 
-.search-results::-webkit-scrollbar-thumb {
-  background-color: var(--color-bg-1);
-  border-radius: 5px;
-}
+  .search-results::-webkit-scrollbar-thumb {
+    background-color: var(--color-bg-1);
+    border-radius: 5px;
+  }
 
-.result {
-  padding: 0.1rem 0.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-.result:hover {
-  background: var(--color-bg-1);
-}
+  .result {
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .result:hover {
+    background: var(--color-bg-1);
+  }
 
-.hash {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--color-theme-1);
-}
+  .hash {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-theme-1);
+  }
 
-.component {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-left: 0.2rem;
-}
+  .component {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 0.2rem;
+  }
 
-.property {
-  font-size: 1rem;
-  margin-left: 0.2rem;
-}
+  .property {
+    font-size: 1rem;
+    margin-left: 0.2rem;
+  }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}</style>
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
