@@ -1,12 +1,4 @@
 import Button from '../../../buttons/Button.svelte';
-interface ButtonProps {
-    background?: string;
-    color?: string;
-    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
-    disabled?: boolean;
-    text?: string;
-    isLoading?: boolean;
-}
 export declare const buttons: {
     id: string;
     header: string;
@@ -21,4 +13,3 @@ export declare const buttons: {
         code?: undefined;
     })[];
 }[];
-export {};

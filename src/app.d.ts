@@ -1,10 +1,10 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
-console.log('fudge')
-declare global {
-  namespace App {
-    
-  }
-}
+type ComponentPropertyString = `${string}_${string}`;
 
-export {};
+interface ButtonProps {
+  background?: string;
+  color?: string;
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  disabled?: boolean;
+  text?: string;
+  isLoading?: boolean;
+}

@@ -1,9 +1,8 @@
 import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
-import { buttons } from '../../../src/routes/components/buttons/constants';
-import { inputs } from '../../../src/routes/components/inputs/constants';
-import { segments } from '../../../src/routes/components/segments/constants';
-import type { ComponentPropertyString } from '$lib/utils';
+import { buttons } from '../routes/components/buttons/constants';
+import { inputs } from '../routes/components/inputs/constants';
+import { segments } from '../routes/components/segments/constants';
 
 export const getComponentIds = (): ComponentPropertyString[] => {
   const componentIds: ComponentPropertyString[] = [];

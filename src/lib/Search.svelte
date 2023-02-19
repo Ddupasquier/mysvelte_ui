@@ -2,7 +2,7 @@
   import { fade, slide } from 'svelte/transition';
   import Input from './inputs/Input.svelte';
   import { MagnifyingGlassIcon } from '$lib/icons';
-  import { componentIds } from '$lib/stores/componentStore';
+  import { componentIds } from '../stores/componentStore';
   import { splitSearchResult } from '$lib/utils';
 
   let isOpen = false;
@@ -14,10 +14,6 @@
           id.toLowerCase().includes(searchTerm.toLowerCase())
         );
   $: if (!isOpen) searchTerm = '';
-
-  const handleSearchTermInput = (value: string) => {
-    searchTerm = value;
-  };
 </script>
 
 <div class={isOpen ? 'outer expanded' : 'outer'}>
@@ -34,8 +30,7 @@
         }}
       >
         <Input
-          value={searchTerm}
-          onInput={handleSearchTermInput}
+          bind:value={searchTerm}
           placeholder="Search || 'all'"
         />
       </div>

@@ -4,7 +4,7 @@ declare const __propDef: {
         disabled?: boolean | undefined;
         background?: string | undefined;
         color?: string | undefined;
-        size?: string | undefined;
+        size?: "medium" | "xsmall" | "small" | "large" | "xlarge" | undefined;
         text?: string | undefined;
         isLoading?: boolean | undefined;
         isError?: boolean | undefined;

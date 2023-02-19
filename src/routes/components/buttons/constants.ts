@@ -1,14 +1,5 @@
 import Button from '$lib/buttons/Button.svelte';
 
-interface ButtonProps {
-  background?: string;
-  color?: string;
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
-  disabled?: boolean;
-  text?: string;
-  isLoading?: boolean;
-}
-
 export const buttons = [
   {
     id: 'background',
@@ -213,7 +204,7 @@ export const buttons = [
     id: 'state',
     header: 'Stateful Button',
     description:
-      'There are multiple states a button can be in. Here is my rendition of some fun UI for them. (default all: false)',
+      'There are multiple states a button can be in. Here is my rendition of some fun UI for them. (default all: false)\nWhile disabled, the background property in a custom style tag will be nullified. If you still wish the alter the background color while disabled, use the background-color property.',
     examples: [
       {
         component: Button,

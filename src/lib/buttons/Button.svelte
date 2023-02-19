@@ -1,55 +1,61 @@
 <script lang="ts">
-  export let disabled = false;
-  export let background = '#c50eff';
-  export let color = '#fff';
-  export let size = 'medium';
-  export let text = '';
-  export let isLoading = false;
-  export let isError = false;
-  export let style = '';
+  import { onMount } from 'svelte';
 
-  $: size =
-    size === 'medium'
-      ? '0.5rem 1rem'
-      : size === 'xsmall'
-      ? '0.125rem 0.25rem'
-      : size === 'small'
-      ? '0.25rem 0.5rem'
-      : size === 'large'
-      ? '0.75rem 1.5rem'
-      : size === 'xlarge'
-      ? '1rem 2rem'
-      : size;
+  export let disabled: boolean = true;
+  export let background: string = '#c50eff';
+  export let color: string = '#fff';
+  export let size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' =
+    'medium';
+  export let text: string = '';
+  export let isLoading: boolean = false;
+  export let isError: boolean = false;
+  export let style: string = '';
 
-  $: enabledStyle =
-    `background: ${background}; color: ${color}; padding: ${size};` + style;
+  const sizeValues: Record<typeof size, string> = {
+    xsmall: '0.125rem 0.25rem',
+    small: '0.25rem 0.5rem',
+    medium: '0.5rem 1rem',
+    large: '0.75rem 1.5rem',
+    xlarge: '1rem 2rem',
+  };
 
-  $: disabledStyle =
-    `background: #ccc; pointer-events: none; padding: ${size};` + style;
+  let buttonStyle = '';
 
-  $: loadingStyle =
-    `background: #ccc;  pointer-events: none; color: ${color}; border: 2px solid ${background}; padding: ${size};` +
-    style;
+  const removeBackgroundStyle = (styleString: string) => {
+    return styleString.replace(/background:\s*[^;]+;?/, '');
+  };
 
-  $: errorStyle =
-    `background: #ccc;  pointer-events: none; color: ${color}; border: 2px solid red; padding: ${size};` +
-    style;
+  const updateButtonStyle = () => {
+    let baseStyle = `background: ${background}; color: ${color}; padding: ${sizeValues[size]}; ${style};`;
+
+    let additionalStyle = '';
+
+    if (disabled) {
+      additionalStyle = `background: #ccc; pointer-events: none; padding: ${
+        sizeValues[size]
+      }; ${removeBackgroundStyle(style)};`;
+    } else if (isLoading) {
+      additionalStyle = `background: #ccc; pointer-events: none; color: ${color}; border: 2px solid ${background}; padding: ${sizeValues[size]}; ${style};`;
+    } else if (isError) {
+      additionalStyle = `background: #ccc; pointer-events: none; color: ${color}; border: 2px solid red; padding: ${sizeValues[size]}; ${style};`;
+    }
+
+    buttonStyle = `${baseStyle} ${additionalStyle}`.trim();
+  };
+
+  onMount(updateButtonStyle);
+
+  $: {
+    updateButtonStyle();
+  }
 </script>
 
 <button
   {disabled}
-  style={disabled
-    ? disabledStyle
-    : isLoading
-    ? loadingStyle
-    : isError
-    ? errorStyle
-    : enabledStyle}
+  style={buttonStyle}
   class={isLoading ? 'loading' : isError ? 'error' : ''}
 >
-  <slot>
-    {text}
-  </slot>
+  <slot>{text}</slot>
 </button>
 
 <style lang="scss">

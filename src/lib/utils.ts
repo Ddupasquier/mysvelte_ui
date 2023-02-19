@@ -19,7 +19,6 @@ export const copyToClipboard = (text: string | string[] | undefined): void => {
   }
 };
 
-export type ComponentPropertyString = `${string}_${string}`;
 export const splitSearchResult = (result: ComponentPropertyString) => {
   const [id, component] = result.split('_');
   return { id, component };
