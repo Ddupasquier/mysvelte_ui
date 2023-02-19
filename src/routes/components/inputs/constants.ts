@@ -10,8 +10,14 @@ export const inputs = [
         component: Input,
         props: {
           value: 'Input',
+          size: 'large',
+          placeholder: 'search',
+          style: 'width: 20rem',
         },
-        code: ['$: value', '<Input />'],
+        code: [
+          '$: val',
+          "<Input size='large' placeholder='search' style='border: 1px solid red; width: 20rem' bind:value={val} />",
+        ],
       },
     ],
   },
@@ -23,9 +29,7 @@ export const inputs = [
     examples: [
       {
         component: Input,
-        props: {
-          
-        },
+        props: {},
         code: '<Input background="purple" />',
       },
       {

@@ -8,7 +8,6 @@
   export let isError = false;
   export let style = '';
   export let value = '';
-  export let onInput: (value: string) => void;
 
   $: size =
     size === 'medium'
@@ -37,17 +36,17 @@
     `background: #ccc;  pointer-events: none; color: ${color}; border: 2px solid red; padding: ${size};` +
     style;
 
-  const handleInput = (event: Event) => {
+   const  handleInput = (event: Event) => {
     const target = event.target as HTMLInputElement;
-    onInput(target.value);
-  };
+    value = target.value;
+  }
 </script>
 
 <input
   type="text"
   {placeholder}
   {disabled}
-  {value}
+  bind:value
   on:input={handleInput}
   style={disabled
     ? disabledStyle

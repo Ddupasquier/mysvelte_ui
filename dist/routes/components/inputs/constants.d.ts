@@ -7,6 +7,9 @@ export declare const inputs: ({
         component: typeof Input;
         props: {
             value: string;
+            size: string;
+            placeholder: string;
+            style: string;
         };
         code: string[];
     }[];

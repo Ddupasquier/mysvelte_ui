@@ -7,7 +7,6 @@ export let isLoading = false;
 export let isError = false;
 export let style = "";
 export let value = "";
-export let onInput;
 $:
   size = size === "medium" ? "0.5rem 1rem" : size === "xsmall" ? "0.125rem 0.25rem" : size === "small" ? "0.25rem 0.5rem" : size === "large" ? "0.75rem 1.5rem" : size === "xlarge" ? "1rem 2rem" : size;
 $:
@@ -20,7 +19,7 @@ $:
   errorStyle = `background: #ccc;  pointer-events: none; color: ${color}; border: 2px solid red; padding: ${size};` + style;
 const handleInput = (event) => {
   const target = event.target;
-  onInput(target.value);
+  value = target.value;
 };
 </script>
 
@@ -28,7 +27,7 @@ const handleInput = (event) => {
   type="text"
   {placeholder}
   {disabled}
-  {value}
+  bind:value
   on:input={handleInput}
   style={disabled
     ? disabledStyle

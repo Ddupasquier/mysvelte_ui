@@ -10,7 +10,6 @@ declare const __propDef: {
         isError?: boolean | undefined;
         style?: string | undefined;
         value?: string | undefined;
-        onInput: (value: string) => void;
     };
     events: {
         [evt: string]: CustomEvent<any>;
