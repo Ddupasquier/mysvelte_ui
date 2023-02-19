@@ -1,5 +1,5 @@
 <script>
-  import DisplayCard from '$lib/DisplayCard.svelte';
+  import DisplayCard from '../../../ui_components/DisplayCard.svelte';
   import { buttons } from './constants';
 </script>
 

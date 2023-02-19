@@ -1,11 +1,11 @@
 <script>
   import { page } from '$app/stores';
-  import { NavComponentOptions } from '$lib/constants';
+  import { NavComponentOptions } from './constants';
   import { slide } from 'svelte/transition';
-  import logo from '$lib/images/svelte-logo.svg';
+  import logo from './images/svelte-logo.svg';
   import FireButton from '$lib/buttons/FireButton.svelte';
-  import github from '$lib/images/github.svg';
-  import Search from '$lib/Search.svelte';
+  import github from './images/github.svg';
+  import Search from './Search.svelte';
 
   $: optionsOpen = false;
 </script>

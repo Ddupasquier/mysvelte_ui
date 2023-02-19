@@ -1,5 +1,5 @@
 <script>import { onMount } from "svelte";
-export let disabled = true;
+export let disabled = false;
 export let background = "#c50eff";
 export let color = "#fff";
 export let size = "medium";

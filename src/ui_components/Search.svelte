@@ -1,9 +1,9 @@
 <script lang="ts">
   import { fade, slide } from 'svelte/transition';
-  import Input from './inputs/Input.svelte';
-  import { MagnifyingGlassIcon } from '$lib/icons';
+  import Input from '../lib/inputs/Input.svelte';
+  import { MagnifyingGlassIcon } from './icons';
   import { componentIds } from '../stores/componentStore';
-  import { splitSearchResult } from '$lib/utils';
+  import { splitSearchResult } from './utils';
 
   let isOpen = false;
   $: searchTerm = '';

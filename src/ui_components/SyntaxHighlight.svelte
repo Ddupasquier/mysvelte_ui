@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { copyToClipboard } from '$lib/utils';
+  import { copyToClipboard } from './utils';
   import { onMount } from 'svelte';
 
   export let isDarkMode: boolean;

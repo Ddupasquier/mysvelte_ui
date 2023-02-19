@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import SyntaxHighlight from './SyntaxHighlight.svelte';
-  import { SunIcon, MoonIcon } from '$lib/icons';
+  import { SunIcon, MoonIcon } from './icons';
 
   let codes: string[] = [];
   export let id: string = '';

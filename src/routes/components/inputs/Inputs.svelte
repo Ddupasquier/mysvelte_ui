@@ -1,6 +1,6 @@
 <script>
   import { Input } from '$lib';
-import DisplayCard from '$lib/DisplayCard.svelte';
+import DisplayCard from '../../../ui_components/DisplayCard.svelte';
   import { inputs } from './constants';
 
   $: val = 'testing';

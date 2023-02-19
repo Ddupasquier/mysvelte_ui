@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  export let disabled: boolean = true;
+  export let disabled: boolean = false;
   export let background: string = '#c50eff';
   export let color: string = '#fff';
   export let size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' =
