@@ -136,6 +136,7 @@
     width: 10px;
     background-color: #aaaaaa00;
     border-radius: 5px;
+    
   }
 
   .search-results::-webkit-scrollbar-thumb {

@@ -1,11 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
+  export let ref;
   export let disabled: boolean = false;
-  export let background: string = '#c50eff';
-  export let color: string = '#fff';
   export let size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' =
     'medium';
+  export let background: string = '#c50eff';
+  export let color: string = '#fff';
   export let text: string = '';
   export let isLoading: boolean = false;
   export let isError: boolean = false;
@@ -51,9 +52,17 @@
 </script>
 
 <button
+  bind:this={ref}
   {disabled}
+  {...$$restProps}
   style={buttonStyle}
   class={isLoading ? 'loading' : isError ? 'error' : ''}
+  on:click
+  on:mouseover
+  on:mouseenter
+  on:mouseleave
+  on:focus
+  on:blur
 >
   <slot>{text}</slot>
 </button>
@@ -66,6 +75,8 @@
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    height: fit-content;
+    width: fit-content;
   }
 
   .loading {

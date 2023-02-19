@@ -1,11 +1,19 @@
 <script lang="ts">
-  
+  import { Button } from '$lib';
+
+  const handleClick = () => {
+    alert('button clicked!');
+  };
+
+  let buttonRef: any;
 </script>
 
 <svelte:head>
   <title>MySvelteUI</title>
-  <meta name="description" content="Svelte demo app" /> 
+  <meta name="description" content="Svelte demo app" />
 </svelte:head>
+
+<Button bind:ref={buttonRef} on:click={handleClick}>Click Me</Button>
 
 <section>
   <p>
