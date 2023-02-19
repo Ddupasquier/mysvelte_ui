@@ -1,7 +1,8 @@
 {
   "name": "mysvelte-ui",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "files": [
+    "dist/*",
     "dist/index.js",
     "dist/buttons",
     "dist/inputs"
@@ -52,6 +53,6 @@
   },
   "type": "module",
   "dependencies": {
-    "mysvelte-ui": "^0.0.13"
+    "mysvelte-ui": "^0.0.14"
   }
 }
