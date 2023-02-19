@@ -37,10 +37,10 @@
     `background: #ccc;  pointer-events: none; color: ${color}; border: 2px solid red; padding: ${size};` +
     style;
 
-   const  handleInput = (event: Event) => {
+  const handleInput = (event: Event) => {
     const target = event.target as HTMLInputElement;
     onInput(target.value);
-  }
+  };
 </script>
 
 <input

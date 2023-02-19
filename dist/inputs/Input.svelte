@@ -1,5 +1,5 @@
 <script>export let disabled = false;
-export let background = "#fcf7ff";
+export let background = "#fff";
 export let color = "#000";
 export let size = "medium";
 export let placeholder = "Search";

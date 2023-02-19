@@ -6,8 +6,14 @@ let codeArray;
 const splitString = (code2) => {
   if (typeof code2 === "undefined")
     return [];
-  const atSpaces = code2.split(/([<=>/])|\s+/);
-  return atSpaces;
+  if (typeof code2 === "string") {
+    return code2.split(/([<=>/])|\s+/);
+  } else {
+    return code2.map((c, i) => [
+      ...c.split(/([<=>/])|\s+/),
+      i === code2.length - 1 ? "" : "\n"
+    ]).flat();
+  }
 };
 onMount(() => codeArray = splitString(code));
 let copyShown = false;
@@ -22,8 +28,10 @@ let copyShown = false;
     {#each codeArray as item, i}
       {#if i > 0 && (codeArray[i - 1] === '<' || codeArray[i - 1] === '/')}
         <span class="red">{item || ' '}</span>
-      {:else if i < codeArray.length - 1 && codeArray[i + 1] === '='}
+      {:else if (i < codeArray.length - 1 && codeArray[i + 1] === '=') || codeArray[i - 2] === '$:'}
         <span class="green">{item || ' '}</span>
+      {:else if codeArray[i] === '\n'}
+        <br />
       {:else}
         {item || ' '}
       {/if}

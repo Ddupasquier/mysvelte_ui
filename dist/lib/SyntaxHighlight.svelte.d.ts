@@ -2,7 +2,7 @@ import { SvelteComponentTyped } from "svelte";
 declare const __propDef: {
     props: {
         isDarkMode: boolean;
-        code: string;
+        code: string | string[];
     };
     events: {
         [evt: string]: CustomEvent<any>;

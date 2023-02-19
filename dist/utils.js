@@ -11,8 +11,10 @@
 //   }
 // };
 export const copyToClipboard = (text) => {
-    if (text)
-        navigator.clipboard.writeText(text);
+    if (text) {
+        const clipboardText = Array.isArray(text) ? text.join('\n') : text;
+        navigator.clipboard.writeText(clipboardText);
+    }
 };
 export const splitSearchResult = (result) => {
     const [id, component] = result.split('_');
