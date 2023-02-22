@@ -171,7 +171,7 @@ export const buttons = [
     id: 'css',
     header: 'Custom Button',
     description:
-      'Adding custom styling is easy as pie. Just do your usual style="..." in string format. Your styles can override || accompany the default styles.',
+      'Adding custom styling is easy as pie. Just do your usual style="..." in string format. \nYour styles can override || accompany the default styles.',
     examples: [
       {
         component: Button,
@@ -204,7 +204,7 @@ export const buttons = [
     id: 'state',
     header: 'Stateful Button',
     description:
-      'There are multiple states a button can be in. Here is my rendition of some fun UI for them. (default all: false)\nWhile disabled, the background property in a custom style tag will be nullified. If you still wish the alter the background color while disabled, use the background-color property.',
+      'There are multiple states a button can be in. Here is my rendition of some fun UI for them. (default all: false)\nWhile disabled, the background property in a custom style tag will be nullified. \nIf you still wish the alter the background color while disabled, use the background-color property.',
     examples: [
       {
         component: Button,
@@ -229,6 +229,62 @@ export const buttons = [
           text: 'Error',
         } as ButtonProps,
         code: '<Button isError={true}>Error</Button>',
+      },
+    ],
+  },
+  {
+    id: 'events',
+    header: 'Button Events',
+    description:
+      'You can add event listeners to your button by using the on:click, on:mouseover, on:mouseenter, on:mouseleave, on:focus, on:blur props. \nThe event listener will be passed the event object as the first argument.',
+    examples: [
+      {
+        component: Button,
+        props: {
+          text: 'Click Me',
+          'on:click': () => alert('Woah, just like magic!'),
+        } as ButtonProps,
+        code: '<Button on:click={() => alert("Woah, just like magic!")}>Click Me</Button>',
+      },
+    ],
+  },
+  {
+    id: 'props',
+    header: 'Button Props',
+    description:
+      'Here is a list of all the props you can use to customize your button. All props are optional.',
+    // table: propsTable,
+    // {
+    //   ref: 'A reference to the button element.',
+    //   disabled:
+    //     'A boolean that indicates whether the button is disabled or not. Defaults to false.',
+    //   size: "A string that indicates the size of the button. The possible values are 'xsmall', 'small','medium', 'large', and 'xlarge'. Defaults to 'medium'.",
+    //   background:
+    //     "A string that indicates the background color of the button. Defaults to '#c50eff'.",
+    //   color:
+    //     "A string that indicates the text color of the button. Defaults to '#fff'.",
+    //   text: 'A string that sets the text content of the button. Defaults to an empty string.',
+    //   isLoading:
+    //     'A boolean that indicates whether the button is in a loading state or not. When set to true, the button will be disabled and display a loading spinner. Defaults to false.',
+    //   isError:
+    //     'A boolean that indicates whether the button is in an error state or not. When set to true, the button will be disabled and display an error border. Defaults to false.',
+    //   style:
+    //     'A string that sets additional styles to the button. This should be a valid CSS string.',
+    // },
+    examples: [
+      {
+        component: Button,
+        props: {
+          text: 'Button',
+          background: 'purple',
+          color: 'white',
+          size: 'medium',
+          style: 'border: 1px solid black; border-radius: 5px; padding: 10px;',
+          disabled: false,
+          isLoading: false,
+          isError: false,
+        } as ButtonProps,
+        code: '<Button text="Button" background="purple" color="white" size="medium" style="border: 1px solid black; border-radius: 5px; padding: 10px;" disabled={false} isLoading={false} isError={false}></Button>',
       },
     ],
   },

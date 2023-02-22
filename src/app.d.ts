@@ -8,3 +8,7 @@ interface ButtonProps {
   text?: string;
   isLoading?: boolean;
 }
+
+interface PropsTable {
+  [key: string]: string;
+}

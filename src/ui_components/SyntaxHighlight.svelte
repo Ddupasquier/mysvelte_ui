@@ -55,9 +55,10 @@
 <style lang="scss">
   .copy {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: none;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.5);
     border: none;
     font-size: 1rem;
     color: #ccc;

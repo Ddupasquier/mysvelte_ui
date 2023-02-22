@@ -15,5 +15,6 @@
     header={button.header}
     examples={button.examples}
     description={button.description}
+    table={button.table && button.table}
   />
 {/each}

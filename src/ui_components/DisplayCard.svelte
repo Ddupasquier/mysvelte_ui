@@ -3,11 +3,13 @@
   import SyntaxHighlight from './SyntaxHighlight.svelte';
   import { SunIcon, MoonIcon } from './icons';
 
+
   let codes: string[] = [];
   export let id: string = '';
   export let header: string = '';
   export let examples: any[] = [];
   export let description: string = '';
+  // export let table: PropsTable | null = null
 
   let isDarkMode: boolean = false;
 
@@ -25,12 +27,16 @@
     {/if}
   </button>
   <h2>{header}</h2>
-  <p>
+  <p class="description">
     {description}
   </p>
+ 
   <div class="examples">
     {#each examples as example}
-      <svelte:component this={example.component} {...example.props}
+      <svelte:component
+        this={example.component}
+        {...example.props}
+        on:click={example.props['on:click']}
         >{example.props.text}</svelte:component
       >
     {/each}
@@ -89,5 +95,9 @@
     &:hover {
       color: #000;
     }
+  }
+
+  .description {
+    white-space: pre-line;
   }
 </style>
