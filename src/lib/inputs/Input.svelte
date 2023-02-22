@@ -149,7 +149,7 @@
           viewBox="0 0 1024 1024"
           xmlns="http://www.w3.org/2000/svg"
           ><title>Clear Input</title><path
-            fill="black"
+            fill="currentColor"
             d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z"
           /></svg
         ></button
@@ -159,73 +159,6 @@
 </div>
 
 <style lang="scss">
-  .default {
-    border-radius: 50rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    transition: all 0.1s ease-in-out;
-    &:focus {
-      outline: 3px solid currentColor;
-    }
-  }
-
-  .line {
-    border-radius: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    border-bottom: 3px solid rgba(131, 131, 131, 0.5);
-    transition: all 0.3s ease-in-out;
-    &:focus {
-      border-bottom: 3px solid currentColor;
-    }
-  }
-
-  .outline {
-    border-radius: 50rem;
-    border: 3px solid rgba(131, 131, 131, 0.5);
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.3s ease-in-out;
-    &:focus {
-      border: 3px solid currentColor;
-      background: rgba(255, 255, 255, 0.5);
-    }
-  }
-
-  .loading {
-    animation: double-pulse-gray 1.5s infinite ease-in-out;
-  }
-
-  .error {
-    animation: double-pulse-red 1.5s infinite ease-in-out;
-  }
-
-  @keyframes double-pulse-gray {
-    0% {
-      box-shadow: 0 0 5rem 1rem rgba(0, 0, 0, 0) inset;
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2) inset;
-    }
-  }
-
-  @keyframes double-pulse-red {
-    0% {
-      box-shadow: 0 0 5rem 1rem rgba(0, 0, 0, 0) inset;
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.5) inset;
-    }
-  }
-
   .input-container {
     display: flex;
     flex-direction: column;
@@ -277,6 +210,72 @@
       .eye-button {
         @include option-button;
       }
+    }
+  }
+  .default {
+    border-radius: 50rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: all 0.1s ease-in-out;
+    &:focus-within {
+      outline: 3px solid currentColor;
+    }
+  }
+
+  .line {
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid rgba(131, 131, 131, 0.5);
+    transition: all 0.3s ease-in-out;
+    &:focus-within {
+      border-bottom: 3px solid currentColor;
+    }
+  }
+
+  .outline {
+    border-radius: 50rem;
+    border: 3px solid rgba(131, 131, 131, 0.5);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    &:focus-within {
+      border: 3px solid currentColor;
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .loading {
+    animation: double-pulse-gray 1.5s infinite ease-in-out;
+  }
+
+  .error {
+    animation: double-pulse-red 1.5s infinite ease-in-out;
+  }
+
+  @keyframes double-pulse-gray {
+    0% {
+      box-shadow: 0 0 5rem 1rem rgba(0, 0, 0, 0) inset;
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2) inset;
+    }
+  }
+
+  @keyframes double-pulse-red {
+    0% {
+      box-shadow: 0 0 5rem 1rem rgba(0, 0, 0, 0) inset;
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.5) inset;
     }
   }
 
