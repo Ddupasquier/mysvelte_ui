@@ -58,40 +58,6 @@ export const buttons = [
     ],
   },
   {
-    id: 'color',
-    header: 'Color Text Button',
-    description:
-      'You can easily change the color of the text by adding the color prop. (default: white)',
-    examples: [
-      {
-        component: Button,
-        props: {
-          color: 'black',
-          text: 'Black',
-        } as ButtonProps,
-        code: '<Button color="black">Purple</Button>',
-      },
-      {
-        component: Button,
-        props: {
-          background: 'gray',
-          color: 'turquoise',
-          text: 'Turquoise',
-        } as ButtonProps,
-        code: '<Button color="turquoise">Turquoise</Button>',
-      },
-      {
-        component: Button,
-        props: {
-          background: 'black',
-          color: 'red',
-          text: 'Red',
-        } as ButtonProps,
-        code: '<Button color="red">Salmon</Button>',
-      },
-    ],
-  },
-  {
     id: 'size',
     header: 'Resize Button',
     description:
@@ -164,6 +130,40 @@ export const buttons = [
           size: 'xsmall',
           text: 'XSmall',
         } as ButtonProps,
+      },
+    ],
+  },
+  {
+    id: 'color',
+    header: 'Color Text Button',
+    description:
+      'You can easily change the color of the text by adding the color prop. (default: white)',
+    examples: [
+      {
+        component: Button,
+        props: {
+          color: 'black',
+          text: 'Black',
+        } as ButtonProps,
+        code: '<Button color="black">Purple</Button>',
+      },
+      {
+        component: Button,
+        props: {
+          background: 'gray',
+          color: 'turquoise',
+          text: 'Turquoise',
+        } as ButtonProps,
+        code: '<Button color="turquoise">Turquoise</Button>',
+      },
+      {
+        component: Button,
+        props: {
+          background: 'black',
+          color: 'red',
+          text: 'Red',
+        } as ButtonProps,
+        code: '<Button color="red">Salmon</Button>',
       },
     ],
   },
