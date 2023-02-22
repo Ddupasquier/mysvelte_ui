@@ -3,7 +3,6 @@
   import SyntaxHighlight from './SyntaxHighlight.svelte';
   import { SunIcon, MoonIcon } from './icons';
 
-
   let codes: string[] = [];
   export let id: string = '';
   export let header: string = '';

@@ -1,6 +1,7 @@
 <script>
   import DisplayCard from '../../../ui_components/DisplayCard.svelte';
   import { buttons } from './constants';
+// table={button.table && button.table}
 </script>
 
 <h1>Buttons</h1>
@@ -15,6 +16,5 @@
     header={button.header}
     examples={button.examples}
     description={button.description}
-    table={button.table && button.table}
   />
 {/each}

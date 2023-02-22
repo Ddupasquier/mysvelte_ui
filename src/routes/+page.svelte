@@ -17,38 +17,34 @@
 
 <section>
   <p>
-    Welcome to our Svelte component library! We are dedicated to providing
-    developers with a library that is not only functional but also incredibly
-    easy to use. Our library was designed with simplicity in mind, meaning you
-    won't need to download or import anything to get started. Simply copy and
-    paste our components into your project, and you're good to go!
+    Our Svelte component library is a powerful tool designed to help developers
+    create beautiful and functional web applications with ease. We understand
+    that time is of the essence in software development, and our library has
+    been created with a focus on simplifying the development process to save you
+    time and effort. With our library, you can easily import our pre-built
+    components into your project, eliminating the need to start from scratch and
+    saving you hours of development time.
   </p>
 
   <p>
-    Our component library is perfect for developers who want to save time and
-    streamline their workflow. With our easy-to-use library, you can focus on
-    what matters most - creating amazing websites and applications. Whether
-    you're a beginner or an experienced developer, our library has something for
-    everyone. We've taken care of the details, so you don't have to!
+    Our library is designed to be intuitive and easy to use, even for beginners.
+    We have ensured that our components are designed with simplicity in mind,
+    making it easy for anyone to understand and use them. You won't need to
+    spend hours reading documentation or trying to figure out how to use our
+    components, as we have made them as user-friendly as possible. Experienced
+    developers will also appreciate the simplicity of our library, as it allows
+    them to focus on the more complex aspects of development without being
+    bogged down by the details.
   </p>
 
   <p>
-    One of the key features of our library is its intuitive design. Our
-    components are easy to understand and use, which makes it simple to get up
-    and running quickly. You won't need to spend hours reading documentation or
-    trying to figure out how to use our components. With our library, you can
-    hit the ground running and start building amazing websites and applications
-    right away.
-  </p>
-
-  <p>
-    In summary, our Svelte component library is the perfect choice for anyone
-    who wants to save time and streamline their workflow. With our easy-to-use
-    components, you won't need to download or import anything – just copy and
-    paste our code and you're ready to go! Our library is perfect for both
-    beginners and experienced developers, and its intuitive design makes it easy
-    to understand and use. So why not give our library a try today and see how
-    it can simplify your development process?
+    By using our Svelte component library, you can streamline your workflow and
+    improve your productivity, without the hassle of downloading or importing
+    anything. Our library is a great choice for anyone looking to save time and
+    effort in their development process, without sacrificing the quality or
+    functionality of their web applications. So why not give our library a try
+    today and see how it can make your development process smoother and more
+    efficient?
   </p>
 </section>
 
