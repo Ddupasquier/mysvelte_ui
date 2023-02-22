@@ -29,7 +29,7 @@
   <p class="description">
     {description}
   </p>
- 
+
   <div class="examples">
     {#each examples as example}
       <svelte:component
@@ -63,7 +63,9 @@
 
   .container.dark {
     background: rgb(38, 34, 39);
-    color: white;
+    h2, p {
+      color: white;
+    }
   }
 
   .container.light {

@@ -6,6 +6,7 @@
   import { splitSearchResult } from './utils';
 
   let isOpen = false;
+
   $: searchTerm = '';
   $: searchResults =
     searchTerm.toLowerCase() === 'all'
@@ -99,9 +100,6 @@
       cursor: pointer;
       transition: all 0.3s ease-in-out;
       z-index: 1;
-    }
-    .activate * {
-      pointer-events: none;
     }
   }
 

@@ -1,8 +1,9 @@
 <script>import { onMount } from "svelte";
+export let ref;
 export let disabled = false;
+export let size = "medium";
 export let background = "#c50eff";
 export let color = "#fff";
-export let size = "medium";
 export let text = "";
 export let isLoading = false;
 export let isError = false;
@@ -37,9 +38,17 @@ $: {
 </script>
 
 <button
+  bind:this={ref}
   {disabled}
+  {...$$restProps}
   style={buttonStyle}
   class={isLoading ? 'loading' : isError ? 'error' : ''}
+  on:click
+  on:mouseover
+  on:mouseenter
+  on:mouseleave
+  on:focus
+  on:blur
 >
   <slot>{text}</slot>
 </button>
@@ -51,6 +60,8 @@ $: {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  height: fit-content;
+  width: fit-content;
 }
 
 .loading {

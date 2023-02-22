@@ -1,10 +1,9 @@
-<script>
+<script lang="ts">
   import { Input } from '$lib';
-import DisplayCard from '../../../ui_components/DisplayCard.svelte';
+  import DisplayCard from '../../../ui_components/DisplayCard.svelte';
   import { inputs } from './constants';
 
-  $: val = 'testing';
-  $: console.log(val)
+  $: val = '';
 </script>
 
 <h1>Inputs</h1>
@@ -21,10 +20,11 @@ import DisplayCard from '../../../ui_components/DisplayCard.svelte';
     description={button.description}
   />
   <Input
-    color='red'
-    size='xlarge'
-    placeholder="testing"
-    style='border: 1px solid red; width: 20rem'
+    type="text"
+    size="xlarge"
     bind:value={val}
+    color="red"
+    variant="outline"
+    clearable={true}
   />
 {/each}

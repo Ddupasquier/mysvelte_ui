@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  export let ref;
   export let disabled: boolean = false;
   export let size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' =
     'medium';
@@ -52,7 +51,6 @@
 </script>
 
 <button
-  bind:this={ref}
   {disabled}
   {...$$restProps}
   style={buttonStyle}

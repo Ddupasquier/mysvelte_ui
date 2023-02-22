@@ -9,14 +9,15 @@ export const inputs = [
       {
         component: Input,
         props: {
-          value: 'Input',
+          value: '',
           size: 'large',
-          placeholder: 'search',
+          placeholder: 'Search',
           style: 'width: 20rem',
+          background: 'lightgray',
         },
         code: [
           '$: val',
-          "<Input size='large' placeholder='search' style='border: 1px solid red; width: 20rem' bind:value={val} />",
+          "<Input size='large' placeholder='search' style='width: 20rem' bind:value={val} />",
         ],
       },
     ],
@@ -29,22 +30,46 @@ export const inputs = [
     examples: [
       {
         component: Input,
-        props: {},
-        code: '<Input background="purple" />',
+        props: {
+          background: '#c50eff',
+          color: 'white',
+        },
+        code: '<Input background="#c50eff" color="white" />',
       },
       {
         component: Input,
         props: {
           background: '#FF8C4C',
         },
-        code: '',
+        code: '<Input background="#FF8C4C" />',
       },
       {
         component: Input,
         props: {
           background: '#FFC844',
         },
-        code: '',
+        code: '<Input background="#FFC844" />',
+      },
+    ],
+  },
+  {
+    id: 'label',
+    header: 'Label',
+    description: 'You can add a label to an input by adding the label prop.',
+    examples: [
+      {
+        component: Input,
+        props: {
+          type: 'password',
+          variant: 'line',
+          id: 'testLabel',
+          label: true,
+          placeholder: 'Search',
+          labelIn: true,
+          color: 'green',
+          clearable: true,
+        },
+        code: '<Input id="testLabel" label={true} />',
       },
     ],
   },
