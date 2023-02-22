@@ -19,12 +19,4 @@
     examples={button.examples}
     description={button.description}
   />
-  <Input
-    type="text"
-    size="xlarge"
-    bind:value={val}
-    color="red"
-    variant="outline"
-    clearable={true}
-  />
 {/each}
