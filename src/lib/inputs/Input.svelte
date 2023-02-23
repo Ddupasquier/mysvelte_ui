@@ -57,7 +57,6 @@
   // Lifecycle hooks
   onMount(() => {
     if (type === 'password') passwordView = true;
-    updateInputStyle();
   });
 
   // Reactive statements
@@ -176,7 +175,7 @@
     &:focus-within {
       .label-in {
         top: -0.25rem;
-        transform: translateY(-100%);
+        transform: translateY(-100%) translateX(-15%);
         cursor: default;
         transition: all 0.3s ease-in-out;
       }

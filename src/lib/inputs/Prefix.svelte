@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
 
   // Props
@@ -14,9 +13,9 @@
   export let label: boolean = false;
   export let labelIn: boolean = false;
   export let disabled: boolean = false;
+  export let clearable: boolean = false;
   export let isError: boolean = false;
   export let isLoading: boolean = false;
-  export let clearable: boolean = false;
 
   // Local state
   const type = 'text';
@@ -128,7 +127,7 @@
     &:focus-within {
       .label-in {
         top: -0.25rem;
-        transform: translateY(-100%);
+        transform: translateY(-100%) translateX(-15%);
         cursor: default;
         transition: all 0.3s ease-in-out;
       }

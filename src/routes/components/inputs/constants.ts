@@ -4,7 +4,7 @@ export const inputs = [
   {
     id: 'use',
     header: 'Use',
-    description: 'Input.Default is a simple input component.',
+    description: 'Input is a simple input component.',
     examples: [
       {
         component: Input.Prefix,
@@ -17,7 +17,7 @@ export const inputs = [
         },
         code: [
           '$: val',
-          "<Input.Default size='large' placeholder='search' style='width: 20rem' bind:value={val} />",
+          "<Input size='large' placeholder='search' style='width: 20rem' bind:value={val} />",
         ],
       },
     ],
@@ -29,36 +29,36 @@ export const inputs = [
       'You can easily change the background of a button by adding the background prop. (default: purple)',
     examples: [
       {
-        component: Input.Default,
+        component: Input,
         props: {
           background: '#c50eff',
           color: 'white',
         },
-        code: '<Input.Default background="#c50eff" color="white" />',
+        code: '<Input background="#c50eff" color="white" />',
       },
       {
-        component: Input.Default,
+        component: Input,
         props: {
           background: '#FF8C4C',
         },
-        code: '<Input.Default background="#FF8C4C" />',
+        code: '<Input background="#FF8C4C" />',
       },
       {
-        component: Input.Default,
+        component: Input,
         props: {
           background: '#FFC844',
         },
-        code: '<Input.Default background="#FFC844" />',
+        code: '<Input background="#FFC844" />',
       },
     ],
   },
   {
     id: 'label',
     header: 'Label',
-    description: 'You can add a label to an input.Default by adding the label prop.',
+    description: 'You can add a label to an input by adding the label prop.',
     examples: [
       {
-        component: Input.Default,
+        component: Input,
         props: {
           type: 'password',
           variant: 'line',
@@ -68,8 +68,9 @@ export const inputs = [
           labelIn: true,
           color: 'green',
           clearable: true,
+          background: "transparent"
         },
-        code: '<Input.Default id="testLabel" label={true} />',
+        code: '<Input id="testLabel" label={true} />',
       },
     ],
   },
