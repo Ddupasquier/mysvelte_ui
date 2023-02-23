@@ -1,4 +1,4 @@
-import Input from '$lib/inputs/Input.svelte';
+import { Input } from '$lib';
 
 export const inputs = [
   {
@@ -7,7 +7,7 @@ export const inputs = [
     description: 'Input is a simple input component.',
     examples: [
       {
-        component: Input,
+        component: Input.Prefix,
         props: {
           value: '',
           size: 'large',
@@ -68,6 +68,7 @@ export const inputs = [
           labelIn: true,
           color: 'green',
           clearable: true,
+          background: "transparent"
         },
         code: '<Input id="testLabel" label={true} />',
       },
