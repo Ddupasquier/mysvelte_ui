@@ -2,6 +2,7 @@
   import { fade } from 'svelte/transition';
 
   // Props
+  export let prefix: string = '@';
   export let variant: 'default' | 'line' | 'outline' = 'default';
   export let size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' =
     'medium';
@@ -20,14 +21,15 @@
   // Local state
   const type = 'text';
   let inputStyle = '';
+  let inputRef: HTMLInputElement;
 
   // Size values
   const sizeValues: Record<typeof size, string> = {
-    xsmall: '0.125rem 0.25rem',
-    small: '0.25rem 0.5rem',
-    medium: '0.5rem 1rem',
-    large: '0.75rem 1.5rem',
-    xlarge: '1rem 2rem',
+    xsmall: '0.125rem 0.25rem 0.125rem 0.1rem',
+    small: '0.25rem 0.5rem 0.25rem 0.2rem',
+    medium: '0.5rem 1rem 0.5rem 0.4rem',
+    large: '0.75rem 1.5rem 0.75rem 0.6rem',
+    xlarge: '1rem 2rem 1rem 0.8rem',
   };
 
   // Utility functions
@@ -60,12 +62,6 @@
     labelIn && (placeholder = '');
   }
 
-  $: if (variant === 'line') {
-    background = 'transparent';
-  } else if (variant === 'outline') {
-    background = 'rgba(255, 255, 255, 0.5)';
-  }
-
   // Event handlers
   const handleInput = (event: Event) => {
     const target = event.target as HTMLInputElement;
@@ -85,18 +81,35 @@
       <label class="label" for={$$restProps.id}>{$$restProps.id}</label>
     {/if}
   {/if}
-  <input
-    {type}
-    {disabled}
-    {placeholder}
-    {value}
-    {...$$restProps}
-    on:input={handleInput}
-    on:focus
-    on:blur
+  <div
     style={inputStyle}
     class={(isLoading ? 'loading' : isError ? 'error' : '') + variant}
-  />
+    on:click={() => inputRef.focus()}
+    on:keydown={(event) => {
+      if (event.key === 'Enter') {
+        inputRef.blur();
+      }
+    }}
+  >
+    <div class="prefix">
+      {prefix}
+    </div>
+    <input
+      {disabled}
+      {type}
+      {placeholder}
+      {value}
+      {...$$restProps}
+      on:input={handleInput}
+      on:focus
+      on:blur
+      on:change
+      on:click
+      on:keydown
+      on:keyup
+      bind:this={inputRef}
+    />
+  </div>
   <div class="options">
     {#if clearable && value !== ''}
       <button
@@ -172,41 +185,64 @@
       }
     }
   }
-  .default {
-    border-radius: 50rem;
+
+  @mixin prefix-variant-defaults {
+    display: flex;
+    align-items: center;
     font-size: 1rem;
     font-weight: 600;
-    cursor: pointer;
+    cursor: text;
+    transition: all 0.1s ease-in-out;
+    .prefix {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: all;
+      height: 55%;
+      aspect-ratio: 1/1;
+      padding: 0.25rem;
+      border-radius: 50rem;
+      border: none;
+      cursor: default;
+      font-size: 1rem;
+      color: #666666;
+      transition: opacity 0.2s ease-in-out;
+    }
+    input {
+      background: none;
+      font: inherit;
+      outline: none;
+      border: none;
+    }
+  }
+
+  .default {
+    @include prefix-variant-defaults;
     outline: none;
     border: none;
-    transition: all 0.1s ease-in-out;
+    border-radius: 50rem;
     &:focus-within {
       outline: 3px solid currentColor;
     }
   }
 
   .line {
+    @include prefix-variant-defaults;
     border-radius: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
     outline: none;
     border: none;
     border-bottom: 3px solid rgba(131, 131, 131, 0.5);
     transition: all 0.3s ease-in-out;
+    background: transparent;
     &:focus-within {
       border-bottom: 3px solid currentColor;
     }
   }
 
   .outline {
-    border-radius: 50rem;
+    @include prefix-variant-defaults;
     border: 3px solid rgba(131, 131, 131, 0.5);
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.3s ease-in-out;
+    border-radius: 50rem;
     &:focus-within {
       border: 3px solid currentColor;
       background: rgba(255, 255, 255, 0.5);
@@ -253,6 +289,6 @@
     top: 50%;
     left: 10px;
     cursor: pointer;
-    transform: translateY(-50%);
+    transform: translateY(-50%) translateX(35%);
   }
 </style>

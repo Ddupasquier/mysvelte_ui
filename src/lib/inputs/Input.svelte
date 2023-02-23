@@ -96,6 +96,7 @@
     {/if}
   {/if}
   <input
+    id={label ? $$restProps.id : undefined}
     {type}
     {disabled}
     {placeholder}
@@ -104,6 +105,10 @@
     on:input={handleInput}
     on:focus
     on:blur
+    on:change
+    on:click
+    on:keydown
+    on:keyup
     style={inputStyle}
     class={(isLoading ? 'loading' : isError ? 'error' : '') + variant}
   />
