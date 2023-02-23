@@ -1,5 +1,4 @@
 <script>import { onMount } from "svelte";
-export let ref;
 export let disabled = false;
 export let size = "medium";
 export let background = "#c50eff";
@@ -38,7 +37,6 @@ $: {
 </script>
 
 <button
-  bind:this={ref}
   {disabled}
   {...$$restProps}
   style={buttonStyle}

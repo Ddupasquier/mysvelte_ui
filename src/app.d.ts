@@ -9,9 +9,12 @@ interface ButtonProps {
   isLoading: boolean;
   isError: boolean;
   style: string;
+  'on:click'?: () => void;
 }
 
 interface InputProps {
+  id: string;
+  id?: never | string;
   variant: 'default' | 'line' | 'outline';
   size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   type: 'text' | 'email' | 'password' | 'number';
@@ -28,6 +31,6 @@ interface InputProps {
   isLoading: boolean;
 }
 
-interface PropsTable {
-  [key: string]: string;
-}
+// interface PropsTable {
+//   [key: string]: string;
+// }
