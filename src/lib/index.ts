@@ -1,2 +1,8 @@
 export { default as Button } from './buttons/Button.svelte';
-export { default as Input } from './inputs/Input.svelte';
+import Default  from './inputs/Input.svelte';
+import Prefix from './inputs/Prefix.svelte';
+
+export const Input = {
+  Default,
+  Prefix,
+}

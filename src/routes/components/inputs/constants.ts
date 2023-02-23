@@ -1,13 +1,13 @@
-import Input from '$lib/inputs/Input.svelte';
+import { Input } from '$lib';
 
 export const inputs = [
   {
     id: 'use',
     header: 'Use',
-    description: 'Input is a simple input component.',
+    description: 'Input.Default is a simple input component.',
     examples: [
       {
-        component: Input,
+        component: Input.Prefix,
         props: {
           value: '',
           size: 'large',
@@ -17,7 +17,7 @@ export const inputs = [
         },
         code: [
           '$: val',
-          "<Input size='large' placeholder='search' style='width: 20rem' bind:value={val} />",
+          "<Input.Default size='large' placeholder='search' style='width: 20rem' bind:value={val} />",
         ],
       },
     ],
@@ -29,36 +29,36 @@ export const inputs = [
       'You can easily change the background of a button by adding the background prop. (default: purple)',
     examples: [
       {
-        component: Input,
+        component: Input.Default,
         props: {
           background: '#c50eff',
           color: 'white',
         },
-        code: '<Input background="#c50eff" color="white" />',
+        code: '<Input.Default background="#c50eff" color="white" />',
       },
       {
-        component: Input,
+        component: Input.Default,
         props: {
           background: '#FF8C4C',
         },
-        code: '<Input background="#FF8C4C" />',
+        code: '<Input.Default background="#FF8C4C" />',
       },
       {
-        component: Input,
+        component: Input.Default,
         props: {
           background: '#FFC844',
         },
-        code: '<Input background="#FFC844" />',
+        code: '<Input.Default background="#FFC844" />',
       },
     ],
   },
   {
     id: 'label',
     header: 'Label',
-    description: 'You can add a label to an input by adding the label prop.',
+    description: 'You can add a label to an input.Default by adding the label prop.',
     examples: [
       {
-        component: Input,
+        component: Input.Default,
         props: {
           type: 'password',
           variant: 'line',
@@ -69,7 +69,7 @@ export const inputs = [
           color: 'green',
           clearable: true,
         },
-        code: '<Input id="testLabel" label={true} />',
+        code: '<Input.Default id="testLabel" label={true} />',
       },
     ],
   },
