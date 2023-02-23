@@ -3,7 +3,7 @@
   import { NavComponentOptions } from './constants';
   import { slide } from 'svelte/transition';
   import logo from './images/svelte-logo.svg';
-  import FireButton from '$lib/buttons/FireButton.svelte';
+  import BubbleButton from '$lib/buttons/BubbleButton.svelte';
   import github from './images/github.svg';
   import Search from './Search.svelte';
 
@@ -63,11 +63,11 @@
       </ul>
     </div>
     <div class="bottom">
-      <FireButton>
+      <BubbleButton>
         <button class="github">
           <object type="image/svg+xml" data={github} title="github" />
         </button>
-      </FireButton>
+      </BubbleButton>
     </div>
   </nav>
 </div>
