@@ -198,13 +198,12 @@
       align-items: center;
       justify-content: center;
       pointer-events: all;
-      height: 55%;
-      aspect-ratio: 1/1;
+      height: fit-content;
       padding: 0.25rem;
       border-radius: 50rem;
       border: none;
       cursor: default;
-      font-size: 1rem;
+      font-size: .8rem;
       color: #666666;
       transition: opacity 0.2s ease-in-out;
     }

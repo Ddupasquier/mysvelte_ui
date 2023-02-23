@@ -31,6 +31,10 @@ interface InputProps {
   isLoading: boolean;
 }
 
+interface PrefixProps extends InputProps {
+  prefix: string;
+}
+
 // interface PropsTable {
 //   [key: string]: string;
 // }

@@ -51,7 +51,7 @@
 <style lang="scss">
   .container {
     position: relative;
-    margin: 2rem 0;
+    margin: 1rem 0;
     padding: 1rem;
     border-radius: 0.25rem;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
