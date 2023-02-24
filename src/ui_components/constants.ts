@@ -8,6 +8,10 @@ export const NavComponentOptions = [
     path: '?items=inputs',
   },
   {
+    name: 'Cards',
+    path: '?items=cards',
+  },
+  {
     name: 'Segments',
     path: '?items=segments',
   },

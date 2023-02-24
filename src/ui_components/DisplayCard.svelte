@@ -32,12 +32,28 @@
 
   <div class="examples">
     {#each examples as example}
-      <svelte:component
-        this={example.component}
-        {...example.props}
-        on:click={example.props['on:click']}
-        >{example.props.text}</svelte:component
-      >
+      {#if example.props.nested}
+        <svelte:component
+          this={example.component}
+          {...example.props}
+        >
+          {#each example.props.nested as nested}
+            <svelte:component
+              this={nested.component}
+              {...nested.props}
+            >
+              {nested.props.slot}
+            </svelte:component>
+          {/each}
+        </svelte:component>
+      {:else}
+        <svelte:component
+          this={example.component}
+          {...example.props}
+          on:click={example.props['on:click']}
+          >{example.props.text}</svelte:component
+        >
+      {/if}
     {/each}
   </div>
 
@@ -63,7 +79,8 @@
 
   .container.dark {
     background: rgb(38, 34, 39);
-    h2, p {
+    h2,
+    p {
       color: white;
     }
   }

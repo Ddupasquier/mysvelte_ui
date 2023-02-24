@@ -9,7 +9,8 @@
 <h1>Inputs</h1>
 
 <h3>
-  {"import { Input } from 'mysvelte-ui';"}
+  {"import { Input } from 'mysvelte-ui';"}<br />
+  [.Prefix]
 </h3>
 
 {#each inputs as input}

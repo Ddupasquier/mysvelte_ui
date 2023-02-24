@@ -284,7 +284,7 @@ export const buttons = [
           isLoading: false,
           isError: false,
         } as ButtonProps,
-        code: '<Button text="Button" background="purple" color="white" size="medium" style="border: 1px solid black; border-radius: 5px; padding: 10px;" disabled={false} isLoading={false} isError={false}></Button>',
+        code: '<Button text="Button" background="purple" color="white" size="medium" style="border: 1px solid black; border-radius: 5px; padding: 10px;" disabled={false} isLoading={false} isError={false}>Button</Button>',
       },
     ],
   },

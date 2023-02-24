@@ -8,3 +8,14 @@ import Prefix from './inputs/Prefix.svelte';
 export const Input = Object.assign(DefaultInput, {
   Prefix,
 });
+
+import CardDefault from './cards/Card.svelte';
+import Head from './cards/Head.svelte';
+import Content from './cards/Content.svelte';
+import Foot from './cards/Foot.svelte';
+
+export const Card = Object.assign(CardDefault, {
+  Head,
+  Content,
+  Foot,
+});

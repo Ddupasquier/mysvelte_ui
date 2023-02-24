@@ -3,6 +3,7 @@
   import Buttons from './buttons/Buttons.svelte';
   import Inputs from './inputs/Inputs.svelte';
   import Segments from './segments/Segments.svelte';
+  import Cards from './cards/Cards.svelte';
 
   $: items = $page.url.searchParams.get('items');
 </script>
@@ -13,6 +14,8 @@
   <Inputs />
 {:else if items === 'segments'}
   <Segments />
+{:else if items === 'cards'}
+  <Cards />
 {:else}
   <div class="oops">
     <h1>Components</h1>

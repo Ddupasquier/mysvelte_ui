@@ -39,6 +39,8 @@
         <span class="green">{item || ' '}</span>
       {:else if codeArray[i] === '\n'}
         <br />
+      {:else if codeArray[i] === 'indent'}
+        &nbsp;&nbsp;&nbsp;&nbsp;
       {:else}
         {item || ' '}
       {/if}
