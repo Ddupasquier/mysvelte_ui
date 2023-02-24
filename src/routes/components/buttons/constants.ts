@@ -145,7 +145,7 @@ export const buttons = [
           color: 'black',
           text: 'Black',
         } as ButtonProps,
-        code: '<Button color="black">Purple</Button>',
+        code: '<Button color="black">Black</Button>',
       },
       {
         component: Button,
@@ -163,7 +163,7 @@ export const buttons = [
           color: 'red',
           text: 'Red',
         } as ButtonProps,
-        code: '<Button color="red">Salmon</Button>',
+        code: '<Button color="red">Red</Button>',
       },
     ],
   },
