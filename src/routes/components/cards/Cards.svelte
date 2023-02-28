@@ -7,7 +7,7 @@
 
 <h3>
   {"import { Card } from 'mysvelte-ui';"}<br />
-  [.Head, .Content, .Foot]
+  [.Head, .Content, .Foot, .Image]
 </h3>
 
 {#each cards as card}

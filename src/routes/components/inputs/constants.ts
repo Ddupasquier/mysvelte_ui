@@ -1,6 +1,6 @@
 import { Input, Spacer } from '$lib';
 
-export const inputs = [
+export const inputs: InputDisplayData[] = [
   {
     id: 'use',
     header: 'Use',
@@ -12,7 +12,7 @@ export const inputs = [
         props: {
           value: '',
           placeholder: 'Search',
-        } as InputProps,
+        },
         code: ['$: val', "<Input placeholder='search' bind:value={val} />"],
       },
     ],
@@ -28,21 +28,21 @@ export const inputs = [
         component: Input,
         props: {
           background: '#c50eff',
-        } as InputProps,
+        },
         code: '<Input background="#c50eff" />',
       },
       {
         component: Input,
         props: {
           background: '#ff00d9',
-        } as InputProps,
+        },
         code: '<Input background="#ff00d9" />',
       },
       {
         component: Input,
         props: {
           background: '#ff3579',
-        } as InputProps,
+        },
         code: '<Input background="#ff3579" />',
       },
     ],
@@ -58,21 +58,21 @@ export const inputs = [
         component: Input,
         props: {
           color: '#c50eff',
-        } as InputProps,
+        },
         code: '<Input color="#c50eff" />',
       },
       {
         component: Input,
         props: {
           color: '#ff00d9',
-        } as InputProps,
+        },
         code: '<Input color="#ff00d9" />',
       },
       {
         component: Input,
         props: {
           color: '#ff3579',
-        } as InputProps,
+        },
         code: '<Input color="#ff3579" />',
       },
     ],
@@ -91,7 +91,7 @@ export const inputs = [
           label: true,
           placeholder: 'Search',
           labelIn: true,
-        } as InputProps,
+        },
         code: '<Input id="testLabel" label={true} labelIn={true} placeholder="Search" />',
       },
       {
@@ -100,13 +100,13 @@ export const inputs = [
           label: true,
           labelIn: true,
           placeholder: 'Search',
-        } as InputProps,
+        },
         code: [
           '<Input label={true} labelIn={true} placeholder="Search" />',
           '// label will be undefined if no id is provided',
         ],
       },
-      { component: Spacer },
+      { component: Spacer } as never,
       {
         component: Input,
         props: {
@@ -114,7 +114,7 @@ export const inputs = [
           label: true,
           placeholder: 'Search',
           labelIn: false,
-        } as InputProps,
+        },
         code: '<Input id="testLabel1" label={true} labelIn={false} placeholder="Search" />',
       },
       {
@@ -123,7 +123,7 @@ export const inputs = [
           label: true,
           placeholder: 'Search',
           labelIn: false,
-        } as InputProps,
+        },
         code: [
           '<Input label={true} labelIn={false} placeholder="Search" /> ',
           '// label will be undefined if no id is provided',
@@ -144,7 +144,7 @@ export const inputs = [
           placeholder: 'Search',
           variant: 'default',
           color: '#c50eff',
-        } as InputProps,
+        },
         code: '<Input variant="default" color="#c50eff" placeholder="Search" />',
       },
       {
@@ -153,7 +153,7 @@ export const inputs = [
           placeholder: 'Search',
           variant: 'outline',
           color: '#ff00d9',
-        } as InputProps,
+        },
         code: '<Input variant="outline" color="#ff00d9" placeholder="Search" />',
       },
       {
@@ -163,7 +163,7 @@ export const inputs = [
           variant: 'line',
           color: '#ff3579',
           background: 'transparent',
-        } as InputProps,
+        },
         code: '<Input variant="line" color="#ff3579" background="transparent" placeholder="Search" />',
       },
     ],
@@ -179,21 +179,21 @@ export const inputs = [
         component: Input.Prefix,
         props: {
           prefix: '@',
-        } as PrefixProps,
+        },
         code: '<Input.Prefix prefix="@" placeholder="Search" />',
       },
       {
         component: Input.Prefix,
         props: {
           prefix: '#',
-        } as PrefixProps,
+        },
         code: '<Input.Prefix prefix="#" placeholder="Search" />',
       },
       {
         component: Input.Prefix,
         props: {
           prefix: '¯_(ツ)_/¯',
-        } as PrefixProps,
+        },
         code: '<Input.Prefix prefix="¯_(ツ)_/¯" placeholder="Search" />',
       },
     ],
