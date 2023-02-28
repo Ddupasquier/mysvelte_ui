@@ -1,6 +1,6 @@
 import { Card } from '$lib';
 
-export const cards = [
+export const cards: CardsData[] = [
   {
     id: 'basics',
     header: 'Card Basics',
