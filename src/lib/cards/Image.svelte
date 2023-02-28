@@ -2,9 +2,14 @@
   export let background: string = '#fff';
   export let style: string = '';
   export let color: string = '#000';
+  export let image: string = '';
 </script>
 
-<div class="card" style="background: {background}; color: {color}; {style}" {...$$restProps}>
+<div
+  class="card"
+  style="background-color: {background}; background-image: url({image});color: {color}; {style}"
+  {...$$restProps}
+>
   <slot />
 </div>
 
@@ -13,5 +18,7 @@
     border-radius: 0.5rem;
     width: 22rem;
     height: fit-content;
+    background-size: cover;
+    background-position: center;
   }
 </style>

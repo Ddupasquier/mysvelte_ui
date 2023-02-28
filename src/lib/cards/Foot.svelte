@@ -4,7 +4,7 @@
   export let color: string = '#fff';
 </script>
 
-<div class="foot" style="background: {background}; color: {color}; {style}">
+<div class="foot" style="background: {background}; color: {color}; {style}" {...$$restProps}>
   <slot />
 </div>
 

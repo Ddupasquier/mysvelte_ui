@@ -1,6 +1,6 @@
 <script lang="ts">
   // import { Input } from '$lib';
-  import DisplayCard from '../../../ui_components/DisplayCard.svelte';
+  import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
   import { inputs } from './constants';
 
   // $: val = '';

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import DisplayCard from '../../../ui_components/DisplayCard.svelte';
+  import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
   import { cards } from './constants';
 </script>
 
@@ -16,5 +16,6 @@
     header={card.header}
     examples={card.examples}
     description={card.description}
+    type={card.type}
   />
 {/each}

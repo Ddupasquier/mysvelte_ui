@@ -1,14 +1,16 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import SyntaxHighlight from './SyntaxHighlight.svelte';
-  import { SunIcon, MoonIcon } from './icons';
+  import SyntaxHighlight from '../SyntaxHighlight.svelte';
+  import { SunIcon, MoonIcon } from '../icons';
+  import DisplayComponents from './DisplayComponents.svelte';
+  import DisplayGallery from './DisplayGallery.svelte';
 
   let codes: string[] = [];
   export let id: string = '';
   export let header: string = '';
   export let examples: any[] = [];
   export let description: string = '';
-  // export let table: PropsTable | null = null
+  export let type: string = 'components';
 
   let isDarkMode: boolean = false;
 
@@ -30,32 +32,11 @@
     {description}
   </p>
 
-  <div class="examples">
-    {#each examples as example}
-      {#if example.props.nested}
-        <svelte:component
-          this={example.component}
-          {...example.props}
-        >
-          {#each example.props.nested as nested}
-            <svelte:component
-              this={nested.component}
-              {...nested.props}
-            >
-              {nested.props.slot}
-            </svelte:component>
-          {/each}
-        </svelte:component>
-      {:else}
-        <svelte:component
-          this={example.component}
-          {...example.props}
-          on:click={example.props['on:click']}
-          >{example.props.text}</svelte:component
-        >
-      {/if}
-    {/each}
-  </div>
+  {#if type === 'components'}
+  <DisplayComponents {examples} />
+  {:else if type === 'gallery'}
+  <DisplayGallery {examples}/>
+  {/if}
 
   {#each codes as code}
     {#if code}
@@ -90,14 +71,7 @@
     color: black;
   }
 
-  .examples {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin: 1rem 0;
-  }
+  
 
   .toggle {
     position: absolute;
