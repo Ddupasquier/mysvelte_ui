@@ -6,6 +6,7 @@ export const cards = [
     header: 'Card Basics',
     description:
       'Card is a container, primarily for holding a header, main content, and footer.\nThere are 3 slots available for the card component. Alternatively, you can choose not to use any of the 3 slots and insert your own components as children.\n\nCard.Head, Card.Content, and Card.Foot. These 3 slots accept any component as a child, as well as background and color as props.',
+    type: 'nested',
     examples: [
       {
         component: Card,

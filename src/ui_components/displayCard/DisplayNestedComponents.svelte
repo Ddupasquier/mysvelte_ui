@@ -4,12 +4,13 @@
 
 <div class="examples">
   {#each examples as example}
-    <svelte:component
-      this={example.component}
-      {...example.props}
-      on:click={example.props['on:click']}
-      >{example.props.text}</svelte:component
-    >
+    <svelte:component this={example.component} {...example.props}>
+      {#each example.props.nested as nested}
+        <svelte:component this={nested.component} {...nested.props}>
+          {nested.props.slot}
+        </svelte:component>
+      {/each}
+    </svelte:component>
   {/each}
 </div>
 

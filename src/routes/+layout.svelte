@@ -2,7 +2,10 @@
   import NavBar from '../ui_components/NavBar.svelte';
   import Footer from '../ui_components/Footer.svelte';
   import './styles.scss';
+  import Analytics from '../ui_components/Analytics.svelte';
 </script>
+
+<Analytics />
 
 <div class="app">
   <NavBar />

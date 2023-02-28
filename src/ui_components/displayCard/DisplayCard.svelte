@@ -4,6 +4,7 @@
   import { SunIcon, MoonIcon } from '../icons';
   import DisplayComponents from './DisplayComponents.svelte';
   import DisplayGallery from './DisplayGallery.svelte';
+  import DisplayNestedComponents from './DisplayNestedComponents.svelte';
 
   let codes: string[] = [];
   export let id: string = '';
@@ -33,9 +34,11 @@
   </p>
 
   {#if type === 'components'}
-  <DisplayComponents {examples} />
+    <DisplayComponents {examples} />
   {:else if type === 'gallery'}
-  <DisplayGallery {examples}/>
+    <DisplayGallery {examples} />
+  {:else if type === 'nested'}
+    <DisplayNestedComponents {examples} />
   {/if}
 
   {#each codes as code}
@@ -70,8 +73,6 @@
     background: var(--menu-color);
     color: black;
   }
-
-  
 
   .toggle {
     position: absolute;

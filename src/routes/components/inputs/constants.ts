@@ -5,6 +5,7 @@ export const inputs = [
     id: 'use',
     header: 'Use',
     description: 'Input is a simple input component.',
+    type: 'components',
     examples: [
       {
         component: Input,
@@ -21,6 +22,7 @@ export const inputs = [
     header: 'Background',
     description:
       'You can easily change the background of a button by adding the background prop. (default: white)',
+    type: 'components',
     examples: [
       {
         component: Input,
@@ -50,6 +52,7 @@ export const inputs = [
     header: 'Color',
     description:
       'You can easily change the color of a button by adding the color prop. (default: black)\nThe outline of the input defaults to whatever color your text is. This can be overidden using the style tag.',
+    type: 'components',
     examples: [
       {
         component: Input,
@@ -79,6 +82,7 @@ export const inputs = [
     header: 'Label',
     description:
       'You can add a label to an input by adding the label prop. \nIf label={true} you will need to provide an id as a prop which will automatically assign that label to your input.\nIf labelIn={true}, your placeholder prop will be overridden by the label prop.',
+    type: 'components',
     examples: [
       {
         component: Input,
@@ -132,6 +136,7 @@ export const inputs = [
     header: 'Variants',
     description:
       'There are 3 variants of input: outline, line, and default. (default: default)',
+    type: 'components',
     examples: [
       {
         component: Input,
@@ -168,6 +173,7 @@ export const inputs = [
     header: 'Prefix',
     description:
       'You can add a prefix the this input by using dot notation IE. Input.Prefix. \nYou can also change the prefix from the default using the prefix prop. (default: @)\n\nconst prefix = "@" \n$: val = "example"\n\nconst handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(`${prefix}@{val}`); // @example\n};\n\n<form on:submit={handleSubmit}>\n  <Input.Prefix prefix={prefix} placeholder="Search" bind:value={val} />\n</form>',
+    type: 'components',
     examples: [
       {
         component: Input.Prefix,
