@@ -5,13 +5,15 @@
   import DisplayComponents from './DisplayComponents.svelte';
   import DisplayGallery from './DisplayGallery.svelte';
   import DisplayNestedComponents from './DisplayNestedComponents.svelte';
+  import DisplayPropsTable from './DisplayPropsTable.svelte';
 
   let codes: string[] = [];
   export let id: string = '';
   export let header: string = '';
   export let examples: any[] = [];
   export let description: string = '';
-  export let type: string = 'components';
+  export let table: PropsTable | undefined;
+  export let type: string;
 
   let isDarkMode: boolean = false;
 
@@ -35,6 +37,8 @@
 
   {#if type === 'components'}
     <DisplayComponents {examples} />
+  {:else if type === 'table'}
+    <DisplayPropsTable {table} />
   {:else if type === 'gallery'}
     <DisplayGallery {examples} />
   {:else if type === 'nested'}

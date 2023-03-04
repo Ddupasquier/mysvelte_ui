@@ -1,9 +1,6 @@
 <script lang="ts">
-  // import { Input } from '$lib';
   import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
   import { inputs } from './constants';
-
-  // $: val = '';
 </script>
 
 <h1>Inputs</h1>
@@ -19,5 +16,7 @@
     header={input.header}
     examples={input.examples}
     description={input.description}
+    table={input.table}
+    type={input.type}
   />
 {/each}

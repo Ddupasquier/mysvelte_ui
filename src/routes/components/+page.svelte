@@ -1,5 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
+import Radials from './radials/Radials.svelte';
+import Switches from './switches/Switches.svelte';
   import Buttons from './buttons/Buttons.svelte';
   import Inputs from './inputs/Inputs.svelte';
   import Segments from './segments/Segments.svelte';
@@ -16,6 +18,10 @@
   <Segments />
 {:else if items === 'cards'}
   <Cards />
+{:else if items === 'switches'}
+<Switches />
+{:else if items === 'radials'}
+<Radials />
 {:else}
   <div class="oops">
     <h1>Components</h1>

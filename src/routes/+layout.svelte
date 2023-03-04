@@ -3,6 +3,11 @@
   import Footer from '../ui_components/Footer.svelte';
   import './styles.scss';
   import Analytics from '../ui_components/Analytics.svelte';
+  import DefaultModal from '../ui_components/modals/DefaultModal.svelte';
+  import {
+    defaultModalShown,
+    defaultModalSlot,
+  } from '../../src/stores/modalStore';
 </script>
 
 <Analytics />
@@ -14,6 +19,12 @@
     <Footer />
   </main>
 </div>
+
+{#if $defaultModalShown}
+  <DefaultModal>
+    {$defaultModalSlot}
+  </DefaultModal>
+{/if}
 
 <style lang="scss">
   @use 'src/routes/breakpoints.scss' as breakpoints;

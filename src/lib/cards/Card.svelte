@@ -4,7 +4,11 @@
   export let color: string = '#000';
 </script>
 
-<div class="card" style="background: {background}; color: {color}; {style}" {...$$restProps}>
+<div
+  class="card"
+  style="background: {background}; color: {color}; {style}"
+  {...$$restProps}
+>
   <slot />
 </div>
 
