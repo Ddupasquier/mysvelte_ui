@@ -1,12 +1,17 @@
 type ComponentPropertyString = `${string}_${string}`;
 
+type PropsTable = {
+  [key: string]: string
+}
+
 // * BUTTON TYPES
 interface ButtonDisplayData {
   id: string;
   header: string;
   description: string;
-  type: 'gallery' | 'components' | 'nested';
+  type: 'gallery' | 'components' | 'nested' | 'table';
   examples: ButtonExample[];
+  table?: PropsTable;
 }
 
 interface ButtonExample {
@@ -33,8 +38,9 @@ interface InputDisplayData {
   id: string;
   header: string;
   description: string;
-  type: 'gallery' | 'components' | 'nested';
+  type: 'gallery' | 'components' | 'nested' | 'table';
   examples: InputExample[];
+  table?: PropsTable;
 }
 
 interface InputExample {
@@ -71,7 +77,7 @@ interface CardDisplayData {
   id: string;
   header: string;
   description: string;
-  type: 'gallery' | 'components' | 'nested';
+  type: 'gallery' | 'components' | 'nested' | 'table';
   examples: CardExample[];
 }
 

@@ -198,4 +198,27 @@ export const inputs: InputDisplayData[] = [
       },
     ],
   },
+  {
+    id: 'props',
+    header: 'Props',
+    description: 'Input accepts all native input props.',
+    type: 'table',
+    table: {
+      background:
+        'Accepts a string value for the background color of the input.',
+      color: 'Accepts a string value for the color of the input.',
+      label: 'Accepts a boolean value for the label of the input.',
+      labelIn: 'Accepts a boolean value for the label to be inside the input.',
+      placeholder: 'Accepts a string value for the placeholder of the input.',
+      variant:
+        'Accepts a string value for the variant of the input. Variants include: default, outline, and line.',
+      prefix: 'Accepts a string value for the prefix of the input.',
+    },
+    examples: [
+      {
+        component: null,
+        props: {},
+      },
+    ],
+  },
 ];

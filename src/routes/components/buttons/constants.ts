@@ -1,4 +1,8 @@
 import Button from '$lib/buttons/Button.svelte';
+import {
+  defaultModalShown,
+  defaultModalSlot,
+} from '../../../stores/modalStore';
 
 export const buttons: ButtonDisplayData[] = [
   {
@@ -14,7 +18,7 @@ export const buttons: ButtonDisplayData[] = [
           background: '#c50eff',
           text: 'Purple',
         },
-        code: '<Button background="#c50eff">Purple</Button>',
+        code: '<Button background={background}>Purple</Button>',
       },
       {
         component: Button,
@@ -22,7 +26,7 @@ export const buttons: ButtonDisplayData[] = [
           background: '#ff00d9',
           text: 'Pink',
         },
-        code: '<Button background="#ff00d9">Pink</Button>',
+        code: '<Button background={background}>Pink</Button>',
       },
       {
         component: Button,
@@ -30,7 +34,7 @@ export const buttons: ButtonDisplayData[] = [
           background: '#FF3579',
           text: 'Salmon',
         },
-        code: '<Button background="#FF3579">Salmon</Button>',
+        code: '<Button background={background}>Salmon</Button>',
       },
       {
         component: Button,
@@ -38,7 +42,7 @@ export const buttons: ButtonDisplayData[] = [
           background: '#FF8C4C',
           text: 'Orange',
         },
-        code: '<Button background="#FF8C4C">Orange</Button>',
+        code: '<Button background={background}>Orange</Button>',
       },
       {
         component: Button,
@@ -46,7 +50,7 @@ export const buttons: ButtonDisplayData[] = [
           background: '#FFC844',
           text: 'Gold',
         },
-        code: '<Button background="#FFC844">Gold</Button>',
+        code: '<Button background={background}>Gold</Button>',
       },
       {
         component: Button,
@@ -54,7 +58,7 @@ export const buttons: ButtonDisplayData[] = [
           background: '#F9F871',
           text: 'Yellow',
         },
-        code: '<Button background="#F9F871">Yellow</Button>',
+        code: '<Button background={background}>Yellow</Button>',
       },
     ],
   },
@@ -148,7 +152,7 @@ export const buttons: ButtonDisplayData[] = [
           color: 'black',
           text: 'Black',
         },
-        code: '<Button color="black">Black</Button>',
+        code: '<Button color={color}>Black</Button>',
       },
       {
         component: Button,
@@ -157,7 +161,7 @@ export const buttons: ButtonDisplayData[] = [
           color: 'turquoise',
           text: 'Turquoise',
         },
-        code: '<Button color="turquoise">Turquoise</Button>',
+        code: '<Button color={color}>Turquoise</Button>',
       },
       {
         component: Button,
@@ -166,7 +170,7 @@ export const buttons: ButtonDisplayData[] = [
           color: 'red',
           text: 'Red',
         },
-        code: '<Button color="red">Red</Button>',
+        code: '<Button color={color}>Red</Button>',
       },
     ],
   },
@@ -248,7 +252,10 @@ export const buttons: ButtonDisplayData[] = [
         component: Button,
         props: {
           text: 'Click Me',
-          'on:click': () => alert('Woah, just like magic!'),
+          'on:click': () => {
+            defaultModalShown.set(true);
+            defaultModalSlot.set('Woah, just like magic!');
+          },
         },
         code: '<Button on:click={() => alert("Woah, just like magic!")}>Click Me</Button>',
       },
@@ -258,26 +265,24 @@ export const buttons: ButtonDisplayData[] = [
     id: 'props',
     header: 'Button Props',
     description:
-      'Here is a list of all the props you can use to customize your button. All props are optional.',
-    // table: propsTable,
-    // {
-    //   ref: 'A reference to the button element.',
-    //   disabled:
-    //     'A boolean that indicates whether the button is disabled or not. Defaults to false.',
-    //   size: "A string that indicates the size of the button. The possible values are 'xsmall', 'small','medium', 'large', and 'xlarge'. Defaults to 'medium'.",
-    //   background:
-    //     "A string that indicates the background color of the button. Defaults to '#c50eff'.",
-    //   color:
-    //     "A string that indicates the text color of the button. Defaults to '#fff'.",
-    //   text: 'A string that sets the text content of the button. Defaults to an empty string.',
-    //   isLoading:
-    //     'A boolean that indicates whether the button is in a loading state or not. When set to true, the button will be disabled and display a loading spinner. Defaults to false.',
-    //   isError:
-    //     'A boolean that indicates whether the button is in an error state or not. When set to true, the button will be disabled and display an error border. Defaults to false.',
-    //   style:
-    //     'A string that sets additional styles to the button. This should be a valid CSS string.',
-    // },
-    type: 'components',
+      'Here is a list of all the props you can use to customize your button. All props are optional.\nYou may also use all native HTML button attributes.',
+    type: 'table',
+    table: {
+      disabled:
+        'A boolean that indicates whether the button is disabled or not. Defaults to false.',
+      size: "A string that indicates the size of the button. The possible values are 'xsmall', 'small','medium', 'large', and 'xlarge'. Defaults to 'medium'.",
+      background:
+        "A string that indicates the background color of the button. Defaults to '#c50eff'.",
+      color:
+        "A string that indicates the text color of the button. Defaults to '#fff'.",
+      isLoading:
+        'A boolean that indicates whether the button is in a loading state or not. When set to true, the button will be disabled and display a loading spinner. Defaults to false.',
+      isError:
+        'A boolean that indicates whether the button is in an error state or not. When set to true, the button will be disabled and display an error border. Defaults to false.',
+      on: 'An object that contains event listeners for the button. See the events section for more information.',
+      style:
+        'A string that sets additional styles to the button. This should be a valid CSS string.',
+    },
     examples: [
       {
         component: null,

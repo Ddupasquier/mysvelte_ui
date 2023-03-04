@@ -10,7 +10,6 @@
   export let isLoading: boolean = false;
   export let isError: boolean = false;
   export let style: string = '';
-  export let className: string = '';
 
   const sizeValues: Record<typeof size, string> = {
     xsmall: '0.125rem 0.25rem',
@@ -55,7 +54,7 @@
   {disabled}
   {...$$restProps}
   style={buttonStyle}
-  class={(isLoading ? 'loading' : isError ? 'error' : '') + ' ' + className}
+  class={(isLoading ? 'loading' : isError ? 'error' : '')}
   on:click
   on:mouseover
   on:mouseenter
