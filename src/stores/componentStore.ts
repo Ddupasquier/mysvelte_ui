@@ -4,9 +4,13 @@ import { buttons } from '../routes/components/buttons/constants';
 import { inputs } from '../routes/components/inputs/constants';
 import { segments } from '../routes/components/segments/constants';
 import { cards } from '../routes/components/cards/constants';
+import { switchs } from '../routes/components/switches/constants';
 
 export const getComponentIds = (): ComponentPropertyString[] => {
   const componentIds: ComponentPropertyString[] = [];
+switchs.forEach((switch) => {
+    componentIds.push(`${switch.id}_switch`);
+  });
   buttons.forEach((button) => {
     componentIds.push(`${button.id}_button`);
   });

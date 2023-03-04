@@ -105,6 +105,36 @@ interface CardImageProps extends CardProps {
   image: string;
 }
 
+// * SWITCH TYPES
+interface SwitchDisplayData {
+  id: string;
+  header: string;
+  description: string;
+  type: 'gallery' | 'components' | 'nested' | 'table';
+  examples: SwitchExample[];
+  table?: PropsTable;
+}
+
+interface SwitchExample {
+  component: SvelteComponentTyped;
+  props: SwitchProps;
+  code?: string;
+}
+
+interface SwitchProps {
+  id?: string;
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  background?: string;
+  color?: string;
+  style?: string;
+  disabled?: boolean;
+  isLoading?: boolean;
+  isError?: boolean;
+  className?: string;
+}
+
+
+
 // interface PropsTable {
 //   [key: string]: string;
 // }
