@@ -3,7 +3,7 @@ import type { Writable } from 'svelte/store';
 import { buttons } from '../routes/components/buttons/constants';
 import { inputs } from '../routes/components/inputs/constants';
 import { segments } from '../routes/components/segments/constants';
-import {cards} from '../routes/components/cards/constants';
+import { cards } from '../routes/components/cards/constants';
 
 export const getComponentIds = (): ComponentPropertyString[] => {
   const componentIds: ComponentPropertyString[] = [];
