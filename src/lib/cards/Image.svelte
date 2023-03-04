@@ -7,7 +7,7 @@
 
 <div
   class="card"
-  style="background-color: {background}; background-image: url({image});color: {color}; {style}"
+  style="background-color: {background}; background-image: url({image}); color: {color}; {style}"
   {...$$restProps}
 >
   <slot />

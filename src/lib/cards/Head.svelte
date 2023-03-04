@@ -4,7 +4,11 @@
   export let color: string = '#fff';
 </script>
 
-<div class="head" style="background: {background}; color: {color}; {style}" {...$$restProps}>
+<div
+  class="head"
+  style="background: {background}; color: {color}; {style}"
+  {...$$restProps}
+>
   <slot />
 </div>
 
@@ -14,6 +18,6 @@
     text-align: left;
     font-size: 1.2rem;
     font-weight: bold;
-    border-radius: .5rem .5rem 0 0;
+    border-radius: 0.5rem 0.5rem 0 0;
   }
 </style>
