@@ -1,7 +1,11 @@
 export const NavComponentOptions = [
   {
+    name: 'Radial',
+    path: '?items=radials',
+ },
+  {
     name: 'Switch',
-    path: '?items=switchs',
+    path: '?items=switches',
  },
   {
     name: 'Test',

@@ -1,8 +1,8 @@
 type ComponentPropertyString = `${string}_${string}`;
 
 type PropsTable = {
-  [key: string]: string
-}
+  [key: string]: string;
+};
 
 // * BUTTON TYPES
 interface ButtonDisplayData {
@@ -97,7 +97,7 @@ interface CardProps {
   background?: string;
   color?: string;
   style?: string;
-  slot?: unknown
+  slot?: unknown;
   nested?: CardExample[];
 }
 
@@ -133,8 +133,34 @@ interface SwitchProps {
   className?: string;
 }
 
-
-
 // interface PropsTable {
 //   [key: string]: string;
-// }
+//
+
+// * Radial TYPES
+interface RadialDisplayData {
+  id: string;
+  header: string;
+  description: string;
+  type: 'gallery' | 'components' | 'nested' | 'table';
+  examples: RadialExample[];
+  table?: PropsTable;
+}
+
+interface RadialExample {
+  component: SvelteComponentTyped;
+  props: RadialProps;
+  code?: string;
+}
+
+interface RadialProps {
+  id?: string;
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  background?: string;
+  color?: string;
+  style?: string;
+  disabled?: boolean;
+  isLoading?: boolean;
+  isError?: boolean;
+  className?: string;
+}

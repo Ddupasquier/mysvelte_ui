@@ -3,7 +3,7 @@
   import { switches} from './constants';
 </script>
 
-<h1>Switchs</h1>
+<h1>Switches</h1>
 
 <h3>
   {"import { Switch } from 'mysvelte-ui';"}

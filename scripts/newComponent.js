@@ -137,7 +137,7 @@ console.log(`Added ${componentName} to ./src/ui_components/constants.ts`);
 const appPath = readFileSync('./src/app.d.ts', 'utf-8');
 const addToApp = async () => {
       const bottomOfFile = appPath.lastIndexOf('}');
-      const newType = `\n\n// * ${componentUpper} TYPES\n${componentUpper}DisplayData {}`
+      const newType = `\n\n// * ${componentUpper} TYPES\ninterface ${componentUpper}DisplayData {}`
 
       const newContent = appPath.slice(0, bottomOfFile) + newType + appPath.slice(bottomOfFile)
 
