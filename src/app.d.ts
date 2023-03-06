@@ -105,62 +105,26 @@ interface CardImageProps extends CardProps {
   image: string;
 }
 
-// * SWITCH TYPES
-interface SwitchDisplayData {
+// * Popover TYPES
+interface PopoverDisplayData {
   id: string;
   header: string;
   description: string;
   type: 'gallery' | 'components' | 'nested' | 'table';
-  examples: SwitchExample[];
+  examples: PopoverExample[];
   table?: PropsTable;
 }
 
-interface SwitchExample {
+interface PopoverExample {
   component: SvelteComponentTyped;
-  props: SwitchProps;
-  code?: string;
+  props: PopoverProps;
+  code?: string[];
 }
 
-interface SwitchProps {
-  id?: string;
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
-  background?: string;
-  color?: string;
+interface PopoverProps {
+  direction: 'top' | 'bottom' | 'left' | 'right';
+  trigger?: 'click' | 'hover';
   style?: string;
-  disabled?: boolean;
-  isLoading?: boolean;
-  isError?: boolean;
-  className?: string;
-}
-
-// interface PropsTable {
-//   [key: string]: string;
-//
-
-// * Radial TYPES
-interface RadialDisplayData {
-  id: string;
-  header: string;
-  description: string;
-  type: 'gallery' | 'components' | 'nested' | 'table';
-  examples: RadialExample[];
-  table?: PropsTable;
-}
-
-interface RadialExample {
-  component: SvelteComponentTyped;
-  props: RadialProps;
-  code?: string;
-}
-
-interface RadialProps {
-  id?: string;
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
-  background?: string;
-  color?: string;
-  style?: string;
-  disabled?: boolean;
-  isLoading?: boolean;
-  isError?: boolean;
-  className?: string;
+  flyIn?: boolean;
+  content?: string;
 }

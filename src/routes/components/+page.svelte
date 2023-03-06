@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/stores';
+import Popovers from './popovers/Popovers.svelte';
   import Buttons from './buttons/Buttons.svelte';
   import Inputs from './inputs/Inputs.svelte';
 
@@ -14,6 +15,8 @@
   <Inputs />
 {:else if items === 'cards'}
   <Cards />
+{:else if items === 'popovers'}
+<Popovers />
 {:else}
   <div class="oops">
     <h1>Components</h1>

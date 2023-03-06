@@ -1,5 +1,9 @@
 export const NavComponentOptions = [
   {
+    name: 'Popovers',
+    path: '?items=popovers',
+ },
+  {
     name: 'Buttons',
     path: '?items=buttons',
   },
