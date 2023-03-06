@@ -16,8 +16,8 @@ export const popovers: PopoverDisplayData[] = [
         },
         code: [
           '<Popover direction={direction}>',
-          'indent<Button>Hover Me</Button>',
-          'indent<span>Popover Content</span>',
+          'indent<Button slot="trigger">Hover Me</Button>',
+          'indent<span slot="content">Popover Content</span>',
           '</Popover>',
         ],
       },
@@ -42,8 +42,8 @@ export const popovers: PopoverDisplayData[] = [
         },
         code: [
           '<Popover direction={direction}>',
-          'indent<Button>Hover Me</Button>',
-          'indent<span>Popover Content</span>',
+          'indent<Button slot="trigger">Hover Me</Button>',
+          'indent<span slot="content">Popover Content</span>',
           '</Popover>',
         ],
       },
@@ -76,8 +76,8 @@ export const popovers: PopoverDisplayData[] = [
         },
         code: [
           '<Popover direction={direction} trigger={trigger}>',
-          'indent<Button>Click Me</Button>',
-          'indent<span>Popover Content</span>',
+          'indent<Button slot="trigger">Click Me</Button>',
+          'indent<span slot="content">Popover Content</span>',
           '</Popover>',
         ],
       },
@@ -90,8 +90,8 @@ export const popovers: PopoverDisplayData[] = [
         },
         code: [
           '<Popover direction={direction} trigger={trigger}>',
-          'indent<Button>Hover Me</Button>',
-          'indent<span>Popover Content</span>',
+          'indent<Button slot="trigger">Hover Me</Button>',
+          'indent<span slot="content">Popover Content</span>',
           '</Popover>',
         ],
       },
