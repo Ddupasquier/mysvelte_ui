@@ -131,7 +131,7 @@ console.log(`Added ${componentName} to components/+page.svelte`);
 const constantsPath = readFileSync('./src/ui_components/constants.ts', 'utf-8');
 const addToConstants = async () => {
   const firstBracket = constantsPath.indexOf('[');
-  const newConstant = `\n  {\n    name: '${componentUpper}',\n    path: '?items=${componentLower}s',\n },`;
+  const newConstant = `\n  {\n    name: '${componentUpper}s',\n    path: '?items=${componentLower}s',\n },`;
 
   const newContent =
     constantsPath.slice(0, firstBracket + 1) +
@@ -160,3 +160,8 @@ const addToApp = async () => {
 await addToApp();
 
 console.log(`Added ${componentName} to app.d.ts`);
+// big green text console log component added to library
+console.log(
+  '\x1b[32m%s\x1b[0m', // green
+  `${componentName} has been added to the library!`
+);
