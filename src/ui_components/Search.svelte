@@ -5,7 +5,8 @@
   import { componentIds } from '../stores/componentStore';
   import { splitSearchResult } from './utils';
 
-  let isOpen = false;
+  $: isOpen = false;
+  let searchRef: HTMLDivElement;
 
   $: searchTerm = '';
   $: searchResults =
@@ -17,7 +18,35 @@
   $: if (!isOpen) searchTerm = '';
 </script>
 
-<div class={isOpen ? 'outer expanded' : 'outer'}>
+<svelte:window
+  on:click={(e) => {
+    if (e.target instanceof HTMLElement) {
+      if (!searchRef.contains(e.target)) {
+        isOpen = false;
+      }
+    }
+  }}
+
+  on:keydown={(e) => {
+    if (e.key === 'Escape') {
+      isOpen = false;
+    }
+
+    if (isOpen && e.key === 'Down') {
+      e.preventDefault();
+      console.log('down');
+      // const firstResult = document.querySelector('.search-results a');
+      // if (firstResult instanceof HTMLAnchorElement) {
+      //   firstResult.focus();
+      //   if (document.activeElement instanceof HTMLElement) {
+      //     document.activeElement.blur();
+      //   }
+      // }
+    }
+  }}
+/>
+
+<div class={isOpen ? 'outer expanded' : 'outer'} bind:this={searchRef}>
   <div class="inner">
     {#if isOpen}
       <div
@@ -30,10 +59,7 @@
           duration: 100,
         }}
       >
-        <Input
-          bind:value={searchTerm}
-          placeholder="Search || 'all'"
-        />
+        <Input bind:value={searchTerm} placeholder="Search || 'all'" />
       </div>
     {/if}
     <button class="activate" on:click={() => (isOpen = !isOpen)}
@@ -50,7 +76,7 @@
       <div class="search-results" transition:slide>
         {#each searchResults as id}
           {@const { component, id: componentId } = splitSearchResult(id)}
-          <a href={`/components?items=${component + 's'}#${componentId}`}>
+          <a href={`/components?items=${component + 's'}#${componentId}`} {id}>
             <div class="result">
               <span class="component">{component}</span>:
               <span class="hash">#</span><span class="property">
@@ -65,7 +91,7 @@
 </div>
 
 <style lang="scss">
-@mixin shared {
+  @mixin shared {
     display: flex;
     align-items: center;
     background: rgb(255, 255, 255);
@@ -134,7 +160,6 @@
     width: 10px;
     background-color: #aaaaaa00;
     border-radius: 5px;
-    
   }
 
   .search-results::-webkit-scrollbar-thumb {
