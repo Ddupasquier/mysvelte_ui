@@ -26,22 +26,40 @@
       }
     }
   }}
-
   on:keydown={(e) => {
     if (e.key === 'Escape') {
       isOpen = false;
     }
 
-    if (isOpen && searchResults.length > 0 && e.key === 'Down') {
+    let focusedResultIndex = -1;
+
+    if (
+      isOpen &&
+      searchResults.length > 0 &&
+      (e.key === 'ArrowDown' || e.key === 'ArrowUp')
+    ) {
       e.preventDefault();
-      console.log('down');
-      // const firstResult = document.querySelector('.search-results a');
-      // if (firstResult instanceof HTMLAnchorElement) {
-      //   firstResult.focus();
-      //   if (document.activeElement instanceof HTMLElement) {
-      //     document.activeElement.blur();
-      //   }
-      // }
+      const activeElementId = document.activeElement?.id;
+      focusedResultIndex = searchResults.findIndex(
+        (id) => id === activeElementId
+      );
+      if (e.key === 'ArrowDown') {
+        if (focusedResultIndex === -1) {
+          document.getElementById(searchResults[0])?.focus();
+        } else if (focusedResultIndex < searchResults.length - 1) {
+          const nextElementId = searchResults[focusedResultIndex + 1];
+          document.getElementById(nextElementId)?.focus();
+        }
+      } else if (e.key === 'ArrowUp') {
+        if (focusedResultIndex === -1) {
+          document
+            .getElementById(searchResults[searchResults.length - 1])
+            ?.focus();
+        } else if (focusedResultIndex > 0) {
+          const prevElementId = searchResults[focusedResultIndex - 1];
+          document.getElementById(prevElementId)?.focus();
+        }
+      }
     }
   }}
 />
@@ -169,9 +187,15 @@
 
   .result {
     padding: 0.1rem 0.5rem;
-    border-radius: 0.5rem;
     cursor: pointer;
+  }
+
+  a {
     transition: all 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    &:focus,
     &:hover {
       background: var(--color-bg-1);
     }
@@ -192,10 +216,5 @@
   .property {
     font-size: 1rem;
     margin-left: 0.2rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
   }
 </style>
