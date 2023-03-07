@@ -32,7 +32,7 @@
       isOpen = false;
     }
 
-    if (isOpen && e.key === 'Down') {
+    if (isOpen && searchResults.length > 0 && e.key === 'Down') {
       e.preventDefault();
       console.log('down');
       // const firstResult = document.querySelector('.search-results a');
