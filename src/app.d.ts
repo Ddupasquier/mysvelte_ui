@@ -128,3 +128,105 @@ interface PopoverProps {
   flyIn?: boolean;
   content?: string;
 }
+
+// * Radio TYPES
+interface RadioDisplayData {
+  id: string;
+  header: string;
+  description: string;
+  type: 'gallery' | 'components' | 'nested' | 'table';
+  examples: RadioExample[];
+  table?: PropsTable;
+}
+
+interface RadioExample {
+  component: SvelteComponentTyped;
+  props: RadioProps;
+  code?: string[];
+}
+
+interface RadioProps {
+  id?: string;
+  name?: string;
+  value?: string;
+  label?: string;
+  disabled?: boolean;
+  checked?: boolean;
+  style?: string;
+}
+
+// * Dropdown TYPES
+interface DropdownDisplayData {
+  id: string;
+  header: string;
+  description: string;
+  type: 'gallery' | 'components' | 'nested' | 'table';
+  examples: DropdownExample[];
+  table?: PropsTable;
+}
+
+interface DropdownExample {
+  component: SvelteComponentTyped;
+  props: DropdownProps;
+  code?: string[];
+}
+
+interface DropdownProps {
+  id?: string;
+  name?: string;
+  value?: string;
+  label?: string;
+  disabled?: boolean;
+  style?: string;
+}
+
+// * Loader TYPES
+interface LoaderDisplayData {
+  id: string;
+  header: string;
+  description: string;
+  type: 'gallery' | 'components' | 'nested' | 'table';
+  examples: LoaderExample[];
+  table?: PropsTable;
+}
+
+interface LoaderExample {
+  component: SvelteComponentTyped;
+  props: LoaderProps;
+  code?: string[];
+}
+
+interface LoaderProps {
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  color?: string;
+  style?: string;
+}
+
+
+// * Checkbox TYPES
+interface CheckboxDisplayData {
+  id: string;
+  header: string;
+  description: string;
+  type: 'gallery' | 'components' | 'nested' | 'table';
+  examples: CheckboxExample[];
+  table?: PropsTable;
+}
+
+interface CheckboxExample {
+  component: SvelteComponentTyped;
+  props: CheckboxProps;
+  code?: string[];
+}
+
+interface CheckboxProps {
+  id?: string;
+  name?: string;
+  value?: string;
+  label?: string;
+  disabled?: boolean;
+  checked?: boolean;
+  style?: string;
+}
+
+
