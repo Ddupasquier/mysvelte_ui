@@ -19,5 +19,7 @@ export const Card = Object.assign(CardDefault, {
   Head,
   Content,
   Foot,
-  Image
+  Image,
 });
+
+export { default as Popover } from './popovers/Popover.svelte';

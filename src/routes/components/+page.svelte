@@ -1,5 +1,10 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import Checkboxes from './checkboxes/Checkboxes.svelte';
+  import Loaders from './loaders/Loaders.svelte';
+  import Dropdowns from './dropdowns/Dropdowns.svelte';
+  import Radios from './radios/Radios.svelte';
+  import Popovers from './popovers/Popovers.svelte';
   import Buttons from './buttons/Buttons.svelte';
   import Inputs from './inputs/Inputs.svelte';
 
@@ -14,6 +19,16 @@
   <Inputs />
 {:else if items === 'cards'}
   <Cards />
+{:else if items === 'popovers'}
+  <Popovers />
+{:else if items === 'radios'}
+  <Radios />
+{:else if items === 'dropdowns'}
+  <Dropdowns />
+{:else if items === 'loaders'}
+  <Loaders />
+{:else if items === 'checkboxes'}
+  <Checkboxes />
 {:else}
   <div class="oops">
     <h1>Components</h1>

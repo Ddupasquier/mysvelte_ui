@@ -105,62 +105,128 @@ interface CardImageProps extends CardProps {
   image: string;
 }
 
-// * SWITCH TYPES
-interface SwitchDisplayData {
+// * Popover TYPES
+interface PopoverDisplayData {
   id: string;
   header: string;
   description: string;
   type: 'gallery' | 'components' | 'nested' | 'table';
-  examples: SwitchExample[];
+  examples: PopoverExample[];
   table?: PropsTable;
 }
 
-interface SwitchExample {
+interface PopoverExample {
   component: SvelteComponentTyped;
-  props: SwitchProps;
-  code?: string;
+  props: PopoverProps;
+  code?: string[];
 }
 
-interface SwitchProps {
-  id?: string;
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
-  background?: string;
-  color?: string;
+interface PopoverProps {
+  direction: 'top' | 'bottom' | 'left' | 'right';
+  trigger?: 'click' | 'hover';
   style?: string;
-  disabled?: boolean;
-  isLoading?: boolean;
-  isError?: boolean;
-  className?: string;
+  flyIn?: boolean;
+  content?: string;
 }
 
-// interface PropsTable {
-//   [key: string]: string;
-//
-
-// * Radial TYPES
-interface RadialDisplayData {
+// * Radio TYPES
+interface RadioDisplayData {
   id: string;
   header: string;
   description: string;
   type: 'gallery' | 'components' | 'nested' | 'table';
-  examples: RadialExample[];
+  examples: RadioExample[];
   table?: PropsTable;
 }
 
-interface RadialExample {
+interface RadioExample {
   component: SvelteComponentTyped;
-  props: RadialProps;
-  code?: string;
+  props: RadioProps;
+  code?: string[];
 }
 
-interface RadialProps {
+interface RadioProps {
   id?: string;
+  name?: string;
+  value?: string;
+  label?: string;
+  disabled?: boolean;
+  checked?: boolean;
+  style?: string;
+}
+
+// * Dropdown TYPES
+interface DropdownDisplayData {
+  id: string;
+  header: string;
+  description: string;
+  type: 'gallery' | 'components' | 'nested' | 'table';
+  examples: DropdownExample[];
+  table?: PropsTable;
+}
+
+interface DropdownExample {
+  component: SvelteComponentTyped;
+  props: DropdownProps;
+  code?: string[];
+}
+
+interface DropdownProps {
+  id?: string;
+  name?: string;
+  value?: string;
+  label?: string;
+  disabled?: boolean;
+  style?: string;
+}
+
+// * Loader TYPES
+interface LoaderDisplayData {
+  id: string;
+  header: string;
+  description: string;
+  type: 'gallery' | 'components' | 'nested' | 'table';
+  examples: LoaderExample[];
+  table?: PropsTable;
+}
+
+interface LoaderExample {
+  component: SvelteComponentTyped;
+  props: LoaderProps;
+  code?: string[];
+}
+
+interface LoaderProps {
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
-  background?: string;
   color?: string;
   style?: string;
-  disabled?: boolean;
-  isLoading?: boolean;
-  isError?: boolean;
-  className?: string;
 }
+
+
+// * Checkbox TYPES
+interface CheckboxDisplayData {
+  id: string;
+  header: string;
+  description: string;
+  type: 'gallery' | 'components' | 'nested' | 'table';
+  examples: CheckboxExample[];
+  table?: PropsTable;
+}
+
+interface CheckboxExample {
+  component: SvelteComponentTyped;
+  props: CheckboxProps;
+  code?: string[];
+}
+
+interface CheckboxProps {
+  id?: string;
+  name?: string;
+  value?: string;
+  label?: string;
+  disabled?: boolean;
+  checked?: boolean;
+  style?: string;
+}
+
+

@@ -26,7 +26,6 @@ export const buttons: ButtonDisplayData[] = [
           background: '#ff00d9',
           text: 'Pink',
         },
-        code: '<Button background={background}>Pink</Button>',
       },
       {
         component: Button,
@@ -34,7 +33,6 @@ export const buttons: ButtonDisplayData[] = [
           background: '#FF3579',
           text: 'Salmon',
         },
-        code: '<Button background={background}>Salmon</Button>',
       },
       {
         component: Button,
@@ -42,7 +40,6 @@ export const buttons: ButtonDisplayData[] = [
           background: '#FF8C4C',
           text: 'Orange',
         },
-        code: '<Button background={background}>Orange</Button>',
       },
       {
         component: Button,
@@ -50,7 +47,6 @@ export const buttons: ButtonDisplayData[] = [
           background: '#FFC844',
           text: 'Gold',
         },
-        code: '<Button background={background}>Gold</Button>',
       },
       {
         component: Button,
@@ -58,7 +54,6 @@ export const buttons: ButtonDisplayData[] = [
           background: '#F9F871',
           text: 'Yellow',
         },
-        code: '<Button background={background}>Yellow</Button>',
       },
     ],
   },
@@ -152,7 +147,7 @@ export const buttons: ButtonDisplayData[] = [
           color: 'black',
           text: 'Black',
         },
-        code: '<Button color={color}>Black</Button>',
+        code: '<Button color={color}>Color</Button>',
       },
       {
         component: Button,
@@ -161,7 +156,6 @@ export const buttons: ButtonDisplayData[] = [
           color: 'turquoise',
           text: 'Turquoise',
         },
-        code: '<Button color={color}>Turquoise</Button>',
       },
       {
         component: Button,
@@ -170,7 +164,6 @@ export const buttons: ButtonDisplayData[] = [
           color: 'red',
           text: 'Red',
         },
-        code: '<Button color={color}>Red</Button>',
       },
     ],
   },
@@ -187,7 +180,7 @@ export const buttons: ButtonDisplayData[] = [
           text: 'Custom',
           style: 'border: 1px solid black; border-radius: 5px; padding: 10px;',
         },
-        code: '<Button style="border: 1px solid black; border-radius: 5px; padding: 10px;">Custom</Button>',
+        code: '<Button style={style}>Custom</Button>',
       },
       {
         component: Button,
@@ -195,7 +188,6 @@ export const buttons: ButtonDisplayData[] = [
           text: 'Custom',
           style: 'border-radius: 2rem; padding: 10px; background: #FFC844;',
         },
-        code: '<Button style="border-radius: 2rem; padding: 10px; background: #FFC844;">Custom</Button>',
       },
       {
         component: Button,
@@ -204,7 +196,6 @@ export const buttons: ButtonDisplayData[] = [
           style:
             'border-radius: 5px; padding: .4rem; height: 4rem; width: 6rem; background: #F9F871; color: black; display: flex; justify-content: flex-end; align-items: flex-start;',
         },
-        code: '<Button style="border-radius: 5px; padding: .4rem; height: 4rem; width: 6rem; background: #F9F871; color: black; display: flex; justify-content: flex-end; align-items: start;">Custom</Button>',
       },
     ],
   },
