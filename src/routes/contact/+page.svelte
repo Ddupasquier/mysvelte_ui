@@ -1,4 +1,4 @@
-<!-- <script lang="ts">
+<script lang="ts">
   import { Button } from '$lib';
 </script>
 
@@ -9,6 +9,6 @@
     background: red;
     color: white;
   }
-</style> -->
+</style>
 
 contact
