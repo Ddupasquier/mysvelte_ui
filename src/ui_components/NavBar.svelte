@@ -64,9 +64,9 @@
     </div>
     <div class="bottom">
       <BubbleButton>
-        <button class="github">
+        <a href="https://github.com/Ddupasquier/mysvelte_ui" class="github">
           <object type="image/svg+xml" data={github} title="github" />
-        </button>
+        </a>
       </BubbleButton>
     </div>
   </nav>
@@ -171,6 +171,7 @@
     left: -0.1rem;
     cursor: pointer;
     object {
+      pointer-events: none;
       &:active {
         animation: bouncy 0.2s ease-in-out;
       }
@@ -192,7 +193,7 @@
     }
   }
 
-   .search-container {
+  .search-container {
     position: absolute;
     bottom: -1rem;
     left: 6.4rem;
@@ -255,6 +256,4 @@
       left: 4rem;
     }
   }
-
- 
 </style>

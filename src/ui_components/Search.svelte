@@ -5,7 +5,8 @@
   import { componentIds } from '../stores/componentStore';
   import { splitSearchResult } from './utils';
 
-  let isOpen = false;
+  $: isOpen = false;
+  let searchRef: HTMLDivElement;
 
   $: searchTerm = '';
   $: searchResults =
@@ -17,7 +18,53 @@
   $: if (!isOpen) searchTerm = '';
 </script>
 
-<div class={isOpen ? 'outer expanded' : 'outer'}>
+<svelte:window
+  on:click={(e) => {
+    if (e.target instanceof HTMLElement) {
+      if (!searchRef.contains(e.target)) {
+        isOpen = false;
+      }
+    }
+  }}
+  on:keydown={(e) => {
+    if (e.key === 'Escape') {
+      isOpen = false;
+    }
+
+    let focusedResultIndex = -1;
+
+    if (
+      isOpen &&
+      searchResults.length > 0 &&
+      (e.key === 'ArrowDown' || e.key === 'ArrowUp')
+    ) {
+      e.preventDefault();
+      const activeElementId = document.activeElement?.id;
+      focusedResultIndex = searchResults.findIndex(
+        (id) => id === activeElementId
+      );
+      if (e.key === 'ArrowDown') {
+        if (focusedResultIndex === -1) {
+          document.getElementById(searchResults[0])?.focus();
+        } else if (focusedResultIndex < searchResults.length - 1) {
+          const nextElementId = searchResults[focusedResultIndex + 1];
+          document.getElementById(nextElementId)?.focus();
+        }
+      } else if (e.key === 'ArrowUp') {
+        if (focusedResultIndex === -1) {
+          document
+            .getElementById(searchResults[searchResults.length - 1])
+            ?.focus();
+        } else if (focusedResultIndex > 0) {
+          const prevElementId = searchResults[focusedResultIndex - 1];
+          document.getElementById(prevElementId)?.focus();
+        }
+      }
+    }
+  }}
+/>
+
+<div class={isOpen ? 'outer expanded' : 'outer'} bind:this={searchRef}>
   <div class="inner">
     {#if isOpen}
       <div
@@ -30,10 +77,7 @@
           duration: 100,
         }}
       >
-        <Input
-          bind:value={searchTerm}
-          placeholder="Search || 'all'"
-        />
+        <Input bind:value={searchTerm} placeholder="Search || 'all'" />
       </div>
     {/if}
     <button class="activate" on:click={() => (isOpen = !isOpen)}
@@ -50,7 +94,7 @@
       <div class="search-results" transition:slide>
         {#each searchResults as id}
           {@const { component, id: componentId } = splitSearchResult(id)}
-          <a href={`/components?items=${component + 's'}#${componentId}`}>
+          <a href={`/components?items=${component + 's'}#${componentId}`} {id}>
             <div class="result">
               <span class="component">{component}</span>:
               <span class="hash">#</span><span class="property">
@@ -65,7 +109,7 @@
 </div>
 
 <style lang="scss">
-@mixin shared {
+  @mixin shared {
     display: flex;
     align-items: center;
     background: rgb(255, 255, 255);
@@ -134,7 +178,6 @@
     width: 10px;
     background-color: #aaaaaa00;
     border-radius: 5px;
-    
   }
 
   .search-results::-webkit-scrollbar-thumb {
@@ -144,9 +187,15 @@
 
   .result {
     padding: 0.1rem 0.5rem;
-    border-radius: 0.5rem;
     cursor: pointer;
+  }
+
+  a {
     transition: all 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    &:focus,
     &:hover {
       background: var(--color-bg-1);
     }
@@ -167,10 +216,5 @@
   .property {
     font-size: 1rem;
     margin-left: 0.2rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
   }
 </style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { afterUpdate, onMount } from 'svelte';
 
   export let disabled: boolean = false;
   export let size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' =
@@ -44,6 +44,8 @@
   };
 
   onMount(updateButtonStyle);
+
+  afterUpdate(updateButtonStyle);
 
   $: {
     updateButtonStyle();
