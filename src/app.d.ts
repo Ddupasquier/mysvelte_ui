@@ -202,7 +202,6 @@ interface LoaderProps {
   style?: string;
 }
 
-
 // * Checkbox TYPES
 interface CheckboxDisplayData {
   id: string;
@@ -224,9 +223,10 @@ interface CheckboxProps {
   name?: string;
   value?: string;
   label?: string;
+  labelColor?: string;
   disabled?: boolean;
   checked?: boolean;
   style?: string;
+  color?: string;
+  size?: 'small' | 'medium' | 'large';
 }
-
-
