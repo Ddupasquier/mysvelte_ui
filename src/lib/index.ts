@@ -22,4 +22,11 @@ export const Card = Object.assign(CardDefault, {
   Image,
 });
 
+import CheckboxDefault from './checkboxes/Checkbox.svelte';
+import CheckboxAnimated from './checkboxes/CheckboxAnimated.svelte';
+
+export const Checkbox = Object.assign(CheckboxDefault, {
+  Animated: CheckboxAnimated,
+});
+
 export { default as Popover } from './popovers/Popover.svelte';

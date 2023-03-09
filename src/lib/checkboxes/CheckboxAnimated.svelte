@@ -88,6 +88,19 @@
     border: solid rgb(129, 129, 129);
     border-width: 0 0.3em 0.2em 0;
     transform: rotate(130deg) scaleY(-1);
+    animation: check forwards 0.2s ease-in-out;
+  }
+  
+  @keyframes check {
+    0% {
+      /* width: 0; */
+      transform-origin: left bottom;
+      transform: rotate(130deg) scaleY(-1) scale(0);
+    }
+    100% {
+      /* width: 1em; */
+      transform: rotate(130deg) scaleY(-1) scale(1);
+    }
   }
 
   .label input:checked ~ .checkmark::before {

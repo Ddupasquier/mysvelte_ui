@@ -1,4 +1,4 @@
-import Checkbox from '$lib/checkboxes/Checkbox.svelte';
+import { Checkbox } from '$lib';
 
 export const checkboxes: CheckboxDisplayData[] = [
   {
@@ -187,4 +187,21 @@ export const checkboxes: CheckboxDisplayData[] = [
       },
     ],
   },
+  {
+    id: 'animated',
+    header: 'Checkbox Animated',
+    description:
+      '',
+    type: 'components',
+    examples: [
+      {
+        component: Checkbox.Animated,
+        props: {
+          label: 'Animated',
+          checked: true,
+        },
+        code: [`<Checkbox.Animated label="Animated" checked={true} />`],
+      },
+    ]
+  }
 ];
