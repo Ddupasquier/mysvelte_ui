@@ -29,4 +29,15 @@ export const Checkbox = Object.assign(CheckboxDefault, {
   Animated: CheckboxAnimated,
 });
 
+import LoaderDefault from './loaders/Loader.svelte';
+import Elips from './loaders/Elips.svelte';
+import Roll from './loaders/Roll.svelte';
+import BounceIcon from './loaders/BounceIcon.svelte';
+
+export const Loader = Object.assign(LoaderDefault, {
+  Elips,
+  Roll,
+  BounceIcon
+});
+
 export { default as Popover } from './popovers/Popover.svelte';

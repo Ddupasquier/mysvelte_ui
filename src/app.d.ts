@@ -197,7 +197,7 @@ interface LoaderExample {
 }
 
 interface LoaderProps {
-  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  size?: 'small' | 'medium' | 'large';
   color?: string;
   style?: string;
 }
