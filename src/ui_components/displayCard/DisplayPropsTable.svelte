@@ -1,10 +1,11 @@
 <script lang="ts">
   export let table: PropsTable | undefined;
+  export let isDarkMode: boolean
 </script>
 
 {#if table}
   <table>
-    <tbody>
+    <tbody style="color: {isDarkMode ? 'white' : 'black'}">
       {#each Object.keys(table) as key}
         <tr>
           <td>{key}</td>
@@ -41,9 +42,5 @@
 
   tr:last-child td {
     border-bottom: 0;
-  }
-
-  tr:hover td {
-    background-color: #f6f8fa;
   }
 </style>
