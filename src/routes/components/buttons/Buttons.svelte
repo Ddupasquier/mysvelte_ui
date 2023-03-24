@@ -6,7 +6,8 @@
 <h1>Buttons</h1>
 
 <h3>
-  {"import { Button } from 'mysvelte-ui';"}
+  {"import { Button } from 'mysvelte-ui';"}<br />
+  [.Bubble, .Animated]
 </h3>
 
 {#each buttons as button}

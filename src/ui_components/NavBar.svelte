@@ -1,14 +1,34 @@
-<script>
-  import { page } from '$app/stores';
-  import { NavComponentOptions } from './constants';
-  import { slide } from 'svelte/transition';
-  import logo from './images/svelte-logo.svg';
-  import BubbleButton from '$lib/buttons/BubbleButton.svelte';
-  import github from './images/github.svg';
-  import Search from './Search.svelte';
+<script lang="ts">
+  import { onMount } from "svelte";
+  import { page } from "$app/stores";
+  import { NavComponentOptions } from "./constants";
+  import { slide } from "svelte/transition";
+  import logo from "./images/svelte-logo.svg";
+  import BubbleButton from "$lib/buttons/BubbleButton.svelte";
+  import github from "./images/github.svg";
+  import Search from "./Search.svelte";
+
+  onMount(() => {
+    if (window.innerWidth > 1400) {
+      bubblesShown = true;
+    } else {
+      bubblesShown = false;
+    }
+  });
 
   $: optionsOpen = false;
+  $: bubblesShown = true;
 </script>
+
+<svelte:window
+  on:resize={() => {
+    if (window.innerWidth > 1400) {
+      bubblesShown = true;
+    } else {
+      bubblesShown = false;
+    }
+  }}
+/>
 
 <div class="sidebar">
   <nav>
@@ -21,17 +41,15 @@
       </div>
 
       <ul>
-        <li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
+        <li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
           <a href="/">Home</a>
         </li>
 
         <div class="option-container">
           <li
-            aria-current={$page.url.pathname === '/about' ? 'page' : undefined}
+            aria-current={$page.url.pathname === "/about" ? "page" : undefined}
           >
-            <button on:click={() => (optionsOpen = !optionsOpen)}
-              >Components</button
-            >
+            <button on:click={() => (optionsOpen = !optionsOpen)}>Components</button>
           </li>
 
           {#if optionsOpen}
@@ -43,11 +61,11 @@
                 {#each NavComponentOptions as option}
                   <li
                     aria-current={$page.url.pathname ===
-                    '/components' + option.path
-                      ? 'page'
+                    "/components" + option.path
+                      ? "page"
                       : undefined}
                   >
-                    <a href={'/components' + option.path}>{option.name}</a>
+                    <a href={"/components" + option.path}>{option.name}</a>
                   </li>
                 {/each}
               </ul>
@@ -56,24 +74,26 @@
         </div>
 
         <li
-          aria-current={$page.url.pathname === '/contact' ? 'page' : undefined}
+          aria-current={$page.url.pathname === "/contact" ? "page" : undefined}
         >
           <a href="/contact">Contact</a>
         </li>
       </ul>
     </div>
     <div class="bottom">
-      <BubbleButton>
-        <a href="https://github.com/Ddupasquier/mysvelte_ui" class="github">
-          <object type="image/svg+xml" data={github} title="github" />
-        </a>
-      </BubbleButton>
+      {#if bubblesShown}
+        <BubbleButton>
+          <a href="https://github.com/Ddupasquier/mysvelte_ui" class="github">
+            <object type="image/svg+xml" data={github} title="github" />
+          </a>
+        </BubbleButton>
+      {/if}
     </div>
   </nav>
 </div>
 
 <style lang="scss">
-  @use 'src/routes/breakpoints.scss' as breakpoints;
+  @use "src/routes/breakpoints.scss" as breakpoints;
   .sidebar {
     position: fixed;
     display: flex;
@@ -113,9 +133,9 @@
     padding: 0.5rem 1rem;
   }
 
-  li[aria-current='page']::before {
+  li[aria-current="page"]::before {
     --size: 8px;
-    content: '';
+    content: "";
     width: 0;
     height: 0;
     position: absolute;
@@ -219,16 +239,17 @@
     nav {
       width: 100%;
       flex-direction: row;
-      height: auto;
+      height: 85px;
       padding-right: 0.5rem;
 
       ul {
         width: 100%;
         flex-direction: row;
         justify-content: flex-end;
+        background: var(--menu-color);
       }
 
-      li[aria-current='page']::before {
+      li[aria-current="page"]::before {
         border: none;
       }
     }

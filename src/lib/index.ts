@@ -1,5 +1,12 @@
-export { default as Button } from './buttons/Button.svelte';
-export { default as BubbleButton } from './buttons/BubbleButton.svelte';
+import ButtonDefault from './buttons/Button.svelte';
+import ButtonBubble from './buttons/BubbleButton.svelte';
+import ButtonAnimated from './buttons/ButtonAnimated.svelte';
+
+export const Button = Object.assign(ButtonDefault, {
+  Bubble: ButtonBubble,
+  // Animated: ButtonAnimated,
+});
+
 export { default as Spacer } from './Spacer.svelte';
 
 import DefaultInput from './inputs/Input.svelte';

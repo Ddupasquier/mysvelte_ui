@@ -1,4 +1,4 @@
-import Button from '$lib/buttons/Button.svelte';
+import { Button } from '$lib';
 import {
   defaultModalShown,
   defaultModalSlot,
@@ -252,6 +252,22 @@ export const buttons: ButtonDisplayData[] = [
       },
     ],
   },
+  // {
+  //   id: 'animated',
+  //   header: 'Animated Button',
+  //   description:
+  //     'You can animate your button by adding the animated prop. (default: false)',
+  //   type: 'components',
+  //   examples: [
+  //     {
+  //       component: Button.Animated,
+  //       props: {
+  //         text: 'Animated',
+  //       },
+  //       code: '<Button.Animated />',
+  //     },
+  //   ],
+  // },
   {
     id: 'props',
     header: 'Button Props',

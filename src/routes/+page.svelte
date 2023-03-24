@@ -44,4 +44,16 @@
     align-items: center;
     flex: 0.6;
   }
+
+  p {
+    max-width: 800px;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 660px) {
+    p {
+      text-align: justify;
+    }
+  }
 </style>

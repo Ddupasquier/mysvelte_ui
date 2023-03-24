@@ -39,7 +39,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 3rem;
     width: 100%;
     max-width: 64rem;
     margin: 0 auto;
@@ -50,6 +50,12 @@
   @media screen and (max-width: breakpoints.$col-breakpoint) {
     .app {
       flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    main {
+      padding: 5rem;
     }
   }
 </style>
