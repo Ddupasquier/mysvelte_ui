@@ -116,12 +116,4 @@
   .green.dark {
     color: #5fff5f;
   }
-
-  .purple.light {
-    color: #5f5fff;
-  }
-
-  .purple.dark {
-    color: #9d5fff;
-  }
 </style>
