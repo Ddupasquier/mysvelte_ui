@@ -22,7 +22,7 @@
     codes = examples.map((example) => example.code);
   });
 
-  const createAndAnimateCircle = (e: MouseEvent, container: HTMLDivElement) => {
+  const createAndAnimateCircle = (container: HTMLDivElement) => {
     const circle = document.createElement("span");
     circle.classList.add("circle");
     circle.style.right = "10px";
@@ -45,7 +45,7 @@
     class="toggle"
     on:click={(e) => {
       isDarkMode = !isDarkMode;
-      createAndAnimateCircle(e, containerRef);
+      createAndAnimateCircle(containerRef);
     }}
   >
     {#if isDarkMode}
