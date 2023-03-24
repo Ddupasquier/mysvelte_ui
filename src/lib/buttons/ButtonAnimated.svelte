@@ -22,8 +22,6 @@
   let buttonStyle = "";
   let buttonRef: HTMLButtonElement;
 
-  $: console.dir(buttonRef);
-
   const removeBackgroundStyle = (styleString: string) => {
     return styleString.replace(/background:\s*[^;]+;?/, "");
   };
