@@ -1,21 +1,21 @@
 <script lang="ts">
-  import { copyToClipboard } from './utils';
-  import { onMount } from 'svelte';
+  import { copyToClipboard } from "./utils";
+  import { onMount } from "svelte";
 
   export let isDarkMode: boolean;
   export let code: string | string[];
   let codeArray: string[];
 
   const splitString = (code: string | string[]) => {
-    if (typeof code === 'undefined') return [];
+    if (typeof code === "undefined") return [];
 
-    if (typeof code === 'string') {
+    if (typeof code === "string") {
       return code.split(/([<=>/])|\s+/);
     } else {
       return code
         .map((c, i) => [
           ...c.split(/([<=>/])|\s+/),
-          i === code.length - 1 ? '' : '\n',
+          i === code.length - 1 ? "" : "\n",
         ])
         .flat();
     }
@@ -28,21 +28,23 @@
 
 {#if codeArray}
   <div
-    class={isDarkMode ? 'code dark' : 'code light'}
+    class={isDarkMode ? "code dark" : "code light"}
     on:mouseenter={() => (copyShown = true)}
     on:mouseleave={() => (copyShown = false)}
   >
     {#each codeArray as item, i}
-      {#if i > 0 && (codeArray[i - 1] === '<' || codeArray[i - 1] === '/')}
-        <span class="red">{item || ' '}</span>
-      {:else if (i < codeArray.length - 1 && codeArray[i + 1] === '=') || codeArray[i - 2] === '$:'}
-        <span class="green">{item || ' '}</span>
-      {:else if codeArray[i] === '\n'}
+      {#if i > 0 && (codeArray[i - 1] === "<" || codeArray[i - 1] === "/")}
+        <span class={isDarkMode ? "red dark" : "red light"}>{item || " "}</span>
+      {:else if (i < codeArray.length - 1 && codeArray[i + 1] === "=") || codeArray[i - 2] === "$:"}
+        <span class={isDarkMode ? "green dark" : "green light"}
+          >{item || " "}</span
+        >
+      {:else if codeArray[i] === "\n"}
         <br />
-      {:else if codeArray[i] === 'indent'}
+      {:else if codeArray[i] === "indent"}
         &nbsp;&nbsp;&nbsp;&nbsp;
       {:else}
-        {item || ' '}
+        {item || " "}
       {/if}
     {/each}
 
@@ -99,11 +101,27 @@
     }
   }
 
-  .red {
+  .red.light {
     color: #9d343d;
   }
 
-  .green {
+  .red.dark {
+    color: #ff5f5f;
+  }
+
+  .green.light {
     color: #3b7015;
+  }
+
+  .green.dark {
+    color: #5fff5f;
+  }
+
+  .purple.light {
+    color: #5f5fff;
+  }
+
+  .purple.dark {
+    color: #9d5fff;
   }
 </style>
