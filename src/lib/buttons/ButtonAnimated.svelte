@@ -1,4 +1,4 @@
-<!-- <script lang="ts">
+<script lang="ts">
   import { afterUpdate, onMount } from "svelte";
 
   export let disabled: boolean = false;
@@ -20,7 +20,9 @@
   };
 
   let buttonStyle = "";
-  let thisButton: HTMLButtonElement;
+  let buttonRef: HTMLButtonElement;
+
+  $: console.dir(buttonRef);
 
   const removeBackgroundStyle = (styleString: string) => {
     return styleString.replace(/background:\s*[^;]+;?/, "");
@@ -44,20 +46,6 @@
     buttonStyle = `${baseStyle} ${additionalStyle}`.trim();
   };
 
-  const handleClick = (event: MouseEvent) => {
-    const ripple = document.createElement("div");
-    ripple.classList.add("ripple");
-    const diameter = Math.max(thisButton.clientWidth, thisButton.clientHeight);
-    const radius = diameter / 2;
-    ripple.style.width = ripple.style.height = `${diameter}px`;
-    ripple.style.left = `${event.clientX - thisButton.offsetLeft - radius}px`;
-    ripple.style.top = `${event.clientY - thisButton.offsetTop - radius}px`;
-    thisButton.appendChild(ripple);
-    setTimeout(() => {
-      ripple.remove();
-    }, 1000);
-  };
-
   onMount(updateButtonStyle);
 
   afterUpdate(updateButtonStyle);
@@ -65,6 +53,19 @@
   $: {
     updateButtonStyle();
   }
+
+  const createAndAnimateCircle = (container: HTMLElement) => {
+    const circle = document.createElement("span");
+    circle.classList.add("circle");
+    circle.style.left = buttonRef.clientWidth / 2 + "px";
+    circle.style.top = buttonRef.clientHeight / 2 + "px";
+    circle.style.background = "rgba(255, 255, 255, 0.5)";
+    container.appendChild(circle);
+
+    setTimeout(() => {
+      circle.remove();
+    }, 300);
+  };
 </script>
 
 <button
@@ -73,25 +74,29 @@
   style={buttonStyle}
   class={isLoading ? "loading" : isError ? "error" : ""}
   on:click
-  on:click={handleClick}
+  on:click={() => createAndAnimateCircle(buttonRef)}
   on:mouseover
   on:mouseenter
   on:mouseleave
   on:focus
   on:blur
-  bind:this={thisButton}
+  bind:this={buttonRef}
 >
-  <slot>{text}</slot>
+  <div class="content-wrapper">
+    <slot>{text}</slot>
+  </div>
 </button>
 
 <style lang="scss">
   button {
+    position: relative;
     border: none;
     border-radius: 0.3rem;
     color: #fff;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    overflow: hidden;
   }
 
   .loading {
@@ -119,4 +124,29 @@
       box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.5) inset;
     }
   }
-</style> -->
+
+  .content-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  :global(.circle) {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.5s;
+    z-index: 1;
+    animation: circle 0.5s ease;
+  }
+
+  @keyframes circle {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(10);
+    }
+  }
+</style>

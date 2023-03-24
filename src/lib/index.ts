@@ -4,7 +4,7 @@ import ButtonAnimated from './buttons/ButtonAnimated.svelte';
 
 export const Button = Object.assign(ButtonDefault, {
   Bubble: ButtonBubble,
-  // Animated: ButtonAnimated,
+  Animated: ButtonAnimated,
 });
 
 export { default as Spacer } from './Spacer.svelte';
