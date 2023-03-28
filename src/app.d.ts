@@ -17,7 +17,7 @@ interface ButtonDisplayData {
 interface ButtonExample {
   component?: SvelteComponentTyped;
   props?: ButtonProps;
-  code?: string;
+  code?: string[] | string;
 }
 
 interface ButtonProps {
@@ -31,6 +31,11 @@ interface ButtonProps {
   style?: string;
   'on:click'?: () => void;
   className?: string;
+  animated?: boolean;
+}
+
+interface ButtonIconProps extends ButtonProps {
+  icon: string;
 }
 
 // * INPUT TYPES
