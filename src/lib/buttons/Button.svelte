@@ -1,36 +1,37 @@
 <script lang="ts">
-  import { afterUpdate, onMount } from 'svelte';
+  import { createAndAnimateCircle } from "../animations/buttonAnimations";
+  import { afterUpdate, onMount } from "svelte";
 
   export let disabled: boolean = false;
-  export let size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' =
-    'medium';
-  export let background: string = '#c50eff';
+  export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
+    "medium";
+  export let background: string = "#c50eff";
   export let animated: boolean = false;
-  export let color: string = '#fff';
-  export let text: string = '';
+  export let color: string = "#fff";
+  export let text: string = "";
   export let isLoading: boolean = false;
   export let isError: boolean = false;
-  export let style: string = '';
+  export let style: string = "";
 
   const sizeValues: Record<typeof size, string> = {
-    xsmall: '0.125rem 0.25rem',
-    small: '0.25rem 0.5rem',
-    medium: '0.5rem 1rem',
-    large: '0.75rem 1.5rem',
-    xlarge: '1rem 2rem',
+    xsmall: "0.125rem 0.25rem",
+    small: "0.25rem 0.5rem",
+    medium: "0.5rem 1rem",
+    large: "0.75rem 1.5rem",
+    xlarge: "1rem 2rem",
   };
 
-  let buttonStyle = '';
+  let buttonStyle = "";
   let buttonRef: HTMLButtonElement;
 
   const removeBackgroundStyle = (styleString: string) => {
-    return styleString.replace(/background:\s*[^;]+;?/, '');
+    return styleString.replace(/background:\s*[^;]+;?/, "");
   };
 
   const updateButtonStyle = () => {
     let baseStyle = `background: ${background}; color: ${color}; padding: ${sizeValues[size]}; ${style};`;
 
-    let additionalStyle = '';
+    let additionalStyle = "";
 
     if (disabled) {
       additionalStyle = `background: #ccc; pointer-events: none; padding: ${
@@ -43,21 +44,6 @@
     }
 
     buttonStyle = `${baseStyle} ${additionalStyle}`.trim();
-  };
-
-  const createAndAnimateCircle = (container: HTMLElement) => {
-    if (animated) {
-      const circle = document.createElement("span");
-      circle.classList.add("btn-circle");
-      circle.style.left = buttonRef.clientWidth / 2 + "px";
-      circle.style.top = buttonRef.clientHeight / 2 + "px";
-      circle.style.background = "rgba(255, 255, 255, 0.5)";
-      container.appendChild(circle);
-
-      setTimeout(() => {
-        circle.remove();
-      }, 300);
-    }
   };
 
   onMount(updateButtonStyle);
@@ -73,9 +59,9 @@
   {disabled}
   {...$$restProps}
   style={buttonStyle}
-  class={(isLoading ? 'loading' : isError ? 'error' : '')}
+  class={isLoading ? "loading" : isError ? "error" : ""}
   on:click
-  on:click={() => createAndAnimateCircle(buttonRef)}
+  on:click={(e) => createAndAnimateCircle(buttonRef, animated, e)}
   on:mouseover
   on:mouseenter
   on:mouseleave

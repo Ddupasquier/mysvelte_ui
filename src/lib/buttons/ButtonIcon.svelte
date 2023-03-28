@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { createAndAnimateCircle } from "../animations/buttonAnimations";
     import { afterUpdate, onMount } from "svelte";
 
     export let disabled: boolean = false;
@@ -72,25 +73,8 @@
         }
     };
 
-    const createAndAnimateCircle = (container: HTMLElement) => {
-        if (animated) {
-            const circle = document.createElement("span");
-            circle.classList.add("btn-circle");
-            circle.style.left = buttonRef.clientWidth / 2 + "px";
-            circle.style.top = buttonRef.clientHeight / 2 + "px";
-            circle.style.background = "rgba(255, 255, 255, 0.5)";
-            container.appendChild(circle);
-
-            setTimeout(() => {
-                circle.remove();
-            }, 300);
-        }
-    };
-
-
     onMount(() => {
         iconSize = iconSizes[size];
-        console.log(iconSize);
         updateWrapperStyle();
         updateIconColor();
     });
@@ -118,7 +102,7 @@
         style={buttonStyle}
         class={isLoading ? "loading" : isError ? "error" : ""}
         on:click
-        on:click={() => createAndAnimateCircle(buttonRef)}
+        on:click={(e) => createAndAnimateCircle(buttonRef, animated, e)}
         on:mouseover
         on:mouseenter
         on:mouseleave
@@ -159,7 +143,7 @@
     }
 
     .icon-div:first-child {
-       transition: all .5s;
+        transition: all 0.5s;
     }
 
     .loading {
