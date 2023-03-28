@@ -1,4 +1,3 @@
-import { Button } from '$lib';
 import Popover from '$lib/popovers/Popover.svelte';
 
 export const popovers: PopoverDisplayData[] = [
