@@ -30,7 +30,6 @@ interface ButtonProps {
   isError?: boolean;
   style?: string;
   'on:click'?: () => void;
-  className?: string;
   animated?: boolean;
 }
 
@@ -70,7 +69,6 @@ interface InputProps {
   clearable?: boolean;
   isError?: boolean;
   isLoading?: boolean;
-  className?: string;
 }
 
 interface PrefixProps extends InputProps {
