@@ -13,7 +13,7 @@ export const inputs: InputDisplayData[] = [
           value: '',
           placeholder: 'Search',
         },
-        code: ['$: val', "<Input placeholder='search' bind:value={val} />"],
+        code: ['let val', "<Input placeholder='search' bind:value={val} />"],
       },
     ],
   },
@@ -172,7 +172,7 @@ export const inputs: InputDisplayData[] = [
     id: 'prefix',
     header: 'Prefix',
     description:
-      'You can add a prefix the this input by using dot notation IE. Input.Prefix. \nYou can also change the prefix from the default using the prefix prop. (default: @)\n\nconst prefix = "@" \n$: val = "example"\n\nconst handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(`${prefix}@{val}`); // @example\n};\n\n<form on:submit={handleSubmit}>\n  <Input.Prefix prefix={prefix} placeholder="Search" bind:value={val} />\n</form>',
+      'You can add a prefix the this input by using dot notation IE. Input.Prefix. \nYou can also change the prefix from the default using the prefix prop. (default: @)\n\nconst prefix = "@" \nlet val = "example"\n\nconst handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(`${prefix}@{val}`); // @example\n};\n\n<form on:submit={handleSubmit}>\n  <Input.Prefix prefix={prefix} placeholder="Search" bind:value={val} />\n</form>',
     type: 'components',
     examples: [
       {
