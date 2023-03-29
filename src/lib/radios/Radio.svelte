@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { createEventDispatcher } from "svelte";
+
     // Props
     export let options: string[] = [];
     export let labelColor: string = "#000";
@@ -6,6 +8,8 @@
     export let size: "small" | "medium" | "large" = "medium";
     export let disabled: boolean = false;
     export let selected: string[] = [];
+    export let groupId: string = "radio-group";
+    export let use: "one" | "many" = "one";
 
     // Local state
     let inputStyle = "";
@@ -17,11 +21,18 @@
         large: "1.15",
     };
 
+    // Event dispatcher
+    const dispatch = createEventDispatcher();
+
     // Event handlers
     const handleInput = (event: Event, option: string) => {
         const target = event.target as HTMLInputElement;
         if (target.checked) {
-            selected.push(option);
+            if (use === "one") {
+                selected = [option];
+            } else {
+                selected.push(option);
+            }
         } else {
             const index = selected.indexOf(option);
             if (index > -1) {
@@ -29,16 +40,24 @@
             }
         }
         selected = [...selected];
+        dispatch("updateSelected", selected);
     };
 </script>
 
-<div class="radio-container">
+<div class="radio-container" role="radiogroup">
     {#each options as option (option)}
         <div class="radio-option" {...$$restProps}>
-            <label class="label" style="color: {labelColor}">
+            <label
+                class="label"
+                style="color: {labelColor}"
+                id={`label-${option}`}
+            >
                 <input
-                    type="radio"
-                    name="radio-group"
+                    type={use === "one" ? "radio" : "checkbox"}
+                    role={use === "one" ? "radio" : "checkbox"}
+                    name={groupId}
+                    aria-checked={selected.includes(option)}
+                    aria-labelledby={`label-${option}`}
                     {disabled}
                     checked={selected.includes(option)}
                     on:change={(e) => handleInput(e, option)}
@@ -61,6 +80,7 @@
     .radio-container {
         display: flex;
         flex-direction: column;
+        width: fit-content;
     }
 
     .radio-option {
