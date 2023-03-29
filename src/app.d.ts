@@ -82,6 +82,7 @@ interface CardDisplayData {
   description: string;
   type: 'gallery' | 'components' | 'nested' | 'table';
   examples: CardExample[];
+  table?: PropsTable;
 }
 
 interface CardNested {
@@ -149,13 +150,12 @@ interface RadioExample {
 }
 
 interface RadioProps {
-  id?: string;
-  name?: string;
-  value?: string;
-  label?: string;
+  options?: string[];
+  selected?: string[];
+  labelColor?: string;
+  color?: string;
+  size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
-  checked?: boolean;
-  style?: string;
 }
 
 // * Dropdown TYPES

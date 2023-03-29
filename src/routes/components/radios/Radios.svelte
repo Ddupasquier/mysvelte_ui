@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
   import { radios} from './constants';
 </script>
