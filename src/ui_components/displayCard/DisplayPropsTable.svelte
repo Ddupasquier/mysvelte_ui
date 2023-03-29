@@ -1,6 +1,17 @@
 <script lang="ts">
   export let table: PropsTable | undefined;
   export let isDarkMode: boolean;
+
+  function handleAnchorClick (event: { preventDefault: () => void; currentTarget: any; }) {
+		event.preventDefault()
+		const link = event.currentTarget
+		const anchorId = new URL(link.href).hash.replace('#', '')
+		const anchor = document.getElementById(anchorId)
+		window.scrollTo({
+			top: anchor?.offsetTop,
+			behavior: 'smooth'
+		})
+	}
 </script>
 
 {#if table}
@@ -9,7 +20,7 @@
       <tr>
         <th>Prop</th>
         <th>Description</th>
-        <th>Default</th>
+        <th class="default-head">Default</th>
       </tr>
     </thead>
     <tbody style="color: {isDarkMode ? 'white' : 'black'}">
@@ -28,6 +39,7 @@
                 href={`/components?items=${table.tableName}#${table.rows[
                   key
                 ].name.replace("!", "")}`}
+                on:click={handleAnchorClick}
               >
                 {table.rows[key].name.replace("!", "")}
               </a>
@@ -92,6 +104,10 @@
 
   .defaults {
     font-style: italic;
+    text-align: right;
+  }
+
+  .default-head {
     text-align: right;
   }
 

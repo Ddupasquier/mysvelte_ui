@@ -1,33 +1,33 @@
 <script lang="ts">
-  import { page } from '$app/stores';
-  import Checkboxes from './checkboxes/Checkboxes.svelte';
-  import Loaders from './loaders/Loaders.svelte';
-  import Dropdowns from './dropdowns/Dropdowns.svelte';
-  import Radios from './radios/Radios.svelte';
-  import Popovers from './popovers/Popovers.svelte';
-  import Buttons from './buttons/Buttons.svelte';
-  import Inputs from './inputs/Inputs.svelte';
+  import { page } from "$app/stores";
+  import Checkboxes from "./checkboxes/Checkboxes.svelte";
+  import Loaders from "./loaders/Loaders.svelte";
+  import Dropdowns from "./dropdowns/Dropdowns.svelte";
+  import Radios from "./radios/Radios.svelte";
+  import Popovers from "./popovers/Popovers.svelte";
+  import Buttons from "./buttons/Buttons.svelte";
+  import Inputs from "./inputs/Inputs.svelte";
 
-  import Cards from './cards/Cards.svelte';
+  import Cards from "./cards/Cards.svelte";
 
-  $: items = $page.url.searchParams.get('items');
+  $: items = $page.url.searchParams.get("items");
 </script>
 
-{#if items === 'buttons'}
+{#if items === "buttons"}
   <Buttons />
-{:else if items === 'inputs'}
+{:else if items === "inputs"}
   <Inputs />
-{:else if items === 'cards'}
+{:else if items === "cards"}
   <Cards />
-{:else if items === 'popovers'}
+{:else if items === "popovers"}
   <Popovers />
-{:else if items === 'radios'}
+{:else if items === "radios"}
   <Radios />
-{:else if items === 'dropdowns'}
+{:else if items === "dropdowns"}
   <Dropdowns />
-{:else if items === 'loaders'}
+{:else if items === "loaders"}
   <Loaders />
-{:else if items === 'checkboxes'}
+{:else if items === "checkboxes"}
   <Checkboxes />
 {:else}
   <div class="oops">

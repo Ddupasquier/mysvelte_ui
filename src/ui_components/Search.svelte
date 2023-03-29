@@ -16,6 +16,17 @@
           id.toLowerCase().includes(searchTerm.toLowerCase())
         );
   $: if (!isOpen) searchTerm = '';
+
+  function handleAnchorClick (event: { preventDefault: () => void; currentTarget: any; }) {
+		event.preventDefault()
+		const link = event.currentTarget
+		const anchorId = new URL(link.href).hash.replace('#', '')
+		const anchor = document.getElementById(anchorId)
+		window.scrollTo({
+			top: anchor?.offsetTop,
+			behavior: 'smooth'
+		})
+	}
 </script>
 
 <svelte:window
@@ -94,7 +105,7 @@
       <div class="search-results" transition:slide>
         {#each searchResults as id}
           {@const { component, id: componentId } = splitSearchResult(id)}
-          <a href={`/components?items=${component + 's'}#${componentId}`} {id}>
+          <a href={`/components?items=${component + 's'}#${componentId}`} {id} on:click={handleAnchorClick}>
             <div class="result">
               <span class="component">{component}</span>:
               <span class="hash">#</span><span class="property">
