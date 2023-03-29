@@ -19,6 +19,6 @@ export const createAndAnimateCircle = (
 
         setTimeout(() => {
             circle.remove();
-        }, 300);
+        }, 400);
     }
 };
