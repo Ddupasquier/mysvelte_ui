@@ -17,5 +17,6 @@
     examples={card.examples}
     description={card.description}
     type={card.type}
+    table={card.table}
   />
 {/each}
