@@ -253,4 +253,33 @@ export const cards: CardDisplayData[] = [
       },
     ],
   },
+  {
+    id: 'props',
+    header: 'Props',
+    description: 'Props',
+    type: 'table',
+    table: {
+      tableName: 'cards',
+      rows: [
+        {
+          name: 'background',
+          description: 'Background color',
+          default: 'white',
+          nav: true,
+        },
+        {
+          name: 'images',
+          description: 'Image url',
+          default: '',
+          nav: true,
+        },
+      ],
+    },
+    examples: [
+      {
+        component: null,
+        props: {},
+      },
+    ],
+  }
 ];

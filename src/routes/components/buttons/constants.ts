@@ -174,7 +174,7 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'css',
+    id: 'style',
     header: 'Custom Button',
     description:
       'Adding custom styling is easy as pie. Just do your usual style="..." in string format. \nYour styles can override || accompany the default styles.',
@@ -333,25 +333,66 @@ export const buttons: ButtonDisplayData[] = [
   {
     id: 'button props',
     header: 'Button Props',
-    description:
-      'Here is a list of all the props you can use to customize your button. All props are optional.\nYou may also use all native HTML button attributes.',
+    description: 'Here is a list of all the props you can use to customize your button. All props are optional.\nYou may also use all native HTML button attributes.',
     type: 'table',
     table: {
-      disabled:
-        'A boolean that indicates whether the button is disabled or not. Defaults to false.',
-      size: "A string that indicates the size of the button. The possible values are 'xsmall', 'small','medium', 'large', and 'xlarge'. Defaults to 'medium'.",
-      background:
-        "A string that indicates the background color of the button. Defaults to '#c50eff'.",
-      color:
-        "A string that indicates the text color of the button. Defaults to '#fff'.",
-      isLoading:
-        'A boolean that indicates whether the button is in a loading state or not. When set to true, the button will be disabled and display a loading spinner. Defaults to false.',
-      isError:
-        'A boolean that indicates whether the button is in an error state or not. When set to true, the button will be disabled and display an error border. Defaults to false.',
-      on: 'An object that contains event listeners for the button. See the events section for more information.',
-      style:
-        'A string that sets additional styles to the button. This should be a valid CSS string.',
-      animated: 'A boolean that indicates whether the button should animate on click. Defaults to false.',
+      tableName: 'buttons',
+      rows: [
+        {
+          name: 'disabled',
+          description: 'A boolean that indicates whether the button is disabled or not.',
+          default: 'false',
+          nav: false
+        },
+        {
+          name: 'size',
+          description: "A string that indicates the size of the button. The possible values are 'xsmall', 'small','medium', 'large', and 'xlarge'.",
+          default: 'medium',
+          nav: true
+        },
+        {
+          name: 'background',
+          description: "A string that indicates the background color of the button.",
+          default: '#c50eff',
+          nav: true
+        },
+        {
+          name: 'color',
+          description: "A string that indicates the text color of the button.",
+          default: '#fff',
+          nav: true
+        },
+        {
+          name: 'isLoading',
+          description: 'A boolean that indicates whether the button is in a loading state or not. When set to true, the button will be disabled and display a loading spinner.',
+          default: 'false',
+          nav: false
+        },
+        {
+          name: 'isError',
+          description: 'A boolean that indicates whether the button is in an error state or not. When set to true, the button will be disabled and display an error border.',
+          default: 'false',
+          nav: false
+        },
+        {
+          name: 'events',
+          description: 'You can add event listeners to your button by using the on:click, on:mouseover, on:mouseenter, on:mouseleave, on:focus, on:blur props. The event listener will be passed the event object as the first argument.',
+          default: '',
+          nav: true
+        },
+        {
+          name: 'style',
+          description: 'A string that sets additional styles to the button. This should be a valid CSS string.',
+          default: '\'\'',
+          nav: true
+        },
+        {
+          name: 'animated',
+          description: 'A boolean that indicates whether the button should animate on click.',
+          default: 'false',
+          nav: true
+        },
+      ]
     },
     examples: [
       {
@@ -367,8 +408,15 @@ export const buttons: ButtonDisplayData[] = [
       'The props of Icon are mostly the same as button. The only difference is the addition of the `icon` prop.\nYou may also use all native HTML button attributes.',
     type: 'table',
     table: {
-      icon:
-        'A string that contains the icon to display. This should be a valid html/xml string. This prop is optional, as you can also use the `icon` slot.',
+      tableName: 'buttons',
+      rows: [
+        {
+          name: 'icon',
+          description: 'A string that contains the icon to display. This should be a valid html/xml string. This prop is optional, as you can also use the `icon` slot.',
+          default: 'null',
+          nav: true
+        }
+      ]
     },
     examples: [
       {

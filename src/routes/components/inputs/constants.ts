@@ -204,15 +204,51 @@ export const inputs: InputDisplayData[] = [
     description: 'Input accepts all native input props.',
     type: 'table',
     table: {
-      background:
-        'Accepts a string value for the background color of the input.',
-      color: 'Accepts a string value for the color of the input.',
-      label: 'Accepts a boolean value for the label of the input.',
-      labelIn: 'Accepts a boolean value for the label to be inside the input.',
-      placeholder: 'Accepts a string value for the placeholder of the input.',
-      variant:
-        'Accepts a string value for the variant of the input. Variants include: default, outline, and line.',
-      prefix: 'Accepts a string value for the prefix of the input.',
+      tableName: 'inputs',
+      rows: [
+        {
+          name: 'background',
+          description: 'Accepts a string value for the background color of the input.',
+          default: '#fff',
+          nav: true
+        },
+        {
+          name: 'color',
+          description: 'Accepts a string value for the color of the input.',
+          default: '#000',
+          nav: true
+        },
+        {
+          name: 'label',
+          description: 'Accepts a boolean value for the label of the input.',
+          default: 'false',
+          nav: true
+        },
+        {
+          name: 'labelIn',
+          description: 'Accepts a boolean value for the label to be inside the input.',
+          default: 'false',
+          nav: false
+        },
+        {
+          name: 'placeholder',
+          description: 'Accepts a string value for the placeholder of the input.',
+          default: '""',
+          nav: true
+        },
+        {
+          name: 'variants',
+          description: 'Accepts a string value for the variant of the input. Variants include: default, outline, and line.',
+          default: 'default',
+          nav: true
+        },
+        {
+          name: 'prefix',
+          description: 'You can use dot notation to change the input to the prefixed input component.',
+          default: '',
+          nav: true
+        },
+      ],
     },
     examples: [
       {
@@ -220,5 +256,5 @@ export const inputs: InputDisplayData[] = [
         props: {},
       },
     ],
-  },
+  }
 ];

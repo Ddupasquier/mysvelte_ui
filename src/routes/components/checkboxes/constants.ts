@@ -203,5 +203,58 @@ export const checkboxes: CheckboxDisplayData[] = [
         code: [`<Checkbox.Animated label="Animated" checked={true} />`],
       },
     ]
+  },
+  {
+    id: 'props',
+    header: 'Checkbox Props',
+    description: 'Checkbox Props',
+    type: 'table',
+    table: {
+      tableName: 'checkboxes',
+      rows: [
+        {
+          name: 'label',
+          description: 'The label of the checkbox.',
+          default: 'Checkbox',
+          nav: true
+        },
+        {
+          name: 'labelColor',
+          description: 'The color of the checkbox label.',
+          default: 'black',
+          nav: false
+        },
+        {
+          name: 'disabled',
+          description: 'The disabled state of the checkbox.',
+          default: 'false',
+          nav: true
+        },
+        {
+          name: 'checked',
+          description: 'The checked state of the checkbox.',
+          default: 'false',
+          nav: false
+        },
+        {
+          name: 'color',
+          description: 'The color of the checkbox.',
+          default: 'black',
+          nav: true
+        },
+        {
+          name: 'size',
+          description: 'The size of the checkbox.',
+          default: 'medium',
+          nav: true
+        },
+      ]
+    },
+    examples: [
+      {
+        component: null,
+        props: {},
+      },
+    ],
   }
 ];
