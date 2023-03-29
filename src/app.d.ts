@@ -1,7 +1,15 @@
 type ComponentPropertyString = `${string}_${string}`;
 
 type PropsTable = {
-  [key: string]: string;
+  tableName: string;
+  rows: Record<string, TableRow>
+};
+
+type tableRow = {
+  name: string;
+  description: string;
+  default: string;
+  nav: boolean;
 };
 
 // * BUTTON TYPES
@@ -150,12 +158,14 @@ interface RadioExample {
 }
 
 interface RadioProps {
-  options?: string[];
+  options: string[];
   selected?: string[];
   labelColor?: string;
   color?: string;
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
+  groupId: string;
+  use?: 'one' | 'many';
 }
 
 // * Dropdown TYPES
