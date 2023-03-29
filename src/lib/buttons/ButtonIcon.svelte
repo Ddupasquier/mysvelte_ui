@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { createAndAnimateCircle } from "../animations/buttonAnimations";
+    import { createAndAnimateCircle } from "$lib/animations/buttonAnimations";
     import { afterUpdate, onMount } from "svelte";
 
     export let disabled: boolean = false;
@@ -92,7 +92,7 @@
 
 <div class="wrapper" style={wrapperStyle}>
     {#if icon !== ""}
-        <div class="icon-div" bind:this={iconRef} style="width: {iconSize}">
+        <div class="icon-div" bind:this={iconRef} style="height: {iconSize}; width: {iconSize}">
             <slot name="icon">{@html icon}</slot>
         </div>
     {/if}
@@ -119,6 +119,7 @@
         display: grid;
         grid-template-columns: 1fr auto;
         border-radius: 0.3rem;
+        width: fit-content;
     }
 
     button {
@@ -140,6 +141,7 @@
         justify-content: center;
         border-radius: 0.3rem 0 0 0.3rem;
         backdrop-filter: brightness(0.87);
+        padding: 5%;
     }
 
     .icon-div:first-child {
@@ -180,7 +182,7 @@
         transform: scale(0);
         transition: 0.5s;
         z-index: 1;
-        animation: circle 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+        animation: circle 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
     }
 
     @keyframes circle {
