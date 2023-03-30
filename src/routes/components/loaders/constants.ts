@@ -89,6 +89,7 @@ export const loaders: LoaderDisplayData[] = [
         component: Loader.BounceIcon,
         props: {
           color: '#c50eff',
+          size: 'large'
         },
         code: [`<Loader.BounceIcon size={size} />`],
       },
@@ -116,8 +117,6 @@ export const loaders: LoaderDisplayData[] = [
       {
         component: Loader.Progress,
         props: {
-          color: '#c50eff',
-          size: 'medium',
           speed: 'medium',
         },
         code: [`<Loader.Progress size={size} />`],
