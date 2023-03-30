@@ -1,6 +1,6 @@
-<!-- <script lang="ts">
+<script lang="ts">
   import Button from '$lib/buttons/Button.svelte';
-  import { afterUpdate, onMount } from 'svelte';
+  import { afterUpdate, onMount, onDestroy } from 'svelte';
   import { fly } from 'svelte/transition';
 
   export let direction: 'top' | 'bottom' | 'left' | 'right' = 'right';
@@ -19,8 +19,9 @@
 
     const triggerRect = triggerEl.getBoundingClientRect();
     const popoverRect = popoverEl.getBoundingClientRect();
-    let top = triggerRect.top + window.pageYOffset;
-    let left = triggerRect.left + window.pageXOffset;
+    
+    let top = triggerRect.top;
+    let left = triggerRect.left;
 
     switch (direction) {
       case 'top':
@@ -60,10 +61,15 @@
 
   onMount(() => {
     positionPopover();
+    window.addEventListener('scroll', positionPopover);
   });
 
   afterUpdate(() => {
     positionPopover();
+  });
+
+  onDestroy(() => {
+  window.removeEventListener('scroll', positionPopover);
   });
 
   $: {
@@ -142,4 +148,4 @@
     height: fit-content;
     z-index: 1000;
   }
-</style> -->
+</style>
