@@ -8,7 +8,7 @@ Better documentation pending.
 
 Our Svelte component library is designed to be an easily importable solution that streamlines the development process for both beginners and experienced developers. With a focus on simplicity, you can quickly and easily get up and running by importing our components into your project. Our intuitive design makes it easy to understand and use our components, eliminating the need to spend hours reading documentation or trying to figure out how to use them. Our library is the perfect choice for anyone looking to save time and streamline their workflow, without the hassle of downloading or importing anything. So why not give our library a try today and see how it can simplify your development process?
 
-# In order to use the components, you need to run the following commands:
+## In order to use the components, you need to run the following commands:
 
 From terminal in project directory:
 ```bash
