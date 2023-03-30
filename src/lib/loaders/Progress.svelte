@@ -1,44 +1,31 @@
 <script lang="ts">
-    // Props
-    import { beforeUpdate, onMount } from 'svelte';
+    import { onMount } from 'svelte';
 
     export let color: string = "#c50eff";
     export let size: "small" | "medium" | "large" = "medium";
     export let style: string = "";
     export let speed: "short" | "medium" | "long" = "medium";
 
-    // instead of using a keyframe animation, we can use JS to time the transition
-    // interval to update the scale of the thing
-
-
-    // Local state
-    let containerStyle = "";
     let loaderStyle = "";
     let loaderSpeed = "5";
-    let startingScale = 0.1;
-    let endingScale = 1;
-
-    // Plan:
-    // start scale at 0%/0.1% or whatever
-
-    // 0 - 100 over 5s
-    // increase scale from 0% - 100% over 5s
-
-
-    $: loaderStyle = `background: ${color};`;
     let loaderRef: HTMLDivElement;
-    
-    const growProgress = () => {
-        loaderRef.style.transform = `scale(${endingScale})`;
-    };
 
-    onMount(() => {
-        growProgress();
-    });
+    $: {
+        loaderStyle = `background: ${color};`;
 
-    // beforeUpdate(() => {
-    //     loaderStyle = `animation: progress ${loaderSpeed}s infinite ease-in-out`;
-    // })
+        const speedToDuration = {
+            short: "2s",
+            medium: "5s",
+            long: "10s",
+        };
+        loaderSpeed = speedToDuration[speed];
+
+        if (loaderRef) {
+            loaderRef.style.setProperty("--animation-duration", loaderSpeed);
+        }
+    }
+
+    onMount(() => {});
 
 </script>
 
@@ -63,7 +50,7 @@
         height: 100%;
         min-width: 1px;
         background: #c50eff;
-        /* animation: progress 5s infinite ease-in-out; */
+        animation: progress var(--animation-duration) infinite ease-in-out;
         transform-origin: top-left;
     }
     @keyframes progress {
@@ -75,6 +62,3 @@
         }
     }
 </style>
-
-<!-- markup (zero or more items) goes here -->
-
