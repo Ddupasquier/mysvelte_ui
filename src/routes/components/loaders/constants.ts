@@ -115,5 +115,20 @@ export const loaders: LoaderDisplayData[] = [
       },
     ],
   },
+  {
+    id: 'loader-progress',
+    header: 'Loader Progress',
+    description: 'A simple loader component',
+    type: 'components',
+    examples: [
+      {
+        component: Loader.Progress,
+        props: {},
+        code: [
+          `<Loader.Progress size={size} />`,
+        ],
+      },
+    ],
+  },
 ];
 
