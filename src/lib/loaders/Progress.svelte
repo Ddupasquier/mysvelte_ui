@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
 
     export let color: string = "#c50eff";
+    export let background: string = "white";
     export let size: "small" | "medium" | "large" = "medium";
     export let style: string = "";
     export let speed: "short" | "medium" | "long" = "medium";
@@ -9,6 +10,12 @@
     let loaderStyle = "";
     let loaderSpeed = "5";
     let loaderRef: HTMLDivElement;
+
+    const widthValues: Record<typeof size, number> = {
+        small: 100,
+        medium: 200,
+        large: 300,
+    };
 
     $: {
         loaderStyle = `background: ${color};`;
@@ -25,11 +32,13 @@
         }
     }
 
+    $: containerStyle = `width: ${widthValues[size]}px; background-color: ${background}; height: 30px; ${style}`;
+
     onMount(() => {});
 
 </script>
 
-<div class="loader-container">
+<div class="loader-container" style={containerStyle}>
     <div 
         class="loader" 
         style={loaderStyle} 
@@ -42,7 +51,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        width: 100px;
+        width: 300px;
         background-color: white;
         height: 30px;
     }

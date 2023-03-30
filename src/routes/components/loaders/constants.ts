@@ -12,9 +12,7 @@ export const loaders: LoaderDisplayData[] = [
         props: {
           color: '#c50eff',
         },
-        code: [
-          `<Loader size={size} />`,
-        ],
+        code: [`<Loader size={size} />`],
       },
       {
         component: Loader,
@@ -39,7 +37,7 @@ export const loaders: LoaderDisplayData[] = [
         props: {
           color: '#FFC844',
         },
-      }
+      },
     ],
   },
   {
@@ -53,9 +51,7 @@ export const loaders: LoaderDisplayData[] = [
         props: {
           color: '#c50eff',
         },
-        code: [
-          `<Loader.Elips size={size} />`,
-        ],
+        code: [`<Loader.Elips size={size} />`],
       },
       {
         component: Loader.Elips,
@@ -80,7 +76,7 @@ export const loaders: LoaderDisplayData[] = [
         props: {
           color: '#FFC844',
         },
-      }
+      },
     ],
   },
   {
@@ -94,9 +90,7 @@ export const loaders: LoaderDisplayData[] = [
         props: {
           color: '#c50eff',
         },
-        code: [
-          `<Loader.BounceIcon size={size} />`,
-        ],
+        code: [`<Loader.BounceIcon size={size} />`],
       },
     ],
   },
@@ -109,9 +103,7 @@ export const loaders: LoaderDisplayData[] = [
       {
         component: Loader.Roll,
         props: {},
-        code: [
-          `<Loader.Roll size={size} />`,
-        ],
+        code: [`<Loader.Roll size={size} />`],
       },
     ],
   },
@@ -123,10 +115,28 @@ export const loaders: LoaderDisplayData[] = [
     examples: [
       {
         component: Loader.Progress,
-        props: {},
-        code: [
-          `<Loader.Progress size={size} />`,
-        ],
+        props: {
+          color: '#c50eff',
+          size: 'medium',
+          speed: 'medium',
+        },
+        code: [`<Loader.Progress size={size} />`],
+      },
+      {
+        component: Loader.Progress,
+        props: {
+          color: '#ff00d9',
+          size: 'large',
+          speed: 'short',
+        },
+      },
+      {
+        component: Loader.Progress,
+        props: {
+          color: '#FF3579',
+          size: 'small',
+          speed: 'long',
+        },
       },
     ],
   },
