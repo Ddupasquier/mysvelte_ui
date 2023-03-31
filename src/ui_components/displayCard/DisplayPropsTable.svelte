@@ -15,6 +15,11 @@
       behavior: "smooth",
     });
   }
+
+  const getStringAfterFirstUnderscore = (str: string): string => {
+    const underscoreIndex = str.indexOf("_");
+    return str.substring(underscoreIndex + 1);
+  };
 </script>
 
 {#if table}
@@ -44,10 +49,14 @@
                 ].name.replace("!", "")}`}
                 on:click={handleAnchorClick}
               >
-                {table.rows[key].name.replace("!", "").split("_")[1]}
+                {getStringAfterFirstUnderscore(
+                  table.rows[key].name.replace("!", "")
+                )}
               </a>
             {:else}
-              {table.rows[key].name.replace("!", "").split("_")[1]}
+              {getStringAfterFirstUnderscore(
+                table.rows[key].name.replace("!", "")
+              )}
             {/if}
           </td>
           <td>
