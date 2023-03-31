@@ -38,7 +38,7 @@
     let buttonRef: HTMLButtonElement;
     let iconRef: HTMLDivElement;
 
-    const removeBackgroundStyle = (styleString: string) => {
+    const removeBackgroundStyle = (styleString: string): string => {
         return styleString.replace(/background:\s*[^;]+;?/, "");
     };
 

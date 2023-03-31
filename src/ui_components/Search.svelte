@@ -1,6 +1,6 @@
 <script lang="ts">
   import { fade, slide } from "svelte/transition";
-  import Input from "../lib/inputs/Input.svelte";
+  import Input from "$lib/inputs/Input.svelte";
   import { MagnifyingGlassIcon } from "./icons";
   import { componentIds } from "../stores/componentStore";
   import { splitSearchResult } from "./utils";
@@ -64,7 +64,13 @@
   }}
 />
 
-<div class={isOpen ? "outer expanded" : "outer"} bind:this={searchRef}>
+<div
+  class={isOpen ? "outer expanded" : "outer"}
+  bind:this={searchRef}
+  role="search"
+  aria-haspopup="listbox"
+  aria-expanded={isOpen}
+>
   <div class="inner">
     {#if isOpen}
       <div
@@ -77,18 +83,29 @@
           duration: 100,
         }}
       >
-        <Input bind:value={searchTerm} placeholder="Search || 'all'" />
+        <Input
+          bind:value={searchTerm}
+          placeholder="Search || 'all'"
+          aria-label="Search"
+        />
       </div>
     {/if}
-    <button class="activate" on:click={() => (isOpen = !isOpen)}
-      ><MagnifyingGlassIcon color="gray" /></button
+    <button
+      class="activate"
+      on:click={() => (isOpen = !isOpen)}
+      aria-label="Toggle search"><MagnifyingGlassIcon color="gray" /></button
     >
   </div>
 
   {#if searchTerm !== ""}
     {#if searchResults.length === 0}
-      <div class="search-results" transition:slide>
-        <div class="result">No results found</div>
+      <div
+        class="search-results"
+        role="listbox"
+        aria-expanded={isOpen}
+        transition:slide
+      >
+        <div class="result" aria-label="No results found">No results found</div>
       </div>
     {:else}
       <div class="search-results" transition:slide>
@@ -99,6 +116,8 @@
               componentId + "s"
             }#${componentId}_${component}`}
             {id}
+            role="option"
+            aria-selected="false"
           >
             <div class="result">
               <span class="component">{componentId}</span>:

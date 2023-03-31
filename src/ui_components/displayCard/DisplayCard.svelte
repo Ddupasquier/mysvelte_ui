@@ -47,6 +47,8 @@
       isDarkMode = !isDarkMode;
       createAndAnimateCircle(containerRef);
     }}
+    name="toggle dark mode"
+    aria-label="Toggle dark mode"
   >
     {#if isDarkMode}
       <SunIcon />

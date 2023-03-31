@@ -7,7 +7,7 @@
   export let code: string | string[];
   let codeArray: string[];
 
-  const splitString = (code: string | string[]) => {
+  const splitString = (code: string | string[]): string[] => {
     if (typeof code === "undefined") return [];
 
     if (typeof code === "string") {

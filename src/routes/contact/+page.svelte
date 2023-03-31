@@ -1,6 +1,21 @@
 <script lang="ts">
+  import Banner from "$lib/assets/banner.png";
   const iconSize = "50px";
 </script>
+
+<svelte:head>
+  <title>MySvelteUI - Contact</title>
+  <meta
+    name="description"
+    content="Connect with us - Reach out with questions, feedback, or collaboration ideas, and let's create amazing web applications together."
+  />
+  <meta property="og:title" content="MySvelteUI - Contact" />
+  <meta
+    property="og:description"
+    content="Connect with us - Reach out with questions, feedback, or collaboration ideas, and let's create amazing web applications together."
+  />
+  <meta property="og:image" content={Banner} />
+</svelte:head>
 
 <div class="contact-container">
   <h2 class="contact-headline">Let's Connect</h2>
