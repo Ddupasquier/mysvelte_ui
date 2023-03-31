@@ -33,7 +33,7 @@
   };
 
   // Utility functions
-  const removeBackgroundStyle = (styleString: string) => {
+  const removeBackgroundStyle = (styleString: string): string => {
     return styleString.replace(/background:\s*[^;]+;?/, '');
   };
 

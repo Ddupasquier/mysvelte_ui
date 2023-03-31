@@ -427,7 +427,7 @@ export const buttons: ButtonDisplayData[] = [
       tableName: 'buttons',
       rows: [
         {
-          name: 'icon',
+          name: 'button_icon',
           description: 'A string that contains the icon to display. This should be a valid html/xml string. This prop is optional, as you can also use the `icon` slot.',
           default: 'null',
           nav: true
