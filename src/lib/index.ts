@@ -40,11 +40,15 @@ import LoaderDefault from './loaders/Loader.svelte';
 import Elips from './loaders/Elips.svelte';
 import Roll from './loaders/Roll.svelte';
 import BounceIcon from './loaders/BounceIcon.svelte';
+import Progress from './loaders/Progress.svelte';
+import Pie from './loaders/Pie.svelte';
 
 export const Loader = Object.assign(LoaderDefault, {
   Elips,
   Roll,
-  BounceIcon
+  BounceIcon,
+  Progress,
+  Pie
 });
 
 export { default as Popover } from './popovers/Popover.svelte';

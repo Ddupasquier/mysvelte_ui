@@ -213,6 +213,11 @@ interface LoaderProps {
   size?: 'small' | 'medium' | 'large';
   color?: string;
   style?: string;
+  speed?: 'short' | 'medium' | 'long';
+}
+
+interface BounceLoaderProps extends LoaderProps {
+  icon?: string;
 }
 
 // * Checkbox TYPES
