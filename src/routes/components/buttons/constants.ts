@@ -355,55 +355,55 @@ export const buttons: ButtonDisplayData[] = [
       tableName: 'buttons',
       rows: [
         {
-          name: 'disabled',
+          name: 'button_disabled',
           description: 'A boolean that indicates whether the button is disabled or not.',
           default: 'false',
           nav: false
         },
         {
-          name: 'size',
+          name: 'button_size',
           description: "A string that indicates the size of the button. The possible values are 'xsmall', 'small','medium', 'large', and 'xlarge'.",
           default: 'medium',
           nav: true
         },
         {
-          name: 'background',
+          name: 'button_background',
           description: "A string that indicates the background color of the button.",
           default: '#c50eff',
           nav: true
         },
         {
-          name: 'color',
+          name: 'button_color',
           description: "A string that indicates the text color of the button.",
           default: '#fff',
           nav: true
         },
         {
-          name: 'isLoading',
+          name: 'button_isLoading',
           description: 'A boolean that indicates whether the button is in a loading state or not. When set to true, the button will be disabled and display a loading spinner.',
           default: 'false',
           nav: false
         },
         {
-          name: 'isError',
+          name: 'button_isError',
           description: 'A boolean that indicates whether the button is in an error state or not. When set to true, the button will be disabled and display an error border.',
           default: 'false',
           nav: false
         },
         {
-          name: 'events',
+          name: 'button_events',
           description: 'You can add event listeners to your button by using the on:click, on:mouseover, on:mouseenter, on:mouseleave, on:focus, on:blur props. The event listener will be passed the event object as the first argument.',
           default: '',
           nav: true
         },
         {
-          name: 'style',
+          name: 'button_style',
           description: 'A string that sets additional styles to the button. This should be a valid CSS string.',
           default: '\'\'',
           nav: true
         },
         {
-          name: 'animated',
+          name: 'button_animated',
           description: 'A boolean that indicates whether the button should animate on click.',
           default: 'false',
           nav: true
