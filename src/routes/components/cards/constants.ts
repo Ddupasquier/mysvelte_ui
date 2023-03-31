@@ -2,10 +2,87 @@ import { Card } from '$lib';
 
 export const cards: CardDisplayData[] = [
   {
-    id: 'basics',
+    id: 'card_basics',
     header: 'Card Basics',
     description:
       'Card is a container, primarily for holding a header, main content, and footer.\nThere are 3 slots available for the card component. Alternatively, you can choose not to use any of the 3 slots and insert your own components as children.\n\nCard.Head, Card.Content, and Card.Foot. These 3 slots accept any component as a child, as well as background and color as props.',
+    type: 'nested',
+    examples: [
+      {
+        component: Card,
+        props: {
+          background: '#c50eff',
+          nested: [
+            {
+              component: Card.Head,
+              props: {
+                slot: 'Card.Head',
+              },
+            },
+            {
+              component: Card.Content,
+              props: {
+                color: 'black',
+                background: 'rgb(246, 237, 247)',
+                slot: 'Card.Content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas urna ut posuere condimentum. Ut molestie vel mi nec lobortis. Nam ac elit interdum, rhoncus enim ut, posuere nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed bibendum libero.',
+                style: 'max-height: 150px; overflow: auto;',
+              },
+            },
+            {
+              component: Card.Foot,
+              props: {
+                background: '#ff00d9',
+                slot: 'Card.Foot',
+              },
+            },
+          ],
+        },
+        code: [
+          '<Card background={background}>',
+          'indent<Card.Head>Card.Head</Card.Head>',
+          'indent<Card.Content background={background} color={color} style={style}>Card.Content</Card.Content>',
+          'indent<Card.Foot background={background}>Card.Foot</Card.Foot>',
+          '</Card>',
+        ],
+      },
+      {
+        component: Card,
+        props: {
+          background: '#ff00d9',
+          nested: [
+            {
+              component: Card.Head,
+              props: {
+                background: '#FF3579',
+                slot: 'Card.Head',
+              },
+            },
+            {
+              component: Card.Content,
+              props: {
+                background: 'rgb(246, 237, 247)',
+                color: 'black',
+                slot: 'Card.Content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas urna ut posuere condimentum. Ut molestie vel mi nec lobortis. Nam ac elit interdum, rhoncus enim ut, posuere nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed bibendum libero.',
+                style: 'max-height: 150px; overflow: auto;',
+              },
+            },
+            {
+              component: Card.Foot,
+              props: {
+                slot: 'Card.Foot',
+                background: '#FF8C4C'
+              },
+            },
+          ],
+        },
+      },
+    ],
+  },
+  {
+    id: 'card_style',
+    header: 'Card Style',
+    description:
+      'Adding custom styling is easy as pie. Just do your usual style="..." in string format. \nYour styles can override || accompany the default styles.',
     type: 'nested',
     examples: [
       {
@@ -44,38 +121,16 @@ export const cards: CardDisplayData[] = [
           'indent<Card.Foot background={background}>Card.Foot</Card.Foot>',
           '</Card>',
         ],
-      },
-      {
-        component: Card,
-        props: {
-          background: '#ff00d9',
-          nested: [
-            {
-              component: Card.Head,
-              props: {
-                background: '#333',
-                slot: 'Card.Head',
-              },
-            },
-            {
-              component: Card.Content,
-              props: {
-                background: 'rgb(246, 237, 247)',
-                color: 'black',
-                slot: 'Card.Content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas urna ut posuere condimentum. Ut molestie vel mi nec lobortis. Nam ac elit interdum, rhoncus enim ut, posuere nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed bibendum libero.',
-                style: 'max-height: 150px; overflow: auto;',
-              },
-            },
-            {
-              component: Card.Foot,
-              props: {
-                slot: 'Card.Foot',
-              },
-            },
-          ],
-        },
-      },
+      }
     ],
+  },
+  {
+    id: 'card_events',
+    header: 'Card Events',
+    description:
+      'Card events are easy to use. Just add an event listener to the card component. \nCard events are: on:click, on:mouseover, on:mouseenter, on:mouseleave, on:focus, on:blur.',
+    type: 'nested',
+    examples: [],
   },
   {
     id: 'images',
@@ -263,13 +318,25 @@ export const cards: CardDisplayData[] = [
       rows: [
         {
           name: 'background',
-          description: 'Background color',
+          description: 'A string which represents the background color of the entire card.',
           default: 'white',
           nav: true,
         },
         {
+          name: 'style',
+          description: 'This must be a valid CSS string. This syntax is perfect valid on Card, Card.Head, Card.Content, Card.Foot, and Card.Image',
+          default: '""',
+          nav: true,
+        },
+        {
+          name: 'events',
+          description: 'on:click, on:mouseover, on: mouseenter, on: mouseleave, on: focus, on: blur',
+          default: '',
+          nav: true,
+        },
+        {
           name: 'images',
-          description: 'Image url',
+          description: `This is a variant which displays a nicely formatted image on the back of the card. Use: Card.Image`,
           default: '',
           nav: true,
         },

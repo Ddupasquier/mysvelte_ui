@@ -6,7 +6,23 @@ import {
 
 export const buttons: ButtonDisplayData[] = [
   {
-    id: 'background',
+    id: 'button_basics',
+    header: 'Button Basics',
+    description:
+      'Buttons are used to trigger actions. They can be used in forms, in dialogs, or in standalone actions. They can be used as links, or used to submit forms. They can be styled in a variety of ways.',
+    type: 'components',
+    examples: [
+      {
+        component: Button,
+        props: {
+          text: 'Default',
+        },
+        code: '<Button>Default</Button>',
+      },
+    ]
+  },
+  {
+    id: 'button_background',
     header: 'Background Button',
     description:
       'You can easily change the background of a button by adding the background prop. (default: purple)',
@@ -58,7 +74,7 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'size',
+    id: 'button_size',
     header: 'Resize Button',
     description:
       'By adding the size prop you can grow || shrink your button with small, medium, large, and xlarge (default: medium)',
@@ -143,7 +159,7 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'color',
+    id: 'button_color',
     header: 'Color Text Button',
     description:
       'You can easily change the color of the text by adding the color prop. (default: white)',
@@ -174,7 +190,7 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'style',
+    id: 'button_style',
     header: 'Custom Button',
     description:
       'Adding custom styling is easy as pie. Just do your usual style="..." in string format. \nYour styles can override || accompany the default styles.',
@@ -206,7 +222,7 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'state',
+    id: 'button_state',
     header: 'Stateful Button',
     description:
       'There are multiple states a button can be in. Here is my rendition of some fun UI for them. (default all: false)\nWhile disabled, the background property in a custom style tag will be nullified. \nIf you still wish the alter the background color while disabled, use the background-color property.',
@@ -239,7 +255,7 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'events',
+    id: 'button_events',
     header: 'Button Events',
     description:
       'You can add event listeners to your button by using the on:click, on:mouseover, on:mouseenter, on:mouseleave, on:focus, on:blur props. \nThe event listener will be passed the event object as the first argument.',
@@ -259,7 +275,7 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'animated',
+    id: 'button_animated',
     header: 'Animated Button',
     description:
       'You can animate your button by adding the animated prop. (default: false)',
@@ -276,7 +292,7 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'icon',
+    id: 'button_icon',
     header: 'Icon Button',
     description:
       'You can add an icon to your button by adding the icon prop || the named icon slot. Preference is for an svg, but a png or other image type is acceptable. (default: null)',
@@ -331,7 +347,7 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'button props',
+    id: 'button_props',
     header: 'Button Props',
     description: 'Here is a list of all the props you can use to customize your button. All props are optional.\nYou may also use all native HTML button attributes.',
     type: 'table',
@@ -402,7 +418,7 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'icon props',
+    id: 'button_icon_props',
     header: 'Icon Props extends Button Props',
     description:
       'The props of Icon are mostly the same as button. The only difference is the addition of the `icon` prop.\nYou may also use all native HTML button attributes.',

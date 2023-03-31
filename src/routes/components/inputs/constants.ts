@@ -244,7 +244,7 @@ export const inputs: InputDisplayData[] = [
         },
         {
           name: 'prefix',
-          description: 'You can use dot notation to change the input to the prefixed input component.',
+          description: 'You can use dot notation to change the input to the prefixed input component. Use: Input.Prefix',
           default: '',
           nav: true
         },
