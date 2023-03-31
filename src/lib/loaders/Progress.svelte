@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
 
     export let color: string = "#c50eff";
-    export let background: string = "white";
+    export let background: string = "transparent";
     export let size: "small" | "medium" | "large" = "medium";
     export let style: string = "";
     export let speed: "short" | "medium" | "long" = "medium";
