@@ -13,7 +13,6 @@
   import Cards from "./cards/Cards.svelte";
 
   $: items = $page.url.searchParams.get("items");
-  $: console.log(items)
   $: capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 </script>
 
