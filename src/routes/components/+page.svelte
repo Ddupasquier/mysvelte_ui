@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Banner from "$lib/assets/banner.png";
+
   import { page } from "$app/stores";
   import Checkboxes from "./checkboxes/Checkboxes.svelte";
   import Loaders from "./loaders/Loaders.svelte";
@@ -11,7 +13,23 @@
   import Cards from "./cards/Cards.svelte";
 
   $: items = $page.url.searchParams.get("items");
+  $: console.log(items)
+  $: capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 </script>
+
+<svelte:head>
+  <title>MySvelteUI - {capitalize(items || "Component")}</title>
+  <meta
+    name="description"
+    content="Dive into our detailed Component Documentation, featuring individual views for each component to enhance understanding and ease of use. Empower your development journey with clear instructions, examples, and best practices for seamless integration."
+  />
+  <meta property="og:title" content="MySvelteUI - {capitalize(items || "Component")}" />
+  <meta
+    property="og:description"
+    content="Dive into our detailed Component Documentation, featuring individual views for each component to enhance understanding and ease of use. Empower your development journey with clear instructions, examples, and best practices for seamless integration."
+  />
+  <meta property="og:image" content={Banner} />
+</svelte:head>
 
 {#if items === "buttons"}
   <Buttons />

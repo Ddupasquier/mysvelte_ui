@@ -341,7 +341,7 @@ export const buttons: ButtonDisplayData[] = [
         code: [
           '<Button.Icon>',
           'indent<svg slot="icon" />',
-          'indent<span slot="text" />',
+          'indent<svelte:fragment slot="text" />',
           '</Button.Icon>'],
       },
     ],
