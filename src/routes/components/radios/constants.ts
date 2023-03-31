@@ -2,7 +2,7 @@ import Radio from '$lib/radios/Radio.svelte';
 
 export const radios: RadioDisplayData[] = [
   {
-    id: 'basics',
+    id: 'radio_basics',
     header: 'Radio',
     description: 'A radio button.',
     type: 'components',
@@ -30,7 +30,7 @@ export const radios: RadioDisplayData[] = [
     ]
   },
   {
-    id: 'color',
+    id: 'radio_color',
     header: 'Color',
     description: 'You can change the color of the radio button.',
     type: 'components',
@@ -81,7 +81,7 @@ export const radios: RadioDisplayData[] = [
     ],
   },
   {
-    id: 'labelColor',
+    id: 'radio_labelColor',
     header: 'Label Color',
     description: 'You can change the color of the label.',
     type: 'components',
@@ -129,7 +129,7 @@ export const radios: RadioDisplayData[] = [
     ]
   },
   {
-    id: 'size',
+    id: 'radio_size',
     header: 'Size',
     description: 'You can change the size of the radio button.',
     type: 'components',
@@ -164,7 +164,7 @@ export const radios: RadioDisplayData[] = [
     ]
   },
   {
-    id: 'use',
+    id: 'radio_use',
     header: 'Use',
     description: 'You can use the radio button to select one or many options. (default: one)',
     type: 'components',
@@ -183,7 +183,7 @@ export const radios: RadioDisplayData[] = [
     ]
   },
   {
-    id: 'props',
+    id: 'radio_props',
     header: 'Props',
     description: 'Props for the Radio component.',
     type: 'table',

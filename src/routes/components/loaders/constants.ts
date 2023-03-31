@@ -2,7 +2,7 @@ import { Loader } from '$lib';
 
 export const loaders: LoaderDisplayData[] = [
   {
-    id: 'loader',
+    id: 'input_default',
     header: 'Loader',
     description: 'A simple loader component',
     type: 'components',
@@ -43,9 +43,9 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader-elips',
+    id: 'loader_elips',
     header: 'Loader Elips',
-    description: 'A simple loader component',
+    description: 'A fun, bouncy loader!',
     type: 'components',
     examples: [
       {
@@ -84,9 +84,9 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader-bounce-icon',
+    id: 'loader_bounce_icon',
     header: 'Loader Bounce Icon',
-    description: 'A simple loader component',
+    description: 'Bouncy Icon loader. This works best with SVG icons.',
     type: 'components',
     examples: [
       {
@@ -101,7 +101,7 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader-roll',
+    id: 'loader_roll',
     header: 'Loader Roll',
     description: 'A simple loader component',
     type: 'components',

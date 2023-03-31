@@ -309,7 +309,7 @@ export const cards: CardDisplayData[] = [
     ],
   },
   {
-    id: 'props',
+    id: 'card_props',
     header: 'Props',
     description: 'Props',
     type: 'table',
