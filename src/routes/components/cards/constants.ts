@@ -317,25 +317,25 @@ export const cards: CardDisplayData[] = [
       tableName: 'cards',
       rows: [
         {
-          name: 'background',
+          name: 'card_background',
           description: 'A string which represents the background color of the entire card.',
           default: 'white',
           nav: true,
         },
         {
-          name: 'style',
+          name: 'card_style',
           description: 'This must be a valid CSS string. This syntax is perfect valid on Card, Card.Head, Card.Content, Card.Foot, and Card.Image',
           default: '""',
           nav: true,
         },
         {
-          name: 'events',
+          name: 'card_events',
           description: 'on:click, on:mouseover, on: mouseenter, on: mouseleave, on: focus, on: blur',
           default: '',
           nav: true,
         },
         {
-          name: 'images',
+          name: 'card_images',
           description: `This is a variant which displays a nicely formatted image on the back of the card. Use: Card.Image`,
           default: '',
           nav: true,

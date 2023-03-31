@@ -213,37 +213,37 @@ export const checkboxes: CheckboxDisplayData[] = [
       tableName: 'checkboxes',
       rows: [
         {
-          name: 'label',
+          name: 'checkbox_label',
           description: 'The label of the checkbox.',
           default: 'Checkbox',
           nav: true
         },
         {
-          name: 'labelColor',
+          name: 'checkbox_labelColor',
           description: 'The color of the checkbox label.',
           default: 'black',
           nav: false
         },
         {
-          name: 'disabled',
+          name: 'checkbox_disabled',
           description: 'The disabled state of the checkbox.',
           default: 'false',
           nav: true
         },
         {
-          name: 'checked',
+          name: 'checkbox_checked',
           description: 'The checked state of the checkbox.',
           default: 'false',
           nav: false
         },
         {
-          name: 'color',
+          name: 'checkbox_color',
           description: 'The color of the checkbox.',
           default: 'black',
           nav: true
         },
         {
-          name: 'size',
+          name: 'checkbox_size',
           description: 'The size of the checkbox.',
           default: 'medium',
           nav: true

@@ -207,43 +207,43 @@ export const inputs: InputDisplayData[] = [
       tableName: 'inputs',
       rows: [
         {
-          name: 'background',
+          name: 'input_background',
           description: 'Accepts a string value for the background color of the input.',
           default: '#fff',
           nav: true
         },
         {
-          name: 'color',
+          name: 'input_color',
           description: 'Accepts a string value for the color of the input.',
           default: '#000',
           nav: true
         },
         {
-          name: 'label',
+          name: 'input_label',
           description: 'Accepts a boolean value for the label of the input.',
           default: 'false',
           nav: true
         },
         {
-          name: 'labelIn',
+          name: 'input_labelIn',
           description: 'Accepts a boolean value for the label to be inside the input.',
           default: 'false',
           nav: false
         },
         {
-          name: 'placeholder',
+          name: 'input_placeholder',
           description: 'Accepts a string value for the placeholder of the input.',
           default: '""',
           nav: true
         },
         {
-          name: 'variants',
+          name: 'input_variants',
           description: 'Accepts a string value for the variant of the input. Variants include: default, outline, and line.',
           default: 'default',
           nav: true
         },
         {
-          name: 'prefix',
+          name: 'input_prefix',
           description: 'You can use dot notation to change the input to the prefixed input component. Use: Input.Prefix',
           default: '',
           nav: true

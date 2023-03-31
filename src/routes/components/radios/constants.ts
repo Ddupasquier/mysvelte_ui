@@ -191,43 +191,43 @@ export const radios: RadioDisplayData[] = [
       tableName: 'radios',
       rows: [
         {
-          name: 'options!',
+          name: 'radio_options!',
           description: 'Options is an array of strings that will be used to populate the radio buttons.',
           default: '[]',
           nav: false
         },
         {
-          name: 'groupId!',
+          name: 'radio_groupId!',
           description: 'Group ID is a string that is used to group radio buttons together.',
           default: '\'\'',
           nav: true
         },
         {
-          name: 'color',
+          name: 'radio_color',
           description: 'Color is the color of the radio button.',
           default: '#000',
           nav: true
         },
         {
-          name: 'labelColor',
+          name: 'radio_labelColor',
           description: 'Label color is the color of the label.',
           default: '#000',
           nav: true
         },
         {
-          name: 'size',
+          name: 'radio_size',
           description: 'Size is the size of the radio button.',
           default: 'medium',
           nav: true
         },
         {
-          name: 'disabled',
+          name: 'radio_disabled',
           description: 'Disabled is a boolean that determines if the radio button is disabled.',
           default: 'false',
           nav: true
         },
         {
-          name: 'use',
+          name: 'radio_use',
           description: 'Use is a string that determines if the radio button is used to select one or many options.',
           default: 'one',
           nav: true

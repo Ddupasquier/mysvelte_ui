@@ -1,32 +1,21 @@
 <script lang="ts">
-  import { fade, slide } from 'svelte/transition';
-  import Input from '../lib/inputs/Input.svelte';
-  import { MagnifyingGlassIcon } from './icons';
-  import { componentIds } from '../stores/componentStore';
-  import { splitSearchResult } from './utils';
+  import { fade, slide } from "svelte/transition";
+  import Input from "../lib/inputs/Input.svelte";
+  import { MagnifyingGlassIcon } from "./icons";
+  import { componentIds } from "../stores/componentStore";
+  import { splitSearchResult } from "./utils";
 
   $: isOpen = false;
   let searchRef: HTMLDivElement;
 
-  $: searchTerm = '';
+  $: searchTerm = "";
   $: searchResults =
-    searchTerm.toLowerCase() === 'all'
+    searchTerm.toLowerCase() === "all"
       ? $componentIds
       : $componentIds.filter((id) =>
           id.toLowerCase().includes(searchTerm.toLowerCase())
         );
-  $: if (!isOpen) searchTerm = '';
-
-  function handleAnchorClick (event: { preventDefault: () => void; currentTarget: any; }) {
-		event.preventDefault()
-		const link = event.currentTarget
-		const anchorId = new URL(link.href).hash.replace('#', '')
-		const anchor = document.getElementById(anchorId)
-		window.scrollTo({
-			top: anchor?.offsetTop,
-			behavior: 'smooth'
-		})
-	}
+  $: if (!isOpen) searchTerm = "";
 </script>
 
 <svelte:window
@@ -38,7 +27,7 @@
     }
   }}
   on:keydown={(e) => {
-    if (e.key === 'Escape') {
+    if (e.key === "Escape") {
       isOpen = false;
     }
 
@@ -47,21 +36,21 @@
     if (
       isOpen &&
       searchResults.length > 0 &&
-      (e.key === 'ArrowDown' || e.key === 'ArrowUp')
+      (e.key === "ArrowDown" || e.key === "ArrowUp")
     ) {
       e.preventDefault();
       const activeElementId = document.activeElement?.id;
       focusedResultIndex = searchResults.findIndex(
         (id) => id === activeElementId
       );
-      if (e.key === 'ArrowDown') {
+      if (e.key === "ArrowDown") {
         if (focusedResultIndex === -1) {
           document.getElementById(searchResults[0])?.focus();
         } else if (focusedResultIndex < searchResults.length - 1) {
           const nextElementId = searchResults[focusedResultIndex + 1];
           document.getElementById(nextElementId)?.focus();
         }
-      } else if (e.key === 'ArrowUp') {
+      } else if (e.key === "ArrowUp") {
         if (focusedResultIndex === -1) {
           document
             .getElementById(searchResults[searchResults.length - 1])
@@ -75,7 +64,7 @@
   }}
 />
 
-<div class={isOpen ? 'outer expanded' : 'outer'} bind:this={searchRef}>
+<div class={isOpen ? "outer expanded" : "outer"} bind:this={searchRef}>
   <div class="inner">
     {#if isOpen}
       <div
@@ -96,7 +85,7 @@
     >
   </div>
 
-  {#if searchTerm !== ''}
+  {#if searchTerm !== ""}
     {#if searchResults.length === 0}
       <div class="search-results" transition:slide>
         <div class="result">No results found</div>
@@ -105,11 +94,17 @@
       <div class="search-results" transition:slide>
         {#each searchResults as id}
           {@const { component, id: componentId } = splitSearchResult(id)}
-          <a href={`/components?items=${component + 's'}#${componentId}`} {id} on:click={handleAnchorClick}>
+          <a
+            href={`/components?items=${
+              componentId + "s"
+            }#${componentId}_${component}`}
+            {id}
+          >
             <div class="result">
-              <span class="component">{component}</span>:
-              <span class="hash">#</span><span class="property">
-                {componentId}
+              <span class="component">{componentId}</span>:
+              <span class="hash">#</span>
+              <span class="property">
+                {component}
               </span>
             </div>
           </a>
