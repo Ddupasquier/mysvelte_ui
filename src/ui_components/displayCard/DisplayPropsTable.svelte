@@ -2,16 +2,19 @@
   export let table: PropsTable | undefined;
   export let isDarkMode: boolean;
 
-  function handleAnchorClick (event: { preventDefault: () => void; currentTarget: any; }) {
-		event.preventDefault()
-		const link = event.currentTarget
-		const anchorId = new URL(link.href).hash.replace('#', '')
-		const anchor = document.getElementById(anchorId)
-		window.scrollTo({
-			top: anchor?.offsetTop,
-			behavior: 'smooth'
-		})
-	}
+  function handleAnchorClick(event: {
+    preventDefault: () => void;
+    currentTarget: any;
+  }) {
+    event.preventDefault();
+    const link = event.currentTarget;
+    const anchorId = new URL(link.href).hash.replace("#", "");
+    const anchor = document.getElementById(anchorId);
+    window.scrollTo({
+      top: anchor?.offsetTop,
+      behavior: "smooth",
+    });
+  }
 </script>
 
 {#if table}
@@ -41,10 +44,10 @@
                 ].name.replace("!", "")}`}
                 on:click={handleAnchorClick}
               >
-                {table.rows[key].name.replace("!", "")}
+                {table.rows[key].name.replace("!", "").split("_")[1]}
               </a>
             {:else}
-              {table.rows[key].name.replace("!", "")}
+              {table.rows[key].name.replace("!", "").split("_")[1]}
             {/if}
           </td>
           <td>

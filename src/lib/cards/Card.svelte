@@ -8,6 +8,12 @@
   class="card"
   style="background: {background}; color: {color}; {style}"
   {...$$restProps}
+  on:click
+  on:mouseover
+  on:mouseenter
+  on:mouseleave
+  on:focus
+  on:blur
 >
   <slot />
 </div>

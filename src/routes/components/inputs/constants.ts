@@ -2,8 +2,8 @@ import { Input, Spacer } from '$lib';
 
 export const inputs: InputDisplayData[] = [
   {
-    id: 'use',
-    header: 'Use',
+    id: 'input_basics',
+    header: 'Input Basics',
     description: 'Input is a simple input component.',
     type: 'components',
     examples: [
@@ -18,7 +18,7 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
-    id: 'background',
+    id: 'input_background',
     header: 'Background',
     description:
       'You can easily change the background of a button by adding the background prop. (default: white)',
@@ -48,7 +48,7 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
-    id: 'color',
+    id: 'input_color',
     header: 'Color',
     description:
       'You can easily change the color of a button by adding the color prop. (default: black)\nThe outline of the input defaults to whatever color your text is. This can be overidden using the style tag.',
@@ -78,7 +78,7 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
-    id: 'label',
+    id: 'input_label',
     header: 'Label',
     description:
       'You can add a label to an input by adding the label prop. \nIf label={true} you will need to provide an id as a prop which will automatically assign that label to your input.\nIf labelIn={true}, your placeholder prop will be overridden by the label prop.',
@@ -132,7 +132,7 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
-    id: 'variants',
+    id: 'input_variants',
     header: 'Variants',
     description:
       'There are 3 variants of input: outline, line, and default. (default: default)',
@@ -169,7 +169,7 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
-    id: 'prefix',
+    id: 'input_prefix',
     header: 'Prefix',
     description:
       'You can add a prefix the this input by using dot notation IE. Input.Prefix. \nYou can also change the prefix from the default using the prefix prop. (default: @)\n\nconst prefix = "@" \nlet val = "example"\n\nconst handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(`${prefix}@{val}`); // @example\n};\n\n<form on:submit={handleSubmit}>\n  <Input.Prefix prefix={prefix} placeholder="Search" bind:value={val} />\n</form>',
@@ -199,7 +199,7 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
-    id: 'props',
+    id: 'input_props',
     header: 'Props',
     description: 'Input accepts all native input props.',
     type: 'table',
@@ -207,44 +207,44 @@ export const inputs: InputDisplayData[] = [
       tableName: 'inputs',
       rows: [
         {
-          name: 'background',
+          name: 'input_background',
           description: 'Accepts a string value for the background color of the input.',
           default: '#fff',
           nav: true
         },
         {
-          name: 'color',
+          name: 'input_color',
           description: 'Accepts a string value for the color of the input.',
           default: '#000',
           nav: true
         },
         {
-          name: 'label',
+          name: 'input_label',
           description: 'Accepts a boolean value for the label of the input.',
           default: 'false',
           nav: true
         },
         {
-          name: 'labelIn',
+          name: 'input_labelIn',
           description: 'Accepts a boolean value for the label to be inside the input.',
           default: 'false',
           nav: false
         },
         {
-          name: 'placeholder',
+          name: 'input_placeholder',
           description: 'Accepts a string value for the placeholder of the input.',
           default: '""',
           nav: true
         },
         {
-          name: 'variants',
+          name: 'input_variants',
           description: 'Accepts a string value for the variant of the input. Variants include: default, outline, and line.',
           default: 'default',
           nav: true
         },
         {
-          name: 'prefix',
-          description: 'You can use dot notation to change the input to the prefixed input component.',
+          name: 'input_prefix',
+          description: 'You can use dot notation to change the input to the prefixed input component. Use: Input.Prefix',
           default: '',
           nav: true
         },

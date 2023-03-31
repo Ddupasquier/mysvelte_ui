@@ -2,7 +2,7 @@ import Popover from '$lib/popovers/Popover.svelte';
 
 export const popovers: PopoverDisplayData[] = [
   {
-    id: 'popover',
+    id: 'popover_basics',
     header: 'Popover',
     description:
       'Popover is a component that displays a popup beside the trigger.',
@@ -23,7 +23,7 @@ export const popovers: PopoverDisplayData[] = [
     ],
   },
   {
-    id: 'direction',
+    id: 'popover_direction',
     header: 'Direction',
     description: 'Popover can be positioned in 4 different directions.',
     type: 'components',
@@ -61,7 +61,7 @@ export const popovers: PopoverDisplayData[] = [
     ],
   },
   {
-    id: 'trigger',
+    id: 'popover_trigger',
     header: 'Trigger',
     description: 'Popover can be triggered by click or hover.',
     type: 'components',

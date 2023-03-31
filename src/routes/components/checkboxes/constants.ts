@@ -2,7 +2,7 @@ import { Checkbox } from '$lib';
 
 export const checkboxes: CheckboxDisplayData[] = [
   {
-    id: 'checkbox',
+    id: 'checkbox_basics',
     header: 'Checkbox',
     description:
       'A checkbox is a form control that allows the user to select one or more options from a set.',
@@ -27,7 +27,7 @@ export const checkboxes: CheckboxDisplayData[] = [
     ],
   },
   {
-    id: 'disabled',
+    id: 'checkbox_disabled',
     header: 'Checkbox Disabled',
     description:
       'Easily make any checkbox appear disabled by adding the disabled attribute. \nThe disabled attribute can be set to true or false. (default: false)',
@@ -54,7 +54,7 @@ export const checkboxes: CheckboxDisplayData[] = [
     ],
   },
   {
-    id: 'color',
+    id: 'checkbox_color',
     header: 'Checkbox Color',
     description:
       'Easily change the color of the checkbox by adding the color attribute. \nThe color attribute can be set to any valid CSS color. (default: black)',
@@ -104,7 +104,7 @@ export const checkboxes: CheckboxDisplayData[] = [
     ],
   },
   {
-    id: 'label',
+    id: 'checkbox_label',
     header: 'Checkbox Label',
     description:
       'You can add a label to the checkbox by adding the label attribute. \nThe label attribute can be set to any valid string. (default: "")\nThe label color can be changed with the labelColor attribute. \nThe labelColor attribute can be set to any valid CSS color. (default: black)',
@@ -154,7 +154,7 @@ export const checkboxes: CheckboxDisplayData[] = [
     ],
   },
   {
-    id: 'size',
+    id: 'checkbox_size',
     header: 'Checkbox Size',
     description:
       'You can change the size of the checkbox by adding the size attribute. \nThe size attribute can be set to small, medium, or large. (default: medium)',
@@ -188,7 +188,7 @@ export const checkboxes: CheckboxDisplayData[] = [
     ],
   },
   {
-    id: 'animated',
+    id: 'checkbox_animated',
     header: 'Checkbox Animated',
     description:
       '',
@@ -205,7 +205,7 @@ export const checkboxes: CheckboxDisplayData[] = [
     ]
   },
   {
-    id: 'props',
+    id: 'checkbox_props',
     header: 'Checkbox Props',
     description: 'Checkbox Props',
     type: 'table',
@@ -213,37 +213,37 @@ export const checkboxes: CheckboxDisplayData[] = [
       tableName: 'checkboxes',
       rows: [
         {
-          name: 'label',
+          name: 'checkbox_label',
           description: 'The label of the checkbox.',
           default: 'Checkbox',
           nav: true
         },
         {
-          name: 'labelColor',
+          name: 'checkbox_labelColor',
           description: 'The color of the checkbox label.',
           default: 'black',
           nav: false
         },
         {
-          name: 'disabled',
+          name: 'checkbox_disabled',
           description: 'The disabled state of the checkbox.',
           default: 'false',
           nav: true
         },
         {
-          name: 'checked',
+          name: 'checkbox_checked',
           description: 'The checked state of the checkbox.',
           default: 'false',
           nav: false
         },
         {
-          name: 'color',
+          name: 'checkbox_color',
           description: 'The color of the checkbox.',
           default: 'black',
           nav: true
         },
         {
-          name: 'size',
+          name: 'checkbox_size',
           description: 'The size of the checkbox.',
           default: 'medium',
           nav: true

@@ -2,7 +2,7 @@ import { Loader } from '$lib';
 
 export const loaders: LoaderDisplayData[] = [
   {
-    id: 'loader',
+    id: 'input_default',
     header: 'Loader',
     description:
       'A simple loader component. The props available are size and color. \nThe size prop can be set to small, medium or large. The color prop can be set to any valid CSS color value. \n(default size: medium, default color: #c50eff)',
@@ -47,7 +47,7 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader-elips',
+    id: 'loader_elips',
     header: 'Loader Elips',
     description:
       'Similar to the default loader, but with a different animation. \nThe props available are size and color. \nThe size prop can be set to small, medium or large. The color prop can be set to any valid CSS color value. \n(default size: medium, default color: #c50eff)',
@@ -92,9 +92,9 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader-bounce-icon',
+    id: 'loader_bounce_icon',
     header: 'Loader Bounce Icon',
-    description: 'A simple loader component',
+    description: 'Bouncy Icon loader. This works best with SVG icons.',
     type: 'components',
     examples: [
       {

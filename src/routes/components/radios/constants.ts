@@ -2,7 +2,7 @@ import Radio from '$lib/radios/Radio.svelte';
 
 export const radios: RadioDisplayData[] = [
   {
-    id: 'basics',
+    id: 'radio_basics',
     header: 'Radio',
     description: 'A radio button.',
     type: 'components',
@@ -30,7 +30,7 @@ export const radios: RadioDisplayData[] = [
     ]
   },
   {
-    id: 'color',
+    id: 'radio_color',
     header: 'Color',
     description: 'You can change the color of the radio button.',
     type: 'components',
@@ -81,7 +81,7 @@ export const radios: RadioDisplayData[] = [
     ],
   },
   {
-    id: 'labelColor',
+    id: 'radio_labelColor',
     header: 'Label Color',
     description: 'You can change the color of the label.',
     type: 'components',
@@ -129,7 +129,7 @@ export const radios: RadioDisplayData[] = [
     ]
   },
   {
-    id: 'size',
+    id: 'radio_size',
     header: 'Size',
     description: 'You can change the size of the radio button.',
     type: 'components',
@@ -164,7 +164,7 @@ export const radios: RadioDisplayData[] = [
     ]
   },
   {
-    id: 'use',
+    id: 'radio_use',
     header: 'Use',
     description: 'You can use the radio button to select one or many options. (default: one)',
     type: 'components',
@@ -183,7 +183,7 @@ export const radios: RadioDisplayData[] = [
     ]
   },
   {
-    id: 'props',
+    id: 'radio_props',
     header: 'Props',
     description: 'Props for the Radio component.',
     type: 'table',
@@ -191,43 +191,43 @@ export const radios: RadioDisplayData[] = [
       tableName: 'radios',
       rows: [
         {
-          name: 'options!',
+          name: 'radio_options!',
           description: 'Options is an array of strings that will be used to populate the radio buttons.',
           default: '[]',
           nav: false
         },
         {
-          name: 'groupId!',
+          name: 'radio_groupId!',
           description: 'Group ID is a string that is used to group radio buttons together.',
           default: '\'\'',
           nav: true
         },
         {
-          name: 'color',
+          name: 'radio_color',
           description: 'Color is the color of the radio button.',
           default: '#000',
           nav: true
         },
         {
-          name: 'labelColor',
+          name: 'radio_labelColor',
           description: 'Label color is the color of the label.',
           default: '#000',
           nav: true
         },
         {
-          name: 'size',
+          name: 'radio_size',
           description: 'Size is the size of the radio button.',
           default: 'medium',
           nav: true
         },
         {
-          name: 'disabled',
+          name: 'radio_disabled',
           description: 'Disabled is a boolean that determines if the radio button is disabled.',
           default: 'false',
           nav: true
         },
         {
-          name: 'use',
+          name: 'radio_use',
           description: 'Use is a string that determines if the radio button is used to select one or many options.',
           default: 'one',
           nav: true

@@ -62,6 +62,15 @@ const createRoutesComponent = async () => {
   writeFileSync(
     `./src/routes/components/${componentLower}s/constants.ts`,
     `import ${componentUpper} from '$lib/${componentLower}s/${componentUpper}.svelte';
+    // * Suggested fields
+    // basics
+    // background
+    // color
+    // size
+    // style
+    // events
+    // state?
+    // props
 
   export const ${componentLower}s: ${componentUpper}DisplayData[] = []`
   );
