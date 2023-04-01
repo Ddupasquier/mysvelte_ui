@@ -213,7 +213,7 @@ interface LoaderProps {
   size?: 'small' | 'medium' | 'large';
   color?: string;
   style?: string;
-  speed?: 'short' | 'medium' | 'long';
+  speed?: 'slow' | 'medium' | 'fast';
 }
 
 interface BounceLoaderProps extends LoaderProps {
