@@ -26,6 +26,16 @@
         slow: "10s",
     };
 
+    // Utils
+    // randomly generate a cubic bexier curve
+    const randomCubicBezier = () => {
+        const x1 = Math.random();
+        const y1 = Math.random();
+        const x2 = Math.random();
+        const y2 = Math.random();
+        return `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`;
+    };
+
     // Update styles on prop changes
     $: {
         loaderStyle = `background: ${color}; color: ${color};`;
@@ -36,6 +46,10 @@
 
         if (loaderRef) {
             loaderRef.style.setProperty("--animation-duration", loaderSpeed);
+            loaderRef.style.setProperty(
+                "--animation-timing-function",
+                randomCubicBezier()
+            );
         }
     }
 </script>
@@ -59,9 +73,9 @@
         height: 100%;
         min-width: 1px;
         background: #c50eff;
-        outline: 5px solid currentColor;
-        outline-offset: 5px;
-        animation: progress var(--animation-duration) infinite ease-in-out;
+        outline: 5px double currentColor;
+        outline-offset: 2px;
+        animation: progress var(--animation-duration) var(--animation-timing-function) infinite;
         transform: skew(10deg);
         transform-origin: bottom left;
     }
