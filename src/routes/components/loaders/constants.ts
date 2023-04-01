@@ -254,10 +254,16 @@ export const loaders: LoaderDisplayData[] = [
         },
         {
           name: 'loader_icon',
-          description: 'For Bounce.BounceIcon. The icon to be used in the loader.',
+          description: 'For Loader.BounceIcon. The icon to be used in the loader.',
           default: 'Svelte icon',
           nav: false,
         },
+        {
+          name: 'loader_background',
+          description: 'For Loader.Progress && Loader.Pie. The background color of the loader.',
+          default: '#fff',
+          nav: false,
+        }
       ],
     },
     examples: [
