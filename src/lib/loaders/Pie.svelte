@@ -8,8 +8,8 @@
   // Size Values
   const sizeValues: Record<typeof size, number> = {
     small: 50,
-    medium: 100,
-    large: 150,
+    medium: 70,
+    large: 100,
   };
 
   // Speed Values
@@ -52,7 +52,7 @@
     stroke-dasharray: 0 157;
     stroke-dashoffset: -78.5;
     transform-origin: center;
-    animation: fill-up linear infinite;
+    animation: fill-up ease-in-out infinite;
     border-radius: 50%;
     transform: rotate(90deg);
   }
@@ -61,8 +61,11 @@
     0% {
       stroke-dasharray: 0 157;
     }
-    100% {
+    50% {
       stroke-dasharray: 157 0;
+    }
+    100% {
+      stroke-dasharray: 0 157;
     }
   }
 </style>
