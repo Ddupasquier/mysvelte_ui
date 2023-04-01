@@ -2,6 +2,7 @@
   // Props
   export let size: "small" | "medium" | "large" = "medium";
   export let color = "#ff00d9";
+  export let background: string = "white";
   export let speed: "fast" | "medium" | "slow" = "medium";
 
   // Size Values
@@ -36,6 +37,7 @@
     cy="25"
     r="25"
     style="stroke: {color}; animation-duration: {duration}"
+    fill={background}
   />
 </svg>
 
@@ -46,7 +48,6 @@
   }
 
   .pie-circle {
-    fill: none;
     stroke-width: 50;
     stroke-dasharray: 0 157;
     stroke-dashoffset: -78.5;
