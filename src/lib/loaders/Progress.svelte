@@ -1,30 +1,34 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-
+    // Props
     export let color: string = "#c50eff";
     export let background: string = "transparent";
     export let size: "small" | "medium" | "large" = "medium";
     export let style: string = "";
-    export let speed: "short" | "medium" | "long" = "medium";
+    export let speed: "fast" | "medium" | "slow" = "medium";
 
+    // Local state
     let loaderStyle = "";
     let loaderSpeed = "5";
     let loaderRef: HTMLDivElement;
 
+    // Size values
     const widthValues: Record<typeof size, number> = {
         small: 100,
         medium: 200,
         large: 300,
     };
 
+    // Speed Values
+    const speedToDuration = {
+        fast: "2s",
+        medium: "5s",
+        slow: "10s",
+    };
+
+    // Update styles on prop changes
     $: {
         loaderStyle = `background: ${color};`;
 
-        const speedToDuration = {
-            short: "2s",
-            medium: "5s",
-            long: "10s",
-        };
         loaderSpeed = speedToDuration[speed];
 
         if (loaderRef) {
@@ -33,17 +37,10 @@
     }
 
     $: containerStyle = `width: ${widthValues[size]}px; background-color: ${background}; height: 30px; ${style}`;
-
-    onMount(() => {});
-
 </script>
 
 <div class="loader-container" style={containerStyle}>
-    <div 
-        class="loader" 
-        style={loaderStyle} 
-        bind:this={loaderRef}
-    />
+    <div class="loader" style={loaderStyle} bind:this={loaderRef} />
 </div>
 
 <style>

@@ -1,8 +1,43 @@
 <script lang="ts">
-  export let size = 50;
-  export let strokeColor = '#ff00d9';
-  export let duration = 2;
+  // Props
+  export let size: "small" | "medium" | "large" = "medium";
+  export let color = "#ff00d9";
+  export let speed: "fast" | "medium" | "slow" = "medium";
+
+  // Size Values
+  const sizeValues: Record<typeof size, number> = {
+    small: 50,
+    medium: 100,
+    large: 150,
+  };
+
+  // Speed Values
+  const speedToDuration: Record<typeof speed, string> = {
+    fast: "1s",
+    medium: "2s",
+    slow: "4s",
+  };
+
+  // Local state
+  $: sizeInPx = `${sizeValues[size]}px`;
+  $: duration = speedToDuration[speed];
 </script>
+
+<svg
+  class="pie-spinner"
+  width={sizeInPx}
+  height={sizeInPx}
+  viewBox="0 0 50 50"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    class="pie-circle"
+    cx="25"
+    cy="25"
+    r="25"
+    style="stroke: {color}; animation-duration: {duration}"
+  />
+</svg>
 
 <style>
   .pie-spinner {
@@ -30,19 +65,3 @@
     }
   }
 </style>
-
-<svg
-  class="pie-spinner"
-  width="{size}px"
-  height="{size}px"
-  viewBox="0 0 50 50"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <circle
-    class="pie-circle"
-    cx="25"
-    cy="25"
-    r="25"
-    style="stroke: {strokeColor}; animation-duration: {duration}s"
-  />
-</svg>

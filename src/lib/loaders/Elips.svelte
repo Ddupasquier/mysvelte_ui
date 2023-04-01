@@ -2,10 +2,9 @@
     // Props
     export let color: string = "#c50eff";
     export let size: "small" | "medium" | "large" = "medium";
-    export let style: string = "";
+    export let speed: "fast" | "medium" | "slow" = "medium";
 
     // Local state
-    let containerStyle = "";
     let loaderStyle = "";
 
     // Size values
@@ -15,15 +14,39 @@
         large: 15,
     };
 
+    // Speed Values
+    const speedToDuration = {
+        fast: ".2s",
+        medium: ".5s",
+        slow: "1s",
+    };
+
     // Update styles on prop changes
-    $: containerStyle = `display: flex; align-items: center; justify-content: center; ${style}`;
-    $: loaderStyle = `width: ${sizeValues[size]}px; height: ${sizeValues[size]}px; background-color: ${color};`;
+    $: {
+        loaderStyle = `width: ${sizeValues[size]}px; height: ${sizeValues[size]}px; background-color: ${color};`;
+    }
+
+    // Update animation durations
+    $: animationDuration = speedToDuration[speed];
 </script>
 
 <div class="loader-container">
-    <div class="dot" style={loaderStyle} />
-    <div class="dot" style={loaderStyle} />
-    <div class="dot" style={loaderStyle} />
+    <div
+        class="dot"
+        style={`${loaderStyle}; animation-duration: ${animationDuration}`}
+    />
+    <div
+        class="dot"
+        style={`${loaderStyle}; animation-duration: ${animationDuration}; animation-delay: ${
+            parseFloat(animationDuration) / 3
+        }s`}
+    />
+    <div
+        class="dot"
+        style={`${loaderStyle}; animation-duration: ${animationDuration}; animation-delay: ${
+            (parseFloat(animationDuration) * 2) / 3
+        }s`}
+    />
 </div>
 
 <style>
@@ -40,14 +63,6 @@
         background-color: #c50eff;
         margin: 0 5px;
         animation: bounce 0.6s infinite alternate;
-    }
-
-    .dot:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    .dot:nth-child(3) {
-        animation-delay: 0.4s;
     }
 
     @keyframes bounce {

@@ -3,10 +3,12 @@
     export let color: string = "#c50eff";
     export let size: "small" | "medium" | "large" = "medium";
     export let style: string = "";
+    export let speed: "fast" | "medium" | "slow" = "medium";
 
     // Local state
     let containerStyle = "";
     let loaderStyle = "";
+    let loaderRef: HTMLDivElement;
 
     // Size values
     const sizeValues: Record<typeof size, number> = {
@@ -15,13 +17,30 @@
         large: 60,
     };
 
+    // Speed Values
+    const speedToDuration: Record<typeof speed, string> = {
+        fast: ".5s",
+        medium: "1s",
+        slow: "2s",
+    };
+
     // Update styles on prop changes
-    $: containerStyle = `display: flex; align-items: center; justify-content: center; ${style}`;
-    $: loaderStyle = `border-top-color: ${color}; border-left-color: ${color}; width: ${sizeValues[size]}px; height: ${sizeValues[size]}px;`;
+    $: {
+        if (loaderRef) {
+            loaderRef.style.setProperty(
+                "--animation-duration",
+                speedToDuration[speed]
+            );
+        }
+
+        loaderStyle = `border-top-color: ${color}; border-left-color: ${color}; width: ${sizeValues[size]}px; height: ${sizeValues[size]}px;`;
+
+        containerStyle = `display: flex; align-items: center; justify-content: center; ${style}`;
+    }
 </script>
 
 <div class="loader-container" style={containerStyle}>
-    <div class="loader" style={loaderStyle} />
+    <div class="loader" style={loaderStyle} bind:this={loaderRef} />
 </div>
 
 <style>
@@ -40,7 +59,7 @@
         border-width: 5px;
         border-right-color: transparent;
         border-bottom-color: transparent;
-        animation: rotate 0.8s linear infinite;
+        animation: rotate var(--animation-duration) linear infinite;
     }
 
     @keyframes rotate {
