@@ -81,10 +81,10 @@
 
     @keyframes bounce {
         0% {
-            transform: translateY(0) scale(1);
+            transform: translateY(0) scaleY(1) scaleX(1.2);
         }
         100% {
-            transform: translateY(-10px) scale(1.5);
+            transform: translateY(-20px) scaleY(1.3) scaleX(1);
         }
     }
 </style>

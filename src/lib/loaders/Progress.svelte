@@ -27,7 +27,6 @@
     };
 
     // Utils
-    // randomly generate a cubic bexier curve
     const randomCubicBezier = () => {
         const x1 = Math.random();
         const y1 = Math.random();
