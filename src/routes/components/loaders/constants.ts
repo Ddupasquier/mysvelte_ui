@@ -227,7 +227,7 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader-props',
+    id: 'loader_props',
     header: 'Loader Props',
     description: 'The props list for loaders is a pretty short and simple one.',
     type: 'table',
@@ -235,21 +235,27 @@ export const loaders: LoaderDisplayData[] = [
       tableName: 'loaders',
       rows: [
         {
-          name: 'size',
+          name: 'loader_size',
           description: 'The size of the loader. Can be small, medium, or large.',
           default: 'medium',
           nav: false,
         },
         {
-          name: 'color',
+          name: 'loader_color',
           description: 'The color of the loader',
           default: '#c50eff',
           nav: false,
         },
         {
-          name: 'speed',
+          name: 'loader_speed',
           description: 'The speed of the loader. Can be short, medium, or long.',
           default: 'medium',
+          nav: false,
+        },
+        {
+          name: 'loader_icon',
+          description: 'For Bounce.BounceIcon. The icon to be used in the loader.',
+          default: 'Svelte icon',
           nav: false,
         },
       ],
@@ -260,5 +266,5 @@ export const loaders: LoaderDisplayData[] = [
         props: {},
       },
     ],
-  }
+  },
 ];

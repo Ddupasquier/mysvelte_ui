@@ -408,27 +408,9 @@ export const buttons: ButtonDisplayData[] = [
           default: 'false',
           nav: true
         },
-      ]
-    },
-    examples: [
-      {
-        component: null,
-        props: {},
-      },
-    ],
-  },
-  {
-    id: 'button_icon_props',
-    header: 'Icon Props extends Button Props',
-    description:
-      'The props of Icon are mostly the same as button. The only difference is the addition of the `icon` prop.\nYou may also use all native HTML button attributes.',
-    type: 'table',
-    table: {
-      tableName: 'buttons',
-      rows: [
         {
           name: 'button_icon',
-          description: 'A string that contains the icon to display. This should be a valid html/xml string. This prop is optional, as you can also use the `icon` slot.',
+          description: 'For Button.Icon. A string that contains the icon to display. This should be a valid html/xml string. This prop is optional, as you can also use the `icon` slot.',
           default: 'null',
           nav: true
         }
@@ -440,5 +422,5 @@ export const buttons: ButtonDisplayData[] = [
         props: {},
       },
     ],
-  }
+  },
 ];

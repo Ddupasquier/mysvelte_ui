@@ -6,7 +6,8 @@
 <h1>Loaders</h1>
 
 <h3>
-  {"import { Loader } from 'mysvelte-ui';"}
+  {"import { Loader } from 'mysvelte-ui';"}<br />
+  [.Elips, .BounceIcon, .Pie, .Progress]
 </h3>
 
 {#each loaders as loader}
