@@ -1,8 +1,9 @@
 <script lang="ts">
+  import lost from "../assets/you_must_be_lost.mp4";
   import Banner from "$lib/assets/banner.png";
-import Parallaxes from './parallaxes/Parallaxes.svelte';
-
   import { page } from "$app/stores";
+
+  import Parallaxes from "./parallaxes/Parallaxes.svelte";
   import Checkboxes from "./checkboxes/Checkboxes.svelte";
   import Loaders from "./loaders/Loaders.svelte";
   import Dropdowns from "./dropdowns/Dropdowns.svelte";
@@ -10,7 +11,6 @@ import Parallaxes from './parallaxes/Parallaxes.svelte';
   import Popovers from "./popovers/Popovers.svelte";
   import Buttons from "./buttons/Buttons.svelte";
   import Inputs from "./inputs/Inputs.svelte";
-
   import Cards from "./cards/Cards.svelte";
 
   $: items = $page.url.searchParams.get("items");
@@ -23,7 +23,10 @@ import Parallaxes from './parallaxes/Parallaxes.svelte';
     name="description"
     content="Dive into our detailed Component Documentation, featuring individual views for each component to enhance understanding and ease of use. Empower your development journey with clear instructions, examples, and best practices for seamless integration."
   />
-  <meta property="og:title" content="MySvelteUI - {capitalize(items || "Component")}" />
+  <meta
+    property="og:title"
+    content="MySvelteUI - {capitalize(items || 'Component')}"
+  />
   <meta
     property="og:description"
     content="Dive into our detailed Component Documentation, featuring individual views for each component to enhance understanding and ease of use. Empower your development journey with clear instructions, examples, and best practices for seamless integration."
@@ -47,26 +50,43 @@ import Parallaxes from './parallaxes/Parallaxes.svelte';
   <Loaders />
 {:else if items === "checkboxes"}
   <Checkboxes />
-{:else if items === 'parallaxes'}
-<Parallaxes />
+{:else if items === "parallaxes"}
+  <Parallaxes />
 {:else}
   <div class="oops">
-    <h1>Components</h1>
+    <h1>Oops</h1>
+    <!-- embed import 'lost' as mp4 which plays on load only once and has no controls -->
+    <video autoplay loop muted playsinline class="video">
+      <source src={lost} type="video/mp4" />
+    </video>
     <p>
-      This is where some components would be... If there were any... <span
-        class="shrug">¯\_(ツ)_/¯</span
-      >
+      You must be lost. <br />
+      Let's get you back on track.
     </p>
-    <p>
-      If you have any questions or suggestions, please feel free to contact me.
-    </p>
+    <a href="/" class="shrug" aria-label="go home">¯\_(ツ)_/¯</a>
   </div>
 {/if}
 
 <style lang="scss">
   .shrug {
+    color: #fff;
+    background-color: #000;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
     font-size: 1.5rem;
     font-weight: 900;
+    cursor: pointer;
+    text-decoration: none;
+    animation: scale 0.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes scale {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
   }
 
   .oops {
@@ -77,5 +97,11 @@ import Parallaxes from './parallaxes/Parallaxes.svelte';
     height: 100%;
     padding: 1rem;
     text-align: center;
+  }
+
+  .video {
+    width: 100%;
+    max-width: 500px;
+    margin: 1rem 0;
   }
 </style>
