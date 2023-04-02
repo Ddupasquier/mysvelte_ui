@@ -49,7 +49,8 @@
   </p>
 </section>
 
-<style>
+<style lang="scss">
+  @use "src/routes/breakpoints.scss" as breakpoints;
   section {
     display: flex;
     flex-direction: column;
@@ -67,6 +68,12 @@
   @media screen and (max-width: 660px) {
     p {
       text-align: justify;
+    }
+  }
+
+  @media screen and (max-width: breakpoints.$sm-mobile-breakpoint) {
+    p {
+      font-size: 12px;
     }
   }
 </style>

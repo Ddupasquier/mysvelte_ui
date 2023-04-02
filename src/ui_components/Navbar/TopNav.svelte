@@ -5,12 +5,21 @@
 
     import { NavComponentOptions } from "../constants";
     import logo from "../images/svelte-logo.svg";
-    import github from "../images/github.svg";
 
     import Search from "../Search.svelte";
 
-    $: optionsOpen = false;
+    let optionsOpen = false;
 </script>
+
+<svelte:window
+    on:click={(e) => {
+        if (e.target instanceof HTMLElement) {
+            if (!e.target.closest("ul")) {
+                optionsOpen = false;
+            }
+        }
+    }}
+/>
 
 <nav class="nav-top">
     <div class="logo">
@@ -44,22 +53,23 @@
             >
         </li>
 
-        <!-- {#if optionsOpen} -->
-
-        <ul class="options" transition:slide={{ delay: 100, duration: 200 }}>
-            {#each NavComponentOptions as option}
-                <li
-                    aria-current={$page.url.pathname ===
-                    "/components" + option.path
-                        ? "page"
-                        : undefined}
-                >
-                    <a href={"/components" + option.path}>{option.name}</a>
-                </li>
-            {/each}
-        </ul>
-
-        <!-- {/if} -->
+        {#if optionsOpen}
+            <ul
+                class="options"
+                transition:slide={{ delay: 100, duration: 200 }}
+            >
+                {#each NavComponentOptions as option}
+                    <li
+                        aria-current={$page.url.pathname ===
+                        "/components" + option.path
+                            ? "page"
+                            : undefined}
+                    >
+                        <a href={"/components" + option.path}>{option.name}</a>
+                    </li>
+                {/each}
+            </ul>
+        {/if}
     </ul>
 </nav>
 
@@ -70,7 +80,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 100vw;
+        width: 100%;
         height: 5rem;
         background-color: var(--menu-color);
         z-index: 1000;
@@ -122,6 +132,7 @@
         flex-direction: column;
         list-style: none;
         background: var(--menu-color);
+        border-bottom: 3px solid var(--purple);
         top: 5rem;
         right: 0;
         padding: 0;
@@ -144,7 +155,7 @@
 
     a:hover,
     button:hover {
-        color: var(--color-theme-1);
+        color: var(--purple);
     }
 
     .search-container {
@@ -164,5 +175,20 @@
 
     .search-container {
         left: 4rem;
+    }
+
+    @media screen and (max-width: breakpoints.$sm-mobile-breakpoint) {
+        .nav-items {
+            justify-content: flex-end;
+            flex-direction: column;
+            padding: 0 0.5rem 0.5rem 0;
+            li {
+                padding: 0.1rem 0;
+            }
+        }
+
+        .options {
+            padding: 1rem;
+        }
     }
 </style>

@@ -73,6 +73,7 @@
     flex-direction: column;
     padding: 3rem;
     max-width: 64rem;
+    width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.5);
@@ -87,6 +88,18 @@
   @media screen and (max-width: 1000px) {
     main {
       padding: 5rem;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    main {
+      padding: 3rem;
+    }
+  }
+
+  @media screen and (max-width: breakpoints.$sm-mobile-breakpoint) {
+    main {
+      padding: 2rem;
     }
   }
 </style>

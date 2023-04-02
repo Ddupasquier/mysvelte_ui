@@ -81,6 +81,7 @@
 </div>
 
 <style lang="scss">
+  @use "src/routes/breakpoints.scss" as breakpoints;
   .container {
     position: relative;
     margin: 1rem 0;
@@ -149,6 +150,12 @@
     }
     100% {
       transform: scale(120);
+    }
+  }
+
+  @media screen and (max-width: breakpoints.$sm-mobile-breakpoint) {
+    p {
+      font-size: 0.8rem;
     }
   }
 </style>

@@ -142,7 +142,8 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
+  @use "src/routes/breakpoints.scss" as breakpoints;
   .contact-container {
     background-color: var(--color-bg-1);
     padding: 40px;
@@ -187,10 +188,10 @@
     align-items: center;
     text-align: center;
     margin-top: 20px;
+    gap: 1rem;
   }
 
   .contact-icons a {
-    margin-right: 15px;
     color: #000;
     text-decoration: none;
     transition: all 0.3s;
@@ -210,6 +211,37 @@
 
     .contact-btn {
       width: 120px;
+    }
+  }
+
+  @media (max-width: breakpoints.$sm-mobile-breakpoint) {
+    .contact-container {
+      width: 90%;
+      padding: 20px;
+    }
+
+    .contact-btn {
+      width: 100px;
+    }
+
+    .contact-headline {
+      font-size: 18px;
+    }
+
+    .contact-text {
+      font-size: 12px;
+    }
+
+    .contact-btn {
+      font-size: 12px;
+    }
+
+    .contact-icons {
+      gap: 0;
+    }
+
+    .contact-icons a {
+      transform: scale(0.8)
     }
   }
 </style>

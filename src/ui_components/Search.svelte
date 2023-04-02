@@ -26,6 +26,7 @@
       }
     }
   }}
+  
   on:keydown={(e) => {
     if (e.key === "Escape") {
       isOpen = false;
