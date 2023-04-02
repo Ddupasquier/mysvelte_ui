@@ -1,24 +1,56 @@
-<script>
-  import NavBar from '../ui_components/NavBar.svelte';
-  import Footer from '../ui_components/Footer.svelte';
-  import './styles.scss';
-  import Analytics from '../ui_components/Analytics.svelte';
-  import DefaultModal from '../ui_components/modals/DefaultModal.svelte';
+<script lang="ts">
+  import { onMount, beforeUpdate } from "svelte";
+  
+  import "./styles.scss";
+  import SideNav from "../ui_components/Navbar/SideNav.svelte";
+  import TopNav from "../ui_components/Navbar/TopNav.svelte";
+  import Footer from "../ui_components/Footer.svelte";
+  import DefaultModal from "../ui_components/modals/DefaultModal.svelte";
+
   import {
     defaultModalShown,
     defaultModalSlot,
-  } from '../../src/stores/modalStore';
+  } from "../../src/stores/modalStore";
+  import Analytics from "../ui_components/Analytics.svelte";
+
+  let above1400 = true;
+  let initialized = false;
+
+  onMount(() => {
+    checkScreenWidth();
+    initialized = true;
+  });
+
+  function checkScreenWidth() {
+    if (window.innerWidth > 1400) {
+      above1400 = true;
+    } else {
+      above1400 = false;
+    }
+  }
 </script>
+
+<svelte:window
+  on:resize={() => {
+    checkScreenWidth();
+  }}
+/>
 
 <Analytics />
 
-<div class="app">
-  <NavBar />
-  <main>
-    <slot />
-    <Footer />
-  </main>
-</div>
+{#if initialized}
+  <div class="app">
+    {#if above1400}
+      <SideNav />
+    {:else}
+      <TopNav />
+    {/if}
+    <main>
+      <slot />
+      <Footer />
+    </main>
+  </div>
+{/if}
 
 {#if $defaultModalShown}
   <DefaultModal>
@@ -27,11 +59,11 @@
 {/if}
 
 <style lang="scss">
-  @use 'src/routes/breakpoints.scss' as breakpoints;
+  @use "src/routes/breakpoints.scss" as breakpoints;
   .app {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    // min-height: 100vh;
   }
 
   main {
@@ -40,7 +72,6 @@
     display: flex;
     flex-direction: column;
     padding: 3rem;
-    // width: 100%;
     max-width: 64rem;
     margin: 0 auto;
     box-sizing: border-box;
