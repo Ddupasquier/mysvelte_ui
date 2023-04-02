@@ -231,5 +231,7 @@ interface ParallaxExample {
 interface ParallaxProps {
   image: string;
   height?: string;
-  style?: string;
+  width?: string;
+  alt: string;
+  speed?: number;
 }

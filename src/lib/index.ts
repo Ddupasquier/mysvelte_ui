@@ -52,3 +52,4 @@ export const Loader = Object.assign(LoaderDefault, {
 });
 
 export { default as Popover } from './popovers/Popover.svelte';
+export { default as Parallax } from './parallaxes/Parallax.svelte';
