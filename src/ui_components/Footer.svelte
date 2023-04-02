@@ -1,5 +1,5 @@
 <script lang="ts">
-  import github from './images/github.svg';
+  import { github } from "./icons";
 </script>
 
 <footer>
@@ -27,7 +27,7 @@
     text-align: center;
     margin-top: 1rem;
     padding: 3rem;
-    gap: .5rem;
+    gap: 0.5rem;
   }
 
   img {

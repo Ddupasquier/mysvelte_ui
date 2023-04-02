@@ -4,8 +4,7 @@
   import { slide } from "svelte/transition";
 
   import { NavComponentOptions } from "../constants";
-  import logo from "../images/svelte-logo.svg";
-  import github from "../images/github.svg";
+  import {svelteLogo, github} from "../icons";
 
   import BubbleButton from "$lib/buttons/BubbleButton.svelte";
   import Search from "../Search.svelte";
@@ -35,7 +34,7 @@
 <aside class="sidebar">
   <div class="top">
     <div class="logo">
-      <object type="image/svg+xml" data={logo} title="my_svelte_ui" />
+      <object type="image/svg+xml" data={svelteLogo} title="my_svelte_ui" />
       <div class="search-container">
         <Search />
       </div>

@@ -1,10 +1,9 @@
 <script lang="ts">
-    import { onMount } from "svelte";
     import { page } from "$app/stores";
     import { slide } from "svelte/transition";
 
     import { NavComponentOptions } from "../constants";
-    import logo from "../images/svelte-logo.svg";
+    import { svelteLogo } from "../icons";
 
     import Search from "../Search.svelte";
 
@@ -23,7 +22,7 @@
 
 <nav class="nav-top">
     <div class="logo">
-        <object type="image/svg+xml" data={logo} title="my_svelte_ui" />
+        <object type="image/svg+xml" data={svelteLogo} title="my_svelte_ui" />
         <div class="search-container">
             <Search />
         </div>
