@@ -16,5 +16,8 @@ module.exports = {
 		browser: true,
 		es2017: true,
 		node: true
+	},
+	rules: {
+		'eol-last': ['error', 'always']
 	}
 };
