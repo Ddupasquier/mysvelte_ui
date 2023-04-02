@@ -1,4 +1,5 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
+import pluralize from 'pluralize';
 
 // Get the component name from the command line argument
 const componentName = process.argv[2];
@@ -16,11 +17,11 @@ if (componentName) {
 
 // Create a new directory for the component in the lib directory
 const creatLibComponent = async () => {
-  mkdirSync(`./src/lib/${componentLower}s`);
+  mkdirSync(pluralize(`./src/lib/${componentLower}`));
 
   // Create a new Svelte file for the component in the new directory
   writeFileSync(
-    `./src/lib/${componentLower}s/${componentUpper}.svelte`,
+    `./src/lib/${pluralize(componentLower)}/${componentUpper}.svelte`,
     `<h1>${componentName}</h1>`
   );
 };
@@ -31,23 +32,23 @@ console.log(`Created a new component called ${componentName} in lib directory`);
 
 const createRoutesComponent = async () => {
   // Create a new directory for the component in the routes directory
-  mkdirSync(`./src/routes/components/${componentLower}s`);
+  mkdirSync(`./src/routes/components/${pluralize(componentLower)}`);
 
   // Create a new Svelte file and constants.ts for the component in the new directory
   writeFileSync(
-    `./src/routes/components/${componentLower}s/${componentUpper}s.svelte`,
+    `./src/routes/components/${pluralize(componentLower)}/${pluralize(componentUpper)}.svelte`,
     `<script>
   import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-  import { ${componentLower}s} from './constants';
+  import { ${pluralize(componentLower)}} from './constants';
 </script>
 
-<h1>${componentUpper}s</h1>
+<h1>${pluralize(componentUpper)}</h1>
 
 <h3>
   {"import { ${componentUpper} } from 'mysvelte-ui';"}
 </h3>
 
-{#each ${componentLower}s as ${componentLower}}
+{#each ${pluralize(componentLower)} as ${componentLower}}
   <DisplayCard
     id={${componentLower}.id}
     header={${componentLower}.header}
@@ -60,8 +61,8 @@ const createRoutesComponent = async () => {
   );
 
   writeFileSync(
-    `./src/routes/components/${componentLower}s/constants.ts`,
-    `import ${componentUpper} from '$lib/${componentLower}s/${componentUpper}.svelte';
+    `./src/routes/components/${pluralize(componentLower)}/constants.ts`,
+    `import ${componentUpper} from '$lib/${pluralize(componentLower)}/${componentUpper}.svelte';
     // * Suggested fields
     // basics
     // background
@@ -72,7 +73,7 @@ const createRoutesComponent = async () => {
     // state?
     // props
 
-  export const ${componentLower}s: ${componentUpper}DisplayData[] = []`
+  export const ${pluralize(componentLower)}: ${componentUpper}DisplayData[] = []`
   );
 };
 
@@ -91,9 +92,9 @@ const addComponent = async () => {
   const lastSemicolon = storePath.indexOf(';', lastImport);
   const componentsArr = storePath.lastIndexOf('[];');
 
-  const newImport = `\nimport { ${componentLower}s } from '../routes/components/${componentLower}s/constants';`;
+  const newImport = `\nimport { ${pluralize(componentLower)} } from '../routes/components/${pluralize(componentLower)}/constants';`;
 
-  const addToComponents = `\n${componentLower}s.forEach((${componentLower}) => {
+  const addToComponents = `\n${pluralize(componentLower)}.forEach((${componentLower}) => {
     componentIds.push(\`\${${componentLower}.id}_${componentLower}\`);
   });`;
 
@@ -118,9 +119,9 @@ const addToPage = async () => {
   const lastSemicolon = pagePath.indexOf(';', lastImport);
   const componentsElseBlock = pagePath.lastIndexOf('{:else}');
 
-  const newImport = `\nimport ${componentUpper}s from './${componentLower}s/${componentUpper}s.svelte';`;
+  const newImport = `\nimport ${pluralize(componentUpper)} from './${pluralize(componentLower)}/${pluralize(componentUpper)}.svelte';`;
 
-  const newIfElse = `{:else if items === '${componentLower}s'}\n<${componentUpper}s />\n`;
+  const newIfElse = `{:else if items === '${pluralize(componentLower)}'}\n<${pluralize(componentUpper)} />\n`;
 
   const newContent =
     pagePath.slice(0, lastSemicolon + 1) +
@@ -140,7 +141,7 @@ console.log(`Added ${componentName} to components/+page.svelte`);
 const constantsPath = readFileSync('./src/ui_components/constants.ts', 'utf-8');
 const addToConstants = async () => {
   const firstBracket = constantsPath.indexOf('[');
-  const newConstant = `\n  {\n    name: '${componentUpper}s',\n    path: '?items=${componentLower}s',\n },`;
+  const newConstant = `\n  {\n    name: '${pluralize(componentUpper)}',\n    path: '?items=${pluralize(componentLower)}',\n },`;
 
   const newContent =
     constantsPath.slice(0, firstBracket + 1) +
