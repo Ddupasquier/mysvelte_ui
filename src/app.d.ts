@@ -12,14 +12,17 @@ type tableRow = {
   nav: boolean;
 };
 
-// * BUTTON TYPES
-interface ButtonDisplayData {
+interface BaseDisplayData {
   id: string;
   header: string;
   description: string;
   type: 'gallery' | 'components' | 'nested' | 'table';
-  examples: ButtonExample[];
   table?: PropsTable;
+}
+
+// * BUTTON TYPES
+interface ButtonDisplayData extends BaseDisplayData {
+  examples: ButtonExample[];
 }
 
 interface ButtonExample {
@@ -46,13 +49,8 @@ interface ButtonIconProps extends ButtonProps {
 }
 
 // * INPUT TYPES
-interface InputDisplayData {
-  id: string;
-  header: string;
-  description: string;
-  type: 'gallery' | 'components' | 'nested' | 'table';
+interface InputDisplayData extends BaseDisplayData {
   examples: InputExample[];
-  table?: PropsTable;
 }
 
 interface InputExample {
@@ -84,13 +82,8 @@ interface PrefixProps extends InputProps {
 }
 
 // * CARD TYPES
-interface CardDisplayData {
-  id: string;
-  header: string;
-  description: string;
-  type: 'gallery' | 'components' | 'nested' | 'table';
+interface CardDisplayData extends BaseDisplayData {
   examples: CardExample[];
-  table?: PropsTable;
 }
 
 interface CardNested {
@@ -118,13 +111,8 @@ interface CardImageProps extends CardProps {
 }
 
 // * Popover TYPES
-interface PopoverDisplayData {
-  id: string;
-  header: string;
-  description: string;
-  type: 'gallery' | 'components' | 'nested' | 'table';
+interface PopoverDisplayData extends BaseDisplayData {
   examples: PopoverExample[];
-  table?: PropsTable;
 }
 
 interface PopoverExample {
@@ -142,13 +130,8 @@ interface PopoverProps {
 }
 
 // * Radio TYPES
-interface RadioDisplayData {
-  id: string;
-  header: string;
-  description: string;
-  type: 'gallery' | 'components' | 'nested' | 'table';
+interface RadioDisplayData extends BaseDisplayData {
   examples: RadioExample[];
-  table?: PropsTable;
 }
 
 interface RadioExample {
@@ -169,13 +152,8 @@ interface RadioProps {
 }
 
 // * Dropdown TYPES
-interface DropdownDisplayData {
-  id: string;
-  header: string;
-  description: string;
-  type: 'gallery' | 'components' | 'nested' | 'table';
+interface DropdownDisplayData extends BaseDisplayData {
   examples: DropdownExample[];
-  table?: PropsTable;
 }
 
 interface DropdownExample {
@@ -194,13 +172,8 @@ interface DropdownProps {
 }
 
 // * Loader TYPES
-interface LoaderDisplayData {
-  id: string;
-  header: string;
-  description: string;
-  type: 'gallery' | 'components' | 'nested' | 'table';
+interface LoaderDisplayData extends BaseDisplayData {
   examples: LoaderExample[];
-  table?: PropsTable;
 }
 
 interface LoaderExample {
@@ -221,13 +194,8 @@ interface BounceLoaderProps extends LoaderProps {
 }
 
 // * Checkbox TYPES
-interface CheckboxDisplayData {
-  id: string;
-  header: string;
-  description: string;
-  type: 'gallery' | 'components' | 'nested' | 'table';
+interface CheckboxDisplayData extends BaseDisplayData {
   examples: CheckboxExample[];
-  table?: PropsTable;
 }
 
 interface CheckboxExample {
@@ -247,4 +215,21 @@ interface CheckboxProps {
   style?: string;
   color?: string;
   size?: 'small' | 'medium' | 'large';
+}
+
+// * Parallax TYPES
+interface ParallaxDisplayData extends BaseDisplayData {
+  examples: ParallaxExample[];
+}
+
+interface ParallaxExample {
+  component: SvelteComponentTyped;
+  props: ParallaxProps;
+  code?: string[];
+}
+
+interface ParallaxProps {
+  image: string;
+  height?: string;
+  style?: string;
 }
