@@ -1,5 +1,6 @@
 <script lang="ts">
   import Banner from "$lib/assets/banner.png";
+import Parallaxes from './parallaxes/Parallaxes.svelte';
 
   import { page } from "$app/stores";
   import Checkboxes from "./checkboxes/Checkboxes.svelte";
@@ -46,6 +47,8 @@
   <Loaders />
 {:else if items === "checkboxes"}
   <Checkboxes />
+{:else if items === 'parallaxes'}
+<Parallaxes />
 {:else}
   <div class="oops">
     <h1>Components</h1>

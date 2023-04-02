@@ -8,9 +8,13 @@ import { radios } from '../routes/components/radios/constants';
 import { dropdowns } from '../routes/components/dropdowns/constants';
 import { loaders } from '../routes/components/loaders/constants';
 import { checkboxes } from '../routes/components/checkboxes/constants';
+import { parallaxes } from '../routes/components/parallaxes/constants';
 
 export const getComponentIds = (): ComponentPropertyString[] => {
   const componentIds: ComponentPropertyString[] = [];
+parallaxes.forEach((parallax) => {
+    componentIds.push(`${parallax.id}_parallax`);
+  });
   checkboxes.forEach((checkbox) => {
     componentIds.push(`${checkbox.id}_checkbox`);
   });

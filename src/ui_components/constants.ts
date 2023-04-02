@@ -1,5 +1,9 @@
 export const NavComponentOptions = [
   {
+    name: 'Parallaxes',
+    path: '?items=parallaxes',
+ },
+  {
     name: 'Checkboxes',
     path: '?items=checkboxes',
   },
