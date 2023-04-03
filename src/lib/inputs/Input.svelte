@@ -176,7 +176,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    width: fit-content;
+    width:100%;
     &:focus-within {
       .label-in {
         top: -0.25rem;
