@@ -1,5 +1,5 @@
 import { Parallax } from '$lib';
-import { city, desert, flower, beach, boat } from '../../assets';
+import { city, cityVideo, desert, flower, beach, boat } from '../../assets';
 
 export const parallaxes: ParallaxDisplayData[] = [
   {
@@ -18,7 +18,7 @@ export const parallaxes: ParallaxDisplayData[] = [
           speed: 0.2,
         },
         code: [
-          `<Parallax {height} {width} {image} {alt} {speed} />`,
+          `<Parallax {height} {width} {image} {alt} {speed} position={[x, y]} />`,
         ],
       },
     ],
@@ -38,6 +38,9 @@ export const parallaxes: ParallaxDisplayData[] = [
           alt: 'parallax image',
           speed: 0.2,
         },
+        code: [
+          `<Parallax {image} {alt} {height} {width} />`,
+        ]
       },
       {
         component: Parallax,
@@ -77,8 +80,30 @@ export const parallaxes: ParallaxDisplayData[] = [
           speed: -0.2,
         },
         code: [
-          `<Parallax {speed} />`,
+          `<Parallax {image} {alt} {speed} />`,
         ]
+      },
+    ],
+  },
+  {
+    id: 'parallax_video',
+    header: 'Parallax Video',
+    description: 'Parallax has a video component that you can use to create a parallax effect on a video element.',
+    type: 'components',
+    examples: [
+      {
+        component: Parallax.Video,
+        props: {
+          height: '300px',
+          width: '100%',
+          video: cityVideo,
+          alt: 'parallax video',
+          speed: 0.2,
+          position: [0, -35],
+        } as VideoParallaxProps,
+        code: [
+          `<Parallax.Video {video} {speed} />`,
+        ],
       },
     ],
   },
@@ -91,29 +116,41 @@ export const parallaxes: ParallaxDisplayData[] = [
       tableName: 'parallaxes',
       rows: [
         {
-          name: 'parallax_image!',
-          description: 'string',
-          default: '',
+          name: 'parallax_image/video!',
+          description: 'The image prop is a string that is the path to the image you want to use. The image prop is required.',
+          default: '""',
           nav: false,
         },
         {
           name: 'parallax_alt!',
-          description: 'string',
-          default: '',
+          description: 'The alt prop is a string that is the alt text for the image. The alt prop is required.',
+          default: '""',
           nav: false,
         },
         {
           name: 'parallax_size',
-          description: 'string',
+          description: 'The height and props are strings that can be any valid css value. IE "100px" or "100%".',
           default: 'W: 100% H: 300px',
           nav: true,
         },
         {
           name: 'parallax_speed',
-          description: 'number',
+          description: 'The speed prop is a number between -2 and 2. A positive number will move the image up and a negative number will move the image down.',
           default: '0.5',
           nav: true,
-        }
+        },
+        {
+          name: 'parallax_position',
+          description: 'The position prop is an array of numbers that is the position of the image or video. The first number is the x position and the second number is the y position. IE [0, 0] is the center, center position.',
+          default: '[0, 0]',
+          nav: false,
+        },
+        {
+          name: 'parallax_video',
+          description: 'The video variant of the parallax component allows you to create a parallax component with a video element.',
+          default: '""',
+          nav: true,
+        },
       ]
     },
     examples: [
