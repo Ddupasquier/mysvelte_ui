@@ -1,6 +1,6 @@
 <script lang="ts">
   import lost from "../assets/you_must_be_lost.mp4";
-  import Banner from "$lib/assets/banner.png";
+  import { banner } from "../assets";
   import { page } from "$app/stores";
 
   import Parallaxes from "./parallaxes/Parallaxes.svelte";
@@ -31,7 +31,7 @@
     property="og:description"
     content="Dive into our detailed Component Documentation, featuring individual views for each component to enhance understanding and ease of use. Empower your development journey with clear instructions, examples, and best practices for seamless integration."
   />
-  <meta property="og:image" content={Banner} />
+  <meta property="og:image" content={banner} />
 </svelte:head>
 
 {#if items === "buttons"}

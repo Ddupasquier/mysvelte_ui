@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Banner from "$lib/assets/banner.png";
+  import { banner } from "../assets";
   const iconSize = "50px";
 </script>
 
@@ -14,7 +14,7 @@
     property="og:description"
     content="Connect with us - Reach out with questions, feedback, or collaboration ideas, and let's create amazing web applications together."
   />
-  <meta property="og:image" content={Banner} />
+  <meta property="og:image" content={banner} />
 </svelte:head>
 
 <div class="contact-container">
@@ -241,7 +241,7 @@
     }
 
     .contact-icons a {
-      transform: scale(0.8)
+      transform: scale(0.8);
     }
   }
 </style>
