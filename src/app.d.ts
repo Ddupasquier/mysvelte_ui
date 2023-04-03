@@ -224,7 +224,7 @@ interface ParallaxDisplayData extends BaseDisplayData {
 
 interface ParallaxExample {
   component: SvelteComponentTyped;
-  props: ParallaxProps;
+  props: ParallaxProps | VideoParallaxProps;
   code?: string[];
 }
 
@@ -234,4 +234,21 @@ interface ParallaxProps {
   width?: string;
   alt: string;
   speed?: number;
+}
+
+interface ParallaxProps {
+  image: string;
+  height?: string;
+  width?: string;
+  alt: string;
+  speed?: number;
+  position?: [number, number];
+}
+
+interface VideoParallaxProps {
+  video: string;
+  height?: string;
+  width?: string;
+  speed?: number;
+  position?: [number, number];
 }
