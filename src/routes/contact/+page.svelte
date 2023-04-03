@@ -148,7 +148,7 @@
     background-color: var(--color-bg-1);
     padding: 40px;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 500px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   }
