@@ -189,5 +189,10 @@
         .options {
             padding: 1rem;
         }
+
+        .search-container {
+            width: fit-content;
+            left: 3rem;
+        }
     }
 </style>
