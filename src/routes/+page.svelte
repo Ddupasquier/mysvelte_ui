@@ -1,21 +1,3 @@
-<script lang="ts">
-  import Banner from "$lib/assets/banner.png";
-</script>
-
-<svelte:head>
-  <title>MySvelteUI</title>
-  <meta
-    name="description"
-    content="Discover our intuitive Svelte component library, designed to simplify web application development for beginners and experienced developers alike. Save time with pre-built components, streamline your workflow, and boost productivity without compromising on quality or functionality."
-  />
-  <meta property="og:title" content="MySvelteUI" />
-  <meta
-    property="og:description"
-    content="Discover our intuitive Svelte component library, designed to simplify web application development for beginners and experienced developers alike. Save time with pre-built components, streamline your workflow, and boost productivity without compromising on quality or functionality."
-  />
-  <meta property="og:image" content={Banner} />
-</svelte:head>
-
 <section>
   <p>
     Our Svelte component library is a powerful tool designed to help developers
