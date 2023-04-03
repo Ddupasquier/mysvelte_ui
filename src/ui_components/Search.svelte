@@ -4,6 +4,7 @@
   import { MagnifyingGlassIcon } from "./icons";
   import { componentIds } from "../stores/componentStore";
   import { splitSearchResult } from "./utils";
+    import { redirect } from "@sveltejs/kit";
 
   $: isOpen = false;
   let searchRef: HTMLDivElement;
@@ -26,7 +27,6 @@
       }
     }
   }}
-  
   on:keydown={(e) => {
     if (e.key === "Escape") {
       isOpen = false;
@@ -83,11 +83,13 @@
           delay: 0,
           duration: 100,
         }}
+        class="input-wrapper"
       >
         <Input
           bind:value={searchTerm}
           placeholder="Search || 'all'"
           aria-label="Search"
+          size="small"
         />
       </div>
     {/if}
@@ -135,6 +137,8 @@
 </div>
 
 <style lang="scss">
+  @use "src/routes/breakpoints.scss" as breakpoints;
+
   @mixin shared {
     display: flex;
     align-items: center;
@@ -242,5 +246,29 @@
   .property {
     font-size: 1rem;
     margin-left: 0.2rem;
+  }
+
+  @media screen and (max-width: breakpoints.$sm-mobile-breakpoint) {
+
+    .outer {
+      justify-content: flex-end;
+      transform: scale(0.7);
+    }
+    .expanded {
+      width: 14rem;
+      .inner {
+        justify-content: flex-end;
+        padding-left: 0;
+      }
+    }
+
+    .input-wrapper {
+      width: 9.4rem;
+      padding: 0.5rem;
+    }
+
+    .search-results {
+      width: 11.5rem;
+    }
   }
 </style>
