@@ -52,4 +52,10 @@ export const Loader = Object.assign(LoaderDefault, {
 });
 
 export { default as Popover } from './popovers/Popover.svelte';
-export { default as Parallax } from './parallaxes/Parallax.svelte';
+
+import ParallaxDefault from './parallaxes/Parallax.svelte';
+import ParallaxVideo from './parallaxes/ParallaxVideo.svelte';
+
+export const Parallax = Object.assign(ParallaxDefault, {
+  Video: ParallaxVideo,
+});
