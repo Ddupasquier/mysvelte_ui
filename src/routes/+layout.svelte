@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-   import Banner from "./assets/banner.png";
-  
+  import { banner } from "./assets";
+
   import "./styles.scss";
   import SideNav from "../ui_components/Navbar/SideNav.svelte";
   import TopNav from "../ui_components/Navbar/TopNav.svelte";
@@ -42,7 +42,7 @@
     property="og:description"
     content="Discover our intuitive Svelte component library, designed to simplify web application development for beginners and experienced developers alike. Save time with pre-built components, streamline your workflow, and boost productivity without compromising on quality or functionality."
   />
-  <meta property="og:image" content={Banner} />
+  <meta property="og:image" content={banner} />
 </svelte:head>
 
 <svelte:window
@@ -97,7 +97,6 @@
   @media screen and (max-width: breakpoints.$col-breakpoint) {
     .app {
       flex-direction: column;
-      
     }
   }
 
