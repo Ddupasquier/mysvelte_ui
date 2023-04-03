@@ -78,6 +78,7 @@
 {/if}
 
 <style lang="scss">
+  @use "src/routes/breakpoints.scss" as breakpoints;
   table {
     width: 100%;
     border-collapse: collapse;
@@ -146,5 +147,17 @@
     width: 1rem;
     height: 1rem;
     margin-right: 0.5rem;
+  }
+
+  @media screen and (max-width: breakpoints.$sm-mobile-breakpoint) {
+    table {
+      font-size: 0.7rem;
+    }
+  }
+
+  @media screen and (max-width: breakpoints.$xs-mobile-breakpoint) {
+    .defaults, .default-head {
+      display: none;
+    }
   }
 </style>
