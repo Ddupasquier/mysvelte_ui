@@ -63,6 +63,7 @@
   .app {
     display: flex;
     flex-direction: column;
+    height: 100vh;
   }
 
   main {
@@ -81,6 +82,7 @@
   @media screen and (max-width: breakpoints.$col-breakpoint) {
     .app {
       flex-direction: column;
+      
     }
   }
 
