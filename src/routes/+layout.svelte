@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-   import Banner from "$lib/assets/banner.png";
+   import Banner from "./assets/banner.png";
   
   import "./styles.scss";
   import SideNav from "../ui_components/Navbar/SideNav.svelte";
