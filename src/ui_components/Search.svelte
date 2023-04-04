@@ -90,6 +90,7 @@
           placeholder="Search || 'all'"
           aria-label="Search"
           size="small"
+          style="width: 100%"
         />
       </div>
     {/if}
@@ -168,7 +169,7 @@
     .activate {
       @include shared;
       aspect-ratio: 1/1;
-      background: rgb(255, 255, 255);
+      background: transparent;
       justify-content: center;
       height: 85%;
       cursor: pointer;

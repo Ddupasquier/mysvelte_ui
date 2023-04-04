@@ -3,8 +3,8 @@
   import { banner } from "./assets";
 
   import "./styles.scss";
-  import SideNav from "../ui_components/Navbar/SideNav.svelte";
-  import TopNav from "../ui_components/Navbar/TopNav.svelte";
+  import SideNav from "../ui_components/navbar/SideNav.svelte";
+  import TopNav from "../ui_components/navbar/TopNav.svelte";
   import Footer from "../ui_components/Footer.svelte";
   import DefaultModal from "../ui_components/modals/DefaultModal.svelte";
 

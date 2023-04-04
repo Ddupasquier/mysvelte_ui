@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <ul>
+    <ul class="nav-items">
       <li aria-current={$page.url.pathname === "/" ? "page" : undefined}>
         <a href="/">Home</a>
       </li>
@@ -53,8 +53,8 @@
         </li>
 
         {#if optionsOpen}
-          <div class="options" transition:slide={{ delay: 100, duration: 200 }}>
-            <ul>
+        
+            <ul class="options" transition:slide={{ delay: 100, duration: 200 }}>
               {#each NavComponentOptions as option}
                 <li
                   aria-current={$page.url.pathname ===
@@ -66,7 +66,7 @@
                 </li>
               {/each}
             </ul>
-          </div>
+         
         {/if}
       </div>
 
@@ -118,19 +118,19 @@
     align-self: center;
   }
 
-  ul {
+  .nav-items {
     position: relative;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     list-style: none;
+    li {
+      position: relative;
+      padding: 0.5rem 1rem;
+    }
   }
 
-  li {
-    position: relative;
-    padding: 0.5rem 1rem;
-  }
 
   li[aria-current="page"]::before {
     --size: 8px;
@@ -164,7 +164,16 @@
   }
 
   .options {
-    margin-left: 1rem;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    list-style: none;
+    li {
+      padding: .2rem 1rem;
+    }
     a {
       font-size: 0.7rem;
     }
