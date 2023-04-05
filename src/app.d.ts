@@ -103,6 +103,7 @@ interface CardProps {
   color?: string;
   style?: string;
   slot?: unknown;
+  hover?: boolean;
   nested?: CardExample[];
 }
 

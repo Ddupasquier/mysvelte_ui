@@ -1,7 +1,7 @@
 <script lang="ts">
   export let background: string = 'transparent';
   export let style: string = '';
-  export let color: string = '#fff';
+  export let color: string = '#000';
 </script>
 
 <div

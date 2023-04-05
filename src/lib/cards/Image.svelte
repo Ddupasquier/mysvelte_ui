@@ -15,9 +15,11 @@
 
 <style lang="scss">
   .card {
+    display: flex;
+    flex-direction: column;
     border-radius: 0.5rem;
     width: 22rem;
-    height: fit-content;
+    height: 20rem;
     background-size: cover;
     background-position: center;
   }
