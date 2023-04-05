@@ -1,12 +1,32 @@
 <script lang="ts">
-  export let background: string = "#fff";
+  import { onMount } from "svelte";
+
+  export let background: string = "transparent";
   export let style: string = "";
   export let color: string = "#000";
-  export let hover: boolean = true;
+  export let hover: boolean = false;
+
+  // initial === defaults
+  let classList = ["card"];
+  let classString = "";
+
+  onMount(() => {
+    if (hover) {
+      classList.push("hover");
+    }
+
+    classString = classList.join(" ");
+  });
+
+  $: classString = classList.join(" ");
 </script>
 
+<!-- ! Goal is to reduce amount of JS being shipped and bring uniformity to code base-->
+<!-- TODO: Alter other components to have a similar structure to this, where applicable -->
+<!-- * classList, onMount set classList, CSS for styles, make sure to allow for style overrides -->
+
 <div
-  class={`card ${hover ? "hover" : ""}`}
+  class={classString}
   style="background: {background}; color: {color}; {style}"
   {...$$restProps}
   on:click
@@ -26,10 +46,12 @@
     border-radius: 0.5rem;
     width: 22rem;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
-  }
 
-  .card:hover {
-    box-shadow: 0 .2rem 1rem .5rem rgba(0, 0, 0, 0.1);
-    transform: scale(1.01) translateY(-0.5rem);
+    &.hover {
+      &:hover {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        transform: scale(1.003) translateY(-0.2rem);
+      }
+    }
   }
 </style>
