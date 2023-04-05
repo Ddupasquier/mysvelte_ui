@@ -6,6 +6,7 @@
   import SideNav from "../ui_components/navbar/SideNav.svelte";
   import TopNav from "../ui_components/navbar/TopNav.svelte";
   import Footer from "../ui_components/Footer.svelte";
+  import { waveBg } from "./assets";
   import DefaultModal from "../ui_components/modals/DefaultModal.svelte";
 
   import {
@@ -14,7 +15,8 @@
   } from "../../src/stores/modalStore";
   import Analytics from "../ui_components/Analytics.svelte";
 
-  let above1400 = true;
+  let currentLayout: "row" | "column" = "row";
+  let bgShown: boolean = true;
   let initialized = false;
 
   onMount(() => {
@@ -24,9 +26,15 @@
 
   function checkScreenWidth() {
     if (window.innerWidth > 1400) {
-      above1400 = true;
+      currentLayout = "row";
     } else {
-      above1400 = false;
+      currentLayout = "column";
+    }
+
+    if (window.innerWidth > 1025) {
+      bgShown = true;
+    } else {
+      bgShown = false;
     }
   }
 </script>
@@ -54,8 +62,8 @@
 <Analytics />
 
 {#if initialized}
-  <div class="app">
-    {#if above1400}
+  <div class="app" style:background={bgShown ? `url(${waveBg}) no-repeat` : ""}>
+    {#if currentLayout === "row"}
       <SideNav />
     {:else}
       <TopNav />

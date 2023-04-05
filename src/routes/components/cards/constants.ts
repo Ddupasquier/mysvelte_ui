@@ -31,7 +31,7 @@ export const cards: CardDisplayData[] = [
               component: Card.Content,
               props: {
                 color: 'black',
-                background: 'rgb(246, 237, 247)',
+                background: 'rgb(246, 237, 247, .9)',
                 slot: 'Card.Content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas urna ut posuere condimentum. Ut molestie vel mi nec lobortis. Nam ac elit interdum, rhoncus enim ut, posuere nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed bibendum libero.',
                 style: 'max-height: 150px; overflow: auto;',
               },
@@ -69,7 +69,7 @@ export const cards: CardDisplayData[] = [
             {
               component: Card.Content,
               props: {
-                background: 'rgb(246, 237, 247)',
+                background: 'rgb(246, 237, 247, .9)',
                 color: 'black',
                 slot: 'Card.Content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas urna ut posuere condimentum. Ut molestie vel mi nec lobortis. Nam ac elit interdum, rhoncus enim ut, posuere nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed bibendum libero.',
                 style: 'max-height: 150px; overflow: auto;',
@@ -111,7 +111,7 @@ export const cards: CardDisplayData[] = [
               component: Card.Content,
               props: {
                 color: 'black',
-                background: 'rgb(246, 237, 247)',
+                background: 'rgb(246, 237, 247, )',
                 slot: 'Card.Content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas urna ut posuere condimentum. Ut molestie vel mi nec lobortis. Nam ac elit interdum, rhoncus enim ut, posuere nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed bibendum libero.',
                 style: 'max-height: 150px; overflow: auto;',
               },
@@ -168,7 +168,7 @@ export const cards: CardDisplayData[] = [
               component: Card.Content,
               props: {
                 color: 'black',
-                background: 'rgb(246, 237, 247)',
+                background: 'rgb(246, 237, 247, )',
                 slot: 'Card.Content: Hover over me!',
                 style: 'max-height: 150px; overflow: auto;',
               },

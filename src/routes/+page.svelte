@@ -18,11 +18,11 @@
 </svelte:head>
 
 <section>
-  <Card style="flex: 1; min-width: 20rem">
-    <Card.Head color="black">
+  <Card style="flex: 1; min-width: 20rem" background="white" hover={true}>
+    <Card.Head background="#c50eff" color="white">
       <h2>Streamline Your Workflow with Our Svelte Component Library</h2>
     </Card.Head>
-    <Card.Content color="black">
+    <Card.Content>
       <p>
         Our Svelte component library is a powerful tool designed to help
         developers create beautiful and functional web applications with ease.
@@ -35,14 +35,14 @@
     </Card.Content>
   </Card>
 
-  <Card style="flex: 1; min-width: 20rem">
-    <Card.Head color="black">
+  <Card style="flex: 1; min-width: 20rem" background="white" hover={true}>
+    <Card.Head background="#c50eff" color="white">
       <h2>
         Our Svelte Component Library is Designed for Beginners and Experienced
         Developers Alike
       </h2>
     </Card.Head>
-    <Card.Content color="black">
+    <Card.Content>
       <p>
         Our library is designed to be intuitive and easy to use, even for
         beginners. We have ensured that our components are designed with
@@ -56,22 +56,22 @@
     </Card.Content>
   </Card>
 
-  <Card style="flex: 1; min-width: 20rem">
-    <Card.Head color="black">
+  <Card style="flex: 1; min-width: 20rem" background="white" hover={true}>
+    <Card.Head background="#c50eff" color="white">
       <h2>
         Our Svelte Component Library is a Great Choice for Anyone Looking to
         Save Time and Effort in Their Development Process
       </h2>
     </Card.Head>
-    <Card.Content color="black">
+    <Card.Content>
       <p>
-        By using our Svelte component library, you can streamline your workflow
-        and improve your productivity, without the hassle of downloading or
-        importing anything. Our library is a great choice for anyone looking to
-        save time and effort in their development process, without sacrificing
-        the quality or functionality of their web applications. So why not give
-        our library a try today and see how it can make your development process
-        smoother and more efficient?
+        Our library is a great choice for anyone looking to save time and effort
+        in their development process, without sacrificing the quality or
+        functionality of their web applications. With only a few necessary
+        imports, you can quickly integrate our library into your project and
+        start benefiting from its features. So why not give our library a try
+        today and see how it can make your development process smoother and more
+        efficient?
       </p>
     </Card.Content>
   </Card>
@@ -87,6 +87,10 @@
     align-items: stretch;
     gap: 2rem;
     margin: 1rem 0;
+  }
+
+  h2 {
+    margin: 0;
   }
 
   p {
