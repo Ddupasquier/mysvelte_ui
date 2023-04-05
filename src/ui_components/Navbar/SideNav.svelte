@@ -4,9 +4,8 @@
   import { slide } from "svelte/transition";
 
   import { NavComponentOptions } from "../constants";
-  import {svelteLogo, github} from "../icons";
+  import { svelteLogo } from "../icons";
 
-  import BubbleButton from "$lib/buttons/BubbleButton.svelte";
   import Search from "../Search.svelte";
 
   onMount(() => {
@@ -21,14 +20,14 @@
   $: bubblesShown = true;
 
   $: NavComponentOptions.sort((a, b) => {
-        if (a.name < b.name) {
-            return -1;
-        }
-        if (a.name > b.name) {
-            return 1;
-        }
-        return 0;
-    });
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  });
 </script>
 
 <svelte:window
@@ -63,20 +62,17 @@
         </li>
 
         {#if optionsOpen}
-        
-            <ul class="options" transition:slide={{ delay: 100, duration: 200 }}>
-              {#each NavComponentOptions as option}
-                <li
-                  aria-current={$page.url.pathname ===
-                  "/components" + option.path
-                    ? "page"
-                    : undefined}
-                >
-                  <a href={"/components" + option.path}>{option.name}</a>
-                </li>
-              {/each}
-            </ul>
-         
+          <ul class="options" transition:slide={{ delay: 100, duration: 200 }}>
+            {#each NavComponentOptions as option}
+              <li
+                aria-current={$page.url.pathname === "/components" + option.path
+                  ? "page"
+                  : undefined}
+              >
+                <a href={"/components" + option.path}>{option.name}</a>
+              </li>
+            {/each}
+          </ul>
         {/if}
       </div>
 
@@ -85,8 +81,8 @@
       </li>
     </ul>
   </div>
-  <div class="bottom">
-    {#if bubblesShown}
+  <!-- <div class="bottom">
+    <{#if bubblesShown}
       <BubbleButton>
         <a
           href="https://github.com/Ddupasquier/mysvelte_ui"
@@ -97,8 +93,8 @@
           <object type="image/svg+xml" data={github} title="github" />
         </a>
       </BubbleButton>
-    {/if}
-  </div>
+    {/if}>
+  </div> -->
 </aside>
 
 <style lang="scss">
@@ -141,7 +137,6 @@
     }
   }
 
-
   li[aria-current="page"]::before {
     --size: 8px;
     content: "";
@@ -182,7 +177,7 @@
     gap: 0;
     list-style: none;
     li {
-      padding: .2rem 0 .2rem 1.5rem;
+      padding: 0.2rem 0 0.2rem 1.5rem;
     }
     a {
       font-size: 0.7rem;

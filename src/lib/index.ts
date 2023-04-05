@@ -1,9 +1,7 @@
 import ButtonDefault from './buttons/Button.svelte';
-import ButtonBubble from './buttons/BubbleButton.svelte';
 import ButtonIcon from './buttons/ButtonIcon.svelte';
 
 export const Button = Object.assign(ButtonDefault, {
-  Bubble: ButtonBubble,
   Icon: ButtonIcon,
 });
 

@@ -7,7 +7,7 @@
 
 <h3>
   {"import { Button } from 'mysvelte-ui';"}<br />
-  [.Icon, .Bubble]
+  [.Icon]
 </h3>
 
 {#each buttons as button}
