@@ -8,6 +8,16 @@
     import Search from "../Search.svelte";
 
     let optionsOpen = false;
+
+    $: NavComponentOptions.sort((a, b) => {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    });
 </script>
 
 <svelte:window

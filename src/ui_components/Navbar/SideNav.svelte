@@ -19,6 +19,16 @@
 
   $: optionsOpen = false;
   $: bubblesShown = true;
+
+  $: NavComponentOptions.sort((a, b) => {
+        if (a.name < b.name) {
+            return -1;
+        }
+        if (a.name > b.name) {
+            return 1;
+        }
+        return 0;
+    });
 </script>
 
 <svelte:window
@@ -172,7 +182,7 @@
     gap: 0;
     list-style: none;
     li {
-      padding: .2rem 1rem;
+      padding: .2rem 0 .2rem 1.5rem;
     }
     a {
       font-size: 0.7rem;
