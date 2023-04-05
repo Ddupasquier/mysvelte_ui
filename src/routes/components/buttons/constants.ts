@@ -269,7 +269,7 @@ export const buttons: ButtonDisplayData[] = [
             defaultModalShown.set(true);
             defaultModalSlot.set('Woah, just like magic!');
           },
-          animated: true
+          animated: true,
         },
         code: '<Button on:click={() => alert("Woah, just like magic!")}>Click Me</Button>',
       },

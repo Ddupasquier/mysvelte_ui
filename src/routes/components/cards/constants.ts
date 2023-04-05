@@ -1,5 +1,12 @@
 import { Card } from '$lib';
 
+// --purple: #c50eff;
+// --pink: #ff00d9;
+// --salmon: #FF3579;
+// --orange: #FF8C4C;
+// --gold: #FFC844;
+// --yellow: #F9F871;
+
 export const cards: CardDisplayData[] = [
   {
     id: 'card_basics',
@@ -11,12 +18,13 @@ export const cards: CardDisplayData[] = [
       {
         component: Card,
         props: {
-          background: '#c50eff',
           nested: [
             {
               component: Card.Head,
               props: {
                 slot: 'Card.Head',
+                background: '#c50eff',
+                color: 'white',
               },
             },
             {
@@ -31,8 +39,9 @@ export const cards: CardDisplayData[] = [
             {
               component: Card.Foot,
               props: {
-                background: '#ff00d9',
+                background: '#c50eff',
                 slot: 'Card.Foot',
+                color: 'white',
               },
             },
           ],
@@ -48,13 +57,13 @@ export const cards: CardDisplayData[] = [
       {
         component: Card,
         props: {
-          background: '#ff00d9',
           nested: [
             {
               component: Card.Head,
               props: {
-                background: '#FF3579',
+                background: '#ff00d9',
                 slot: 'Card.Head',
+                color: 'white',
               },
             },
             {
@@ -70,7 +79,8 @@ export const cards: CardDisplayData[] = [
               component: Card.Foot,
               props: {
                 slot: 'Card.Foot',
-                background: '#FF8C4C'
+                background: '#ff00d9',
+                color: 'white',
               },
             },
           ],
@@ -88,12 +98,13 @@ export const cards: CardDisplayData[] = [
       {
         component: Card,
         props: {
-          background: '#c50eff',
           nested: [
             {
               component: Card.Head,
               props: {
                 slot: 'Card.Head',
+                background: 'linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);',
+                color: 'white',
               },
             },
             {
@@ -108,8 +119,9 @@ export const cards: CardDisplayData[] = [
             {
               component: Card.Foot,
               props: {
-                background: '#333',
+                background: 'linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);',
                 slot: 'Card.Foot',
+                color: 'white',
               },
             },
           ],
@@ -133,6 +145,55 @@ export const cards: CardDisplayData[] = [
     examples: [],
   },
   {
+    id: 'card_hover',
+    header: 'Card Hover',
+    description:
+      'Card hover is easy to use. Just add the hover prop to the card component. \n(default: false)',
+    type: 'nested',
+    examples: [
+      {
+        component: Card,
+        props: {
+          hover: true,
+          nested: [
+            {
+              component: Card.Head,
+              props: {
+                slot: 'Card.Head',
+                background: '#FF3579',
+                color: 'white',
+              },
+            },
+            {
+              component: Card.Content,
+              props: {
+                color: 'black',
+                background: 'rgb(246, 237, 247)',
+                slot: 'Card.Content: Hover over me!',
+                style: 'max-height: 150px; overflow: auto;',
+              },
+            },
+            {
+              component: Card.Foot,
+              props: {
+                background: '#FF3579',
+                slot: 'Card.Foot',
+                color: 'white',
+              },
+            },
+          ],
+        },
+        code: [
+          '<Card background={background}>',
+          'indent<Card.Head>Card.Head</Card.Head>',
+          'indent<Card.Content background={background} color={color} style={style}>Card.Content</Card.Content>',
+          'indent<Card.Foot background={background}>Card.Foot</Card.Foot>',
+          '</Card>',
+        ],
+      }
+    ],
+  },
+  {
     id: 'images',
     header: 'Card with Images',
     description:
@@ -142,7 +203,6 @@ export const cards: CardDisplayData[] = [
       {
         component: Card.Image,
         props: {
-          background: '#000',
           image:
             'https://i0.hippopx.com/photos/324/623/626/cat-black-and-white-animals-black-preview.jpg',
           nested: [
@@ -151,7 +211,8 @@ export const cards: CardDisplayData[] = [
               props: {
                 background:
                   'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6474964985994398) 100%)',
-                slot: 'Card.Head',
+                slot: 'Purrlock Holmes',
+                color: 'white',
               },
             },
             {
@@ -166,6 +227,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 style: 'backdrop-filter: blur(.2rem)',
                 slot: 'Card.Foot',
+                color: 'white',
               },
             },
           ],
@@ -181,7 +243,6 @@ export const cards: CardDisplayData[] = [
       {
         component: Card.Image,
         props: {
-          background: '#000',
           image:
             'https://i0.hippopx.com/photos/405/86/365/cat-black-cat-thoughtful-pet-preview.jpg',
           nested: [
@@ -190,7 +251,8 @@ export const cards: CardDisplayData[] = [
               props: {
                 background:
                   'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6474964985994398) 100%)',
-                slot: 'Card.Head',
+                slot: 'Catserole Delight',
+                color: 'white',
               },
             },
             {
@@ -205,6 +267,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 style: 'backdrop-filter: blur(.2rem)',
                 slot: 'Card.Foot',
+                color: 'white',
               },
             },
           ],
@@ -213,7 +276,6 @@ export const cards: CardDisplayData[] = [
       {
         component: Card.Image,
         props: {
-          background: '#000',
           image:
             'https://img.rawpixel.com/private/static/images/website/2022-05/upwk61856994-wikimedia-image-kowduagi.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=2e3d9ade5e2b744c4b8c2f2a44c6294a',
           nested: [
@@ -222,7 +284,8 @@ export const cards: CardDisplayData[] = [
               props: {
                 background:
                   'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6474964985994398) 100%)',
-                slot: 'Card.Head',
+                slot: 'Whiskerella Fuzzypaws',
+                color: 'white',
               },
             },
             {
@@ -237,6 +300,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 style: 'backdrop-filter: blur(.2rem)',
                 slot: 'Card.Foot',
+                color: 'white',
               },
             },
           ],
@@ -245,7 +309,6 @@ export const cards: CardDisplayData[] = [
       {
         component: Card.Image,
         props: {
-          background: '#000',
           image:
             'https://i0.hippopx.com/photos/149/81/199/cat-black-cat-snow-black-color-preview.jpg',
           nested: [
@@ -254,7 +317,8 @@ export const cards: CardDisplayData[] = [
               props: {
                 background:
                   'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6474964985994398) 100%)',
-                slot: 'Card.Head',
+                slot: 'Sir Fluffington Meowster',
+                color: 'white',
               },
             },
             {
@@ -269,6 +333,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 style: 'backdrop-filter: blur(.2rem)',
                 slot: 'Card.Foot',
+                color: 'white',
               },
             },
           ],
@@ -277,7 +342,6 @@ export const cards: CardDisplayData[] = [
       {
         component: Card.Image,
         props: {
-          background: '#000',
           image:
             'https://images.pexels.com/photos/37337/cat-silhouette-cats-silhouette-cat-s-eyes.jpg',
           nested: [
@@ -286,7 +350,8 @@ export const cards: CardDisplayData[] = [
               props: {
                 background:
                   'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6474964985994398) 100%)',
-                slot: 'Card.Head',
+                slot: 'Kitty Purrfurst',
+                color: 'white',
               },
             },
             {
@@ -301,6 +366,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 style: 'backdrop-filter: blur(.2rem)',
                 slot: 'Card.Foot',
+                color: 'white',
               },
             },
           ],
