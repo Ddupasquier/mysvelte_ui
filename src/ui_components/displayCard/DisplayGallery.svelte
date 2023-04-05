@@ -27,11 +27,11 @@
   // TODO create carousel wheel
   .examples {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 1rem;
     margin: 1rem 0;
+    height: fit-content;
   }
 </style>
