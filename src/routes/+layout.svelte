@@ -1,12 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { banner } from "./assets";
-
   import "./styles.scss";
-  import SideNav from "../ui_components/navbar/SideNav.svelte";
-  import TopNav from "../ui_components/navbar/TopNav.svelte";
+
+  import { banner, waveBg } from "./assets";
+  import { TopNav, SideNav } from "../ui_components/navbar";
   import Footer from "../ui_components/Footer.svelte";
-  import { waveBg } from "./assets";
   import DefaultModal from "../ui_components/modals/DefaultModal.svelte";
 
   import {
