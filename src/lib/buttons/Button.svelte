@@ -2,6 +2,10 @@
   import { createAndAnimateCircle } from "$lib/animations/buttonAnimations";
   import { afterUpdate, onMount } from "svelte";
 
+  /**
+* determines the propName of the component.
+@prop {boolean} disabled - determines if the button is disabled.
+*/
   export let disabled: boolean = false;
   export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
     "medium";

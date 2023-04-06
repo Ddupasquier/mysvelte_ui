@@ -16,7 +16,9 @@
     "test:unit": "vitest",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write .",
-    "newcomp": "node scripts/newComponent.js"
+    "newcomp": "node scripts/newComponent.js",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "exports": {
     ".": {
@@ -32,6 +34,13 @@
   "devDependencies": {
     "@fontsource/fira-mono": "^4.5.10",
     "@neoconfetti/svelte": "^1.0.0",
+    "@storybook/addon-essentials": "^7.0.2",
+    "@storybook/addon-interactions": "^7.0.2",
+    "@storybook/addon-links": "^7.0.2",
+    "@storybook/blocks": "^7.0.2",
+    "@storybook/svelte": "^7.0.2",
+    "@storybook/sveltekit": "^7.0.2",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/kit": "^1.5.0",
     "@sveltejs/package": "^2.0.1",
@@ -39,20 +48,27 @@
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.28.0",
+    "eslint-plugin-storybook": "^0.6.11",
     "eslint-plugin-svelte3": "^4.0.0",
+    "fs": "^0.0.1-security",
     "mdsvex": "^0.10.6",
+    "pluralize": "^8.0.0",
     "publint": "^0.1.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.58.1",
+    "storybook": "^7.0.2",
     "svelte": "^3.54.0",
     "svelte-check": "^3.0.1",
     "tslib": "^2.4.1",
     "typescript": "^4.9.3",
-    "vite": "^4.0.0",
-    "fs": "^0.0.1-security",
-    "pluralize": "^8.0.0"
+    "vite": "^4.0.0"
   },
   "type": "module",
   "dependencies": {
+    "@storybook/addon-a11y": "^7.0.2",
+    "@storybook/addon-docs": "^7.0.2",
+    "@storybook/addon-svelte-csf": "^3.0.0",
     "@types/gtag.js": "^0.0.12"
   }
 }
