@@ -12,6 +12,7 @@ const meta = {
     size: {
       control: { type: 'select' },
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
+      description: 'The size of the button',
     },
   },
 } satisfies Meta<Button>;
@@ -22,12 +23,12 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/7.0/svelte/writing-stories/args
 export const Default: Story = {
   args: {
-    text: 'Woah',
+    text: 'Button',
   },
   parameters: {
     docs: {
       description: {
-        story: "Time to add some information about a button!",
+        story: "Buttons are used to trigger actions. They can be used in forms, in dialogs, or in standalone actions. They can be used as links, or used to submit forms. They can be styled in a variety of ways.",
       },
     },
   },
