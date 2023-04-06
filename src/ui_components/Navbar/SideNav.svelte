@@ -8,16 +8,7 @@
 
   import Search from "../Search.svelte";
 
-  onMount(() => {
-    if (window.innerWidth > 1400) {
-      bubblesShown = true;
-    } else {
-      bubblesShown = false;
-    }
-  });
-
   $: optionsOpen = false;
-  $: bubblesShown = true;
 
   $: NavComponentOptions.sort((a, b) => {
     if (a.name < b.name) {
@@ -29,16 +20,6 @@
     return 0;
   });
 </script>
-
-<svelte:window
-  on:resize={() => {
-    if (window.innerWidth > 1400) {
-      bubblesShown = true;
-    } else {
-      bubblesShown = false;
-    }
-  }}
-/>
 
 <aside class="sidebar">
   <div class="top">
