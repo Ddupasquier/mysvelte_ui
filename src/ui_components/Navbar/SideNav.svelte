@@ -81,20 +81,6 @@
       </li>
     </ul>
   </div>
-  <!-- <div class="bottom">
-    <{#if bubblesShown}
-      <BubbleButton>
-        <a
-          href="https://github.com/Ddupasquier/mysvelte_ui"
-          class="github"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <object type="image/svg+xml" data={github} title="github" />
-        </a>
-      </BubbleButton>
-    {/if}>
-  </div> -->
 </aside>
 
 <style lang="scss">
@@ -186,26 +172,6 @@
 
   a:hover {
     color: var(--color-theme-1);
-  }
-
-  .bottom {
-    align-self: center;
-  }
-
-  .github {
-    z-index: 1;
-    background: #f0c1ff;
-    border: none;
-    border-radius: 50rem;
-    width: 3.45rem;
-    aspect-ratio: 1/1;
-    position: relative;
-    top: 1.76rem;
-    left: -0.1rem;
-    cursor: pointer;
-    object {
-      pointer-events: none;
-    }
   }
 
   .search-container {
