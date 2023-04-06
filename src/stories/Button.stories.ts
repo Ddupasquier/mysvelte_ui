@@ -8,12 +8,43 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    text: {
+      control: { type: 'text' },
+      description: 'The text to display in the button',
+    },
     size: {
       control: { type: 'select' },
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
-      description: 'The size of the button',
+      description: `The size of the button <br />(xsmall, small, medium, large, xlarge)`,
     },
+    background: {
+      control: { type: 'text' },
+      description: 'The background color of the button accepts any CSS string valid to the background property',
+    },
+    color: {
+      control: { type: 'text' },
+      description: 'The color of the button accepts any CSS string valid to the color property',
+    },
+    style: {
+      control: { type: 'text' },
+      description: 'The style of the button accepts any CSS string valid to the style property',
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      description: 'Whether the button is disabled',
+    },
+    isLoading: {
+      control: { type: 'boolean' },
+      description: 'Whether the button is in a loading state',
+    },
+    isError: {
+      control: { type: 'boolean' },
+      description: 'Whether the button is in an error state',
+    },
+    animated: {
+      control: { type: 'boolean' },
+      description: 'Whether the button is animated',
+    }
   },
 } satisfies Meta<Button>;
 
