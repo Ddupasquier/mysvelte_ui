@@ -9,6 +9,7 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    panelPosition: "bottom",
   },
 };
 
