@@ -1,5 +1,8 @@
 ![MySvelteUI](https://user-images.githubusercontent.com/89223122/228957657-eec19e63-ecd7-4657-8466-5ff28242b6eb.png)
 
+![npm](https://img.shields.io/npm/v/mysvelte-ui)
+![npm](https://img.shields.io/npm/dm/mysvelte-ui)
+
 ## Svelte component library in the making. 
 This is a young project so shut up and watch for updates.
 Better documentation pending.
