@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   // Props
   export let label: string = "";
   export let labelColor: string = "#000";
@@ -7,15 +9,24 @@
   export let size: "small" | "medium" | "large" = "medium";
   export let disabled: boolean = false;
 
-  // Local state
-  let inputStyle = "";
+  // Variables
+  let classList = ["checkbox-container"];
+  let classString = "";
 
-  // Size values
+  // Constants
   const sizeValues: Record<typeof size, string> = {
     small: ".75",
     medium: "1",
     large: "1.25",
   };
+
+  // Lifecycle hooks
+  onMount(() => {
+    classString = classList.join(" ");
+  });
+
+  // Reactive statements
+  $: classString = classList.join(" ");
 
   // Event handlers
   const handleInput = (event: Event) => {
@@ -24,14 +35,13 @@
   };
 </script>
 
-<div class="checkbox-container" {...$$restProps}>
+<div class={classString} {...$$restProps}>
   <label class="label" style="color: {labelColor}">
     <input
       type="checkbox"
       {disabled}
       {checked}
       on:change={handleInput}
-      style={inputStyle}
       {...$$restProps}
     />
     <span
@@ -42,7 +52,7 @@
   </label>
 </div>
 
-<style>
+<style lang="scss">
   .checkbox-container {
     display: flex;
     align-items: center;
@@ -76,6 +86,7 @@
     border: 2px solid #ccc;
     border-radius: 3px;
     background-color: transparent;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
   }
 
   .checkmark::before {
