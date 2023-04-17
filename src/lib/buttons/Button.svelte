@@ -2,6 +2,7 @@
   import { createAndAnimateCircle } from "$lib/animations/buttonAnimations";
   import { afterUpdate, onMount } from "svelte";
 
+  
   export let disabled: boolean = false;
   export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
     "medium";
