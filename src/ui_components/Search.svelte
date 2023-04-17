@@ -4,7 +4,6 @@
   import { MagnifyingGlassIcon } from "./icons";
   import { componentIds } from "../stores/componentStore";
   import { splitSearchResult } from "./utils";
-    import { redirect } from "@sveltejs/kit";
 
   $: isOpen = false;
   let searchRef: HTMLDivElement;
@@ -68,7 +67,8 @@
 <div
   class={isOpen ? "outer expanded" : "outer"}
   bind:this={searchRef}
-  role="search"
+  role="combobox"
+  aria-controls="search-results"
   aria-haspopup="listbox"
   aria-expanded={isOpen}
 >
@@ -104,6 +104,7 @@
   {#if searchTerm !== ""}
     {#if searchResults.length === 0}
       <div
+        id="search-results"
         class="search-results"
         role="listbox"
         aria-expanded={isOpen}
