@@ -22,7 +22,15 @@ const creatLibComponent = async () => {
   // Create a new Svelte file for the component in the new directory
   writeFileSync(
     `./src/lib/${pluralize(componentLower)}/${componentUpper}.svelte`,
-    `<h1>${componentName}</h1>`
+    `<script lang="ts">
+    // Imports\n// Props\n// Variables\n// Constants\n// Lifecycle Hooks\n// Functions\n// Reactive Statements\n// Refs
+    </script>
+    
+    <h1>${componentName}</h1>
+    
+    <style lang="scss">
+    
+    </style>`
   );
 };
 
