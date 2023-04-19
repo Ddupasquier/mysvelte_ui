@@ -147,6 +147,7 @@
     width: 1rem;
     height: 1rem;
     margin-right: 0.5rem;
+    border-radius: 3px;
   }
 
   @media screen and (max-width: breakpoints.$sm-mobile-breakpoint) {
