@@ -70,3 +70,8 @@ import ParallaxVideo from './parallaxes/ParallaxVideo.svelte';
 export const Parallax = Object.assign(ParallaxDefault, {
   Video: ParallaxVideo,
 });
+
+// * AVATARS
+import AvatarDefault from './avatars/Avatar.svelte';
+
+export const Avatar = Object.assign(AvatarDefault, {});

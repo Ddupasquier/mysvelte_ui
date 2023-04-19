@@ -1,5 +1,9 @@
 export const NavComponentOptions = [
   {
+    name: 'Avatars',
+    path: '?items=avatars',
+ },
+  {
     name: 'Parallaxes',
     path: '?items=parallaxes',
   },

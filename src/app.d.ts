@@ -261,3 +261,23 @@ interface VideoParallaxProps {
   speed?: number;
   position?: [number, number];
 }
+
+// * Avatar TYPES
+interface AvatarDisplayData extends BaseDisplayData {
+  examples: AvatarExample[];
+}
+
+interface AvatarExample {
+  component: SvelteComponentTyped;
+  props: AvatarProps;
+  code?: string[];
+}
+
+interface AvatarProps {
+  image: string;
+  size?: 'small' | 'medium' | 'large';
+  alt: string;
+  style?: string;
+  filter?: "none" | "gray" | "sepia" | "invert";
+  shape?: "circ" | "square" | "rounded";
+}

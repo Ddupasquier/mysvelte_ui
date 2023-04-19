@@ -9,9 +9,13 @@ import { dropdowns } from '../routes/components/dropdowns/constants';
 import { loaders } from '../routes/components/loaders/constants';
 import { checkboxes } from '../routes/components/checkboxes/constants';
 import { parallaxes } from '../routes/components/parallaxes/constants';
+import { avatars } from '../routes/components/avatars/constants';
 
 export const getComponentIds = (): ComponentPropertyString[] => {
   const componentIds: ComponentPropertyString[] = [];
+avatars.forEach((avatar) => {
+    componentIds.push(`${avatar.id}_avatar`);
+  });
 parallaxes.forEach((parallax) => {
     componentIds.push(`${parallax.id}_parallax`);
   });

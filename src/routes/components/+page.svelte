@@ -1,5 +1,6 @@
 <script lang="ts">
   import lost from "../assets/you_must_be_lost.mp4";
+import Avatars from './avatars/Avatars.svelte';
   import { banner } from "../assets";
   import { page } from "$app/stores";
 
@@ -52,6 +53,8 @@
   <Checkboxes />
 {:else if items === "parallaxes"}
   <Parallaxes />
+{:else if items === 'avatars'}
+<Avatars />
 {:else}
   <div class="oops">
     <h1>Oops</h1>
