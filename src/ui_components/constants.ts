@@ -1,5 +1,9 @@
 export const NavComponentOptions = [
   {
+    name: 'Avatars',
+    path: '?items=avatars',
+ },
+  {
     name: 'Parallaxes',
     path: '?items=parallaxes',
   },
@@ -11,10 +15,10 @@ export const NavComponentOptions = [
     name: 'Loaders',
     path: '?items=loaders',
   },
-  {
-    name: 'Dropdowns',
-    path: '?items=dropdowns',
-  },
+  // {
+  //   name: 'Dropdowns',
+  //   path: '?items=dropdowns',
+  // },
   {
     name: 'Radios',
     path: '?items=radios',

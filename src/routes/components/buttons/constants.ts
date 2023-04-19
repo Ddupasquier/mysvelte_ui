@@ -23,7 +23,7 @@ export const buttons: ButtonDisplayData[] = [
   },
   {
     id: 'button_background',
-    header: 'Background Button',
+    header: 'Button Background',
     description:
       'You can easily change the background of a button by adding the background prop. (default: purple)',
     type: 'components',
@@ -75,7 +75,7 @@ export const buttons: ButtonDisplayData[] = [
   },
   {
     id: 'button_size',
-    header: 'Resize Button',
+    header: 'Button Size',
     description:
       'By adding the size prop you can grow || shrink your button with small, medium, large, and xlarge (default: medium)',
     type: 'components',
@@ -160,7 +160,7 @@ export const buttons: ButtonDisplayData[] = [
   },
   {
     id: 'button_color',
-    header: 'Color Text Button',
+    header: 'Button Text Color',
     description:
       'You can easily change the color of the text by adding the color prop. (default: white)',
     type: 'components',
@@ -191,7 +191,7 @@ export const buttons: ButtonDisplayData[] = [
   },
   {
     id: 'button_style',
-    header: 'Custom Button',
+    header: 'Button Custom Styling',
     description:
       'Adding custom styling is easy as pie. Just do your usual style="..." in string format. \nYour styles can override || accompany the default styles.',
     type: 'components',
@@ -223,7 +223,7 @@ export const buttons: ButtonDisplayData[] = [
   },
   {
     id: 'button_state',
-    header: 'Stateful Button',
+    header: 'Button State',
     description:
       'There are multiple states a button can be in. Here is my rendition of some fun UI for them. (default all: false)\nWhile disabled, the background property in a custom style tag will be nullified. \nIf you still wish the alter the background color while disabled, use the background-color property.',
     type: 'components',
@@ -277,7 +277,7 @@ export const buttons: ButtonDisplayData[] = [
   },
   {
     id: 'button_animated',
-    header: 'Animated Button',
+    header: 'Button Animation',
     description:
       'You can animate your button by adding the animated prop. (default: false)',
     type: 'components',
@@ -294,7 +294,7 @@ export const buttons: ButtonDisplayData[] = [
   },
   {
     id: 'button_icon',
-    header: 'Icon Button',
+    header: 'Button Icon',
     description:
       'You can add an icon to your button by adding the icon prop || the named icon slot. Preference is for an svg, but a png or other image type is acceptable. (default: null)',
     type: 'components',

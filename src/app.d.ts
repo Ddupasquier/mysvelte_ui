@@ -170,6 +170,14 @@ interface DropdownProps {
   label?: string;
   disabled?: boolean;
   style?: string;
+  options: DropdownOption[];
+  variant?: "default" | "line" | "outline";
+  size?: "xsmall" | "small" | "medium" | "large" | "xlarge";
+}
+
+interface DropdownOption {
+  value: string;
+  label: string;
 }
 
 // * Loader TYPES
@@ -252,4 +260,24 @@ interface VideoParallaxProps {
   width?: string;
   speed?: number;
   position?: [number, number];
+}
+
+// * Avatar TYPES
+interface AvatarDisplayData extends BaseDisplayData {
+  examples: AvatarExample[];
+}
+
+interface AvatarExample {
+  component: SvelteComponentTyped;
+  props: AvatarProps;
+  code?: string[];
+}
+
+interface AvatarProps {
+  image: string;
+  size?: 'small' | 'medium' | 'large';
+  alt: string;
+  style?: string;
+  filter?: "none" | "gray" | "sepia" | "invert";
+  shape?: "circ" | "square" | "rounded";
 }

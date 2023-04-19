@@ -23,7 +23,7 @@
 
 <!-- ! Goal is to reduce amount of JS being shipped and bring uniformity to code base-->
 <!-- TODO: Alter other components to have a similar structure to this, where applicable -->
-<!-- * classList, onMount set classList, CSS for styles, make sure to allow for style overrides -->
+<!-- ! classList, onMount set classList, CSS for styles, make sure to allow for style overrides -->
 
 <div
   class={classString}

@@ -1,10 +1,10 @@
 <script lang="ts">
+  import pluralize from 'pluralize';
   import { fade, slide } from "svelte/transition";
   import Input from "$lib/inputs/Input.svelte";
   import { MagnifyingGlassIcon } from "./icons";
   import { componentIds } from "../stores/componentStore";
   import { splitSearchResult } from "./utils";
-    import { redirect } from "@sveltejs/kit";
 
   $: isOpen = false;
   let searchRef: HTMLDivElement;
@@ -68,7 +68,8 @@
 <div
   class={isOpen ? "outer expanded" : "outer"}
   bind:this={searchRef}
-  role="search"
+  role="combobox"
+  aria-controls="search-results"
   aria-haspopup="listbox"
   aria-expanded={isOpen}
 >
@@ -104,6 +105,7 @@
   {#if searchTerm !== ""}
     {#if searchResults.length === 0}
       <div
+        id="search-results"
         class="search-results"
         role="listbox"
         aria-expanded={isOpen}
@@ -117,7 +119,7 @@
           {@const { component, id: componentId } = splitSearchResult(id)}
           <a
             href={`/components?items=${
-              componentId + "s"
+              pluralize(componentId)
             }#${componentId}_${component}`}
             {id}
             role="option"
