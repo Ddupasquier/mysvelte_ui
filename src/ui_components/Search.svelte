@@ -1,4 +1,5 @@
 <script lang="ts">
+  import pluralize from 'pluralize';
   import { fade, slide } from "svelte/transition";
   import Input from "$lib/inputs/Input.svelte";
   import { MagnifyingGlassIcon } from "./icons";
@@ -118,7 +119,7 @@
           {@const { component, id: componentId } = splitSearchResult(id)}
           <a
             href={`/components?items=${
-              componentId + "s"
+              pluralize(componentId)
             }#${componentId}_${component}`}
             {id}
             role="option"
