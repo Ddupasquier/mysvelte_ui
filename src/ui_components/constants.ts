@@ -11,10 +11,10 @@ export const NavComponentOptions = [
     name: 'Loaders',
     path: '?items=loaders',
   },
-  {
-    name: 'Dropdowns',
-    path: '?items=dropdowns',
-  },
+  // {
+  //   name: 'Dropdowns',
+  //   path: '?items=dropdowns',
+  // },
   {
     name: 'Radios',
     path: '?items=radios',
