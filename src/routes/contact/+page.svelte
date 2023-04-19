@@ -120,7 +120,7 @@
 <style lang="scss">
   @use "src/routes/breakpoints.scss" as breakpoints;
   .contact-container {
-    background-color: var(--color-bg-1);
+    background-color: var(--menu-color);
     padding: 40px;
     margin: 0 auto;
     max-width: 500px;
