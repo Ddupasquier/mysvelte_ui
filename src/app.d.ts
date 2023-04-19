@@ -170,6 +170,14 @@ interface DropdownProps {
   label?: string;
   disabled?: boolean;
   style?: string;
+  options: DropdownOption[];
+  variant?: "default" | "line" | "outline";
+  size?: "xsmall" | "small" | "medium" | "large" | "xlarge";
+}
+
+interface DropdownOption {
+  value: string;
+  label: string;
 }
 
 // * Loader TYPES

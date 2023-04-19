@@ -1,3 +1,4 @@
+// * BUTTONS
 import ButtonDefault from './buttons/Button.svelte';
 import ButtonIcon from './buttons/ButtonIcon.svelte';
 
@@ -5,8 +6,10 @@ export const Button = Object.assign(ButtonDefault, {
   Icon: ButtonIcon,
 });
 
+// * MISC
 export { default as Spacer } from './Spacer.svelte';
 
+// * INPUTS
 import DefaultInput from './inputs/Input.svelte';
 import Prefix from './inputs/Prefix.svelte';
 
@@ -14,6 +17,12 @@ export const Input = Object.assign(DefaultInput, {
   Prefix,
 });
 
+// // * DROPDOWNS
+// import Dropdown from './dropdowns/Dropdown.svelte';
+
+// export { Dropdown };
+
+// * CARDS
 import CardDefault from './cards/Card.svelte';
 import Head from './cards/Head.svelte';
 import Content from './cards/Content.svelte';
@@ -27,6 +36,7 @@ export const Card = Object.assign(CardDefault, {
   Image,
 });
 
+// * CHECKBOXES
 import CheckboxDefault from './checkboxes/Checkbox.svelte';
 import CheckboxAnimated from './checkboxes/CheckboxAnimated.svelte';
 
@@ -34,6 +44,7 @@ export const Checkbox = Object.assign(CheckboxDefault, {
   Animated: CheckboxAnimated,
 });
 
+// * LOADERS
 import LoaderDefault from './loaders/Loader.svelte';
 import Elips from './loaders/Elips.svelte';
 import Roll from './loaders/Roll.svelte';
@@ -49,8 +60,10 @@ export const Loader = Object.assign(LoaderDefault, {
   Pie
 });
 
+// * POPOVERS
 export { default as Popover } from './popovers/Popover.svelte';
 
+// * PARALLAXES
 import ParallaxDefault from './parallaxes/Parallax.svelte';
 import ParallaxVideo from './parallaxes/ParallaxVideo.svelte';
 

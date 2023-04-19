@@ -46,9 +46,9 @@
         sizeValues[size]
       }; ${removeBackgroundStyle(style)};`;
     } else if (isLoading) {
-      additionalStyle = `background: #ccc; pointer-events: none; color: ${color}; border: 2px solid ${background}; padding: ${sizeValues[size]}; ${style};`;
+      additionalStyle = `background: #ccc; pointer-events: none; color: ${color}; border: 2px solid ${background}; border-radius: 50rem; padding: ${sizeValues[size]}; ${style};`;
     } else if (isError) {
-      additionalStyle = `background: #ccc; pointer-events: none; color: ${color}; border: 2px solid red; padding: ${sizeValues[size]}; ${style};`;
+      additionalStyle = `background: #ccc; pointer-events: none; color: ${color}; border: 2px solid red; border-radius: 50rem; padding: ${sizeValues[size]}; ${style};`;
     }
 
     inputStyle = `${baseStyle} ${additionalStyle}`.trim();
