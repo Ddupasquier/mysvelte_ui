@@ -60,8 +60,6 @@
   let buttonRef: HTMLButtonElement;
 </script>
 
-<!-- * classList, onMount set classList, CSS for styles, make sure to allow for style overrides -->
-
 <button
   {disabled}
   {...$$restProps}
