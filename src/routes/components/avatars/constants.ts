@@ -69,7 +69,7 @@ export const avatars: AvatarDisplayData[] = [
           size: 'small',
         },
         code: [
-          `<Avatar image={image} alt="Avatar" size="small" />`,
+          `<Avatar image={image} alt="Avatar" size={size} />`,
         ],
       },
       {
@@ -144,7 +144,7 @@ export const avatars: AvatarDisplayData[] = [
   {
     id: 'avatar_filter',
     header: 'Avatar Filters',
-    description: 'Avatars can be filtered to grayscale, sepia, or invert. (default: none)',
+    description: 'Avatars can be filtered to gray || sepia || invert. (default: none)',
     type: 'components',
     examples: [
       {
