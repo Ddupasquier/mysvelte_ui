@@ -144,7 +144,12 @@
     list-style: none;
     li {
       padding: 0.2rem 0 0.2rem 1.5rem;
+      transition: transform 0.2s linear;
+      &:hover {
+        transform: translateX(0.5rem);
+      }
     }
+
     a {
       font-size: 0.7rem;
     }
