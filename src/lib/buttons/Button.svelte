@@ -15,46 +15,38 @@
   export let isError: boolean = false;
   export let style: string = "";
 
-  // Constants
-  const sizeValues: Record<typeof size, string> = {
-    xsmall: "0.125rem 0.25rem",
-    small: "0.25rem 0.5rem",
-    medium: "0.5rem 1rem",
-    large: "0.75rem 1.5rem",
-    xlarge: "1rem 2rem",
-  };
-
   // Variables
   let classList = ["button"];
   let classString = "";
-  let buttonStyle = "";
-
-  // Functions
-  const updateButtonStyle = () => {
-    if (disabled || isError) {
-      buttonStyle = `background: #ccc; padding: ${sizeValues[size]}; ${style}`;
-    } else if (isLoading) {
-      buttonStyle = `outline: solid 3px ${background}; outline-offset: -3px; background: #ccc; padding: ${sizeValues[size]}; ${style}`;
-    } else {
-      buttonStyle = `background: ${background}; color: ${color}; padding: ${sizeValues[size]}; ${style}`;
-    }
-  };
 
   // Lifecycle Hooks
   onMount(() => {
+    classList.push(size);
     if (isLoading) {
       classList.push("loading");
     } else if (isError) {
       classList.push("error");
     }
-
-    updateButtonStyle();
     classString = classList.join(" ");
   });
 
   // Reactive Statements
-  $: classString = classList.join(" ");
-  $: updateButtonStyle();
+  $: {
+    classList = ["button", size];
+    if (isLoading) {
+      classList.push("loading");
+    } else if (isError) {
+      classList.push("error");
+    }
+    classString = classList.join(" ");
+  }
+
+  $: buttonStyle = `
+    background: ${disabled || isError || isLoading ? "#ccc" : background};
+    --bg-color: ${background};
+    color: ${color};
+    ${style}
+  `;
 
   // Refs
   let buttonRef: HTMLButtonElement;
@@ -82,7 +74,6 @@
     position: relative;
     border: none;
     border-radius: 0.3rem;
-    color: #fff;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -90,14 +81,43 @@
     width: fit-content;
     overflow: hidden;
     transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+  }
 
-    &.loading {
-      animation: double-pulse-gray 1.5s infinite ease-in-out;
-    }
+  // Sizes
+  .xsmall {
+    padding: 0.125rem 0.25rem;
+  }
 
-    &.error {
-      animation: double-pulse-red 1.5s infinite ease-in-out;
-    }
+  .small {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .medium {
+    padding: 0.5rem 1rem;
+  }
+
+  .large {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .xlarge {
+    padding: 1rem 2rem;
+  }
+
+  // Loading and error styles
+  .loading,
+  .error {
+    color: #fff;
+  }
+
+  .loading {
+    outline: 3px solid var(--bg-color);
+    outline-offset: -3px;
+    animation: double-pulse-gray 1.5s infinite ease-in-out;
+  }
+
+  .error {
+    animation: double-pulse-red 1.5s infinite ease-in-out;
   }
 
   @keyframes double-pulse-gray {
