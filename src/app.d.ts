@@ -59,26 +59,36 @@ interface InputExample {
   code?: string[] | string;
 }
 
-interface InputProps {
+interface CommonInputProps {
   id?: string;
   variant?: 'default' | 'line' | 'outline';
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
-  type?: 'text' | 'email' | 'password' | 'number';
   background?: string;
   color?: string;
   placeholder?: string;
-  value?: string;
   style?: string;
   label?: boolean;
-  labelIn?: boolean;
+  labelColor?: string;
   disabled?: boolean;
-  clearable?: boolean;
   isError?: boolean;
   isLoading?: boolean;
+  value?: string | number;
+}
+
+interface InputProps extends CommonInputProps {
+  type?: 'text' | 'password';
+  clearable?: boolean;
+  labelIn?: boolean;
 }
 
 interface PrefixProps extends InputProps {
   prefix: string;
+}
+
+interface NumberProps extends CommonInputProps {
+  min?: number;
+  max?: number;
+  step?: number;
 }
 
 // * CARD TYPES
