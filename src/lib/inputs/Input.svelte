@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { fade } from 'svelte/transition';
+  import { createEventDispatcher, onMount } from "svelte";
+  import { fade } from "svelte/transition";
 
   // Props
-  export let variant: 'default' | 'line' | 'outline' = 'default';
-  export let size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' =
-    'medium';
-  export let type: 'text' | 'email' | 'password' | 'number' = 'text';
-  export let background: string = 'white';
-  export let color: string = '#000';
-  export let placeholder: string = 'Search';
-  export let value: string = '';
-  export let style: string = '';
+  export let variant: "default" | "line" | "outline" = "default";
+  export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
+    "medium";
+  export let type: "text" | "password" = "text";
+  export let background: string = "white";
+  export let color: string = "#000";
+  export let placeholder: string = "Search";
+  export let value: string = "";
+  export let style: string = "";
   export let label: boolean = false;
   export let labelIn: boolean = false;
   export let disabled: boolean = false;
@@ -19,75 +19,74 @@
   export let isError: boolean = false;
   export let isLoading: boolean = false;
 
-  // Local state
+  // Event dispatcher
+  const dispatch = createEventDispatcher();
+
+  // Variables
+  let containerClassList = ["input"];
+  let containerClassString = "";
   let passwordView: boolean = false;
-  let inputStyle = '';
 
-  // Size values
-  const sizeValues: Record<typeof size, string> = {
-    xsmall: '0.125rem 0.25rem',
-    small: '0.25rem 0.5rem',
-    medium: '0.5rem 1rem',
-    large: '0.75rem 1.5rem',
-    xlarge: '1rem 2rem',
-  };
-
-  // Utility functions
-  const removeBackgroundStyle = (styleString: string): string => {
-    return styleString.replace(/background:\s*[^;]+;?/, '');
-  };
-
-  const updateInputStyle = () => {
-    let baseStyle = `background: ${background}; color: ${color}; padding: ${sizeValues[size]}; ${style};`;
-    let additionalStyle = '';
-
-    if (disabled) {
-      additionalStyle = `background: #eee; pointer-events: none; padding: ${
-        sizeValues[size]
-      }; ${removeBackgroundStyle(style)};`;
-    } else if (isLoading) {
-      additionalStyle = `background: #ccc; pointer-events: none; color: ${color}; border: 2px solid ${background}; border-radius: 50rem; padding: ${sizeValues[size]}; ${style};`;
-    } else if (isError) {
-      additionalStyle = `background: #ccc; pointer-events: none; color: ${color}; border: 2px solid red; border-radius: 50rem; padding: ${sizeValues[size]}; ${style};`;
-    }
-
-    inputStyle = `${baseStyle} ${additionalStyle}`.trim();
-  };
-
-  // Lifecycle hooks
+  // Lifecycle Hooks
   onMount(() => {
-    if (type === 'password') passwordView = true;
+    containerClassList.push(size);
+    containerClassList.push(variant);
+    if (isLoading) {
+      containerClassList.push("loading");
+    } else if (isError) {
+      containerClassList.push("error");
+    }
+    containerClassString = containerClassList.join(" ");
+
+    if (type === "password") passwordView = true;
   });
 
-  // Reactive statements
+  // Reactive Statements
   $: {
-    updateInputStyle();
-    labelIn && (placeholder = '');
+    containerClassList = ["input", size, variant];
+    if (isLoading) {
+      containerClassList.push("loading");
+    } else if (isError) {
+      containerClassList.push("error");
+    }
+    containerClassString = containerClassList.join(" ");
   }
 
-  $: if (variant === 'line') {
-    background = 'transparent';
-  } else if (variant === 'outline') {
-    background = 'rgba(255, 255, 255, 0.5)';
+  $: inputStyle = `
+  background: ${background};
+  --bg-color: ${background};
+  color: ${color};
+  ${style}
+`;
+
+  $: {
+    if (labelIn) {
+      placeholder = label ? "" : placeholder;
+    }
   }
 
-  // Event handlers
-  const handleInput = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    value = target.value;
+  // Handle input event
+  const handleInput = (e: Event) => {
+    if (e.target instanceof HTMLInputElement) {
+      value = e.target.value;
+      dispatch("input", e);
+    }
   };
 
   const clearInput = () => {
-    value = '';
+    value = "";
   };
 
   const toggleType = () => {
-    if (type === 'password') type = 'text';
-    else type = 'password';
+    if (type === "password") type = "text";
+    else type = "password";
   };
+
+  // Refs
+  // let inputRef: HTMLInputElement;
 </script>
 
-<div class="input-container">
+<div class={containerClassString}>
   {#if label}
     {#if labelIn}
       <label class="label-in" for={$$restProps.id}>{$$restProps.id}</label>
@@ -98,19 +97,13 @@
   <input
     id={label ? $$restProps.id : undefined}
     {type}
-    {disabled}
-    {placeholder}
+    {color}
+    placeholder={label ? "" : placeholder}
     {value}
+    {disabled}
     {...$$restProps}
-    on:input={handleInput}
-    on:focus
-    on:blur
-    on:change
-    on:click
-    on:keydown
-    on:keyup
     style={inputStyle}
-    class={(isLoading ? 'loading' : isError ? 'error' : '') + variant}
+    on:input={handleInput}
   />
   <div class="options">
     {#if passwordView}
@@ -126,7 +119,7 @@
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {#if type === 'password'}
+          {#if type === "password"}
             <title>Show Password</title>
             <path
               d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
@@ -151,7 +144,7 @@
         </svg>
       </button>
     {/if}
-    {#if clearable && value !== ''}
+    {#if clearable && value !== ""}
       <button
         class="clear-button"
         on:click={clearInput}
@@ -172,11 +165,11 @@
 </div>
 
 <style lang="scss">
-  .input-container {
-    display: flex;
-    flex-direction: column;
+  .input {
     position: relative;
-    width:fit-content;
+    display: inline-flex;
+    flex-direction: column;
+    padding: 0;
     &:focus-within {
       .label-in {
         top: -0.25rem;
@@ -202,7 +195,6 @@
       color: #666666;
       transition: opacity 0.2s ease-in-out;
     }
-
     .options {
       position: absolute;
       top: 0;
@@ -225,52 +217,77 @@
       }
     }
   }
-  .default {
+
+  input {
     border-radius: 50rem;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     outline: none;
     border: none;
+    background: inherit;
+    color: inherit;
     transition: all 0.1s ease-in-out;
-    &:focus-within {
+    &:focus {
       outline: 3px solid currentColor;
     }
   }
 
-  .line {
+  .line input {
     border-radius: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    border: none;
     border-bottom: 3px solid rgba(131, 131, 131, 0.5);
-    transition: all 0.3s ease-in-out;
-    &:focus-within {
-      border-bottom: 3px solid currentColor;
+    transition: border-color 0.3s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: currentColor;
     }
   }
 
-  .outline {
+  .outline input {
     border-radius: 50rem;
     border: 3px solid rgba(131, 131, 131, 0.5);
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.3s ease-in-out;
-    &:focus-within {
+    transition: all 0.1s ease-in-out;
+    &:focus {
       border: 3px solid currentColor;
       background: rgba(255, 255, 255, 0.5);
     }
   }
 
-  .loading {
+  // Sizes
+  .xsmall input {
+    padding: 0.125rem 0.25rem;
+  }
+
+  .small input {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .medium input {
+    padding: 0.5rem 1rem;
+  }
+
+  .large input {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .xlarge input {
+    padding: 1rem 2rem;
+  }
+
+  // Loading and error styles
+  .loading input,
+  .error input {
+    color: #fff;
+  }
+
+  .loading input {
+    outline: 3px solid var(--bg-color);
+    outline-offset: -3px;
     animation: double-pulse-gray 1.5s infinite ease-in-out;
   }
 
-  .error {
+  .error input {
     animation: double-pulse-red 1.5s infinite ease-in-out;
   }
 
@@ -297,7 +314,6 @@
     font-weight: 600;
     margin: 0 0 0.25rem 0.5rem;
   }
-
   .label-in {
     font-size: 0.8rem;
     font-weight: 600;
