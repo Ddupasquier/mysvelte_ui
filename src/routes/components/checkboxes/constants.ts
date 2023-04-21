@@ -187,23 +187,23 @@ export const checkboxes: CheckboxDisplayData[] = [
       },
     ],
   },
-  {
-    id: 'checkbox_animated',
-    header: 'Checkbox Animated',
-    description:
-      '',
-    type: 'components',
-    examples: [
-      {
-        component: Checkbox.Animated,
-        props: {
-          label: 'Animated',
-          checked: true,
-        },
-        code: [`<Checkbox.Animated label="Animated" checked={true} />`],
-      },
-    ]
-  },
+  // {
+  //   id: 'checkbox_animated',
+  //   header: 'Checkbox Animated',
+  //   description:
+  //     '',
+  //   type: 'components',
+  //   examples: [
+  //     {
+  //       component: Checkbox.Animated,
+  //       props: {
+  //         label: 'Animated',
+  //         checked: true,
+  //       },
+  //       code: [`<Checkbox.Animated label="Animated" checked={true} />`],
+  //     },
+  //   ]
+  // },
   {
     id: 'checkbox_props',
     header: 'Checkbox Props',

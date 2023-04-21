@@ -11,9 +11,9 @@ export const inputs: InputDisplayData[] = [
         component: Input,
         props: {
           value: '',
-          placeholder: 'Search',
+          placeholder: 'Input',
         },
-        code: ['let val', "<Input placeholder='search' bind:value={val} />"],
+        code: ['let val', "<Input placeholder={placeholder} bind:value={val} />"],
       },
     ],
   },
@@ -28,6 +28,7 @@ export const inputs: InputDisplayData[] = [
         component: Input,
         props: {
           background: '#c50eff',
+          placeholder: '#c50eff'
         },
         code: '<Input background="#c50eff" />',
       },
@@ -35,6 +36,7 @@ export const inputs: InputDisplayData[] = [
         component: Input,
         props: {
           background: '#ff00d9',
+          placeholder: '#ff00d9'
         },
         code: '<Input background="#ff00d9" />',
       },
@@ -42,6 +44,7 @@ export const inputs: InputDisplayData[] = [
         component: Input,
         props: {
           background: '#ff3579',
+          placeholder: '#ff3579'
         },
         code: '<Input background="#ff3579" />',
       },
@@ -58,6 +61,7 @@ export const inputs: InputDisplayData[] = [
         component: Input,
         props: {
           color: '#c50eff',
+          placeholder: '#c50eff'
         },
         code: '<Input color="#c50eff" />',
       },
@@ -65,6 +69,7 @@ export const inputs: InputDisplayData[] = [
         component: Input,
         props: {
           color: '#ff00d9',
+          placeholder: '#ff00d9'
         },
         code: '<Input color="#ff00d9" />',
       },
@@ -72,8 +77,50 @@ export const inputs: InputDisplayData[] = [
         component: Input,
         props: {
           color: '#ff3579',
+          placeholder: '#ff3579'
         },
         code: '<Input color="#ff3579" />',
+      },
+    ],
+  },
+  {
+    id: 'input_clearable',
+    header: 'Clearable',
+    description:
+      'You can add a clear button to the input by adding the clearable prop.',
+    type: 'components',
+    examples: [
+      {
+        component: Input,
+        props: {
+          clearable: true,
+          placeholder: 'Clearable',
+        },
+        code: '<Input clearable={true} placeholder={placeholder} />',
+      },
+    ],
+  },
+  {
+    id: 'input_type',
+    header: 'Type',
+    description: "You can change the type of input by adding the type prop. \nAcceptable values are 'text' || 'password'. (default: 'text')",
+    type: 'components',
+    examples: [
+      {
+        component: Input,
+        props: {
+          type: 'text',
+          placeholder: 'Text',
+        },
+        code: '<Input type="text" />',
+      },
+      {
+        component: Input,
+        props: {
+          type: 'password',
+          placeholder: 'Password',
+        },
+        code: '<Input type="password" />',
       },
     ],
   },
@@ -92,7 +139,7 @@ export const inputs: InputDisplayData[] = [
           placeholder: 'Search',
           labelIn: true,
         },
-        code: '<Input id="testLabel" label={true} labelIn={true} placeholder="Search" />',
+        code: '<Input id="testLabel" label={true} labelIn={true} placeholder={placeholder} />',
       },
       {
         component: Input,
@@ -102,7 +149,7 @@ export const inputs: InputDisplayData[] = [
           placeholder: 'Search',
         },
         code: [
-          '<Input label={true} labelIn={true} placeholder="Search" />',
+          '<Input label={true} labelIn={true} placeholder={placeholder} />',
           '// label will be undefined if no id is provided',
         ],
       },
@@ -115,7 +162,7 @@ export const inputs: InputDisplayData[] = [
           placeholder: 'Search',
           labelIn: false,
         },
-        code: '<Input id="testLabel1" label={true} labelIn={false} placeholder="Search" />',
+        code: '<Input id="testLabel1" label={true} labelIn={false} placeholder={placeholder} />',
       },
       {
         component: Input,
@@ -125,7 +172,7 @@ export const inputs: InputDisplayData[] = [
           labelIn: false,
         },
         code: [
-          '<Input label={true} labelIn={false} placeholder="Search" /> ',
+          '<Input label={true} labelIn={false} placeholder={placeholder} /> ',
           '// label will be undefined if no id is provided',
         ],
       },
@@ -141,30 +188,30 @@ export const inputs: InputDisplayData[] = [
       {
         component: Input,
         props: {
-          placeholder: 'Search',
+          placeholder: 'Default',
           variant: 'default',
           color: '#c50eff',
         },
-        code: '<Input variant="default" color="#c50eff" placeholder="Search" />',
+        code: '<Input variant="default" color="#c50eff" placeholder={placeholder} />',
       },
       {
         component: Input,
         props: {
-          placeholder: 'Search',
+          placeholder: 'Outline',
           variant: 'outline',
           color: '#ff00d9',
         },
-        code: '<Input variant="outline" color="#ff00d9" placeholder="Search" />',
+        code: '<Input variant="outline" color="#ff00d9" placeholder={placeholder} />',
       },
       {
         component: Input,
         props: {
-          placeholder: 'Search',
+          placeholder: 'Line',
           variant: 'line',
           color: '#ff3579',
           background: 'transparent',
         },
-        code: '<Input variant="line" color="#ff3579" background="transparent" placeholder="Search" />',
+        code: '<Input variant="line" color="#ff3579" background="transparent" placeholder={placeholder} />',
       },
     ],
   },
@@ -172,29 +219,32 @@ export const inputs: InputDisplayData[] = [
     id: 'input_prefix',
     header: 'Prefix',
     description:
-      'You can add a prefix the this input by using dot notation IE. Input.Prefix. \nYou can also change the prefix from the default using the prefix prop. (default: @)\n\nconst prefix = "@" \nlet val = "example"\n\nconst handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(`${prefix}@{val}`); // @example\n};\n\n<form on:submit={handleSubmit}>\n  <Input.Prefix prefix={prefix} placeholder="Search" bind:value={val} />\n</form>',
+      'You can add a prefix the this input by using dot notation IE. Input.Prefix. \nYou can also change the prefix from the default using the prefix prop. (default: @)\n\nconst prefix = "@" \nlet val = "example"\n\nconst handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(`${prefix}@{val}`); // @example\n};\n\n<form on:submit={handleSubmit}>\n  <Input.Prefix prefix={prefix} placeholder={placeholder} bind:value={val} />\n</form>',
     type: 'components',
     examples: [
       {
         component: Input.Prefix,
         props: {
           prefix: '@',
+          placeholder: 'Woah',
         },
-        code: '<Input.Prefix prefix="@" placeholder="Search" />',
+        code: '<Input.Prefix prefix="@" placeholder={placeholder} />',
       },
       {
         component: Input.Prefix,
         props: {
           prefix: '#',
+          placeholder: 'Pretty',
         },
-        code: '<Input.Prefix prefix="#" placeholder="Search" />',
+        code: '<Input.Prefix prefix="#" placeholder={placeholder} />',
       },
       {
         component: Input.Prefix,
         props: {
           prefix: '¯_(ツ)_/¯',
+          placeholder: 'Cool',
         },
-        code: '<Input.Prefix prefix="¯_(ツ)_/¯" placeholder="Search" />',
+        code: '<Input.Prefix prefix="¯_(ツ)_/¯" placeholder={placeholder} />',
       },
     ],
   },

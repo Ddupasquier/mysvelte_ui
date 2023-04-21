@@ -398,7 +398,7 @@ export const buttons: ButtonDisplayData[] = [
         {
           name: 'button_style',
           description: 'A string that sets additional styles to the button. This should be a valid CSS string.',
-          default: '\'\'',
+          default: '""',
           nav: true
         },
         {
