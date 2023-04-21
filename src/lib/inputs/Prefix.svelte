@@ -13,6 +13,7 @@
   export let style: string = '';
   export let label: boolean = false;
   export let labelIn: boolean = false;
+  export let labelColor: string = '#000';
   export let disabled: boolean = false;
   export let clearable: boolean = false;
   export let isError: boolean = false;
@@ -75,12 +76,20 @@
 
 <div class="input-container">
   {#if label}
-    {#if labelIn}
-      <label class="label-in" for={$$restProps.id}>{$$restProps.id}</label>
-    {:else}
-      <label class="label" for={$$restProps.id}>{$$restProps.id}</label>
+        {#if labelIn}
+            <label
+                class="label-in"
+                for={$$restProps.id}
+                style="color: {labelColor}">{$$restProps.id}</label
+            >
+        {:else}
+            <label
+                class="label"
+                for={$$restProps.id}
+                style="color: {labelColor}">{$$restProps.id}</label
+            >
+        {/if}
     {/if}
-  {/if}
   <div
     style={inputStyle}
     class={(isLoading ? 'loading' : isError ? 'error' : '') + variant}

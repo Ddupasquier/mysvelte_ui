@@ -14,6 +14,7 @@
   export let style: string = "";
   export let label: boolean = false;
   export let labelIn: boolean = false;
+  export let labelColor: string = "#000";
   export let disabled: boolean = false;
   export let clearable: boolean = false;
   export let isError: boolean = false;
@@ -26,6 +27,7 @@
   let containerClassList = ["input"];
   let containerClassString = "";
   let passwordView: boolean = false;
+  let readOnly: boolean = false;
 
   // Lifecycle Hooks
   onMount(() => {
@@ -50,11 +52,13 @@
       containerClassList.push("error");
     }
     containerClassString = containerClassList.join(" ");
+
+    readOnly = disabled || isLoading || isError;
   }
 
   $: inputStyle = `
-  background: ${background};
-  --bg-color: ${background};
+ background: ${disabled || isError || isLoading ? "#ccc" : background};
+  --color: ${color};
   color: ${color};
   ${style}
 `;
@@ -89,9 +93,13 @@
 <div class={containerClassString}>
   {#if label}
     {#if labelIn}
-      <label class="label-in" for={$$restProps.id}>{$$restProps.id}</label>
+      <label class="label-in" for={$$restProps.id} style="color: {labelColor}"
+        >{$$restProps.id}</label
+      >
     {:else}
-      <label class="label" for={$$restProps.id}>{$$restProps.id}</label>
+      <label class="label" for={$$restProps.id} style="color: {labelColor}"
+        >{$$restProps.id}</label
+      >
     {/if}
   {/if}
   <input
@@ -103,7 +111,15 @@
     {disabled}
     {...$$restProps}
     style={inputStyle}
+    readonly={readOnly}
     on:input={handleInput}
+    on:input
+    on:focus
+    on:blur
+    on:change
+    on:click
+    on:keydown
+    on:keyup
   />
   <div class="options">
     {#if passwordView}
@@ -282,7 +298,7 @@
   }
 
   .loading input {
-    outline: 3px solid var(--bg-color);
+    outline: 3px solid var(--color);
     outline-offset: -3px;
     animation: double-pulse-gray 1.5s infinite ease-in-out;
   }
