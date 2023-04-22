@@ -81,6 +81,15 @@ interface PrefixProps extends InputProps {
   prefix: string;
 }
 
+interface InputColorProps {
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  value?: string;
+  style?: string;
+  label?: boolean;
+  labelColor?: string;
+  disabled?: boolean;
+}
+
 // * CARD TYPES
 interface CardDisplayData extends BaseDisplayData {
   examples: CardExample[];
