@@ -264,13 +264,12 @@
 
     .controls {
         position: absolute;
-        top: 0;
+        bottom: 0;
         right: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100%;
         width: 2.5rem;
 
         .control {
@@ -362,20 +361,10 @@
     }
 
     .label {
-        font-size: 0.8rem;
+        font-size: 16px;
         font-weight: 600;
         margin: 0 0 0.25rem 0.5rem;
         color: red;
-    }
-    .label-in {
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin: 0 0 0.25rem 0.5rem;
-        position: absolute;
-        top: 50%;
-        left: 10px;
-        cursor: pointer;
-        transform: translateY(-50%);
     }
 
     input[type="number"]::-webkit-inner-spin-button,
