@@ -112,6 +112,7 @@
     {...$$restProps}
     style={inputStyle}
     readonly={readOnly}
+    aria-disabled={readOnly}
     on:input={handleInput}
     on:input
     on:focus

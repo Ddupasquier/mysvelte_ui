@@ -295,6 +295,7 @@
                 transform: translateY(1px);
             }
         }
+        
         .down {
             &:hover {
                 transform: translateY(1px);
