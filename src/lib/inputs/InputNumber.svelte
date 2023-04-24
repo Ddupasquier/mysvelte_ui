@@ -170,6 +170,7 @@
     />
     <div class="controls">
         <button
+            tabIndex={-1}
             class="control up"
             on:click={incrementValue}
             on:mousedown={startIncrementing}
@@ -192,6 +193,7 @@
             </svg>
         </button>
         <button
+            tabIndex={-1}
             class="control down"
             on:click={decrementValue}
             on:mousedown={startDecrementing}
@@ -222,14 +224,6 @@
         display: inline-flex;
         flex-direction: column;
         padding: 0;
-        &:focus-within {
-            .label-in {
-                top: -0.25rem;
-                transform: translateY(-100%) translateX(-15%);
-                cursor: default;
-                transition: all 0.3s ease-in-out;
-            }
-        }
     }
 
     input {
@@ -278,6 +272,7 @@
         align-items: center;
         height: 100%;
         width: 2.5rem;
+
         .control {
             display: flex;
             justify-content: center;
