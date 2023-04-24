@@ -28,6 +28,7 @@
         inputClassString = inputClassList.join(" ");
     }
     $: inputStyle = `
+        filter: ${disabled ? "grayscale(100%)" : "none"};
         ${style}
     `;
 </script>
@@ -137,7 +138,7 @@
     }
 
     .label {
-        font-size: 0.8rem;
+        font-size: 16px;
         font-weight: 600;
         margin: 0 0 0.25rem 0.5rem;
     }
