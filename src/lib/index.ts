@@ -79,3 +79,8 @@ export const Parallax = Object.assign(ParallaxDefault, {
 import AvatarDefault from './avatars/Avatar.svelte';
 
 export const Avatar = Object.assign(AvatarDefault, {});
+
+// * ACCORDIONS
+import Accordion from './accordions/Accordion.svelte';
+
+export { Accordion };

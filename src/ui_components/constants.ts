@@ -1,5 +1,9 @@
 export const NavComponentOptions = [
   {
+    name: 'Accordions',
+    path: '?items=accordions',
+ },
+  {
     name: 'Avatars',
     path: '?items=avatars',
  },
