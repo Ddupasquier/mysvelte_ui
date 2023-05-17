@@ -8,6 +8,7 @@
   export let flyIn: boolean = true;
   export let style: string = "";
   export let content: string = "Popover Content";
+  export let text: string = "Popover";
 
   let directionStyle: string = "";
   let isTriggered = false;
@@ -110,7 +111,7 @@
     bind:this={triggerEl}
   >
     <slot name="trigger">
-      <Button>Hover Me</Button>
+      <Button>{text}</Button>
     </slot>
   </div>
   {#if isTriggered}

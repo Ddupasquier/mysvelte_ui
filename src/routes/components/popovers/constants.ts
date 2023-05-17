@@ -12,6 +12,7 @@ export const popovers: PopoverDisplayData[] = [
         component: Popover,
         props: {
           direction: 'right',
+          text: 'Hover Me',
         },
         code: [
           '<Popover direction={direction}>',
@@ -32,12 +33,14 @@ export const popovers: PopoverDisplayData[] = [
         component: Popover,
         props: {
           direction: 'left',
+          text: 'Left'
         },
       },
       {
         component: Popover,
         props: {
           direction: 'top',
+          text: 'Top'
         },
         code: [
           '<Popover direction={direction}>',
@@ -50,12 +53,14 @@ export const popovers: PopoverDisplayData[] = [
         component: Popover,
         props: {
           direction: 'bottom',
+          text: 'Bottom'
         },
       },
       {
         component: Popover,
         props: {
           direction: 'right',
+          text: 'Right'
         },
       },
     ],
@@ -72,6 +77,7 @@ export const popovers: PopoverDisplayData[] = [
           direction: 'top',
           trigger: 'click',
           content: 'Popover Content',
+          text: 'Click Me',
         },
         code: [
           '<Popover direction={direction} trigger={trigger}>',
@@ -86,6 +92,7 @@ export const popovers: PopoverDisplayData[] = [
           direction: 'right',
           trigger: 'hover',
           content: 'Popover Content',
+          text: 'Hover Me',
         },
         code: [
           '<Popover direction={direction} trigger={trigger}>',

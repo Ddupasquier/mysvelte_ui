@@ -147,6 +147,7 @@ interface PopoverProps {
   style?: string;
   flyIn?: boolean;
   content?: string;
+  text?: string;
 }
 
 // * Radio TYPES
