@@ -20,18 +20,28 @@
     const underscoreIndex = str.indexOf("_");
     return str.substring(underscoreIndex + 1);
   };
+
+  const checkDarkMode = (mode: boolean) => {
+    if (mode) {
+      return "white";
+    } else {
+      return "black";
+    }
+  };
+
+  $: textColor = isDarkMode ? "white" : "black";
 </script>
 
 {#if table}
   <table>
     <thead>
       <tr>
-        <th>Prop</th>
-        <th>Description</th>
-        <th class="default-head">Default</th>
+        <th style="color: {textColor}">Prop</th>
+        <th style="color: {textColor}">Description</th>
+        <th style="color: {textColor}" class="default-head">Default</th>
       </tr>
     </thead>
-    <tbody style="color: {isDarkMode ? 'white' : 'black'}">
+    <tbody style="color: {textColor}">
       {#each Object.keys(table.rows) as key (key)}
         <tr>
           <td
@@ -72,7 +82,7 @@
   <div class="key">
     <span class="key-item">
       <span class="key-item-color" style="background-color: #c50eff" />
-      <span class="key-item-text">Required</span>
+      <span style="color: {textColor}" class="key-item-text">Required</span>
     </span>
   </div>
 {/if}
@@ -157,7 +167,8 @@
   }
 
   @media screen and (max-width: breakpoints.$xs-mobile-breakpoint) {
-    .defaults, .default-head {
+    .defaults,
+    .default-head {
       display: none;
     }
   }
