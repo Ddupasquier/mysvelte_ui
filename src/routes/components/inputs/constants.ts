@@ -13,7 +13,52 @@ export const inputs: InputDisplayData[] = [
           value: '',
           placeholder: 'Input',
         },
-        code: ['let val', "<Input placeholder={placeholder} bind:value={val} />"],
+        code: ['let value', "<Input placeholder={placeholder} bind:value={val} />"],
+      },
+    ],
+  },
+  {
+    id: 'input_colorPicker',
+    header: 'Color Picker',
+    description:
+      'You can easily add a color picker to your input by adding the Input.Color component.',
+    type: 'components',
+    examples: [
+      {
+        component: Input.Color,
+        props: {
+          size: 'xlarge',
+          value: '#c50eff',
+        },
+        code: ['let value', '<Input.Color bind:value={value} />'],
+      },
+      {
+        component: Input.Color,
+        props: {
+          size: 'large',
+          value: '#ff00d9',
+        },
+      },
+      {
+        component: Input.Color,
+        props: {
+          size: 'medium',
+          value: '#ff3579',
+        },
+      },
+      {
+        component: Input.Color,
+        props: {
+          size: 'small',
+          value: '#ff8c4c',
+        },
+      },
+      {
+        component: Input.Color,
+        props: {
+          size: 'xsmall',
+          value: '#ffc844',
+        },
       },
     ],
   },

@@ -12,9 +12,11 @@ export { default as Spacer } from './Spacer.svelte';
 // * INPUTS
 import DefaultInput from './inputs/Input.svelte';
 import Prefix from './inputs/Prefix.svelte';
+import InputColor from './inputs/InputColor.svelte';
 
 export const Input = Object.assign(DefaultInput, {
   Prefix,
+  Color: InputColor,
 });
 
 // // * DROPDOWNS
