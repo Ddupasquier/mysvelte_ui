@@ -59,6 +59,7 @@ export const inputs: InputDisplayData[] = [
           size: 'xsmall',
           value: '#ffc844',
         },
+        code: ['let val', "<Input bind:value={val} placeholder={placeholder} />"],
       },
     ],
   },
@@ -66,7 +67,7 @@ export const inputs: InputDisplayData[] = [
     id: 'input_background',
     header: 'Background',
     description:
-      'You can easily change the background of a button by adding the background prop. (default: white)',
+      `You can easily change the background of a button by adding the background prop. (default: white)`,
     type: 'components',
     examples: [
       {
@@ -99,7 +100,8 @@ export const inputs: InputDisplayData[] = [
     id: 'input_color',
     header: 'Color',
     description:
-      'You can easily change the color of a button by adding the color prop. (default: black)\nThe outline of the input defaults to whatever color your text is. This can be overidden using the style tag.',
+      `You can easily change the color of a button by adding the color prop. (default: black)
+      The outline of the input defaults to whatever color your text is. This can be overidden using the style tag.`,
     type: 'components',
     examples: [
       {
@@ -132,7 +134,7 @@ export const inputs: InputDisplayData[] = [
     id: 'input_clearable',
     header: 'Clearable',
     description:
-      'You can add a clear button to the input by adding the clearable prop.',
+      `You can add a clear button to the input by adding the clearable prop`,
     type: 'components',
     examples: [
       {
@@ -141,14 +143,15 @@ export const inputs: InputDisplayData[] = [
           clearable: true,
           placeholder: 'Clearable',
         },
-        code: '<Input clearable={true} placeholder={placeholder} />',
+        code: '<Input clearable={true} />',
       },
     ],
   },
   {
     id: 'input_type',
     header: 'Type',
-    description: "You can change the type of input by adding the type prop. \nAcceptable values are 'text' || 'password'. (default: 'text')",
+    description: `You can change the type of input by adding the type prop.
+    Acceptable values are 'text' || 'password'. (default: 'text')`,
     type: 'components',
     examples: [
       {
@@ -173,7 +176,9 @@ export const inputs: InputDisplayData[] = [
     id: 'input_label',
     header: 'Label',
     description:
-      'You can add a label to an input by adding the label prop. \nIf label={true} you will need to provide an id as a prop which will automatically assign that label to your input.\nIf labelIn={true}, your placeholder prop will be overridden by the label prop.',
+      `You can add a label to an input by adding the label prop.
+      If label={true} you will need to provide an id as a prop which will automatically assign that label to your input.
+      If labelIn={true}, your placeholder prop will be overridden by the label prop.`,
     type: 'components',
     examples: [
       {
@@ -184,7 +189,7 @@ export const inputs: InputDisplayData[] = [
           placeholder: 'Search',
           labelIn: true,
         },
-        code: '<Input id="testLabel" label={true} labelIn={true} placeholder={placeholder} />',
+        code: '<Input id="testLabel" label={true} labelIn={true} />',
       },
       {
         component: Input,
@@ -194,7 +199,7 @@ export const inputs: InputDisplayData[] = [
           placeholder: 'Search',
         },
         code: [
-          '<Input label={true} labelIn={true} placeholder={placeholder} />',
+          '<Input label={true} labelIn={true} />',
           '// label will be undefined if no id is provided',
         ],
       },
@@ -207,7 +212,7 @@ export const inputs: InputDisplayData[] = [
           placeholder: 'Search',
           labelIn: false,
         },
-        code: '<Input id="testLabel1" label={true} labelIn={false} placeholder={placeholder} />',
+        code: '<Input id="testLabel1" label={true} labelIn={false} />',
       },
       {
         component: Input,
@@ -217,7 +222,7 @@ export const inputs: InputDisplayData[] = [
           labelIn: false,
         },
         code: [
-          '<Input label={true} labelIn={false} placeholder={placeholder} /> ',
+          '<Input label={true} labelIn={false} /> ',
           '// label will be undefined if no id is provided',
         ],
       },
@@ -227,7 +232,7 @@ export const inputs: InputDisplayData[] = [
     id: 'input_variants',
     header: 'Variants',
     description:
-      'There are 3 variants of input: outline, line, and default. (default: default)',
+      `There are 3 variants of input: outline, line, and default. (default: default)`,
     type: 'components',
     examples: [
       {
@@ -237,7 +242,7 @@ export const inputs: InputDisplayData[] = [
           variant: 'default',
           color: '#c50eff',
         },
-        code: '<Input variant="default" color="#c50eff" placeholder={placeholder} />',
+        code: '<Input variant="default" />',
       },
       {
         component: Input,
@@ -246,7 +251,7 @@ export const inputs: InputDisplayData[] = [
           variant: 'outline',
           color: '#ff00d9',
         },
-        code: '<Input variant="outline" color="#ff00d9" placeholder={placeholder} />',
+        code: '<Input variant="outline" color="#ff00d9" />',
       },
       {
         component: Input,
@@ -256,7 +261,41 @@ export const inputs: InputDisplayData[] = [
           color: '#ff3579',
           background: 'transparent',
         },
-        code: '<Input variant="line" color="#ff3579" background="transparent" placeholder={placeholder} />',
+        code: '<Input variant="line" color="#ff3579" background="transparent" />',
+      },
+    ],
+  },
+  {
+    id: 'input_number',
+    header: 'Number',
+    description:
+      `The number input can be accessed by using dot notation IE. Input.Number.
+      You can also add a min, max, and step prop to the input.
+      (default: min: -10,000, max: 10,000, step: 1)`,
+    type: 'components',
+    examples: [
+      {
+        component: Input.Number,
+        props: {
+          color: '#c50eff',
+        } as NumberProps,
+        code: '<Input.Number {min} {max} {step} />',
+      },
+      {
+        component: Input.Number,
+        props: {
+          color: '#ff00d9',
+          min: 20,
+        } as NumberProps,
+      },
+      {
+        component: Input.Number,
+        props: {
+          color: '#ff3579',
+          min: -10,
+          max: 10,
+          step: 0.5,
+        } as NumberProps,
       },
     ],
   },
@@ -264,7 +303,20 @@ export const inputs: InputDisplayData[] = [
     id: 'input_prefix',
     header: 'Prefix',
     description:
-      'You can add a prefix the this input by using dot notation IE. Input.Prefix. \nYou can also change the prefix from the default using the prefix prop. (default: @)\n\nconst prefix = "@" \nlet val = "example"\n\nconst handleSubmit = (e) => {\n  e.preventDefault();\n  console.log(`${prefix}@{val}`); // @example\n};\n\n<form on:submit={handleSubmit}>\n  <Input.Prefix prefix={prefix} placeholder={placeholder} bind:value={val} />\n</form>',
+      `You can add a prefix the this input by using dot notation IE. Input.Prefix. 
+      You can also change the prefix from the default using the prefix prop. (default: @)
+      
+      const prefix = "@" 
+      let val = "example"
+      
+      const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(\`\${prefix}@{val}\`); // @example
+      };
+      
+      <form on:submit={handleSubmit}>
+      <Input.Prefix prefix={prefix} bind:value={val} />
+      </form>`,
     type: 'components',
     examples: [
       {
@@ -273,7 +325,7 @@ export const inputs: InputDisplayData[] = [
           prefix: '@',
           placeholder: 'Woah',
         },
-        code: '<Input.Prefix prefix="@" placeholder={placeholder} />',
+        code: '<Input.Prefix prefix="@" />',
       },
       {
         component: Input.Prefix,
@@ -281,7 +333,7 @@ export const inputs: InputDisplayData[] = [
           prefix: '#',
           placeholder: 'Pretty',
         },
-        code: '<Input.Prefix prefix="#" placeholder={placeholder} />',
+        code: '<Input.Prefix prefix="#" />',
       },
       {
         component: Input.Prefix,
@@ -289,7 +341,7 @@ export const inputs: InputDisplayData[] = [
           prefix: '¯_(ツ)_/¯',
           placeholder: 'Cool',
         },
-        code: '<Input.Prefix prefix="¯_(ツ)_/¯" placeholder={placeholder} />',
+        code: '<Input.Prefix prefix="¯_(ツ)_/¯" />',
       },
     ],
   },
