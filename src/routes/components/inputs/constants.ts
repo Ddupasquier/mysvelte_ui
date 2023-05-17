@@ -18,56 +18,10 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
-    id: 'input_colorPicker',
-    header: 'Color Picker',
-    description:
-      'You can easily add a color picker to your input by adding the Input.Color component.',
-    type: 'components',
-    examples: [
-      {
-        component: Input.Color,
-        props: {
-          size: 'xlarge',
-          value: '#c50eff',
-        },
-        code: ['let value', '<Input.Color bind:value={value} />'],
-      },
-      {
-        component: Input.Color,
-        props: {
-          size: 'large',
-          value: '#ff00d9',
-        },
-      },
-      {
-        component: Input.Color,
-        props: {
-          size: 'medium',
-          value: '#ff3579',
-        },
-      },
-      {
-        component: Input.Color,
-        props: {
-          size: 'small',
-          value: '#ff8c4c',
-        },
-      },
-      {
-        component: Input.Color,
-        props: {
-          size: 'xsmall',
-          value: '#ffc844',
-        },
-        code: ['let val', "<Input bind:value={val} placeholder={placeholder} />"],
-      },
-    ],
-  },
-  {
     id: 'input_background',
     header: 'Background',
     description:
-      `You can easily change the background of a button by adding the background prop. (default: white)`,
+    `You can easily change the background of a button by adding the background prop. (default: white)`,
     type: 'components',
     examples: [
       {
@@ -100,8 +54,8 @@ export const inputs: InputDisplayData[] = [
     id: 'input_color',
     header: 'Color',
     description:
-      `You can easily change the color of a button by adding the color prop. (default: black)
-      The outline of the input defaults to whatever color your text is. This can be overidden using the style tag.`,
+    `You can easily change the color of a button by adding the color prop. (default: black)
+    The outline of the input defaults to whatever color your text is. This can be overidden using the style tag.`,
     type: 'components',
     examples: [
       {
@@ -134,7 +88,7 @@ export const inputs: InputDisplayData[] = [
     id: 'input_clearable',
     header: 'Clearable',
     description:
-      `You can add a clear button to the input by adding the clearable prop`,
+    `You can add a clear button to the input by adding the clearable prop`,
     type: 'components',
     examples: [
       {
@@ -176,9 +130,9 @@ export const inputs: InputDisplayData[] = [
     id: 'input_label',
     header: 'Label',
     description:
-      `You can add a label to an input by adding the label prop.
-      If label={true} you will need to provide an id as a prop which will automatically assign that label to your input.
-      If labelIn={true}, your placeholder prop will be overridden by the label prop.`,
+    `You can add a label to an input by adding the label prop.
+    If label={true} you will need to provide an id as a prop which will automatically assign that label to your input.
+    If labelIn={true}, your placeholder prop will be overridden by the label prop.`,
     type: 'components',
     examples: [
       {
@@ -266,40 +220,6 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
-    id: 'input_number',
-    header: 'Number',
-    description:
-      `The number input can be accessed by using dot notation IE. Input.Number.
-      You can also add a min, max, and step prop to the input.
-      (default: min: -10,000, max: 10,000, step: 1)`,
-    type: 'components',
-    examples: [
-      {
-        component: Input.Number,
-        props: {
-          color: '#c50eff',
-        } as NumberProps,
-        code: '<Input.Number {min} {max} {step} />',
-      },
-      {
-        component: Input.Number,
-        props: {
-          color: '#ff00d9',
-          min: 20,
-        } as NumberProps,
-      },
-      {
-        component: Input.Number,
-        props: {
-          color: '#ff3579',
-          min: -10,
-          max: 10,
-          step: 0.5,
-        } as NumberProps,
-      },
-    ],
-  },
-  {
     id: 'input_prefix',
     header: 'Prefix',
     description:
@@ -342,6 +262,86 @@ export const inputs: InputDisplayData[] = [
           placeholder: 'Cool',
         },
         code: '<Input.Prefix prefix="¯_(ツ)_/¯" />',
+      },
+    ],
+  },
+  {
+    id: 'input_number',
+    header: 'Number',
+    description:
+      `The number input can be accessed by using dot notation IE. Input.Number.
+      You can also add a min, max, and step prop to the input.
+      (default: min: -10,000, max: 10,000, step: 1)`,
+    type: 'components',
+    examples: [
+      {
+        component: Input.Number,
+        props: {
+          color: '#c50eff',
+        } as NumberProps,
+        code: '<Input.Number {min} {max} {step} />',
+      },
+      {
+        component: Input.Number,
+        props: {
+          color: '#ff00d9',
+          min: 20,
+        } as NumberProps,
+      },
+      {
+        component: Input.Number,
+        props: {
+          color: '#ff3579',
+          min: -10,
+          max: 10,
+          step: 0.5,
+        } as NumberProps,
+      },
+    ],
+  },
+  {
+    id: 'input_colorPicker',
+    header: 'Color Picker',
+    description:
+      'You can easily add a color picker to your input by adding the Input.Color component.',
+    type: 'components',
+    examples: [
+      {
+        component: Input.Color,
+        props: {
+          size: 'xlarge',
+          value: '#c50eff',
+        },
+        code: ['let value', '<Input.Color bind:value={value} />'],
+      },
+      {
+        component: Input.Color,
+        props: {
+          size: 'large',
+          value: '#ff00d9',
+        },
+      },
+      {
+        component: Input.Color,
+        props: {
+          size: 'medium',
+          value: '#ff3579',
+        },
+      },
+      {
+        component: Input.Color,
+        props: {
+          size: 'small',
+          value: '#ff8c4c',
+        },
+      },
+      {
+        component: Input.Color,
+        props: {
+          size: 'xsmall',
+          value: '#ffc844',
+        },
+        code: ['let val', "<Input bind:value={val} placeholder={placeholder} />"],
       },
     ],
   },

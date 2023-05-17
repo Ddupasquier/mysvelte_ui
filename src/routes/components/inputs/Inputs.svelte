@@ -7,7 +7,7 @@
 
 <h3>
   {"import { Input } from 'mysvelte-ui';"}<br />
-  [.Prefix]
+  [.Prefix, .Number, .Color]
 </h3>
 
 {#each inputs as input}
