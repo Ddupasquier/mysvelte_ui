@@ -10,9 +10,13 @@ import { loaders } from '../routes/components/loaders/constants';
 import { checkboxes } from '../routes/components/checkboxes/constants';
 import { parallaxes } from '../routes/components/parallaxes/constants';
 import { avatars } from '../routes/components/avatars/constants';
+import { accordions } from '../routes/components/accordions/constants';
 
 export const getComponentIds = (): ComponentPropertyString[] => {
   const componentIds: ComponentPropertyString[] = [];
+accordions.forEach((accordion) => {
+    componentIds.push(`${accordion.id}_accordion`);
+  });
 avatars.forEach((avatar) => {
     componentIds.push(`${avatar.id}_avatar`);
   });

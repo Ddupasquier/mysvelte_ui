@@ -301,3 +301,32 @@ interface AvatarProps {
   filter?: "none" | "gray" | "sepia" | "invert";
   shape?: "circ" | "square" | "rounded";
 }
+
+// * Accordion TYPES
+interface AccordionDisplayData extends BaseDisplayData {
+  examples: AccordionExample[];
+}
+
+interface AccordionExample {
+  component: SvelteComponentTyped;
+  props: AccordionProps;
+  code?: string[];
+}
+
+interface AccordionProps {
+  data: AccordionData[];
+  collapse?: boolean;
+  animated?: boolean;
+  headerStyle?: string;
+  contentStyle?: string;
+  tabBg?: string;
+  tabColor?: string;
+  background?: string;
+  color?: string;
+  disabled?: boolean;
+}
+
+interface AccordionData {
+  title: string;
+  content: string;
+}
