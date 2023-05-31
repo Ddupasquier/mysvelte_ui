@@ -335,3 +335,18 @@ interface AccordionData {
 interface ToggleDisplayData extends BaseDisplayData {
   examples: ToggleExample[];
 }
+
+interface ToggleExample {
+  component: SvelteComponentTyped;
+  props: ToggleProps;
+  code?: string[];
+}
+
+interface ToggleProps {
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  disabled?: boolean;
+  isChecked?: boolean;
+  color?: string;
+  id?: string;
+  style?: string;
+}
