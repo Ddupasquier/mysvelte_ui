@@ -4,7 +4,7 @@ export const radios: RadioDisplayData[] = [
   {
     id: 'radio_basics',
     header: 'Radio',
-    description: 'A radio button.',
+    description: 'Here\'s a breakdown of the props you can pass into the Radio component.',
     type: 'components',
     examples: [
       {

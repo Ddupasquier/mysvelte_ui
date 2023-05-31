@@ -181,7 +181,7 @@
   }
 
   .expanded {
-    width: 20rem;
+    width: 17rem;
     .inner {
       justify-content: flex-end;
       padding-left: 0.4rem;

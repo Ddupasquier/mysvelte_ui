@@ -48,9 +48,7 @@
             class="left-col"
             style="color: {table.rows[key].name.includes('!')
               ? '#c50eff'
-              : isDarkMode
-              ? 'white'
-              : 'black'}"
+              : textColor}"
           >
             {#if table.rows[key].nav === true}
               <a

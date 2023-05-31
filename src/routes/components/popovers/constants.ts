@@ -103,4 +103,75 @@ export const popovers: PopoverDisplayData[] = [
       },
     ],
   },
-];
+  {
+    id: 'popover_flyIn',
+    header: 'Popover FlyIn',
+    description: 'The `flyIn` prop determines if the popover will have a fly-in transition effect when it is triggered. This can add a nice visual touch to your popovers.',
+    type: 'components',
+    examples: [
+      {
+        component: Popover,
+        props: {
+          direction: 'top',
+          trigger: 'hover',
+          flyIn: true,
+          content: 'Fly-in enabled',
+          text: 'Enabled!'
+        },
+        code: [
+          `<Popover direction="top" trigger="hover" flyIn={true} content="Fly-in enabled" />`,
+        ],
+      },
+      {
+        component: Popover,
+        props: {
+          direction: 'top',
+          trigger: 'hover',
+          flyIn: false,
+          content: 'Fly-in disabled',
+          text: 'Disabled!'
+        },
+        code: [
+          `<Popover direction="top" trigger="hover" flyIn={false} content="Fly-in disabled popover content" text="Hover me!" />`,
+        ],
+      },
+    ],
+  },
+  {
+    id: 'popover_props',
+    header: 'Popover Props',
+    description: 'Here\'s a breakdown of the props you can pass into the Popover component.',
+    type: 'table',
+    table: {
+      tableName: 'popovers',
+      rows: [
+        {
+          name: 'popover_direction!',
+          description: 'The direction of the popover. It can be "top", "bottom", "left", or "right".',
+          default: '"right"',
+          nav: true
+        },
+        {
+          name: 'popover_trigger',
+          description: 'The trigger method for the popover. It can be "hover" or "click".',
+          default: '"hover"',
+          nav: true
+        },
+        {
+          name: 'popover_flyIn',
+          description: 'Determines if the popover should have a fly in transition effect. It can be true or false.',
+          default: 'true',
+          nav: true
+        },
+      ]
+    },
+    examples: [
+      {
+        component: null,
+        props: {
+          direction: 'right',
+        },
+      },
+    ],
+  }
+]
