@@ -1,5 +1,6 @@
 <script lang="ts">
   import lost from "../assets/you_must_be_lost.mp4";
+import Toggles from './toggles/Toggles.svelte';
 import Accordions from './accordions/Accordions.svelte';
 import Avatars from './avatars/Avatars.svelte';
   import { banner } from "../assets";
@@ -58,6 +59,8 @@ import Avatars from './avatars/Avatars.svelte';
 <Avatars />
 {:else if items === 'accordions'}
 <Accordions />
+{:else if items === 'toggles'}
+<Toggles />
 {:else}
   <div class="oops">
     <h1>Oops</h1>

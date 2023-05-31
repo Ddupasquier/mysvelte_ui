@@ -330,3 +330,8 @@ interface AccordionData {
   title: string;
   content: string;
 }
+
+// * Toggle TYPES
+interface ToggleDisplayData extends BaseDisplayData {
+  examples: ToggleExample[];
+}
