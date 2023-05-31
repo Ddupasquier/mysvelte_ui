@@ -36,18 +36,18 @@ export const accordions: AccordionDisplayData[] = [
   {
     id: 'accordion_collapse',
     header: 'Accordion Collapse',
-    description: 'By setting the `collapse` prop to true, only one item will be expanded at a time. Expanding another item will collapse the currently expanded item.',
+    description: 'By setting the `collapse` prop to false, you can allow multiple accordion items to be expanded at the same time.',
     type: 'components',
     examples: [
       {
         component: Accordion,
         props: {
           data: accordionData,
-          collapse: true,
+          collapse: false,
           tabBg: '#ff00d9'
         },
         code: [
-          `<Accordion {data} collapse={true} />`,
+          `<Accordion {data} collapse={false} />`,
         ],
       },
     ],
