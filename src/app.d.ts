@@ -324,6 +324,7 @@ interface AccordionProps {
   background?: string;
   color?: string;
   disabled?: boolean;
+  orientation?: 'horizontal' | 'vertical';
 }
 
 interface AccordionData {

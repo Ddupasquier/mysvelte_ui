@@ -13,6 +13,7 @@
     export let tabColor: string = "#fff";
     export let background: string = "#fff";
     export let color: string = "#000";
+    export let orientation: string = "vertical";
 
     // State
     let expandedIndexes: number[] = [];
@@ -24,6 +25,7 @@
     // Lifecycle Hooks
     onMount(() => {
         classList.push(animated ? "animated" : "");
+        classList.push(orientation === "horizontal" ? "horizontal" : "");
         classString = classList.join(" ");
     });
 
@@ -49,7 +51,7 @@
 
     // Key event handler
     const onKeydown = (event: KeyboardEvent, index: number) => {
-        if (event.key === 'Enter' || event.key === ' ') {
+        if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
             toggleAccordion(index);
         }
@@ -60,6 +62,14 @@
         background: ${background};
         --tab-bg-color: ${disabled ? "#ccc" : tabBg};
         --tab-color: ${disabled ? "#000" : tabColor};
+        --max-width: ${100 / data.length}%;
+        --height: ${
+            headerStyle
+                ? headerStyle.includes("height")
+                    ? headerStyle.split("height:")[1].split(";")[0]
+                    : "auto"
+                : "auto"
+        };
         color: ${color};
     `;
     $: headerStyleComputed = `background: var(--tab-bg-color); color: var(--tab-color); ${headerStyle}`;
@@ -77,27 +87,40 @@
                 aria-expanded={expandedIndexes.includes(i)}
                 aria-controls={`content-${i}`}
             >
-                {title}
+                <div class="title-container">{title}</div>
             </button>
             {#if expandedIndexes.includes(i)}
                 <div
                     class="accordion-content"
-                    transition:slide={{ duration: animated ? 500 : 0 }}
+                    transition:slide={{
+                        duration: animated ? 500 : 0,
+                        axis: orientation === "vertical" ? "y" : "x",
+                    }}
                     style={contentStyleComputed}
                     id={`content-${i}`}
                     aria-labelledby={`accordion-header-${i}`}
                     role="region"
                 >
-                    {content}
+                    <span
+                        in:slide={{ duration: 200, axis: "y", delay: 520 }}
+                        out:slide={{ duration: 0, delay: 0 }}
+                    >
+                        {content}
+                    </span>
+                    <!-- consider using scale animation for horizontal -->
                 </div>
             {/if}
         </div>
     {/each}
+    {#if orientation === "horizontal"}
+        <div class="filler" />
+    {/if}
 </div>
-
 
 <style lang="scss">
     .accordion {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         position: relative;
         border-radius: 0.3rem;
@@ -116,5 +139,33 @@
 
     .accordion-content {
         padding: 1rem 2rem;
+    }
+
+    .accordion.horizontal {
+        flex-direction: row;
+    }
+    .accordion.horizontal .accordion-item {
+        width: auto;
+        max-width: var(--max-width);
+        display: flex;
+        flex-direction: row;
+    }
+    .accordion.horizontal .accordion-header {
+        width: fit-content;
+    }
+    .accordion.horizontal .accordion-header .title-container {
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        letter-spacing: -0.2rem;
+    }
+    .accordion.horizontal .accordion-content {
+        transition: width 0.6s ease;
+    }
+
+    .filler {
+        flex: 1;
+        height: var(--height);
+        background: var(--tab-bg-color);
+        transition: all 0.6s ease;
     }
 </style>

@@ -3,7 +3,7 @@ import { Accordion } from '$lib';
 const accordionData: AccordionData[] = [
   {
     title: 'Accordion Item 1',
-    content: 'This is the content for Accordion Item 1.'
+    content: 'This is the content for Accordion Item 1.This is the content for Accordion Item 1.This is the content for Accordion Item 1.This is the content for Accordion Item 1.This is the content for Accordion Item 1.This is the content for Accordion Item 1.This is the content for Accordion Item 1.'
   },
   {
     title: 'Accordion Item 2',
@@ -26,6 +26,9 @@ export const accordions: AccordionDisplayData[] = [
         component: Accordion,
         props: {
           data: accordionData,
+          orientation: 'horizontal',
+          animated: true,
+          headerStyle: 'height: 20rem'
         },
         code: [
           `<Accordion {data} />`,
