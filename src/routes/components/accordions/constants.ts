@@ -28,7 +28,9 @@ export const accordions: AccordionDisplayData[] = [
           data: accordionData,
           orientation: 'horizontal',
           animated: true,
-          headerStyle: 'height: 20rem'
+          height: '18rem',
+          width: '500px',
+          // collapse: false,
         },
         code: [
           `<Accordion {data} />`,

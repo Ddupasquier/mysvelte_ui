@@ -14,6 +14,8 @@
     export let background: string = "#fff";
     export let color: string = "#000";
     export let orientation: string = "vertical";
+    export let height: string = "fit-content";
+    export let width: string = "100%";
 
     // State
     let expandedIndexes: number[] = [];
@@ -62,14 +64,8 @@
         background: ${background};
         --tab-bg-color: ${disabled ? "#ccc" : tabBg};
         --tab-color: ${disabled ? "#000" : tabColor};
-        --max-width: ${100 / data.length}%;
-        --height: ${
-            headerStyle
-                ? headerStyle.includes("height")
-                    ? headerStyle.split("height:")[1].split(";")[0]
-                    : "auto"
-                : "auto"
-        };
+        height: ${height};
+        width: ${width};
         color: ${color};
     `;
     $: headerStyleComputed = `background: var(--tab-bg-color); color: var(--tab-color); ${headerStyle}`;
@@ -102,18 +98,17 @@
                     role="region"
                 >
                     <span
-                        in:slide={{ duration: 200, axis: "y", delay: 520 }}
+                        in:slide={{ duration: animated ? 200 : 0, axis: "y", delay: animated ? 520 : 0 }}
                         out:slide={{ duration: 0, delay: 0 }}
                     >
                         {content}
                     </span>
-                    <!-- consider using scale animation for horizontal -->
                 </div>
             {/if}
         </div>
     {/each}
     {#if orientation === "horizontal"}
-        <div class="filler" />
+        <div class="filler" style="width: ${expandedIndexes ? '5px' : null}" />
     {/if}
 </div>
 
@@ -144,13 +139,17 @@
     .accordion.horizontal {
         flex-direction: row;
     }
+
     .accordion.horizontal .accordion-item {
-        width: auto;
-        max-width: var(--max-width);
         display: flex;
         flex-direction: row;
     }
+
     .accordion.horizontal .accordion-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: fit-content;
     }
     .accordion.horizontal .accordion-header .title-container {
@@ -158,13 +157,14 @@
         text-orientation: upright;
         letter-spacing: -0.2rem;
     }
+
     .accordion.horizontal .accordion-content {
+        overflow: auto;
         transition: width 0.6s ease;
     }
 
     .filler {
         flex: 1;
-        height: var(--height);
         background: var(--tab-bg-color);
         transition: all 0.6s ease;
     }
