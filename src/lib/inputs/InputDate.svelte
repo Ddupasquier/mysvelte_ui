@@ -3,8 +3,7 @@
 
     // Props
     export let variant: "default" | "line" | "outline" = "default";
-    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
-        "medium";
+    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
     export let background: string = "white";
     export let color: string = "#000";
     export let value: string = "";
@@ -83,7 +82,7 @@
         readonly={readOnly}
         {...$$restProps}
         id={label ? $$restProps.id : undefined}
-        type="datetime-local"
+        type="date"
         style={inputStyle}
         on:input={handleInput}
         on:focus

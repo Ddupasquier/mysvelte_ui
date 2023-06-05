@@ -92,6 +92,8 @@ interface NumberProps extends CommonInputProps {
 }
 
 interface DateTimeProps extends CommonInputProps {
+  min?: number;
+  max?: number;
   format?: string;
 }
 

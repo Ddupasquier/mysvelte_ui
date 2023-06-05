@@ -15,12 +15,16 @@ import Prefix from './inputs/Prefix.svelte';
 import InputColor from './inputs/InputColor.svelte';
 import InputNumber from './inputs/InputNumber.svelte';
 import InputDateTime from './inputs/InputDateTime.svelte';
+import InputTime from './inputs/InputTime.svelte';
+import InputDate from './inputs/InputDate.svelte';
 
 export const Input = Object.assign(DefaultInput, {
   Prefix,
   Color: InputColor,
   Number: InputNumber,
   DateTime: InputDateTime,
+  Time: InputTime,
+  Date: InputDate,
 });
 
 // // * DROPDOWNS

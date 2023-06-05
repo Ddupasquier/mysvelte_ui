@@ -21,7 +21,7 @@ export const inputs: InputDisplayData[] = [
     id: 'input_background',
     header: 'Background',
     description:
-    `You can easily change the background of a button by adding the background prop. (default: white)`,
+      `You can easily change the background of a button by adding the background prop. (default: white)`,
     type: 'components',
     examples: [
       {
@@ -54,7 +54,7 @@ export const inputs: InputDisplayData[] = [
     id: 'input_color',
     header: 'Color',
     description:
-    `You can easily change the color of a button by adding the color prop. (default: black)
+      `You can easily change the color of a button by adding the color prop. (default: black)
     The outline of the input defaults to whatever color your text is. This can be overidden using the style tag.`,
     type: 'components',
     examples: [
@@ -88,7 +88,7 @@ export const inputs: InputDisplayData[] = [
     id: 'input_clearable',
     header: 'Clearable',
     description:
-    `You can add a clear button to the input by adding the clearable prop`,
+      `You can add a clear button to the input by adding the clearable prop`,
     type: 'components',
     examples: [
       {
@@ -130,7 +130,7 @@ export const inputs: InputDisplayData[] = [
     id: 'input_label',
     header: 'Label',
     description:
-    `You can add a label to an input by adding the label prop.
+      `You can add a label to an input by adding the label prop.
     If label={true} you will need to provide an id as a prop which will automatically assign that label to your input.
     If labelIn={true}, your placeholder prop will be overridden by the label prop.`,
     type: 'components',
@@ -300,18 +300,95 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
+    id: 'input_date',
+    header: 'Date',
+    description: `The date input can be accessed by using dot notation IE. Input.Date. 
+  The 'min' and 'max' props should be in the format 'YYYY-MM-DD' (e.g., '2023-06-01').`,
+    type: 'components',
+    examples: [
+      {
+        component: Input.Date,
+        props: {
+          color: '#c50eff',
+        },
+        code: '<Input.Date {min} {max} />',
+      },
+      {
+        component: Input.Date,
+        props: {
+          color: '#ff00d9',
+          variant: "outline"
+        },
+      },
+      {
+        component: Input.Date,
+        props: {
+          color: '#ff3579',
+          variant: "line",
+          background: "transparent"
+        },
+      },
+    ],
+  },
+  {
+    id: 'input_time',
+    header: 'Time',
+    description: `The time input can be accessed by using dot notation IE. Input.Time.
+  The 'min' and 'max' props should be in the format 'HH:MM' (e.g., '13:30').`,
+    type: 'components',
+    examples: [
+      {
+        component: Input.Time,
+        props: {
+          color: '#c50eff',
+        },
+        code: '<Input.Time {min} {max} />',
+      },
+      {
+        component: Input.Time,
+        props: {
+          color: '#ff00d9',
+          variant: "outline"
+        },
+      },
+      {
+        component: Input.Time,
+        props: {
+          color: '#ff3579',
+          variant: "line",
+          background: "transparent"
+        },
+      },
+    ],
+  },
+  {
     id: 'input_dateTime',
     header: 'Date Time',
-    description:
-      `The date time input can be accessed by using dot notation IE. Input.DateTime.`,
+    description: `The date time input can be accessed by using dot notation IE. Input.DateTime.
+  The 'min' and 'max' props should be in the format 'YYYY-MM-DDTHH:MM' (e.g., '2023-06-01T13:30').`,
     type: 'components',
     examples: [
       {
         component: Input.DateTime,
         props: {
           color: '#c50eff',
-        } as DateTimeProps,
-        code: '<Input.DateTime />',
+        },
+        code: '<Input.DateTime {min} {max} />',
+      },
+      {
+        component: Input.DateTime,
+        props: {
+          color: '#ff00d9',
+          variant: "outline"
+        },
+      },
+      {
+        component: Input.DateTime,
+        props: {
+          color: '#ff3579',
+          variant: "line",
+          background: "transparent"
+        },
       },
     ],
   },
@@ -357,7 +434,6 @@ export const inputs: InputDisplayData[] = [
           size: 'xsmall',
           value: '#ffc844',
         },
-        code: ['let val', "<Input bind:value={val} placeholder={placeholder} />"],
       },
     ],
   },
@@ -408,6 +484,24 @@ export const inputs: InputDisplayData[] = [
         {
           name: 'input_prefix',
           description: 'You can use dot notation to change the input to the prefixed input component. Use: Input.Prefix',
+          default: '',
+          nav: true
+        },
+        {
+          name: 'input_date',
+          description: 'You can use dot notation to change the input to the date input component. Use: Input.Date',
+          default: '',
+          nav: true
+        },
+        {
+          name: 'input_time',
+          description: 'You can use dot notation to change the input to the time input component. Use: Input.Time',
+          default: '',
+          nav: true
+        },
+        {
+          name: 'input_dateTime',
+          description: 'You can use dot notation to change the input to the date and time input component. Use: Input.DateTime',
           default: '',
           nav: true
         },
