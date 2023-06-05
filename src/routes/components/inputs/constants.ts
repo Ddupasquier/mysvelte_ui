@@ -300,6 +300,22 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
+    id: 'input_dateTime',
+    header: 'Date Time',
+    description:
+      `The date time input can be accessed by using dot notation IE. Input.DateTime.`,
+    type: 'components',
+    examples: [
+      {
+        component: Input.DateTime,
+        props: {
+          color: '#c50eff',
+        } as DateTimeProps,
+        code: '<Input.DateTime />',
+      },
+    ],
+  },
+  {
     id: 'input_colorPicker',
     header: 'Color Picker',
     description:

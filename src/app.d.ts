@@ -91,6 +91,10 @@ interface NumberProps extends CommonInputProps {
   step?: number;
 }
 
+interface DateTimeProps extends CommonInputProps {
+  format?: string;
+}
+
 interface InputColorProps {
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   value?: string;
