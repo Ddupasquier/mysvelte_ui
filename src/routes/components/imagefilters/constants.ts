@@ -176,6 +176,7 @@ export const imageFilters: ImageFilterDisplayData[] = [
           image: image3,
           alt: 'Image3',
           filter: 'hue-rotate-saturate',
+          title: 'Hue Rotate Saturate',
           width: '150px',
           height: '100px',
         },
