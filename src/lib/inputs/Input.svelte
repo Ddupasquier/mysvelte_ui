@@ -19,6 +19,7 @@
   export let clearable: boolean = false;
   export let isError: boolean = false;
   export let isLoading: boolean = false;
+  export let autoFocus: boolean = false;
 
   // Event dispatcher
   const dispatch = createEventDispatcher();
@@ -41,6 +42,8 @@
     containerClassString = containerClassList.join(" ");
 
     if (type === "password") passwordView = true;
+
+    if (autoFocus) inputRef.focus()
   });
 
   // Reactive Statements
@@ -87,7 +90,7 @@
   };
 
   // Refs
-  // let inputRef: HTMLInputElement;
+  let inputRef: HTMLInputElement;
 </script>
 
 <div class={containerClassString}>
@@ -103,6 +106,7 @@
     {/if}
   {/if}
   <input
+    bind:this={inputRef}
     id={label ? $$restProps.id : undefined}
     {type}
     {color}

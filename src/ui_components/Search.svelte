@@ -1,5 +1,5 @@
 <script lang="ts">
-  import pluralize from 'pluralize';
+  import pluralize from "pluralize";
   import { fade, slide } from "svelte/transition";
   import Input from "$lib/inputs/Input.svelte";
   import { MagnifyingGlassIcon } from "./icons";
@@ -8,6 +8,7 @@
 
   $: isOpen = false;
   let searchRef: HTMLDivElement;
+  let searchInputRef: Input;
 
   $: searchTerm = "";
   $: searchResults =
@@ -30,6 +31,16 @@
   on:keydown={(e) => {
     if (e.key === "Escape") {
       isOpen = false;
+    }
+
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "s") {
+      e.preventDefault();
+      window.scrollTo(0, 0);
+      isOpen = true;
+      searchTerm = "";
+      if (searchInputRef) {
+        searchInputRef.focus();
+      }
     }
 
     let focusedResultIndex = -1;
@@ -87,11 +98,13 @@
         class="input-wrapper"
       >
         <Input
+          bind:this={searchInputRef}
           bind:value={searchTerm}
           placeholder="Search || 'all'"
           aria-label="Search"
           size="small"
           style="width: 100%"
+          autoFocus={true}
         />
       </div>
     {/if}
@@ -118,9 +131,9 @@
         {#each searchResults as id}
           {@const { component, id: componentId } = splitSearchResult(id)}
           <a
-            href={`/components?items=${
-              pluralize(componentId)
-            }#${componentId}_${component}`}
+            href={`/components?items=${pluralize(
+              componentId
+            )}#${componentId}_${component}`}
             {id}
             role="option"
             aria-selected="false"
@@ -252,7 +265,6 @@
   }
 
   @media screen and (max-width: breakpoints.$sm-mobile-breakpoint) {
-
     .outer {
       justify-content: flex-end;
       transform: scale(0.7);
