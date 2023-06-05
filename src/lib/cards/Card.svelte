@@ -45,12 +45,12 @@
     flex-direction: column;
     border-radius: 0.5rem;
     width: 22rem;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    transition: all .5s;
 
     &.hover {
       &:hover {
         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-        transform: scale(1.003) translateY(-0.2rem);
+        transform: translateY(-0.2rem);
       }
     }
   }

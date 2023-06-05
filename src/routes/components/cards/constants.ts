@@ -47,10 +47,10 @@ export const cards: CardDisplayData[] = [
           ],
         },
         code: [
-          '<Card background={background}>',
+          '<Card {background}>',
           'indent<Card.Head>Card.Head</Card.Head>',
-          'indent<Card.Content background={background} color={color} style={style}>Card.Content</Card.Content>',
-          'indent<Card.Foot background={background}>Card.Foot</Card.Foot>',
+          'indent<Card.Content {background} {color} {style}>Card.Content</Card.Content>',
+          'indent<Card.Foot {background}>Card.Foot</Card.Foot>',
           '</Card>',
         ],
       },
@@ -127,10 +127,10 @@ export const cards: CardDisplayData[] = [
           ],
         },
         code: [
-          '<Card background={background}>',
+          '<Card {background}>',
           'indent<Card.Head>Card.Head</Card.Head>',
-          'indent<Card.Content background={background} color={color} style={style}>Card.Content</Card.Content>',
-          'indent<Card.Foot background={background}>Card.Foot</Card.Foot>',
+          'indent<Card.Content {background} {color} {style}>Card.Content</Card.Content>',
+          'indent<Card.Foot {background}>Card.Foot</Card.Foot>',
           '</Card>',
         ],
       }
@@ -184,17 +184,17 @@ export const cards: CardDisplayData[] = [
           ],
         },
         code: [
-          '<Card background={background}>',
+          '<Card {background}>',
           'indent<Card.Head>Card.Head</Card.Head>',
-          'indent<Card.Content background={background} color={color} style={style}>Card.Content</Card.Content>',
-          'indent<Card.Foot background={background}>Card.Foot</Card.Foot>',
+          'indent<Card.Content {background} {color} {style}>Card.Content</Card.Content>',
+          'indent<Card.Foot {background}>Card.Foot</Card.Foot>',
           '</Card>',
         ],
       }
     ],
   },
   {
-    id: 'images',
+    id: 'card_images',
     header: 'Card with Images',
     description:
       'Card can also be used to display images. You can use the Card.Image as the parent component. Card.Image accepts an image as a child, as well as background and color as props.',
@@ -233,10 +233,10 @@ export const cards: CardDisplayData[] = [
           ],
         },
         code: [
-          '<Card.Image background={background} image={url}>',
-          'indent<Card.Head background={background}>Card.Head</Card.Head>',
-          'indent<Card.Content style={style} />',
-          'indent<Card.Foot style={style}>Card.Foot</Card.Foot>',
+          '<Card.Image {background} image={url}>',
+          'indent<Card.Head {background}>Card.Head</Card.Head>',
+          'indent<Card.Content {style} />',
+          'indent<Card.Foot {style}>Card.Foot</Card.Foot>',
           '</Card.Image>',
         ],
       },
@@ -386,7 +386,7 @@ export const cards: CardDisplayData[] = [
           name: 'card_background',
           description: 'A string which represents the background color of the entire card.',
           default: 'white',
-          nav: true,
+          nav: false,
         },
         {
           name: 'card_style',
