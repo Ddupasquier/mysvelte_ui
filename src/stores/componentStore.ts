@@ -12,9 +12,13 @@ import { parallaxes } from '../routes/components/parallaxes/constants';
 import { avatars } from '../routes/components/avatars/constants';
 import { accordions } from '../routes/components/accordions/constants';
 import { toggles } from '../routes/components/toggles/constants';
+import { imageFilters } from '../routes/components/imagefilters/constants';
 
 export const getComponentIds = (): ComponentPropertyString[] => {
   const componentIds: ComponentPropertyString[] = [];
+imageFilters.forEach((imageFilter) => {
+    componentIds.push(`${imageFilter.id}_imageFilter`);
+  });
 toggles.forEach((toggle) => {
     componentIds.push(`${toggle.id}_toggle`);
   });

@@ -18,7 +18,7 @@
 </svelte:head>
 
 <section>
-  <Card style="flex: 1; min-width: 20rem" background="white" hover={true}>
+  <Card style="flex: 1; min-width: 20rem; cursor: default" background="white" hover={true}>
     <Card.Head background="#c50eff" color="white">
       <h2>Streamline Your Workflow with Our Svelte Component Library</h2>
     </Card.Head>
@@ -35,7 +35,7 @@
     </Card.Content>
   </Card>
 
-  <Card style="flex: 1; min-width: 20rem" background="white" hover={true}>
+  <Card style="flex: 1; min-width: 20rem; cursor: default" background="white" hover={true}>
     <Card.Head background="#c50eff" color="white">
       <h2>
         Our Svelte Component Library is Designed for Beginners and Experienced
@@ -56,7 +56,7 @@
     </Card.Content>
   </Card>
 
-  <Card style="flex: 1; min-width: 20rem" background="white" hover={true}>
+  <Card style="flex: 1; min-width: 20rem; cursor: default" background="white" hover={true}>
     <Card.Head background="#c50eff" color="white">
       <h2>
         Our Svelte Component Library is a Great Choice for Anyone Looking to

@@ -86,6 +86,11 @@ import AvatarDefault from './avatars/Avatar.svelte';
 
 export const Avatar = Object.assign(AvatarDefault, {});
 
+// * IMAGE-FILTERS
+import ImageFilterDefault from './imagefilters/ImageFilter.svelte';
+
+export const ImageFilter = Object.assign(ImageFilterDefault, {});
+
 // * ACCORDIONS
 import Accordion from './accordions/Accordion.svelte';
 

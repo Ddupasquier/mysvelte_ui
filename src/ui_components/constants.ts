@@ -1,5 +1,9 @@
 export const NavComponentOptions = [
   {
+    name: 'ImageFilters',
+    path: '?items=imagefilters',
+ },
+  {
     name: 'Toggles',
     path: '?items=toggles',
  },

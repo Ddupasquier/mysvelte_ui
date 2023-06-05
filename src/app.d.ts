@@ -356,3 +356,27 @@ interface ToggleProps {
   id?: string;
   style?: string;
 }
+
+// * ImageFilter TYPES
+interface ImageFilterDisplayData extends BaseDisplayData {
+  examples: ImageFilterExample[];
+}
+
+interface ImageFilterExample {
+  component: SvelteComponentTyped;
+  props: ImageFilterProps;
+  code?: string[];
+}
+
+interface ImageFilterProps {
+  alt: string;
+  image: string;
+  filter?: "none" | "gray" | "sepia" | "invert" | "blur" | "brightness" | "contrast" | "hue-rotate" | "saturate" | "opacity" | "drop-shadow" | "brightness-contrast" | "hue-rotate-saturate";
+  shape?: "circ" | "square" | "rounded";
+  style?: string;
+  width?: string;
+  height?: string;
+  aspectRatio?: string;
+  title?: string;
+}
+
