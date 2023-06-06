@@ -1,37 +1,81 @@
+# MySvelteUI
+
 ![MySvelteUI](https://user-images.githubusercontent.com/89223122/228957657-eec19e63-ecd7-4657-8466-5ff28242b6eb.png)
 
 ![npm](https://img.shields.io/npm/v/mysvelte-ui)
 ![npm](https://img.shields.io/npm/dm/mysvelte-ui)
 
-## Svelte component library in the making. 
-This is a young project so shut up and watch for updates.
-Better documentation pending.
+## Svelte component library in the making
 
-[MySvelteUI](https://mysvelteui.io)
+Welcome to MySvelteUI, a Svelte component library designed to streamline the development process. Our library provides a collection of reusable components that are easy to use and integrate into your Svelte projects. Whether you're a beginner or an experienced developer, MySvelteUI offers simplicity and efficiency to enhance your workflow.
 
-Our Svelte component library is designed to be an easily importable solution that streamlines the development process for both beginners and experienced developers. With a focus on simplicity, you can quickly and easily get up and running by importing our components into your project. Our intuitive design makes it easy to understand and use our components, eliminating the need to spend hours reading documentation or trying to figure out how to use them. Our library is the perfect choice for anyone looking to save time and streamline their workflow, without the hassle of downloading or importing anything. So why not give our library a try today and see how it can simplify your development process?
+Please note that this project is still in development, so expect regular updates and improvements. Documentation is also a work in progress and will be added soon.
 
-## In order to use the components, you need to run the following commands:
+## Getting Started
 
-From terminal in project directory:
-```bash
-npm i mysvelte-ui
+### For Users
+
+To use MySvelteUI in your project, follow these steps:
+
+1. Install the `mysvelte-ui` package from npm:
+```cmd
+npm install mysvelte-ui
 ```
 
-In component's script tag:
+2. Import the desired components into your Svelte project's script tag:
 ```js
-import { Button } from 'mysvelte-ui'
+import { Button } from 'mysvelte-ui';
 ```
 
-In your template:
+3. Use the imported components in your Svelte template:
 ```js
 <Button>Content</Button>
 ```
 
-## Documentation pending
+That's it! You can now use MySvelteUI components in your project. Enjoy!
+
+### For Developers
+
+If you're a developer and want to contribute to MySvelteUI or fork the repository, follow these steps:
+
+1. Clone the repository to your local machine:
+```cmd
+git clone https://github.com/Ddupasquier/mysvelte_ui.git
+```
+
+2. Navigate to the project directory:
+```cmd
+cd mysvelte_ui
+```
+
+3. Install the project dependencies:
+```cmd
+npm install
+```
+
+4. Start the development server:
+```cmd
+npm run dev
+```
+
+5. (Optional) To add a new component, you can use the following command:
+```cmd
+npm run newcomp componentname
+```
+
+Replace componentname with the desired name of your new component. This command will scaffold a new component template for you. Please note that the componentname should be in singular form.
+
+The newcomp script fully incorporates the component into MySvelteUI, including adding it to the navigation and making it accessible for import and use in other parts of the library.
+
+That's it! You're now ready to develop and contribute to MySvelteUI. Happy coding!
+
+## Documentation
+
+Detailed documentation for MySvelteUI components will be added soon. Stay tuned!
 
 ## Links
-[Github](https://github.com/Ddupasquier/mysvelte_ui) |
-[Linkedin](https://www.linkedin.com/in/dylan-dupasquier/) |
-[NPM](https://www.npmjs.com/package/mysvelte-ui?activeTab=readme) |
-[Website](https://ddupasquier.dev)
+
+- [Github](https://github.com/Ddupasquier/mysvelte_ui)
+- [Linkedin](https://www.linkedin.com/in/dylan-dupasquier/)
+- [NPM](https://www.npmjs.com/package/mysvelte-ui?activeTab=readme)
+- [Website](https://ddupasquier.dev)
