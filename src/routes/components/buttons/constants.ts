@@ -34,7 +34,7 @@ export const buttons: ButtonDisplayData[] = [
           background: '#c50eff',
           text: 'Purple'
         },
-        code: '<Button background={background}>Purple</Button>',
+        code: '<Button {background}>Purple</Button>',
       },
       {
         component: Button,
@@ -171,7 +171,7 @@ export const buttons: ButtonDisplayData[] = [
           color: 'black',
           text: 'Color',
         },
-        code: '<Button color={color}>Color</Button>',
+        code: '<Button {color}>Color</Button>',
       },
       {
         component: Button,
@@ -202,7 +202,7 @@ export const buttons: ButtonDisplayData[] = [
           text: 'Custom',
           style: 'border: 1px solid black; border-radius: 5px; padding: 10px;',
         },
-        code: '<Button style={style}>Custom</Button>',
+        code: '<Button {style}>Custom</Button>',
       },
       {
         component: Button,

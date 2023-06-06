@@ -13,7 +13,7 @@ export const inputs: InputDisplayData[] = [
           value: '',
           placeholder: 'Input',
         },
-        code: ['let value', "<Input placeholder={placeholder} bind:value={val} />"],
+        code: ['let value', "<Input {placeholder} bind:value={val} />"],
       },
     ],
   },
@@ -235,7 +235,7 @@ export const inputs: InputDisplayData[] = [
       };
       
       <form on:submit={handleSubmit}>
-      <Input.Prefix prefix={prefix} bind:value={val} />
+      <Input.Prefix {prefix} bind:value={val} />
       </form>`,
     type: 'components',
     examples: [
@@ -405,7 +405,7 @@ export const inputs: InputDisplayData[] = [
           size: 'xlarge',
           value: '#c50eff',
         },
-        code: ['let value', '<Input.Color bind:value={value} />'],
+        code: ['let value', '<Input.Color bind:{value} />'],
       },
       {
         component: Input.Color,

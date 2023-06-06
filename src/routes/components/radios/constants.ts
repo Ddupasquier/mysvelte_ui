@@ -67,7 +67,7 @@ export const radios: RadioDisplayData[] = [
           groupId: 'color4'
         },
         code: [
-          '<Radio color={color} options={options} />'
+          '<Radio {color} {options} />'
         ]
       },
       {
@@ -177,7 +177,7 @@ export const radios: RadioDisplayData[] = [
           use: 'many',
         },
         code: [
-          '<Radio use="many" options={options} />'
+          '<Radio use="many" {options} />'
         ]
       }
     ]

@@ -18,7 +18,7 @@ export const avatars: AvatarDisplayData[] = [
           alt: 'Avatar',
         },
         code: [
-          `<Avatar image={image} alt="Avatar" />`,
+          `<Avatar {image} alt="Avatar" />`,
         ],
       },
     ],
@@ -36,7 +36,7 @@ export const avatars: AvatarDisplayData[] = [
           alt: 'Avatar',
         },
         code: [
-          `<Avatar image={image} alt="Avatar" />`,
+          `<Avatar {image} alt="Avatar" />`,
         ],
       },
       {
@@ -69,7 +69,7 @@ export const avatars: AvatarDisplayData[] = [
           size: 'small',
         },
         code: [
-          `<Avatar image={image} alt="Avatar" size={size} />`,
+          `<Avatar {image} alt="Avatar" {size} />`,
         ],
       },
       {
@@ -120,7 +120,7 @@ export const avatars: AvatarDisplayData[] = [
           shape: 'square',
         },
         code: [
-          `<Avatar image={image} alt="Avatar" shape={shape} />`,
+          `<Avatar {image} alt="Avatar" {shape} />`,
         ],
       },
       {
@@ -155,7 +155,7 @@ export const avatars: AvatarDisplayData[] = [
           filter: 'gray',
         },
         code: [
-          `<Avatar image={image} alt="Avatar" filter={filter} />`,
+          `<Avatar {image} alt="Avatar" {filter} />`,
         ],
       },
       {
