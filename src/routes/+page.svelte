@@ -97,6 +97,7 @@
     max-width: 800px;
     margin: 0 0 1.5rem 0;
     line-height: 1.5;
+    font-size: 13px;
   }
 
   @media screen and (max-width: 660px) {
@@ -107,7 +108,7 @@
 
   @media screen and (max-width: breakpoints.$sm-mobile-breakpoint) {
     p {
-      font-size: 12px;
+      font-size: 10px;
     }
   }
 </style>

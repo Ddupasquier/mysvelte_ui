@@ -31,7 +31,7 @@
       currentLayout = "column";
     }
 
-    if (window.innerWidth > 1025) {
+    if (window.innerWidth > 825) {
       bgShown = true;
     } else {
       bgShown = false;
