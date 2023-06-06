@@ -1,3 +1,5 @@
+// * Turn foo={foo} to {foo} in all files in a directory
+
 import fs from 'fs';
 import path from 'path';
 
