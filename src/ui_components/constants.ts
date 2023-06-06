@@ -2,19 +2,19 @@ export const NavComponentOptions = [
   {
     name: 'ImageFilters',
     path: '?items=imagefilters',
- },
+  },
   {
     name: 'Toggles',
     path: '?items=toggles',
- },
+  },
   {
     name: 'Accordions',
     path: '?items=accordions',
- },
+  },
   {
     name: 'Avatars',
     path: '?items=avatars',
- },
+  },
   {
     name: 'Parallaxes',
     path: '?items=parallaxes',
@@ -52,3 +52,14 @@ export const NavComponentOptions = [
     path: '?items=cards',
   },
 ];
+
+export const links = [
+  {
+    name: 'Github',
+    link: 'https://github.com/Ddupasquier/mysvelte_ui'
+  },
+  {
+    name: 'NPM',
+    link: 'https://www.npmjs.com/package/mysvelte-ui'
+  }
+]
