@@ -96,22 +96,20 @@ console.log(
 const storePath = readFileSync('./src/stores/componentStore.ts', 'utf-8');
 
 const addComponent = async () => {
-  const lastImport = storePath.lastIndexOf("constants';");
-  const lastSemicolon = storePath.indexOf(';', lastImport);
-  const componentsArr = storePath.lastIndexOf('[];');
+  const lastImportIndex = storePath.lastIndexOf("constants';");
+  const componentMappingStart = storePath.indexOf('componentMapping = {') + 'componentMapping = {'.length;
+  const componentMappingEnd = storePath.indexOf('};', componentMappingStart);
 
   const newImport = `\nimport { ${pluralize(componentLower)} } from '../routes/components/${pluralize(componentLower)}/constants';`;
 
-  const addToComponents = `\n${pluralize(componentLower)}.forEach((${componentLower}) => {
-    componentIds.push(\`\${${componentLower}.id}_${componentLower}\`);
-  });`;
+  const addToComponentMapping = `\n  ${componentLower}: ${pluralize(componentLower)},`;
 
   const newContent =
-    storePath.slice(0, lastSemicolon + 1) +
+    storePath.slice(0, lastImportIndex + "constants';".length) +
     newImport +
-    storePath.slice(lastSemicolon + 1, componentsArr + 3) +
-    addToComponents +
-    storePath.slice(componentsArr + 3);
+    storePath.slice(lastImportIndex + "constants';".length, componentMappingStart) +
+    addToComponentMapping +
+    storePath.slice(componentMappingStart, componentMappingEnd + 2);
 
   writeFileSync('./src/stores/componentStore.ts', newContent);
 };
