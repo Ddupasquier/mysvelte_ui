@@ -162,14 +162,12 @@ console.log(`Added ${componentName} to ./src/ui_components/constants.ts`);
 // Add new type to app.d.ts file
 const appPath = readFileSync('./src/app.d.ts', 'utf-8');
 const addToApp = async () => {
-  const bottomOfFile = appPath.lastIndexOf('}' + 1);
   // interface ParallaxDisplayData extends BaseDisplayData {
   // examples: ParallaxExample[];
-// }
+  // }
   const newType = `\n\n// * ${componentUpper} TYPES\ninterface ${componentUpper}DisplayData extends BaseDisplayData {\n  examples: ${componentUpper}Example[];\n}`;
 
-  const newContent =
-    appPath.slice(0, bottomOfFile) + newType + appPath.slice(bottomOfFile);
+  const newContent = appPath + newType; // simply concatenate new content to the existing content
 
   writeFileSync('./src/app.d.ts', newContent);
 };
@@ -182,3 +180,4 @@ console.log(
   '\x1b[32m%s\x1b[0m', // green
   `${componentName} has been added to the library!`
 );
+
