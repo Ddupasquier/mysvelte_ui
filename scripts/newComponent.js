@@ -98,18 +98,16 @@ const storePath = readFileSync('./src/stores/componentStore.ts', 'utf-8');
 const addComponent = async () => {
   const lastImportIndex = storePath.lastIndexOf("constants';");
   const componentMappingStart = storePath.indexOf('componentMapping = {') + 'componentMapping = {'.length;
-  const componentMappingEnd = storePath.indexOf('};', componentMappingStart);
 
   const newImport = `\nimport { ${pluralize(componentLower)} } from '../routes/components/${pluralize(componentLower)}/constants';`;
-
-  const addToComponentMapping = `\n  ${componentLower}: ${pluralize(componentLower)},`;
+  const addToComponentMapping = `\n${pluralize(componentLower)},`;
 
   const newContent =
     storePath.slice(0, lastImportIndex + "constants';".length) +
     newImport +
     storePath.slice(lastImportIndex + "constants';".length, componentMappingStart) +
     addToComponentMapping +
-    storePath.slice(componentMappingStart, componentMappingEnd + 2);
+    storePath.slice(componentMappingStart, storePath.length);
 
   writeFileSync('./src/stores/componentStore.ts', newContent);
 };
