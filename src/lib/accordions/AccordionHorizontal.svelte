@@ -20,7 +20,7 @@
     let expandedIndexes: number[] = [];
 
     // Variables
-    let classList = ["accordion"];
+    let classList = ["accordion", "horizontal"];
     let classString = "";
 
     // Lifecycle Hooks
@@ -86,28 +86,26 @@
             {#if expandedIndexes.includes(i)}
                 <div
                     class="accordion-content"
-                    transition:slide={{ duration: animated ? 500 : 0 }}
+                    transition:slide={{  axis: "x" }}
                     style={contentStyleComputed}
                     id={`content-${i}`}
                     aria-labelledby={`accordion-header-${i}`}
                     role="region"
                 >
-                    <span
-                        in:slide={{ duration: animated ? 200 : 0, delay: animated ? 520 : 0 }}
-                        out:slide={{ duration: 0, delay: 0 }}
-                    >
                         {content}
-                    </span>
                 </div>
             {/if}
         </div>
     {/each}
+    {#if expandedIndexes.length === 0}
+        <div class="filler"  />
+    {/if}
 </div>
 
 <style lang="scss">
     .accordion {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         width: 100%;
         position: relative;
         border-radius: 0.3rem;
@@ -115,16 +113,39 @@
         overflow: hidden;
     }
 
+    .accordion-item {
+        display: flex;
+        flex-direction: row;
+    }
+
     .accordion-header {
         padding: 1rem;
         border: none;
         cursor: pointer;
-        width: 100%;
+        width: fit-content;
         text-align: left;
         font-weight: 800;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .accordion-header .title-container {
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        letter-spacing: -0.2rem;
     }
 
     .accordion-content {
         padding: 1rem 2rem;
+        overflow: auto;
+        transition: width 0.6s ease;
+    }
+
+    .filler {
+        flex: 1;
+        background: var(--tab-bg-color);
+        // transition: all 0.6s ease;
     }
 </style>

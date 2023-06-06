@@ -23,12 +23,12 @@ export const accordions: AccordionDisplayData[] = [
     type: 'components',
     examples: [
       {
-        component: Accordion,
+        component: Accordion.Horizontal,
         props: {
           data: accordionData,
           orientation: 'horizontal',
           animated: true,
-          height: '18rem',
+          height: '22rem',
           width: '500px',
           // collapse: false,
         },
