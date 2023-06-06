@@ -96,22 +96,18 @@ console.log(
 const storePath = readFileSync('./src/stores/componentStore.ts', 'utf-8');
 
 const addComponent = async () => {
-  const lastImport = storePath.lastIndexOf("constants';");
-  const lastSemicolon = storePath.indexOf(';', lastImport);
-  const componentsArr = storePath.lastIndexOf('[];');
+  const lastImportIndex = storePath.lastIndexOf("constants';");
+  const componentMappingStart = storePath.indexOf('componentMapping = {') + 'componentMapping = {'.length;
 
   const newImport = `\nimport { ${pluralize(componentLower)} } from '../routes/components/${pluralize(componentLower)}/constants';`;
-
-  const addToComponents = `\n${pluralize(componentLower)}.forEach((${componentLower}) => {
-    componentIds.push(\`\${${componentLower}.id}_${componentLower}\`);
-  });`;
+  const addToComponentMapping = `\n  ${pluralize(componentLower)},`;
 
   const newContent =
-    storePath.slice(0, lastSemicolon + 1) +
+    storePath.slice(0, lastImportIndex + "constants';".length) +
     newImport +
-    storePath.slice(lastSemicolon + 1, componentsArr + 3) +
-    addToComponents +
-    storePath.slice(componentsArr + 3);
+    storePath.slice(lastImportIndex + "constants';".length, componentMappingStart) +
+    addToComponentMapping +
+    storePath.slice(componentMappingStart, storePath.length);
 
   writeFileSync('./src/stores/componentStore.ts', newContent);
 };
@@ -166,14 +162,12 @@ console.log(`Added ${componentName} to ./src/ui_components/constants.ts`);
 // Add new type to app.d.ts file
 const appPath = readFileSync('./src/app.d.ts', 'utf-8');
 const addToApp = async () => {
-  const bottomOfFile = appPath.lastIndexOf('}' + 1);
   // interface ParallaxDisplayData extends BaseDisplayData {
   // examples: ParallaxExample[];
-// }
+  // }
   const newType = `\n\n// * ${componentUpper} TYPES\ninterface ${componentUpper}DisplayData extends BaseDisplayData {\n  examples: ${componentUpper}Example[];\n}`;
 
-  const newContent =
-    appPath.slice(0, bottomOfFile) + newType + appPath.slice(bottomOfFile);
+  const newContent = appPath + newType; // simply concatenate new content to the existing content
 
   writeFileSync('./src/app.d.ts', newContent);
 };
@@ -186,3 +180,4 @@ console.log(
   '\x1b[32m%s\x1b[0m', // green
   `${componentName} has been added to the library!`
 );
+

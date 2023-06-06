@@ -12,52 +12,40 @@ import { parallaxes } from '../routes/components/parallaxes/constants';
 import { avatars } from '../routes/components/avatars/constants';
 import { accordions } from '../routes/components/accordions/constants';
 import { toggles } from '../routes/components/toggles/constants';
-import { imageFilters } from '../routes/components/imagefilters/constants';
 
-export const getComponentIds = (): ComponentPropertyString[] => {
-  const componentIds: ComponentPropertyString[] = [];
-imageFilters.forEach((imageFilter) => {
-    componentIds.push(`${imageFilter.id}_imageFilter`);
+// Component mapping
+const componentMapping = {
+  buttons,
+  inputs,
+  cards,
+  popovers,
+  radios,
+  dropdowns,
+  loaders,
+  checkboxes,
+  parallaxes,
+  avatars,
+  accordions,
+  toggles
+};
+
+interface ComponentType {
+  id: string;
+  [key: string]: any;  // This line allows other properties
+}
+
+// High order function to push ids
+const pushIds = (arr: ComponentType[], suffix: string): string[] => 
+  arr.map(({ id }) => `${id}_${suffix}`);
+
+export const getComponentIds = (): string[] => {
+  const componentIds: string[] = [];
+  
+  Object.entries(componentMapping).forEach(([key, value]) => {
+    componentIds.push(...pushIds(value, key));
   });
-toggles.forEach((toggle) => {
-    componentIds.push(`${toggle.id}_toggle`);
-  });
-accordions.forEach((accordion) => {
-    componentIds.push(`${accordion.id}_accordion`);
-  });
-avatars.forEach((avatar) => {
-    componentIds.push(`${avatar.id}_avatar`);
-  });
-parallaxes.forEach((parallax) => {
-    componentIds.push(`${parallax.id}_parallax`);
-  });
-  checkboxes.forEach((checkbox) => {
-    componentIds.push(`${checkbox.id}_checkbox`);
-  });
-  loaders.forEach((loader) => {
-    componentIds.push(`${loader.id}_loader`);
-  });
-  dropdowns.forEach((dropdown) => {
-    componentIds.push(`${dropdown.id}_dropdown`);
-  });
-  radios.forEach((radio) => {
-    componentIds.push(`${radio.id}_radio`);
-  });
-  popovers.forEach((popover) => {
-    componentIds.push(`${popover.id}_popover`);
-  });
-  buttons.forEach((button) => {
-    componentIds.push(`${button.id}_button`);
-  });
-  inputs.forEach((input) => {
-    componentIds.push(`${input.id}_input`);
-  });
-  cards.forEach((card) => {
-    componentIds.push(`${card.id}_card`);
-  });
+
   return componentIds;
 };
 
-export const componentIds: Writable<ComponentPropertyString[]> = writable(
-  getComponentIds()
-);
+export const componentIds: Writable<string[]> = writable(getComponentIds());

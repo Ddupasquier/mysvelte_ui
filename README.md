@@ -4,6 +4,11 @@
 
 ![npm](https://img.shields.io/npm/v/mysvelte-ui)
 ![npm](https://img.shields.io/npm/dm/mysvelte-ui)
+![GitHub stars](https://img.shields.io/github/stars/Ddupasquier/mysvelte_ui?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Ddupasquier/mysvelte_ui?style=social)
+![GitHub issues](https://img.shields.io/github/issues/Ddupasquier/mysvelte_ui)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Ddupasquier/mysvelte_ui)
+![License](https://img.shields.io/github/license/Ddupasquier/mysvelte_ui)
 
 ## Svelte component library in the making
 
