@@ -100,7 +100,7 @@ const addComponent = async () => {
   const componentMappingStart = storePath.indexOf('componentMapping = {') + 'componentMapping = {'.length;
 
   const newImport = `\nimport { ${pluralize(componentLower)} } from '../routes/components/${pluralize(componentLower)}/constants';`;
-  const addToComponentMapping = `\n${pluralize(componentLower)},`;
+  const addToComponentMapping = `\n  ${pluralize(componentLower)},`;
 
   const newContent =
     storePath.slice(0, lastImportIndex + "constants';".length) +
