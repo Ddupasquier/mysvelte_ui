@@ -12,6 +12,7 @@ import { parallaxes } from '../routes/components/parallaxes/constants';
 import { avatars } from '../routes/components/avatars/constants';
 import { accordions } from '../routes/components/accordions/constants';
 import { toggles } from '../routes/components/toggles/constants';
+import {imageFilters} from '../routes/components/imagefilters/constants';
 
 // Component mapping
 const componentMapping = {
@@ -26,7 +27,8 @@ const componentMapping = {
   parallaxes,
   avatars,
   accordions,
-  toggles
+  toggles,
+  imageFilters,
 };
 
 interface ComponentType {

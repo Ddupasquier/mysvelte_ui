@@ -134,7 +134,7 @@
             href={`/components?items=${pluralize(
               componentId
             )}#${componentId}_${component}`}
-            {id}
+            id={id}
             role="option"
             aria-selected="false"
           >
