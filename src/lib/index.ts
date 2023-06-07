@@ -82,11 +82,8 @@ export const Avatar = Object.assign(AvatarDefault, {});
 
 // * ACCORDIONS
 import DefaultAccordion from './accordions/Accordion.svelte';
-import AccordionHorizontal from './accordions/AccordionHorizontal.svelte';
 
-export const Accordion = Object.assign(DefaultAccordion, {
-  Horizontal: AccordionHorizontal,
-});
+export const Accordion = Object.assign(DefaultAccordion, {});
 
 // * TOGGLES
 import ToggleDefault from './toggles/Toggle.svelte';

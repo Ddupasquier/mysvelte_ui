@@ -329,6 +329,7 @@ interface AccordionProps {
 
 interface AccordionData {
   title: string;
+  details?: string;
   content: string;
 }
 

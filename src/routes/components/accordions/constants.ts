@@ -15,24 +15,51 @@ const accordionData: AccordionData[] = [
   },
 ];
 
+const accordionData2: AccordionData[] = [
+  {
+    title: 'Accordion Item 1',
+    details: 'Details are optional.',
+    content: 'This is the content for Accordion Item 1.'
+  },
+  {
+    title: 'Accordion Item 2',
+    details: 'Details are optional.',
+    content: 'This is the content for Accordion Item 2.'
+  },
+  {
+    title: 'Accordion Item 3',
+    details: 'Details are optional.',
+    content: 'This is the content for Accordion Item 3.',
+  },
+];
+
 export const accordions: AccordionDisplayData[] = [
   {
     id: 'accordion_basics',
     header: 'Accordion Basics',
-    description: 'Accordions are used to display a large amount of content in a compact space, by showing only one collapsible item at a time.',
+    description: `Accordions are used to display a large amount of content in a compact space, by showing only one collapsible item at a time.
+    The \`Accordion\` component takes in an array of \`AccordionData\` objects, each of which should have a \`title\`, \`details\`, and \`content\` property.
+    Details being an optional field.`,
     type: 'components',
     examples: [
       {
-        component: Accordion.Horizontal,
+        component: Accordion,
         props: {
-          data: accordionData,
-          orientation: 'horizontal',
+          data: accordionData2,
           animated: true,
-          height: '22rem',
-          width: '500px',
-          // collapse: false,
         },
         code: [
+          `const accordionData = [`,
+            `indent {`,
+              `indent indent title: \'Accordion Item Title\'`,
+              `indent indent details: \'Details are optional.\'`,
+              `indent indent content: 'Content'`,
+            `indent },`,
+            `indent {`,
+            `indent indent etc...`,
+            `indent }`,
+          `]`,
+          '',
           `<Accordion {data} />`,
         ],
       },
@@ -127,7 +154,7 @@ export const accordions: AccordionDisplayData[] = [
       rows: [
         {
           name: 'accordion_data!',
-          description: 'The array of accordion items. Each item should have a `title` and a `content`.',
+          description: 'The array of accordion items. Each item should have a `title`, `details`, and a `content`.',
           default: '[]',
           nav: false
         },

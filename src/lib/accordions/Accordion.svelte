@@ -3,7 +3,7 @@
     import { slide } from "svelte/transition";
 
     // Props
-    export let data: { title: string; content: string }[] = [];
+    export let data: { title: string; details?:string; content: string }[] = [];
     export let animated: boolean = false;
     export let collapse: boolean = true;
     export let disabled: boolean = false;
@@ -71,7 +71,7 @@
 </script>
 
 <div class={classString} style={accordionStyle}>
-    {#each data as { title, content }, i}
+    {#each data as { title, details, content }, i}
         <div class="accordion-item">
             <button
                 class="accordion-header"
@@ -82,6 +82,9 @@
                 aria-controls={`content-${i}`}
             >
                 <div class="title-container">{title}</div>
+                {#if details}
+                    <div class="details-container">{details}</div>
+                {/if}
             </button>
             {#if expandedIndexes.includes(i)}
                 <div
@@ -122,6 +125,11 @@
         width: 100%;
         text-align: left;
         font-weight: 800;
+    }
+
+    .details-container {
+        font-size: 1rem;
+        font-weight: 400;
     }
 
     .accordion-content {
