@@ -87,18 +87,18 @@ export const accordions: AccordionDisplayData[] = [
   {
     id: 'accordion_animated',
     header: 'Animated Accordion',
-    description: 'You can animate the accordion transitions by setting the `animated` prop to true.',
+    description: 'You can stop the animated transitions by setting the `animated` prop to false.',
     type: 'components',
     examples: [
       {
         component: Accordion,
         props: {
           data: accordionData,
-          animated: true,
+          animated: false,
           tabBg: '#FF3579'
         },
         code: [
-          `<Accordion {data} animated={true} />`,
+          `<Accordion {data} animated={false} />`,
         ],
       },
     ],
@@ -113,15 +113,34 @@ export const accordions: AccordionDisplayData[] = [
         component: Accordion,
         props: {
           data: accordionData,
-          headerStyle: "background-color: #FF8C4C; color: #000;",
+          tabBg: '#FF8C4C',
+          headerStyle: "text-align: center;",
           contentStyle: "color: #f00;",
-          // tabBg: '#FF8C4C',
           // tabColor: '#FFFFFF',
           // background: '#FFFFFF',
           // color: '#333333',
         },
         code: [
-          `<Accordion {data} headerStyle="background-color: #FF8C4C; color: #000;" contentStyle="color: #f00" />`,
+          `<Accordion {data} {tabBg} headerStyle="justify: center" contentStyle="color: #f00" />`,
+        ],
+      },
+    ],
+  },
+  {
+    id: 'accordion_divider',
+    header: 'Accordion Divider',
+    description: 'You can add a divider between each accordion item by setting the `divider` prop to true.',
+    type: 'components',
+    examples: [
+      {
+        component: Accordion,
+        props: {
+          data: accordionData,
+          divider: true,
+          tabBg: '#FFC844',
+        },
+        code: [
+          `<Accordion {data} divider={true} />`,
         ],
       },
     ],

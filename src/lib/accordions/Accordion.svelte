@@ -4,7 +4,7 @@
 
     // Props
     export let data: { title: string; details?:string; content: string }[] = [];
-    export let animated: boolean = false;
+    export let animated: boolean = true;
     export let collapse: boolean = true;
     export let disabled: boolean = false;
     export let headerStyle: string = "";
@@ -15,6 +15,7 @@
     export let color: string = "#000";
     export let height: string = "fit-content";
     export let width: string = "100%";
+    export let divider: boolean = false;
 
     // State
     let expandedIndexes: number[] = [];
@@ -66,18 +67,23 @@
         width: ${width};
         color: ${color};
     `;
-    $: headerStyleComputed = `background: var(--tab-bg-color); color: var(--tab-color); ${headerStyle}`;
+    $: headerStyleComputed = `
+        background: var(--tab-bg-color); 
+        color: var(--tab-color); 
+        border-bottom: ${divider ? `1px solid` : 'none'}; 
+        ${headerStyle}
+    `;
     $: contentStyleComputed = `${contentStyle}`;
 </script>
 
 <div class={classString} style={accordionStyle}>
-    {#each data as { title, details, content }, i}
+    {#each data as { title, details, content }, i (i)}
         <div class="accordion-item">
             <button
                 class="accordion-header"
                 on:click={() => toggleAccordion(i)}
                 on:keydown={(e) => onKeydown(e, i)}
-                style={headerStyleComputed}
+                style={`${headerStyleComputed} ${divider && i < data.length - 1 ? `border-bottom: 1px solid ${tabColor};` : ''}`}
                 aria-expanded={expandedIndexes.includes(i)}
                 aria-controls={`content-${i}`}
             >
@@ -95,12 +101,7 @@
                     aria-labelledby={`accordion-header-${i}`}
                     role="region"
                 >
-                    <span
-                        in:slide={{ duration: animated ? 200 : 0, delay: animated ? 520 : 0 }}
-                        out:slide={{ duration: 0, delay: 0 }}
-                    >
                         {content}
-                    </span>
                 </div>
             {/if}
         </div>
@@ -118,11 +119,23 @@
         overflow: hidden;
     }
 
+    .accordion-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: var(--tab-bg-color);
+    }
+
+    .accordion-item:last-child .accordion-header {
+       border-bottom: none !important;
+    }
+
     .accordion-header {
-        padding: 1rem;
+        padding: 1rem 0;
         border: none;
         cursor: pointer;
-        width: 100%;
+        width: 98%;
         text-align: left;
         font-weight: 800;
     }
@@ -133,6 +146,8 @@
     }
 
     .accordion-content {
-        padding: 1rem 2rem;
+        width: 97%;
+        padding: 1rem;
+        background: white;
     }
 </style>
