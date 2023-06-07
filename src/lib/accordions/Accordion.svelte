@@ -3,7 +3,7 @@
     import { slide } from "svelte/transition";
 
     // Props
-    export let data: { title: string; content: string }[] = [];
+    export let data: { title: string; details?:string; content: string }[] = [];
     export let animated: boolean = false;
     export let collapse: boolean = true;
     export let disabled: boolean = false;
@@ -13,6 +13,8 @@
     export let tabColor: string = "#fff";
     export let background: string = "#fff";
     export let color: string = "#000";
+    export let height: string = "fit-content";
+    export let width: string = "100%";
 
     // State
     let expandedIndexes: number[] = [];
@@ -49,7 +51,7 @@
 
     // Key event handler
     const onKeydown = (event: KeyboardEvent, index: number) => {
-        if (event.key === 'Enter' || event.key === ' ') {
+        if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
             toggleAccordion(index);
         }
@@ -60,6 +62,8 @@
         background: ${background};
         --tab-bg-color: ${disabled ? "#ccc" : tabBg};
         --tab-color: ${disabled ? "#000" : tabColor};
+        height: ${height};
+        width: ${width};
         color: ${color};
     `;
     $: headerStyleComputed = `background: var(--tab-bg-color); color: var(--tab-color); ${headerStyle}`;
@@ -67,7 +71,7 @@
 </script>
 
 <div class={classString} style={accordionStyle}>
-    {#each data as { title, content }, i}
+    {#each data as { title, details, content }, i}
         <div class="accordion-item">
             <button
                 class="accordion-header"
@@ -77,7 +81,10 @@
                 aria-expanded={expandedIndexes.includes(i)}
                 aria-controls={`content-${i}`}
             >
-                {title}
+                <div class="title-container">{title}</div>
+                {#if details}
+                    <div class="details-container">{details}</div>
+                {/if}
             </button>
             {#if expandedIndexes.includes(i)}
                 <div
@@ -88,16 +95,22 @@
                     aria-labelledby={`accordion-header-${i}`}
                     role="region"
                 >
-                    {content}
+                    <span
+                        in:slide={{ duration: animated ? 200 : 0, delay: animated ? 520 : 0 }}
+                        out:slide={{ duration: 0, delay: 0 }}
+                    >
+                        {content}
+                    </span>
                 </div>
             {/if}
         </div>
     {/each}
 </div>
 
-
 <style lang="scss">
     .accordion {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         position: relative;
         border-radius: 0.3rem;
@@ -112,6 +125,11 @@
         width: 100%;
         text-align: left;
         font-weight: 800;
+    }
+
+    .details-container {
+        font-size: 1rem;
+        font-weight: 400;
     }
 
     .accordion-content {

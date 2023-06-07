@@ -92,9 +92,9 @@ import ImageFilterDefault from './imagefilters/ImageFilter.svelte';
 export const ImageFilter = Object.assign(ImageFilterDefault, {});
 
 // * ACCORDIONS
-import Accordion from './accordions/Accordion.svelte';
+import DefaultAccordion from './accordions/Accordion.svelte';
 
-export { Accordion };
+export const Accordion = Object.assign(DefaultAccordion, {});
 
 // * TOGGLES
 import ToggleDefault from './toggles/Toggle.svelte';
