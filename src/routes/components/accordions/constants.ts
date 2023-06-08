@@ -116,12 +116,9 @@ export const accordions: AccordionDisplayData[] = [
           tabBg: '#FF8C4C',
           headerStyle: "text-align: center;",
           contentStyle: "color: #f00;",
-          // tabColor: '#FFFFFF',
-          // background: '#FFFFFF',
-          // color: '#333333',
         },
         code: [
-          `<Accordion {data} {tabBg} headerStyle="justify: center" contentStyle="color: #f00" />`,
+          `<Accordion {data} {tabBg} headerStyle="text-align: center" contentStyle="color: #f00" />`,
         ],
       },
     ],
