@@ -16,7 +16,7 @@ if (componentName) {
 }
 
 // Create a new directory for the component in the lib directory
-const creatLibComponent = async () => {
+const createLibComponent = async () => {
   mkdirSync(pluralize(`./src/lib/${componentLower}`));
 
   // Create a new Svelte file for the component in the new directory
@@ -34,7 +34,7 @@ const creatLibComponent = async () => {
   );
 };
 
-await creatLibComponent();
+await createLibComponent();
 
 console.log(`Created a new component called ${componentName} in lib directory`);
 
