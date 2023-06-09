@@ -65,20 +65,21 @@ export async function createDocumentationFile(componentPathInput) {
     if (commentMatch) {
       const commentBlock = commentMatch[0];
       // Matches each prop description line
-      const propMatches = commentBlock.match(/@type {(.*?)} (.*?) - (.*?), "(.*?)"$/gm);
+      const propMatches = commentBlock.match(/@type {(.*?)} (.*?) - (.*?), (.*?)(,|$)/gm);
+
 
       if (!propMatches) {
         throw new Error('No prop descriptions found in the comment block.');
       }
 
       propRows = propMatches.map((prop) => {
-        const [full, type, name, description, defaultValue] = prop.match(/@type {(.*?)} (.*?) - (.*?), "(.*?)"$/);
+        const [full, type, name, description, defaultValue] = prop.match(/@type {(.*?)} (.*?) - (.*?), (.*?)(,|$)/);
         return `{
-        name: \`${componentNameLower}_${name}\`,
-        description: '${description}',
-        default: '${defaultValue}',
-        nav: true,
-      }`;
+    name: \`${componentNameLower}_${name}\`,
+    description: '${description}',
+    default: '${defaultValue}',
+    nav: true,
+  }`;
       });
     }
 
