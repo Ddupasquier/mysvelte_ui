@@ -124,5 +124,7 @@ export async function createDocumentationFile(componentPathInput) {
   
 }
 
+createDocumentationFile(process.argv[2])
+
 // usage example
 // createDocumentationFile('./path/to/component.ts');
