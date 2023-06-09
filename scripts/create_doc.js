@@ -92,6 +92,7 @@ function generateTSCode(componentContent) {
   });
 
   const code = `import { ${componentName} } from '$lib';
+  import type { ${componentName}DisplayData } from '../src/app.d.ts';
 
   export const ${pluralize(componentNameLower)} = ${componentName}DisplayData[] = [
   {

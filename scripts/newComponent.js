@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import pluralize from 'pluralize';
+import { exec } from 'child_process'; // add this import for executing scripts
 
 // Get the component name from the command line argument
 const componentName = process.argv[2];
@@ -47,7 +48,7 @@ const createRoutesComponent = async () => {
     `./src/routes/components/${pluralize(componentLower)}/${pluralize(componentUpper)}.svelte`,
     `<script>
   import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-  import { ${pluralize(componentLower)}} from './constants';
+  import { ${pluralize(componentLower)}} from '../../../../docs/${componentName}_docs';
 </script>
 
 <h1>${pluralize(componentUpper)}</h1>
@@ -175,9 +176,27 @@ const addToApp = async () => {
 await addToApp();
 
 console.log(`Added ${componentName} to app.d.ts`);
+
 // big green text console log component added to library
 console.log(
   '\x1b[32m%s\x1b[0m', // green
   `${componentName} has been added to the library!`
 );
 
+// Run create_doc.js with path to the created Component.svelte
+exec(`node create_doc.js -- src/lib/${pluralize(componentLower)}/${componentUpper}.svelte`, (error, stdout, stderr) => {
+  if (error) {
+    console.log(`error: ${error.message}`);
+    return;
+  }
+  if (stderr) {
+    console.log(`stderr: ${stderr}`);
+    return;
+  }
+  console.log(`stdout: ${stdout}`);
+});
+
+console.log(
+  '\x1b[32m%s\x1b[0m', // green
+  `Documentation for ${componentName} has been created!`
+)
