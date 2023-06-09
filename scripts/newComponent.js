@@ -68,22 +68,6 @@ const createRoutesComponent = async () => {
   />
 {/each}`
   );
-
-  writeFileSync(
-    `./src/routes/components/${pluralize(componentLower)}/constants.ts`,
-    `import ${componentUpper} from '$lib/${pluralize(componentLower)}/${componentUpper}.svelte';
-    // * Suggested fields
-    // basics
-    // background
-    // color
-    // size
-    // style
-    // events
-    // state?
-    // props
-
-  export const ${pluralize(componentLower)}: ${componentUpper}DisplayData[] = []`
-  );
 };
 
 await createRoutesComponent();
@@ -183,20 +167,20 @@ console.log(
   `${componentName} has been added to the library!`
 );
 
-// Run create_doc.js with path to the created Component.svelte
-exec(`node create_doc.js -- src/lib/${pluralize(componentLower)}/${componentUpper}.svelte`, (error, stdout, stderr) => {
-  if (error) {
-    console.log(`error: ${error.message}`);
-    return;
-  }
-  if (stderr) {
-    console.log(`stderr: ${stderr}`);
-    return;
-  }
-  console.log(`stdout: ${stdout}`);
-});
+// // Run create_doc.js with path to the created Component.svelte
+// exec(`node create_doc.js -- src/lib/${pluralize(componentLower)}/${componentUpper}.svelte`, (error, stdout, stderr) => {
+//   if (error) {
+//     console.log(`error: ${error.message}`);
+//     return;
+//   }
+//   if (stderr) {
+//     console.log(`stderr: ${stderr}`);
+//     return;
+//   }
+//   console.log(`stdout: ${stdout}`);
+// });
 
-console.log(
-  '\x1b[32m%s\x1b[0m', // green
-  `Documentation for ${componentName} has been created!`
-)
+// console.log(
+//   '\x1b[32m%s\x1b[0m', // green
+//   `Documentation for ${componentName} has been created!`
+// )
