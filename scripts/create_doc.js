@@ -6,7 +6,8 @@ import pluralize from 'pluralize';
 export async function createDocumentationFile(componentPathInput) {
   const componentPath = componentPathInput;
   const pathComponents = componentPath.split(/[\\\/]/);
-  const componentName = basename(pathComponents[pathComponents.length - 1]).split('.')[0];
+  const tempName = basename(pathComponents[pathComponents.length - 1]).split('.')[0];
+  const componentName = tempName.charAt(0).toUpperCase() + tempName.slice(1).toLowerCase();
   const componentNameLower = componentName.toLowerCase();
 
   const docsPath = resolve('docs');
@@ -57,68 +58,70 @@ export async function createDocumentationFile(componentPathInput) {
   function generateTSCode(componentContent) {
     // Matches the comment block above the props
     const commentMatch = componentContent.match(/\/\*\*[\s\S]*?\*\//g);
-
-    if (!commentMatch) {
-      throw new Error('No comment block found above the props in the component file.');
+    
+    // Initialize an empty array to hold propRows
+    let propRows = [];
+  
+    if (commentMatch) {
+      const commentBlock = commentMatch[0];
+      // Matches each prop description line
+      const propMatches = commentBlock.match(/@type {(.*?)} (.*?) - (.*?), "(.*?)"$/gm);
+  
+      if (!propMatches) {
+        throw new Error('No prop descriptions found in the comment block.');
+      }
+  
+      propRows = propMatches.map((prop) => {
+        const [full, type, name, description, defaultValue] = prop.match(/@type {(.*?)} (.*?) - (.*?), "(.*?)"$/);
+        return `{
+          name: \`${name}\`,
+          description: '${description}',
+          default: '${defaultValue}',
+          nav: true,
+        }`;
+      });
     }
-
-    const commentBlock = commentMatch[0];
-    // Matches each prop description line
-    const propMatches = commentBlock.match(/@type {(.*?)} (.*?) - (.*?), "(.*?)"$/gm);
-
-    if (!propMatches) {
-      throw new Error('No prop descriptions found in the comment block.');
-    }
-
-    const propRows = propMatches.map((prop) => {
-      const [full, type, name, description, defaultValue] = prop.match(/@type {(.*?)} (.*?) - (.*?), "(.*?)"$/);
-      return `{
-        name: \`${name}\`,
-        description: '${description}',
-        default: '${defaultValue}',
-        nav: true,
-      }`;
-    });
-
+  
     const code = `import { ${componentName} } from '$lib';
     import type { ${componentName}DisplayData } from '../src/app.d.ts';
-
-    export const ${pluralize(componentNameLower)} = ${componentName}DisplayData[] = [
-    {
-      id: \`${componentNameLower}_basics\`,
-      header: ${componentName},
-      description: '',
-      type: 'components',
-      examples: [
-        {
-          component: ${componentName},
-          props: {},
-          code: [''],
-        },
-      ],
-    },
-    {
-      id: \`${componentNameLower}_props\`,
-      header: \`${componentName} Props\`,
-      description: '${componentName} Props',
-      type: 'table',
-      table: {
-        tableName: '${componentNameLower}',
-        rows: [
-          ${propRows.join(',\n          ')}
+  
+    export const ${pluralize(componentNameLower)}: ${componentName}DisplayData[] = [
+      {
+        id: \`${componentNameLower}_basics\`,
+        header: ${componentName},
+        description: '',
+        type: 'components',
+        examples: [
+          {
+            component: ${componentName},
+            props: {},
+            code: [''],
+          },
         ],
       },
-      examples: [
-        {
-          component: null,
-          props: {},
+      {
+        id: \`${componentNameLower}_props\`,
+        header: \`${componentName} Props\`,
+        description: '${componentName} Props',
+        type: 'table',
+        table: {
+          tableName: '${componentNameLower}',
+          rows: [
+            ${propRows.join(',\n          ')}
+          ],
         },
-      ],
-    },
-  ];`;
-
+        examples: [
+          {
+            component: null,
+            props: {},
+          },
+        ],
+      },
+    ];`;
+  
     return code;
   }
+  
 }
 
 // usage example
