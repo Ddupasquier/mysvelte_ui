@@ -15,7 +15,7 @@ export async function createDocumentationFile(componentPathInput) {
 
   try {
     await access(componentPath); // Check if component file exists
-  } catch(err) {
+  } catch (err) {
     throw new Error(`Component file not found at ${componentPath}. Please check the path and try again.`);
   }
 
@@ -32,7 +32,7 @@ export async function createDocumentationFile(componentPathInput) {
 
       rl.question('File already exists. Do you want to overwrite it? (Y/n) ', async (answer) => {
         rl.close();
-        
+
         if (answer.toLowerCase() === 'y') {
           const componentContent = await readFile(componentPath, 'utf8');
           await createFile(docFilePath, generateTSCode(componentContent));
@@ -50,7 +50,7 @@ export async function createDocumentationFile(componentPathInput) {
     try {
       await writeFile(path, content);
       console.log(`Created documentation file for ${componentName} at ${path}`);
-    } catch(err) {
+    } catch (err) {
       console.error(err);
     }
   }
@@ -58,30 +58,30 @@ export async function createDocumentationFile(componentPathInput) {
   function generateTSCode(componentContent) {
     // Matches the comment block above the props
     const commentMatch = componentContent.match(/\/\*\*[\s\S]*?\*\//g);
-    
+
     // Initialize an empty array to hold propRows
     let propRows = [];
-  
+
     if (commentMatch) {
       const commentBlock = commentMatch[0];
       // Matches each prop description line
       const propMatches = commentBlock.match(/@type {(.*?)} (.*?) - (.*?), "(.*?)"$/gm);
-  
+
       if (!propMatches) {
         throw new Error('No prop descriptions found in the comment block.');
       }
-  
+
       propRows = propMatches.map((prop) => {
         const [full, type, name, description, defaultValue] = prop.match(/@type {(.*?)} (.*?) - (.*?), "(.*?)"$/);
         return `{
-          name: \`${componentNameLower}_${name}\`,
-          description: '${description}',
-          default: '${defaultValue}',
-          nav: true,
-        }`;
+        name: \`${componentNameLower}_${name}\`,
+        description: '${description}',
+        default: '${defaultValue}',
+        nav: true,
+      }`;
       });
     }
-  
+
     const code = `import { ${componentName} } from '../src/lib';
     import type { ${componentName}DisplayData } from '../src/app.d.ts';
   
@@ -118,10 +118,10 @@ export async function createDocumentationFile(componentPathInput) {
         ],
       },
     ];`;
-  
+
     return code;
   }
-  
+
 }
 
 createDocumentationFile(process.argv[2])
