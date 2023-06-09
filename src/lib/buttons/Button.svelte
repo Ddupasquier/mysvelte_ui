@@ -4,6 +4,18 @@
   import { onMount } from "svelte";
 
   // Props
+  /**
+   * @component Button
+   * @type {boolean} disabled - Disabled, Button disabled, false
+   * @type {string} size - Size, Button size, "medium"
+   * @type {string} background - Background, Button background color, "#c50eff"
+   * @type {boolean} animated - Animated, Button animated, false
+   * @type {string} color - Color, Button text color, "#fff"
+   * @type {string} text - Text, Button text, ""
+   * @type {boolean} isLoading - Loading, Button loading, false
+   * @type {boolean} isError - Error, Button error, false
+   * @type {string} style - Style, Button style, ""
+   */
   export let disabled: boolean = false;
   export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
     "medium";
