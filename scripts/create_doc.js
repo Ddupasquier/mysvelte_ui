@@ -82,7 +82,7 @@ export async function createDocumentationFile(componentPathInput) {
       });
     }
   
-    const code = `import { ${componentName} } from '$lib';
+    const code = `import { ${componentName} } from '../src/lib';
     import type { ${componentName}DisplayData } from '../src/app.d.ts';
   
     export const ${pluralize(componentNameLower)}: ${componentName}DisplayData[] = [
