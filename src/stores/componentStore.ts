@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
 import { buttons } from '../routes/components/buttons/constants';
 import { inputs } from '../routes/components/inputs/constants';
-import { cards } from '../routes/components/cards/constants';
+import { cards } from '../../docs/Card_docs';
 import { popovers } from '../routes/components/popovers/constants';
 import { radios } from '../routes/components/radios/constants';
 import { dropdowns } from '../routes/components/dropdowns/constants';

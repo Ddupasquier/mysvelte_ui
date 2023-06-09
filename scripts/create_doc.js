@@ -74,7 +74,7 @@ export async function createDocumentationFile(componentPathInput) {
       propRows = propMatches.map((prop) => {
         const [full, type, name, description, defaultValue] = prop.match(/@type {(.*?)} (.*?) - (.*?), "(.*?)"$/);
         return `{
-          name: \`${name}\`,
+          name: \`${componentNameLower}_${name}\`,
           description: '${description}',
           default: '${defaultValue}',
           nav: true,

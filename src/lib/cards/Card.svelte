@@ -1,6 +1,14 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
+  // Props
+  /**
+   * @component Card
+   * @type {string} background - Background, Card background color, "transparent"
+   * @type {string} style - Style, Card style, ""
+   * @type {string} color - Color, Card text color, "#000"
+   * @type {boolean} hover - Hover, Card hover effect, false
+   */
   export let background: string = "transparent";
   export let style: string = "";
   export let color: string = "#000";
@@ -45,7 +53,7 @@
     flex-direction: column;
     border-radius: 0.5rem;
     width: 22rem;
-    transition: all .5s;
+    transition: all 0.5s;
 
     &.hover {
       &:hover {
