@@ -144,6 +144,25 @@ await addToConstants();
 
 console.log(`Added ${componentName} to ./src/ui_components/constants.ts`);
 
+// Add the component to the index.ts file
+const addComponentToIndexFile = async () => {
+  const indexFilePath = './src/lib/index.ts';
+  const indexFileContent = readFileSync(indexFilePath, 'utf-8');
+
+  // Create new component import and export strings
+  const newComponentImport = `import ${componentUpper}Default from './${pluralize(componentLower)}/${componentUpper}.svelte';\n`;
+  const newComponentExport = `export const ${componentUpper} = Object.assign(${componentUpper}Default, {});\n`;
+
+  // Append new component import and export at the end of file
+  const newContent = indexFileContent + newComponentImport + newComponentExport;
+
+  writeFileSync(indexFilePath, newContent);
+};
+
+await addComponentToIndexFile();
+
+console.log(`Added ${componentName} to the index.ts file`);
+
 // Add new type to app.d.ts file
 const appPath = readFileSync('./src/app.d.ts', 'utf-8');
 const addToApp = async () => {
