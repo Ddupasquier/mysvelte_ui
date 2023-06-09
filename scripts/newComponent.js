@@ -48,7 +48,7 @@ const createRoutesComponent = async () => {
     `./src/routes/components/${pluralize(componentLower)}/${pluralize(componentUpper)}.svelte`,
     `<script>
   import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-  import { ${pluralize(componentLower)}} from '../../../../docs/${componentName}_docs';
+  import { ${pluralize(componentLower)}} from '../../../../docs/${componentUpper}_docs';
 </script>
 
 <h1>${pluralize(componentUpper)}</h1>
