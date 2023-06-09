@@ -1,4 +1,5 @@
 import { Accordion } from '$lib';
+import type { AccordionDisplayData, AccordionData } from '../../../app.d.ts';
 
 const accordionData: AccordionData[] = [
   {

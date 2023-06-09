@@ -1,7 +1,6 @@
 <script>
-  import { Avatar } from "$lib";
   import DisplayCard from "../../../ui_components/displayCard/DisplayCard.svelte";
-  import { avatars } from "./constants";
+  import { avatars } from "../../../../docs/Avatar_docs";
 </script>
 
 <h1>Avatars</h1>
