@@ -20,6 +20,7 @@
     "newcomp": "node scripts/newComponent.js",
     "cleandoc": "node scripts/cleanDocs.js src/routes/components",
     "filesearch": "node scripts/fileSearch.js src/routes/components",
+    "createdoc": "node scripts/create_doc.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

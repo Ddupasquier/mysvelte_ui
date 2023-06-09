@@ -3,6 +3,14 @@
     import { onMount } from "svelte";
 
     // Props
+    /**
+     * @component Avatar
+     * @type {string} image - Image, Image URL, ""
+     * @type {string} alt - Alt, Image alt text, ""
+     * @type {"small" | "medium" | "large"} size - Size, Avatar size, "medium"
+     * @type {"circ" | "rounded" | "square"} shape - Shape, Avatar shape, "rounded"
+     * @type {"none" | "gray" | "sepia" | "invert"} filter - Filter, Avatar filter, "none"
+     */
     export let image: string;
     export let alt: string;
     export let size: "small" | "medium" | "large" = "medium";
