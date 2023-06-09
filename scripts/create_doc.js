@@ -88,7 +88,7 @@ export async function createDocumentationFile(componentPathInput) {
     export const ${pluralize(componentNameLower)}: ${componentName}DisplayData[] = [
       {
         id: \`${componentNameLower}_basics\`,
-        header: ${componentName},
+        header: '${componentName} Basics',
         description: '',
         type: 'components',
         examples: [
