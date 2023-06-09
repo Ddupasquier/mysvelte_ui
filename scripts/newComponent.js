@@ -1,6 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import pluralize from 'pluralize';
-import { exec } from 'child_process'; // add this import for executing scripts
+import { createDocumentationFile } from './create_doc';
 
 // Get the component name from the command line argument
 const componentName = process.argv[2];
@@ -150,7 +150,7 @@ const addToApp = async () => {
   // interface ParallaxDisplayData extends BaseDisplayData {
   // examples: ParallaxExample[];
   // }
-  const newType = `\n\n// * ${componentUpper} TYPES\ninterface ${componentUpper}DisplayData extends BaseDisplayData {\n  examples: ${componentUpper}Example[];\n}`;
+  const newType = `\n\n// * ${componentUpper} TYPES\nexport interface ${componentUpper}DisplayData extends BaseDisplayData {\n  examples: ${componentUpper}Example[];\n}`;
 
   const newContent = appPath + newType; // simply concatenate new content to the existing content
 
@@ -167,20 +167,4 @@ console.log(
   `${componentName} has been added to the library!`
 );
 
-// // Run create_doc.js with path to the created Component.svelte
-// exec(`node create_doc.js -- src/lib/${pluralize(componentLower)}/${componentUpper}.svelte`, (error, stdout, stderr) => {
-//   if (error) {
-//     console.log(`error: ${error.message}`);
-//     return;
-//   }
-//   if (stderr) {
-//     console.log(`stderr: ${stderr}`);
-//     return;
-//   }
-//   console.log(`stdout: ${stdout}`);
-// });
-
-// console.log(
-//   '\x1b[32m%s\x1b[0m', // green
-//   `Documentation for ${componentName} has been created!`
-// )
+createDocumentationFile(`src/lib/${pluralize(componentLower)}/${componentName}.svelte`)
