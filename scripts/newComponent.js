@@ -1,6 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import pluralize from 'pluralize';
-import { createDocumentationFile } from './create_doc.js';
+import { createDocumentationFile, checkFileExists } from './create_doc.js';
 
 // Get the component name from the command line argument
 const componentName = process.argv[2];
@@ -186,4 +186,5 @@ console.log(
   `${componentName} has been added to the library!`
 );
 
-createDocumentationFile(`src/lib/${pluralize(componentLower)}/${componentName}.svelte`)
+// createDocumentationFile(`src/lib/${pluralize(componentLower)}/${componentName}.svelte`)
+checkFileExists(`src/lib/${pluralize(componentLower)}/${componentName}.svelte`);

@@ -3,6 +3,23 @@ import { resolve, basename } from 'path';
 import readline from 'readline';
 import pluralize from 'pluralize';
 
+let fileCreated = false;
+
+export async function checkFileExists(componentPath) {
+  if (fileCreated) {
+    return;
+  }
+
+  try {
+    await access(componentPath); // Check if component file exists
+    await createDocumentationFile(componentPath); // if it exists, call createDocumentationFile
+    fileCreated = true; // Set the flag to true after file is created
+  } catch {
+    // if it doesn't exist, wait for 1 second and check again
+    setTimeout(() => checkFileExists(componentPath), 1000);
+  }
+}
+
 export async function createDocumentationFile(componentPathInput) {
   const componentPath = componentPathInput;
   const pathComponents = componentPath.split(/[\\\/]/);
@@ -80,69 +97,69 @@ export async function createDocumentationFile(componentPathInput) {
       // Matches each prop description line
       const propMatches = commentBlock.match(/@type {(.*?)} (.*?) - (.*?), (.*?)(,|$)/gm);
 
-      if (!propMatches) {
-        throw new Error('No prop descriptions found in the comment block.');
-      }
-
-      propRows = propMatches.map((prop) => {
-        const [full, type, name, description, defaultValue] = prop.match(/@type {(.*?)} (.*?) - (.*?), (.*?)(,|$)/);
-        props.push({ type, name, description, defaultValue });
-        const escapedDescription = escapeSpecialChars(description);
-        const escapedDefaultValue = escapeSpecialChars(defaultValue);
-        return `{
+      if (propMatches) {
+        propRows = propMatches.map((prop) => {
+          const [full, type, name, description, defaultValue] = prop.match(/@type {(.*?)} (.*?) - (.*?), (.*?)(,|$)/);
+          props.push({ type, name, description, defaultValue });
+          const escapedDescription = escapeSpecialChars(description);
+          const escapedDefaultValue = escapeSpecialChars(defaultValue);
+          return `{
         name: \`${componentNameLower}_${name}\`,
         description: '${escapedDescription}',
         default: '${escapedDefaultValue}',
         nav: true,
       }`;
-      });
+        });
+      }
     } else {
-      throw new Error('No comment block found in the component file.');
+      console.warn('Warning: No comment block found in the component file.');
     }
 
     const code = `import { ${componentName} } from '../src/lib';
-    import type { ${componentName}DisplayData } from '../src/app.d.ts';
-  
-    export const ${pluralize(componentNameLower)}: ${componentName}DisplayData[] = [
-      {
-        id: \`${componentNameLower}_basics\`,
-        header: '${componentName} Basics',
-        description: '',
-        type: 'components',
-        examples: [
-          {
-            component: ${componentName},
-            props: {},
-            code: [''],
-          },
-        ],
-      },
-      {
-        id: \`${componentNameLower}_props\`,
-        header: \`${componentName} Props\`,
-        description: '${componentName} Props',
-        type: 'table',
-        table: {
-          tableName: '${componentNameLower}',
-          rows: [
-            ${propRows.join(',\n          ')}
-          ],
+  import type { ${componentName}DisplayData } from '../src/app.d.ts';
+
+  export const ${pluralize(componentNameLower)}: ${componentName}DisplayData[] = [
+    {
+      id: \`${componentNameLower}_basics\`,
+      header: '${componentName} Basics',
+      description: '',
+      type: 'components',
+      examples: [
+        {
+          component: ${componentName},
+          props: {},
+          code: [''],
         },
-        examples: [
-          {
-            component: null,
-            props: {},
-          },
+      ],
+    },
+    {
+      id: \`${componentNameLower}_props\`,
+      header: \`${componentName} Props\`,
+      description: '${componentName} Props',
+      type: 'table',
+      table: {
+        tableName: '${componentNameLower}',
+        rows: [
+          ${propRows.join(',\n          ')}
         ],
       },
-    ];`;
+      examples: [
+        {
+          component: null,
+          props: {},
+        },
+      ],
+    },
+  ];`;
 
     return code;
   }
 
+
 }
 
-createDocumentationFile(process.argv[2])
+// createDocumentationFile(process.argv[2])
+checkFileExists(process.argv[2])
 
 // usage example
 // createDocumentationFile('./path/to/component.ts');
