@@ -1,5 +1,5 @@
-import { Accordion } from '$lib';
-import type { AccordionDisplayData, AccordionData } from '../../../app.d.ts';
+import { Accordion } from '../src/lib';
+import type { AccordionDisplayData, AccordionData } from '../src/app.d.ts';
 
 const accordionData: AccordionData[] = [
   {
@@ -51,14 +51,14 @@ export const accordions: AccordionDisplayData[] = [
         },
         code: [
           `const accordionData = [`,
-            `indent {`,
-              `indent indent title: \'Accordion Item Title\'`,
-              `indent indent details: \'Details are optional.\'`,
-              `indent indent content: 'Content'`,
-            `indent },`,
-            `indent {`,
-            `indent indent etc...`,
-            `indent }`,
+          `indent {`,
+          `indent indent title: \'Accordion Item Title\'`,
+          `indent indent details: \'Details are optional.\'`,
+          `indent indent content: 'Content'`,
+          `indent },`,
+          `indent {`,
+          `indent indent etc...`,
+          `indent }`,
           `]`,
           '',
           `<Accordion {data} />`,
@@ -229,6 +229,12 @@ export const accordions: AccordionDisplayData[] = [
           default: '"#000"',
           nav: false
         },
+        {
+          name: 'divider',
+          description: 'If true, a divider will be added between each accordion item.',
+          default: 'false',
+          nav: true
+        },
       ]
     },
     examples: [
@@ -239,5 +245,5 @@ export const accordions: AccordionDisplayData[] = [
         },
       },
     ],
-  }
+  },
 ];

@@ -3,7 +3,23 @@
     import { slide } from "svelte/transition";
 
     // Props
-    export let data: { title: string; details?:string; content: string }[] = [];
+    /**
+     * @component Accordion
+     * @type {Array} accordion_data - The array of accordion items. Each item should have a `title`, `details`, and a `content`. , []
+     * @type {boolean} accordion_collapse - If true, only one item can be expanded at a time. Expanding another item will collapse the currently expanded item. , true
+     * @type {boolean} accordion_animated - If true, the accordion transitions will be animated. , false
+     * @type {boolean} accordion_disabled - If true, the accordion will be disabled and users cannot interact with it. , false
+     * @type {string} accordion_headerStyle - The CSS style for the accordion item headers. , ""
+     * @type {string} accordion_contentStyle - The CSS style for the accordion item content. , ""
+     * @type {string} tabBg - The background color for the tab. , "#c50eff"
+     * @type {string} tabColor - The text color for the tab. , "#fff"
+     * @type {string} background - The background color for the accordion. , "#fff"
+     * @type {string} color - The text color for the accordion. , "#000"
+     * @type {boolean} divider - If true, a divider will be added between each accordion item. , false
+     */
+
+    export let data: { title: string; details?: string; content: string }[] =
+        [];
     export let animated: boolean = true;
     export let collapse: boolean = true;
     export let disabled: boolean = false;
@@ -70,7 +86,7 @@
     $: headerStyleComputed = `
         background: var(--tab-bg-color); 
         color: var(--tab-color); 
-        border-bottom: ${divider ? `1px solid` : 'none'}; 
+        border-bottom: ${divider ? `1px solid` : "none"}; 
         ${headerStyle}
     `;
     $: contentStyleComputed = `${contentStyle}`;
@@ -83,7 +99,11 @@
                 class="accordion-header"
                 on:click={() => toggleAccordion(i)}
                 on:keydown={(e) => onKeydown(e, i)}
-                style={`${headerStyleComputed} ${divider && i < data.length - 1 ? `border-bottom: 1px solid ${tabColor};` : ''}`}
+                style={`${headerStyleComputed} ${
+                    divider && i < data.length - 1
+                        ? `border-bottom: 1px solid ${tabColor};`
+                        : ""
+                }`}
                 aria-expanded={expandedIndexes.includes(i)}
                 aria-controls={`content-${i}`}
             >
@@ -101,7 +121,7 @@
                     aria-labelledby={`accordion-header-${i}`}
                     role="region"
                 >
-                        {content}
+                    {content}
                 </div>
             {/if}
         </div>
@@ -128,7 +148,7 @@
     }
 
     .accordion-item:last-child .accordion-header {
-       border-bottom: none !important;
+        border-bottom: none !important;
     }
 
     .accordion-header {

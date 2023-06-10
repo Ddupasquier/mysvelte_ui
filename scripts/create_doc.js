@@ -55,18 +55,30 @@ export async function createDocumentationFile(componentPathInput) {
     }
   }
 
+  function escapeSpecialChars(str) {
+    return str.replace(/[\\]/g, '\\\\')
+      .replace(/[\/]/g, '\\/')
+      .replace(/[\b]/g, '\\b')
+      .replace(/[\f]/g, '\\f')
+      .replace(/[\n]/g, '\\n')
+      .replace(/[\r]/g, '\\r')
+      .replace(/[\t]/g, '\\t')
+      .replace(/[\"]/g, '\\"')
+      .replace(/[\'']/g, '\\\'');
+  }
+
   function generateTSCode(componentContent) {
     // Matches the comment block above the props
     const commentMatch = componentContent.match(/\/\*\*[\s\S]*?\*\//g);
 
-    // Initialize an empty array to hold propRows
+    // Initialize an empty array to hold propRows and props
     let propRows = [];
+    let props = [];
 
     if (commentMatch) {
       const commentBlock = commentMatch[0];
       // Matches each prop description line
       const propMatches = commentBlock.match(/@type {(.*?)} (.*?) - (.*?), (.*?)(,|$)/gm);
-
 
       if (!propMatches) {
         throw new Error('No prop descriptions found in the comment block.');
@@ -74,13 +86,18 @@ export async function createDocumentationFile(componentPathInput) {
 
       propRows = propMatches.map((prop) => {
         const [full, type, name, description, defaultValue] = prop.match(/@type {(.*?)} (.*?) - (.*?), (.*?)(,|$)/);
+        props.push({ type, name, description, defaultValue });
+        const escapedDescription = escapeSpecialChars(description);
+        const escapedDefaultValue = escapeSpecialChars(defaultValue);
         return `{
-    name: \`${componentNameLower}_${name}\`,
-    description: '${description}',
-    default: '${defaultValue}',
-    nav: true,
-  }`;
+        name: \`${componentNameLower}_${name}\`,
+        description: '${escapedDescription}',
+        default: '${escapedDefaultValue}',
+        nav: true,
+      }`;
       });
+    } else {
+      throw new Error('No comment block found in the component file.');
     }
 
     const code = `import { ${componentName} } from '../src/lib';
