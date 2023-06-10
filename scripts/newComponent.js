@@ -1,6 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import pluralize from 'pluralize';
-import { createDocumentationFile, checkFileExists } from './create_doc.js';
+import { checkFileExists } from './create_doc.js';
 
 // Get the component name from the command line argument
 const componentName = process.argv[2];

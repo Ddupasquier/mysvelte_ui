@@ -382,3 +382,9 @@ interface ImageFilterProps {
   title?: string;
 }
 
+
+
+// * Textarea TYPES
+export interface TextareaDisplayData extends BaseDisplayData {
+  examples: TextareaExample[];
+}

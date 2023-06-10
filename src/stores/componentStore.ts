@@ -13,9 +13,11 @@ import { avatars } from '../../docs/Avatar_docs';
 import { accordions } from '../../docs/Accordion_docs';
 import { toggles } from '../routes/components/toggles/constants';
 import { imageFilters } from '../routes/components/imagefilters/constants';
+import { textareas } from '../../docs/Textarea_docs';
 
 // Component mapping
 const componentMapping = {
+  textareas,
   buttons,
   inputs,
   cards,
@@ -33,10 +35,9 @@ const componentMapping = {
 
 interface ComponentType {
   id: string;
-  [key: string]: any;  // This line allows other properties
+  [key: string]: any;
 }
 
-// High order function to push ids
 const pushIds = (arr: ComponentType[], suffix: string): string[] =>
   arr.map(({ id }) => `${id}_${suffix}`);
 

@@ -102,4 +102,5 @@ import ToggleDefault from './toggles/Toggle.svelte';
 
 export const Toggle = Object.assign(ToggleDefault, {
   // Animated: ToggleAnimated,
-});
+});import TextareaDefault from './textareas/Textarea.svelte';
+export const Textarea = Object.assign(TextareaDefault, {});
