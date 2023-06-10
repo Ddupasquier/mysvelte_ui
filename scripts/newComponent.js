@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import pluralize from 'pluralize';
+import { createDocumentationFile } from './create_doc.js';
 
 // Get the component name from the command line argument
 const componentName = process.argv[2];
@@ -16,7 +17,7 @@ if (componentName) {
 }
 
 // Create a new directory for the component in the lib directory
-const creatLibComponent = async () => {
+const createLibComponent = async () => {
   mkdirSync(pluralize(`./src/lib/${componentLower}`));
 
   // Create a new Svelte file for the component in the new directory
@@ -34,7 +35,7 @@ const creatLibComponent = async () => {
   );
 };
 
-await creatLibComponent();
+await createLibComponent();
 
 console.log(`Created a new component called ${componentName} in lib directory`);
 
@@ -47,7 +48,7 @@ const createRoutesComponent = async () => {
     `./src/routes/components/${pluralize(componentLower)}/${pluralize(componentUpper)}.svelte`,
     `<script>
   import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-  import { ${pluralize(componentLower)}} from './constants';
+  import { ${pluralize(componentLower)}} from '../../../../docs/${componentUpper}_docs';
 </script>
 
 <h1>${pluralize(componentUpper)}</h1>
@@ -67,22 +68,6 @@ const createRoutesComponent = async () => {
   />
 {/each}`
   );
-
-  writeFileSync(
-    `./src/routes/components/${pluralize(componentLower)}/constants.ts`,
-    `import ${componentUpper} from '$lib/${pluralize(componentLower)}/${componentUpper}.svelte';
-    // * Suggested fields
-    // basics
-    // background
-    // color
-    // size
-    // style
-    // events
-    // state?
-    // props
-
-  export const ${pluralize(componentLower)}: ${componentUpper}DisplayData[] = []`
-  );
 };
 
 await createRoutesComponent();
@@ -99,7 +84,7 @@ const addComponent = async () => {
   const lastImportIndex = storePath.lastIndexOf("constants';");
   const componentMappingStart = storePath.indexOf('componentMapping = {') + 'componentMapping = {'.length;
 
-  const newImport = `\nimport { ${pluralize(componentLower)} } from '../routes/components/${pluralize(componentLower)}/constants';`;
+  const newImport = `\nimport { ${pluralize(componentLower)} } from '../../docs/${componentUpper}_docs';`;
   const addToComponentMapping = `\n  ${pluralize(componentLower)},`;
 
   const newContent =
@@ -159,13 +144,32 @@ await addToConstants();
 
 console.log(`Added ${componentName} to ./src/ui_components/constants.ts`);
 
+// Add the component to the index.ts file
+const addComponentToIndexFile = async () => {
+  const indexFilePath = './src/lib/index.ts';
+  const indexFileContent = readFileSync(indexFilePath, 'utf-8');
+
+  // Create new component import and export strings
+  const newComponentImport = `import ${componentUpper}Default from './${pluralize(componentLower)}/${componentUpper}.svelte';\n`;
+  const newComponentExport = `export const ${componentUpper} = Object.assign(${componentUpper}Default, {});\n`;
+
+  // Append new component import and export at the end of file
+  const newContent = indexFileContent + newComponentImport + newComponentExport;
+
+  writeFileSync(indexFilePath, newContent);
+};
+
+await addComponentToIndexFile();
+
+console.log(`Added ${componentName} to the index.ts file`);
+
 // Add new type to app.d.ts file
 const appPath = readFileSync('./src/app.d.ts', 'utf-8');
 const addToApp = async () => {
   // interface ParallaxDisplayData extends BaseDisplayData {
   // examples: ParallaxExample[];
   // }
-  const newType = `\n\n// * ${componentUpper} TYPES\ninterface ${componentUpper}DisplayData extends BaseDisplayData {\n  examples: ${componentUpper}Example[];\n}`;
+  const newType = `\n\n// * ${componentUpper} TYPES\nexport interface ${componentUpper}DisplayData extends BaseDisplayData {\n  examples: ${componentUpper}Example[];\n}`;
 
   const newContent = appPath + newType; // simply concatenate new content to the existing content
 
@@ -175,9 +179,11 @@ const addToApp = async () => {
 await addToApp();
 
 console.log(`Added ${componentName} to app.d.ts`);
+
 // big green text console log component added to library
 console.log(
   '\x1b[32m%s\x1b[0m', // green
   `${componentName} has been added to the library!`
 );
 
+createDocumentationFile(`src/lib/${pluralize(componentLower)}/${componentName}.svelte`)

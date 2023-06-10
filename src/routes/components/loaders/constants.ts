@@ -2,7 +2,7 @@ import { Loader } from '$lib';
 
 export const loaders: LoaderDisplayData[] = [
   {
-    id: 'input_default',
+    id: 'loader_basic',
     header: 'Loader',
     description:
       'A simple loader component. The props available are size, speed and color. \nThe size prop can be set to small, medium or large. The speed prop can be fast, medium, or slow. The color prop can be set to any valid CSS color value. \n(default size: medium, default color: #c50eff, default speed: medium)',
@@ -92,7 +92,7 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader_bounce_icon',
+    id: 'loader_bounce',
     header: 'Loader Bounce Icon',
     description: 'A loader with a bouncing icon. \nThe same props as the loaders before, but with the addition of an icon prop. \n(default size: medium, default color: #c50eff, default speed: medium, default icon: svelte logo)',
     type: 'components',
@@ -154,7 +154,7 @@ export const loaders: LoaderDisplayData[] = [
   //   ],
   // },
   {
-    id: 'loader-progress',
+    id: 'loader_progress',
     header: 'Loader Progress',
     description: 'This progress bar in no more complex than the rest. Coming with the same props as the rest of the loaders.',
     type: 'components',
@@ -183,7 +183,7 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader-pie',
+    id: 'loader_pie',
     header: 'Loader Pie',
     description: '',
     type: 'components',

@@ -21,7 +21,7 @@ interface BaseDisplayData {
 }
 
 // * BUTTON TYPES
-interface ButtonDisplayData extends BaseDisplayData {
+export interface ButtonDisplayData extends BaseDisplayData {
   examples: ButtonExample[];
 }
 
@@ -49,7 +49,7 @@ interface ButtonIconProps extends ButtonProps {
 }
 
 // * INPUT TYPES
-interface InputDisplayData extends BaseDisplayData {
+export interface InputDisplayData extends BaseDisplayData {
   examples: InputExample[];
 }
 
@@ -137,7 +137,7 @@ interface CardImageProps extends CardProps {
 }
 
 // * Popover TYPES
-interface PopoverDisplayData extends BaseDisplayData {
+export interface PopoverDisplayData extends BaseDisplayData {
   examples: PopoverExample[];
 }
 
@@ -157,7 +157,7 @@ interface PopoverProps {
 }
 
 // * Radio TYPES
-interface RadioDisplayData extends BaseDisplayData {
+export interface RadioDisplayData extends BaseDisplayData {
   examples: RadioExample[];
 }
 
@@ -179,7 +179,7 @@ interface RadioProps {
 }
 
 // * Dropdown TYPES
-interface DropdownDisplayData extends BaseDisplayData {
+export interface DropdownDisplayData extends BaseDisplayData {
   examples: DropdownExample[];
 }
 
@@ -207,7 +207,7 @@ interface DropdownOption {
 }
 
 // * Loader TYPES
-interface LoaderDisplayData extends BaseDisplayData {
+export interface LoaderDisplayData extends BaseDisplayData {
   examples: LoaderExample[];
 }
 
@@ -229,7 +229,7 @@ interface BounceLoaderProps extends LoaderProps {
 }
 
 // * Checkbox TYPES
-interface CheckboxDisplayData extends BaseDisplayData {
+export interface CheckboxDisplayData extends BaseDisplayData {
   examples: CheckboxExample[];
 }
 
@@ -253,7 +253,7 @@ interface CheckboxProps {
 }
 
 // * Parallax TYPES
-interface ParallaxDisplayData extends BaseDisplayData {
+export interface ParallaxDisplayData extends BaseDisplayData {
   examples: ParallaxExample[];
 }
 
@@ -289,7 +289,7 @@ interface VideoParallaxProps {
 }
 
 // * Avatar TYPES
-interface AvatarDisplayData extends BaseDisplayData {
+export interface AvatarDisplayData extends BaseDisplayData {
   examples: AvatarExample[];
 }
 
@@ -301,7 +301,7 @@ interface AvatarExample {
 
 interface AvatarProps {
   image: string;
-  size?: 'small' | 'medium' | 'large';
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   alt: string;
   style?: string;
   filter?: "none" | "gray" | "sepia" | "invert";
@@ -309,7 +309,7 @@ interface AvatarProps {
 }
 
 // * Accordion TYPES
-interface AccordionDisplayData extends BaseDisplayData {
+export interface AccordionDisplayData extends BaseDisplayData {
   examples: AccordionExample[];
 }
 
@@ -330,15 +330,17 @@ interface AccordionProps {
   background?: string;
   color?: string;
   disabled?: boolean;
+  divider?: boolean;
 }
 
-interface AccordionData {
+export interface AccordionData {
   title: string;
+  details?: string;
   content: string;
 }
 
 // * Toggle TYPES
-interface ToggleDisplayData extends BaseDisplayData {
+export interface ToggleDisplayData extends BaseDisplayData {
   examples: ToggleExample[];
 }
 
@@ -358,7 +360,7 @@ interface ToggleProps {
 }
 
 // * ImageFilter TYPES
-interface ImageFilterDisplayData extends BaseDisplayData {
+export interface ImageFilterDisplayData extends BaseDisplayData {
   examples: ImageFilterExample[];
 }
 
