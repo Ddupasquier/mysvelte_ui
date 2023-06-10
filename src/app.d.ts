@@ -301,7 +301,7 @@ interface AvatarExample {
 
 interface AvatarProps {
   image: string;
-  size?: 'small' | 'medium' | 'large';
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   alt: string;
   style?: string;
   filter?: "none" | "gray" | "sepia" | "invert";
