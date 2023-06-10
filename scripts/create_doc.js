@@ -3,23 +3,6 @@ import { resolve, basename } from 'path';
 import readline from 'readline';
 import pluralize from 'pluralize';
 
-let fileCreated = false;
-
-export async function checkFileExists(componentPath) {
-  if (fileCreated) {
-    return;
-  }
-
-  try {
-    await access(componentPath); // Check if component file exists
-    await createDocumentationFile(componentPath); // if it exists, call createDocumentationFile
-    fileCreated = true; // Set the flag to true after file is created
-  } catch {
-    // if it doesn't exist, wait for 1 second and check again
-    setTimeout(() => checkFileExists(componentPath), 1000);
-  }
-}
-
 export async function createDocumentationFile(componentPathInput) {
   const componentPath = componentPathInput;
   const pathComponents = componentPath.split(/[\\\/]/);
@@ -85,35 +68,62 @@ export async function createDocumentationFile(componentPathInput) {
   }
 
   function generateTSCode(componentContent) {
-    // Matches the comment block above the props
-    const commentMatch = componentContent.match(/\/\*\*[\s\S]*?\*\//g);
+    const commentBlock = componentContent.match(/\/\*\*([\s\S]*?)\*\//)?.[0];
 
-    // Initialize an empty array to hold propRows and props
-    let propRows = [];
-    let props = [];
-
-    if (commentMatch) {
-      const commentBlock = commentMatch[0];
-      // Matches each prop description line
-      const propMatches = commentBlock.match(/@type {(.*?)} (.*?) - (.*?), (.*?)(,|$)/gm);
-
-      if (propMatches) {
-        propRows = propMatches.map((prop) => {
-          const [full, type, name, description, defaultValue] = prop.match(/@type {(.*?)} (.*?) - (.*?), (.*?)(,|$)/);
-          props.push({ type, name, description, defaultValue });
-          const escapedDescription = escapeSpecialChars(description);
-          const escapedDefaultValue = escapeSpecialChars(defaultValue);
-          return `{
-        name: \`${componentNameLower}_${name}\`,
-        description: '${escapedDescription}',
-        default: '${escapedDefaultValue}',
-        nav: true,
-      }`;
-        });
-      }
-    } else {
-      console.warn('Warning: No comment block found in the component file.');
+    if (!commentBlock) {
+      throw new Error('No comment block found in the component file.');
     }
+
+    const commentBlockLines = commentBlock.split('\n');
+    const propGroups = [];
+    let propGroup = [];
+
+    for (const line of commentBlockLines) {
+      if (line.includes('@prop')) {
+        if (propGroup.length !== 0) {
+          propGroups.push(propGroup);
+        }
+        propGroup = [line];
+      } else if (propGroup.length !== 0) {
+        propGroup.push(line);
+      }
+    }
+
+    if (propGroup.length !== 0) {
+      propGroups.push(propGroup);
+    }
+
+    const props = propGroups.map((propGroup) => {
+      const prop = {};
+
+      for (const line of propGroup) {
+        if (line.includes('@prop')) {
+          prop.name = line.split('@prop')[1].trim();
+        } else if (line.includes('@description')) {
+          prop.description = line.split('@description')[1].trim();
+        } else if (line.includes('@type')) {
+          prop.type = line.split('@type')[1].trim();
+        } else if (line.includes('@default:')) {
+          prop.default = line.split('@default:')[1].trim();
+        }
+      }
+
+      return prop;
+    });
+
+    const propRows = props.map((prop) => {
+      const { name, description, type, default: defaultValue } = prop;
+      const escapedDescription = escapeSpecialChars(description);
+      const escapedDefaultValue = escapeSpecialChars(defaultValue);
+      return `{
+    name: \`${componentNameLower}_${name}\`,
+    description: '${escapedDescription}',
+    type: '${type}',
+    default: '${escapedDefaultValue}',
+    nav: true,
+  }`;
+    });
+
 
     const code = `import { ${componentName} } from '../src/lib';
   import type { ${componentName}DisplayData } from '../src/app.d.ts';
@@ -158,8 +168,7 @@ export async function createDocumentationFile(componentPathInput) {
 
 }
 
-// createDocumentationFile(process.argv[2])
-checkFileExists(process.argv[2])
+createDocumentationFile(process.argv[2])
 
 // usage example
 // createDocumentationFile('./path/to/component.ts');
