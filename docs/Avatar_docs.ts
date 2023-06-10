@@ -1,4 +1,5 @@
-import { Avatar } from '$lib';
+import { Avatar } from '../src/lib';
+import type { AvatarDisplayData } from '../src/app.d.ts';
 
 const image1 = 'https://images.unsplash.com/photo-1681052027179-5471edd589c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80';
 const image2 = 'https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80';
@@ -8,7 +9,7 @@ export const avatars: AvatarDisplayData[] = [
   {
     id: 'avatar_basics',
     header: 'Avatar Basics',
-    description: 'Avatars are used to represent a person or entity. They can be used in a variety of places, including lists and tables. Avatars can be either images or icons.',
+    description: 'Avatars are widely used to visually represent individuals or entities in various contexts such as user profiles, contact lists, or comment sections. They provide a quick and recognizable visual identifier. Avatars can be customized by displaying either images or icons that represent the individual or entity being depicted.',
     type: 'components',
     examples: [
       {
@@ -26,7 +27,7 @@ export const avatars: AvatarDisplayData[] = [
   {
     id: 'avatar_image',
     header: 'Avatar Image',
-    description: 'Simple as passing in your src string!',
+    description: 'You can easily display an avatar image by providing the URL of the image source. The image should represent the individual or entity associated with the avatar.',
     type: 'components',
     examples: [
       {
@@ -58,9 +59,17 @@ export const avatars: AvatarDisplayData[] = [
   {
     id: 'avatar_size',
     header: 'Avatar Size',
-    description: 'Avatars can be small, medium, or large.',
+    description: 'Avatars can be displayed in different sizes to suit your layout and design requirements. Choose from "xsmall", "small", "medium", "large", or "xlarge" to adjust the dimensions of the avatar.',
     type: 'components',
     examples: [
+      {
+        component: Avatar,
+        props: {
+          image: image3,
+          alt: 'Avatar',
+          size: 'xsmall',
+        },
+      },
       {
         component: Avatar,
         props: {
@@ -84,7 +93,9 @@ export const avatars: AvatarDisplayData[] = [
         component: Avatar,
         props: {
           image: image3,
-          alt: 'Avatar',
+          alt:
+
+            'Avatar',
           size: 'large',
         },
       },
@@ -104,12 +115,20 @@ export const avatars: AvatarDisplayData[] = [
           size: 'small',
         },
       },
+      {
+        component: Avatar,
+        props: {
+          image: image3,
+          alt: 'Avatar',
+          size: 'xsmall',
+        },
+      },
     ],
   },
   {
     id: 'avatar_shape',
     header: 'Avatar Shape',
-    description: 'Avatars can be square || rounded || circ. (default: rounded)',
+    description: 'Customize the shape of the avatar to match your design aesthetic. Choose from "square", "rounded", or "circ" (circular) to define the border shape of the avatar. The default shape is "rounded".',
     type: 'components',
     examples: [
       {
@@ -144,7 +163,7 @@ export const avatars: AvatarDisplayData[] = [
   {
     id: 'avatar_filter',
     header: 'Avatar Filters',
-    description: 'Avatars can be filtered to gray || sepia || invert. (default: none)',
+    description: 'Apply visual filters to enhance the appearance of avatars. Choose from "gray" for grayscale effect, "sepia" for a vintage look, or "invert" to invert the colors. The default filter is "none".',
     type: 'components',
     examples: [
       {
@@ -186,31 +205,33 @@ export const avatars: AvatarDisplayData[] = [
       rows: [
         {
           name: 'avatar_image!',
-          description: 'The image source for the avatar.',
+          description: 'The image source for the avatar. Provide the path to the image you want to display as the avatar.',
           default: '""',
           nav: true
         },
         {
           name: 'button_alt!',
-          description: 'The alt text for the avatar.',
+          description: 'The alt text for the avatar. This text is displayed when the image cannot be loaded or accessed by screen readers.',
           default: '""',
           nav: false
         },
         {
           name: 'avatar_size',
-          description: 'The size prop determines the size of the avatar. It can be "small", "medium", or "large".',
+          description: 'The size prop determines the size of the avatar. Choose from "xsmall", "small", "medium", "large", or "xlarge" to control the dimensions of the avatar.',
           default: '"medium"',
           nav: true
         },
         {
           name: 'avatar_shape',
-          description: 'The shape of the avatar can be "square", "rounded", or "circ".',
+          description: 'The shape of the avatar can be "square", "rounded", or "circ". Select one of these options to define the border shape of the avatar.',
           default: '"rounded"',
           nav: true
         },
         {
           name: 'avatar_filter',
-          description: 'The filter prop determines the filter applied to the avatar. It can be "gray", "sepia", or "invert".',
+          description
+
+            : 'The filter prop determines the filter applied to the avatar image. Apply visual effects such as "gray" for grayscale, "sepia" for a vintage look, or "invert" for an inverted color scheme.',
           default: '"none"',
           nav: true
         },
@@ -226,4 +247,4 @@ export const avatars: AvatarDisplayData[] = [
       },
     ],
   }
-]
+];

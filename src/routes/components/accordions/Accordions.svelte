@@ -1,6 +1,6 @@
 <script>
   import DisplayCard from "../../../ui_components/displayCard/DisplayCard.svelte";
-  import { accordions } from "./constants";
+  import { accordions } from "../../../../docs/Accordion_docs";
 </script>
 
 <h1>Accordions</h1>

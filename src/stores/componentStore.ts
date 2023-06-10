@@ -1,17 +1,18 @@
 import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
-import { buttons } from '../routes/components/buttons/constants';
+import { buttons } from '../../docs/Button_docs';
 import { inputs } from '../routes/components/inputs/constants';
-import { cards } from '../routes/components/cards/constants';
+import { cards } from '../../docs/Card_docs';
 import { popovers } from '../routes/components/popovers/constants';
 import { radios } from '../routes/components/radios/constants';
 import { dropdowns } from '../routes/components/dropdowns/constants';
 import { loaders } from '../routes/components/loaders/constants';
-import { checkboxes } from '../routes/components/checkboxes/constants';
+import { checkboxes } from '../../docs/Checkbox_docs';
 import { parallaxes } from '../routes/components/parallaxes/constants';
-import { avatars } from '../routes/components/avatars/constants';
-import { accordions } from '../routes/components/accordions/constants';
+import { avatars } from '../../docs/Avatar_docs';
+import { accordions } from '../../docs/Accordion_docs';
 import { toggles } from '../routes/components/toggles/constants';
+import { imageFilters } from '../routes/components/imagefilters/constants';
 
 // Component mapping
 const componentMapping = {
@@ -26,7 +27,8 @@ const componentMapping = {
   parallaxes,
   avatars,
   accordions,
-  toggles
+  toggles,
+  imageFilters,
 };
 
 interface ComponentType {
@@ -35,12 +37,12 @@ interface ComponentType {
 }
 
 // High order function to push ids
-const pushIds = (arr: ComponentType[], suffix: string): string[] => 
+const pushIds = (arr: ComponentType[], suffix: string): string[] =>
   arr.map(({ id }) => `${id}_${suffix}`);
 
 export const getComponentIds = (): string[] => {
   const componentIds: string[] = [];
-  
+
   Object.entries(componentMapping).forEach(([key, value]) => {
     componentIds.push(...pushIds(value, key));
   });

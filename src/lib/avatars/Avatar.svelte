@@ -3,9 +3,17 @@
     import { onMount } from "svelte";
 
     // Props
+    /**
+     * @component Avatar
+     * @type {string} image - The URL of the avatar image. Provide the path to the image you want to display as the avatar. , ""
+     * @type {string} alt - The alternative text for the avatar image. This text is displayed when the image cannot be loaded or accessed by screen readers. , ""
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"} size - The size of the avatar. Choose from "xsmall", "small", "medium", "large", or "xlarge" to control the dimensions of the avatar. , "medium"
+     * @type {"circ" | "rounded" | "square"} shape - The shape of the avatar. Select either "circ", "rounded", or "square" to define the border shape of the avatar. , "rounded"
+     * @type {"none" | "gray" | "sepia" | "invert"} filter - The filter applied to the avatar image. Apply visual effects such as "gray" for grayscale, "sepia" for a vintage look, or "invert" for an inverted color scheme. , "none"
+     */
     export let image: string;
     export let alt: string;
-    export let size: "small" | "medium" | "large" = "medium";
+    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
     export let shape: "circ" | "rounded" | "square" = "rounded";
     export let filter: "none" | "gray" | "sepia" | "invert" = "none";
 
@@ -25,11 +33,9 @@
     // Reactive statements
     $: classString = classList.join(" ");
 </script>
-
 <div class={classString}>
     <img src={image} {alt} />
 </div>
-
 <style lang="scss">
     .avatar {
         display: flex;
@@ -46,6 +52,11 @@
     }
 
     // Sizes
+    .xsmall {
+        width: 24px;
+        height: 24px;
+    }
+
     .small {
         width: 40px;
         height: 40px;
@@ -59,6 +70,11 @@
     .large {
         width: 120px;
         height: 120px;
+    }
+
+    .xlarge {
+        width: 160px;
+        height: 160px;
     }
 
     // Shapes

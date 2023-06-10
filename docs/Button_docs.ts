@@ -1,8 +1,10 @@
-import { Button } from '$lib';
+import { Button } from '../src/lib';
+import type { ButtonDisplayData, ButtonIconProps } from '../src/app.d.ts';
+
 import {
   defaultModalShown,
   defaultModalSlot,
-} from '../../../stores/modalStore';
+} from '../src/stores/modalStore';
 
 export const buttons: ButtonDisplayData[] = [
   {
@@ -346,74 +348,74 @@ export const buttons: ButtonDisplayData[] = [
     ],
   },
   {
-    id: 'button_props',
-    header: 'Button Props',
-    description: 'Here is a list of all the props you can use to customize your button. All props are optional.\nYou may also use all native HTML button attributes.',
+    id: `button_props`,
+    header: `Button Props`,
+    description: 'Button Props',
     type: 'table',
     table: {
-      tableName: 'buttons',
+      tableName: 'button',
       rows: [
         {
           name: 'button_disabled',
-          description: 'A boolean that indicates whether the button is disabled or not.',
+          description: 'Determines if the button is clickable or not. When true, the button appears grayed out.',
           default: 'false',
           nav: false
         },
         {
           name: 'button_size',
-          description: "A string that indicates the size of the button. The possible values are 'xsmall', 'small','medium', 'large', and 'xlarge'.",
+          description: "Sets the size of the button. Choose from 'xsmall', 'small', 'medium', 'large', or 'xlarge'. Default is 'medium'.",
           default: 'medium',
           nav: true
         },
         {
           name: 'button_background',
-          description: "A string that indicates the background color of the button.",
+          description: "Lets you personalize the button's background color with any valid CSS color. Default is '#c50eff'.",
           default: '#c50eff',
           nav: true
         },
         {
           name: 'button_color',
-          description: "A string that indicates the text color of the button.",
+          description: "Changes the color of the button's text. Use any valid CSS color. Default is '#fff'.",
           default: '#fff',
           nav: true
         },
         {
           name: 'button_isLoading',
-          description: 'A boolean that indicates whether the button is in a loading state or not. When set to true, the button will be disabled and display a loading spinner.',
+          description: 'If set to true, the button displays a loading spinner and becomes disabled. Great for indicating processing times!',
           default: 'false',
           nav: false
         },
         {
           name: 'button_isError',
-          description: 'A boolean that indicates whether the button is in an error state or not. When set to true, the button will be disabled and display an error border.',
+          description: 'Switches the button to an error state when set to true. The button is disabled and displays an error border.',
           default: 'false',
           nav: false
         },
         {
           name: 'button_events',
-          description: 'You can add event listeners to your button by using the on:click, on:mouseover, on:mouseenter, on:mouseleave, on:focus, on:blur props. The event listener will be passed the event object as the first argument.',
+          description: 'Allows you to add event listeners to the button such as on:click, on:mouseover, etc. The first argument passed to your event listener will be the event object.',
           default: '',
           nav: true
         },
         {
           name: 'button_style',
-          description: 'A string that sets additional styles to the button. This should be a valid CSS string.',
+          description: 'A versatile prop that accepts any valid CSS as a string. This way, you can add any additional styling you need.',
           default: '""',
           nav: true
         },
         {
           name: 'button_animated',
-          description: 'A boolean that indicates whether the button should animate on click.',
+          description: 'Setting this to true makes the button animate on click. Adds a touch of dynamism to your UI.',
           default: 'false',
           nav: true
         },
         {
           name: 'button_icon',
-          description: 'For Button.Icon. A string that contains the icon to display. This should be a valid html/xml string. This prop is optional, as you can also use the `icon` slot.',
+          description: 'Use this to add an icon to your button. Accepts a valid html/xml string. Alternatively, use the `icon` slot.',
           default: 'null',
           nav: true
         }
-      ]
+      ],
     },
     examples: [
       {
