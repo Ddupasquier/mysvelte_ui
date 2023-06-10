@@ -231,7 +231,13 @@ export const checkboxes: CheckboxDisplayData[] = [
           description: 'Determines if the checkbox is disabled or not. ',
           default: 'false',
           nav: true,
-        }
+        },
+        {
+          name: `checkbox_name`,
+          description: 'The name attribute of the checkbox. ',
+          default: '\"\"',
+          nav: false,
+        },
       ],
     },
     examples: [
