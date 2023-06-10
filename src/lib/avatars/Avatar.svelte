@@ -5,11 +5,11 @@
     // Props
     /**
      * @component Avatar
-     * @type {string} image - Image, Image URL, ""
-     * @type {string} alt - Alt, Image alt text, ""
-     * @type {"small" | "medium" | "large"} size - Size, Avatar size, "medium"
-     * @type {"circ" | "rounded" | "square"} shape - Shape, Avatar shape, "rounded"
-     * @type {"none" | "gray" | "sepia" | "invert"} filter - Filter, Avatar filter, "none"
+     * @type {string} avatar_image - Image URL. , ""
+     * @type {string} avatar_alt - Image alt text. , ""
+     * @type {"small" | "medium" | "large"} avatar_size - Avatar size. , "medium"
+     * @type {"circ" | "rounded" | "square"} avatar_shape - Avatar shape. , "rounded"
+     * @type {"none" | "gray" | "sepia" | "invert"} avatar_filter - Avatar filter. , "none"
      */
     export let image: string;
     export let alt: string;
