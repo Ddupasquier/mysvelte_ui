@@ -1,4 +1,5 @@
-import { Checkbox } from '$lib';
+import { Checkbox } from '../src/lib';
+import type { CheckboxDisplayData } from '../src/app.d.ts';
 
 export const checkboxes: CheckboxDisplayData[] = [
   {
@@ -187,68 +188,51 @@ export const checkboxes: CheckboxDisplayData[] = [
       },
     ],
   },
-  // {
-  //   id: 'checkbox_animated',
-  //   header: 'Checkbox Animated',
-  //   description:
-  //     '',
-  //   type: 'components',
-  //   examples: [
-  //     {
-  //       component: Checkbox.Animated,
-  //       props: {
-  //         label: 'Animated',
-  //         checked: true,
-  //       },
-  //       code: [`<Checkbox.Animated label="Animated" checked={true} />`],
-  //     },
-  //   ]
-  // },
   {
-    id: 'checkbox_props',
-    header: 'Checkbox Props',
+    id: `checkbox_props`,
+    header: `Checkbox Props`,
     description: 'Checkbox Props',
     type: 'table',
     table: {
-      tableName: 'checkboxes',
+      tableName: 'checkbox',
       rows: [
         {
-          name: 'checkbox_label',
-          description: 'The label of the checkbox.',
-          default: 'Checkbox',
-          nav: true
+          name: `checkbox_label`,
+          description: 'The text that appears next to the checkbox. ',
+          default: '\"\"',
+          nav: true,
         },
         {
-          name: 'checkbox_labelColor',
-          description: 'The color of the checkbox label.',
-          default: 'black',
-          nav: false
+          name: `checkbox_labelColor`,
+          description: 'The color of the label. Accepts any valid CSS color. ',
+          default: '\"#000\"',
+          nav: false,
         },
         {
-          name: 'checkbox_disabled',
-          description: 'The disabled state of the checkbox.',
+          name: `checkbox_checked`,
+          description: 'Determines if the checkbox is checked or not. ',
           default: 'false',
-          nav: true
+          nav: false,
         },
         {
-          name: 'checkbox_checked',
-          description: 'The checked state of the checkbox.',
+          name: `checkbox_color`,
+          description: 'The color of the checkbox. Accepts any valid CSS color. ',
+          default: '\"#000\"',
+          nav: true,
+        },
+        {
+          name: `checkbox_size`,
+          description: 'The size of the checkbox. Choose from \'small\'',
+          default: '\'medium\'',
+          nav: true,
+        },
+        {
+          name: `checkbox_disabled`,
+          description: 'Determines if the checkbox is disabled or not. ',
           default: 'false',
-          nav: false
-        },
-        {
-          name: 'checkbox_color',
-          description: 'The color of the checkbox.',
-          default: 'black',
-          nav: true
-        },
-        {
-          name: 'checkbox_size',
-          description: 'The size of the checkbox.',
-          default: 'medium',
-          nav: true
-        },
-      ]
+          nav: true,
+        }
+      ],
     },
     examples: [
       {
@@ -256,5 +240,5 @@ export const checkboxes: CheckboxDisplayData[] = [
         props: {},
       },
     ],
-  }
+  },
 ];

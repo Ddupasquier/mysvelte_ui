@@ -2,6 +2,15 @@
   import { onMount } from "svelte";
 
   // Props
+  /**
+   * @component Checkbox
+   * @type {string} label - The text that appears next to the checkbox. , ""
+   * @type {string} labelColor - The color of the label. Accepts any valid CSS color. , "#000"
+   * @type {boolean} checked - Determines if the checkbox is checked or not. , false
+   * @type {string} color - The color of the checkbox. Accepts any valid CSS color. , "#000"
+   * @type {string} size - The size of the checkbox. Choose from 'small', 'medium', or 'large'. , "medium"
+   * @type {boolean} disabled - Determines if the checkbox is disabled or not. , false
+   */
   export let label: string = "";
   export let labelColor: string = "#000";
   export let checked: boolean = false;

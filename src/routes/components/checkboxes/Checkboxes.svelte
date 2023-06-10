@@ -1,6 +1,6 @@
 <script>
   import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-  import { checkboxes } from './constants';
+  import { checkboxes } from '../../../../docs/Checkbox_docs';
 </script>
 
 <h1>Checkboxes</h1>

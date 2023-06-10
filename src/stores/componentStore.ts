@@ -7,7 +7,7 @@ import { popovers } from '../routes/components/popovers/constants';
 import { radios } from '../routes/components/radios/constants';
 import { dropdowns } from '../routes/components/dropdowns/constants';
 import { loaders } from '../routes/components/loaders/constants';
-import { checkboxes } from '../routes/components/checkboxes/constants';
+import { checkboxes } from '../../docs/Checkbox_docs';
 import { parallaxes } from '../routes/components/parallaxes/constants';
 import { avatars } from '../../docs/Avatar_docs';
 import { accordions } from '../../docs/Accordion_docs';
