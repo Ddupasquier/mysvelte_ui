@@ -3,7 +3,7 @@ import type { InputDisplayData } from '../src/app';
 
 export const inputcolors: InputDisplayData =
 {
-  id: 'input_colorPicker',
+  id: 'input_colorpicker',
   header: 'Color Picker',
   description:
     'You can easily add a color picker to your input by adding the Input.Color component.',
@@ -51,7 +51,7 @@ export const inputcolors: InputDisplayData =
 
 export const inputcolorProps: InputDisplayData =
 {
-  id: `inputcolor_props`,
+  id: `inputColorPicker_props`,
   header: `Inputcolor Props`,
   description: 'Inputcolor Props',
   type: 'table',
@@ -62,42 +62,42 @@ export const inputcolorProps: InputDisplayData =
       description: 'Determines the size of the component. Options are \"xsmall\", \"small\", \"medium\", \"large\", or \"xlarge\".',
       type: '{"xsmall" | "small" | "medium" | "large" | "xlarge"}',
       default: '\"medium\"',
-      nav: true,
+      nav: false,
     },
     {
       name: `inputcolor_value`,
       description: 'Sets the value of the component.',
       type: '{string}',
       default: '\"#000000\"',
-      nav: true,
+      nav: false,
     },
     {
       name: `inputcolor_style`,
       description: 'Customizes the style of the component.',
       type: '{string}',
       default: '\"\"',
-      nav: true,
+      nav: false,
     },
     {
       name: `inputcolor_label`,
       description: 'If true, a label is displayed.',
       type: '{boolean}',
       default: 'false',
-      nav: true,
+      nav: false,
     },
     {
       name: `inputcolor_labelColor`,
       description: 'Sets the color of the label.',
       type: '{string}',
       default: '\"#000\"',
-      nav: true,
+      nav: false,
     },
     {
       name: `inputcolor_disabled`,
       description: 'If true, the component is disabled and users cannot interact with it.',
       type: '{boolean}',
       default: 'false',
-      nav: true,
+      nav: false,
     }],
   },
   examples: [

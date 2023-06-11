@@ -1,10 +1,9 @@
 import { Input, Spacer } from '../src/lib';
 import type { InputDisplayData, NumberProps } from '../src/app.d.ts';
 import { inputcolors, inputcolorProps } from './InputColor_docs';
+import { inputdates, inputtimes, inputdatetimes, inputdateProps } from './InputDateTime_docs';
 
 export const inputs: InputDisplayData[] = [
-  inputcolors,
-  inputcolorProps,
   {
     id: 'input_basics',
     header: 'Input Basics',
@@ -300,180 +299,6 @@ export const inputs: InputDisplayData[] = [
       },
     ],
   },
-
-  {
-    id: 'input_prefix',
-    header: 'Prefix',
-    description:
-      `You can add a prefix the this input by using dot notation IE. Input.Prefix. 
-      You can also change the prefix from the default using the prefix prop. (default: @)
-      
-      const prefix = "@" 
-      let val = "example"
-      
-      const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log(\`\${prefix}@{val}\`); // @example
-      };
-      
-      <form on:submit={handleSubmit}>
-      <Input.Prefix {prefix} bind:value={val} />
-      </form>`,
-    type: 'components',
-    examples: [
-      {
-        component: Input.Prefix,
-        props: {
-          prefix: '@',
-          placeholder: 'Woah',
-        },
-        code: '<Input.Prefix prefix="@" />',
-      },
-      {
-        component: Input.Prefix,
-        props: {
-          prefix: '#',
-          placeholder: 'Pretty',
-        },
-        code: '<Input.Prefix prefix="#" />',
-      },
-      {
-        component: Input.Prefix,
-        props: {
-          prefix: '¯_(ツ)_/¯',
-          placeholder: 'Cool',
-        },
-        code: '<Input.Prefix prefix="¯_(ツ)_/¯" />',
-      },
-    ],
-  },
-  {
-    id: 'input_number',
-    header: 'Number',
-    description:
-      `The number input can be accessed by using dot notation IE. Input.Number.
-      You can also add a min, max, and step prop to the input.
-      (default: min: -10,000, max: 10,000, step: 1)`,
-    type: 'components',
-    examples: [
-      {
-        component: Input.Number,
-        props: {
-          color: '#c50eff',
-        } as NumberProps,
-        code: '<Input.Number {min} {max} {step} />',
-      },
-      {
-        component: Input.Number,
-        props: {
-          color: '#ff00d9',
-          min: 20,
-        } as NumberProps,
-      },
-      {
-        component: Input.Number,
-        props: {
-          color: '#ff3579',
-          min: -10,
-          max: 10,
-          step: 0.5,
-        } as NumberProps,
-      },
-    ],
-  },
-  {
-    id: 'input_date',
-    header: 'Date',
-    description: `The date input can be accessed by using dot notation IE. Input.Date. 
-  The 'min' and 'max' props should be in the format 'YYYY-MM-DD' (e.g., '2023-06-01').`,
-    type: 'components',
-    examples: [
-      {
-        component: Input.Date,
-        props: {
-          color: '#c50eff',
-        },
-        code: '<Input.Date {min} {max} />',
-      },
-      {
-        component: Input.Date,
-        props: {
-          color: '#ff00d9',
-          variant: "outline"
-        },
-      },
-      {
-        component: Input.Date,
-        props: {
-          color: '#ff3579',
-          variant: "line",
-          background: "transparent"
-        },
-      },
-    ],
-  },
-  {
-    id: 'input_time',
-    header: 'Time',
-    description: `The time input can be accessed by using dot notation IE. Input.Time.
-  The 'min' and 'max' props should be in the format 'HH:MM' (e.g., '13:30').`,
-    type: 'components',
-    examples: [
-      {
-        component: Input.Time,
-        props: {
-          color: '#c50eff',
-        },
-        code: '<Input.Time {min} {max} />',
-      },
-      {
-        component: Input.Time,
-        props: {
-          color: '#ff00d9',
-          variant: "outline"
-        },
-      },
-      {
-        component: Input.Time,
-        props: {
-          color: '#ff3579',
-          variant: "line",
-          background: "transparent"
-        },
-      },
-    ],
-  },
-  {
-    id: 'input_dateTime',
-    header: 'Date Time',
-    description: `The date time input can be accessed by using dot notation IE. Input.DateTime.
-  The 'min' and 'max' props should be in the format 'YYYY-MM-DDTHH:MM' (e.g., '2023-06-01T13:30').`,
-    type: 'components',
-    examples: [
-      {
-        component: Input.DateTime,
-        props: {
-          color: '#c50eff',
-        },
-        code: '<Input.DateTime {min} {max} />',
-      },
-      {
-        component: Input.DateTime,
-        props: {
-          color: '#ff00d9',
-          variant: "outline"
-        },
-      },
-      {
-        component: Input.DateTime,
-        props: {
-          color: '#ff3579',
-          variant: "line",
-          background: "transparent"
-        },
-      },
-    ],
-  },
   {
     id: `input_props`,
     header: `Input Props`,
@@ -596,4 +421,90 @@ export const inputs: InputDisplayData[] = [
       },
     ],
   },
+  {
+    id: 'input_prefix',
+    header: 'Prefix',
+    description:
+      `You can add a prefix the this input by using dot notation IE. Input.Prefix. 
+    You can also change the prefix from the default using the prefix prop. (default: @)
+    
+    const prefix = "@" 
+    let val = "example"
+    
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      console.log(\`\${prefix}@{val}\`); // @example
+    };
+    
+    <form on:submit={handleSubmit}>
+    <Input.Prefix {prefix} bind:value={val} />
+    </form>`,
+    type: 'components',
+    examples: [
+      {
+        component: Input.Prefix,
+        props: {
+          prefix: '@',
+          placeholder: 'Woah',
+        },
+        code: '<Input.Prefix prefix="@" />',
+      },
+      {
+        component: Input.Prefix,
+        props: {
+          prefix: '#',
+          placeholder: 'Pretty',
+        },
+        code: '<Input.Prefix prefix="#" />',
+      },
+      {
+        component: Input.Prefix,
+        props: {
+          prefix: '¯_(ツ)_/¯',
+          placeholder: 'Cool',
+        },
+        code: '<Input.Prefix prefix="¯_(ツ)_/¯" />',
+      },
+    ],
+  },
+  {
+    id: 'input_number',
+    header: 'Number',
+    description:
+      `The number input can be accessed by using dot notation IE. Input.Number.
+    You can also add a min, max, and step prop to the input.
+      (default: min: -10,000, max: 10,000, step: 1)`,
+    type: 'components',
+    examples: [
+      {
+        component: Input.Number,
+        props: {
+          color: '#c50eff',
+        } as NumberProps,
+        code: '<Input.Number {min} {max} {step} />',
+      },
+      {
+        component: Input.Number,
+        props: {
+          color: '#ff00d9',
+          min: 20,
+        } as NumberProps,
+      },
+      {
+        component: Input.Number,
+        props: {
+          color: '#ff3579',
+          min: -10,
+          max: 10,
+          step: 0.5,
+        } as NumberProps,
+      },
+    ],
+  },
+  inputdates,
+  inputtimes,
+  inputdatetimes,
+  inputdateProps,
+  inputcolors,
+  inputcolorProps,
 ];

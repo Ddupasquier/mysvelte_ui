@@ -2,8 +2,80 @@
     import { createEventDispatcher, onMount } from "svelte";
 
     // Props
+    /**
+     * @file Input.tsx
+     *
+     * Props:
+     *
+     * @prop variant
+     * @description Determines the variant style of the component. Options are "default", "line", or "outline".
+     * @type {"default" | "line" | "outline"}
+     * @default "default"
+     *
+     * @prop size
+     * @description Determines the size of the component. Options are "xsmall", "small", "medium", "large", or "xlarge".
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+     * @default "medium"
+     *
+     * @prop background
+     * @description Sets the background color of the component.
+     * @type {string}
+     * @default "white"
+     *
+     * @prop color
+     * @description Sets the text color of the component.
+     * @type {string}
+     * @default "#000"
+     *
+     * @prop value
+     * @description Sets the value of the component.
+     * @type {string}
+     * @default ""
+     *
+     * @prop style
+     * @description Customizes the style of the component.
+     * @type {string}
+     * @default ""
+     *
+     * @prop label
+     * @description If true, a label is displayed.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop labelColor
+     * @description Sets the color of the label.
+     * @type {string}
+     * @default "#000"
+     *
+     * @prop disabled
+     * @description If true, the component is disabled and users cannot interact with it.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop isError
+     * @description If true, the component displays an error state.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop isLoading
+     * @description If true, the component displays a loading state.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop min
+     * @description Sets the minimum value for numeric inputs.
+     * @type {string}
+     * @default ""
+     *
+     * @prop max
+     * @description Sets the maximum value for numeric inputs.
+     * @type {string}
+     * @default ""
+     */
+
     export let variant: "default" | "line" | "outline" = "default";
-    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
+    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
+        "medium";
     export let background: string = "white";
     export let color: string = "#000";
     export let value: string = "";
@@ -91,8 +163,8 @@
         on:click
         on:keydown
         on:keyup
-        min={min}
-        max={max}
+        {min}
+        {max}
     />
 </div>
 
