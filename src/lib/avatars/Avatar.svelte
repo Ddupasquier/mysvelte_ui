@@ -9,27 +9,27 @@
      * @prop image
      * @description NEW The URL of the avatar image. Provide the path to the image you want to display as the avatar.
      * @type {string}
-     * @default: ""
+     * @default ""
      *
      * @prop alt
      * @description The alternative text for the avatar image. This text is displayed when the image cannot be loaded or accessed by screen readers.
      * @type {string}
-     * @default: ""
+     * @default ""
      *
      * @prop size
      * @description The size of the avatar. Choose from "xsmall", "small", "medium", "large", or "xlarge" to control the dimensions of the avatar.
      * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
-     * @default: "medium"
+     * @default "medium"
      *
      * @prop shape
      * @description The shape of the avatar. Select either "circ", "rounded", or "square" to define the border shape of the avatar.
      * @type {"circ" | "rounded" | "square"}
-     * @default: "rounded"
+     * @default "rounded"
      *
      * @prop filter
      * @description The filter applied to the avatar image. Apply visual effects such as "gray" for grayscale, "sepia" for a vintage look, or "invert" for an inverted color scheme.
      * @type {"none" | "gray" | "sepia" | "invert"}
-     * @default: "none"
+     * @default "none"
      */
     export let image: string;
     export let alt: string;

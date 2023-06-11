@@ -47,7 +47,7 @@ export async function createDocumentationFile(componentPathInput) {
         output: process.stdout
       });
 
-      rl.question('That file already exists. Would you like to completely overwrite the file? or just update the props table? (full/props) ', async (answer) => {
+      rl.question('That file already exists. Would you like to completely overwrite the file? Or just update the props table? (full/props). You can cancel by pressing Ctrl+C. ', async (answer) => {
         rl.close();
         const componentContent = await readFile(componentPath, 'utf8');
 
@@ -55,7 +55,7 @@ export async function createDocumentationFile(componentPathInput) {
           await createFile(docFilePath, generateTSCode(componentContent));
         } else if (answer.toLowerCase() === 'props') {
           const existingContent = await readFile(docFilePath, 'utf8');
-          const updatedContent = existingContent.replace(/rows: \[\s*(\{[\s\S]*?\})\s*\]/, `rows: [${generatePropRows(componentContent)}]`);
+          const updatedContent = existingContent.replace(/rows: \[\s*(\{[\s\S]*?\})?\s*\]/, `rows: [${generatePropRows(componentContent)}]`);
           await createFile(docFilePath, updatedContent);
         } else {
           console.log('Invalid response. Please enter either "full" or "props".');
@@ -143,6 +143,7 @@ export async function createDocumentationFile(componentPathInput) {
     const commentBlock = componentContent.match(/\/\*\*([\s\S]*?)\*\//)?.[0];
 
     if (!commentBlock) {
+      console.log('\x1b[31m%s\x1b[0m', 'No comment block found in the component file.');
       throw new Error('No comment block found in the component file.');
     }
 
@@ -175,14 +176,15 @@ export async function createDocumentationFile(componentPathInput) {
           prop.description = line.split('@description')[1].trim();
         } else if (line.includes('@type')) {
           prop.type = line.split('@type')[1].trim();
-        } else if (line.includes('@default:')) {
-          prop.default = line.split('@default:')[1].trim();
+        } else if (line.includes('@default')) {
+          prop.default = line.split('@default')[1].trim();
         }
       }
 
       return prop;
     });
 
+    console.log(props);
     const propRows = props.map((prop) => {
       const { name, description, type, default: defaultValue } = prop;
       const escapedDescription = escapeSpecialChars(description);

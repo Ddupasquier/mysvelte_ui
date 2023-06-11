@@ -3,6 +3,50 @@
     import { onMount } from "svelte";
 
     // Props
+    /**
+     * @component ImageFilter
+     *
+     * @prop image!
+     * @description The image source for the ImageFilter.
+     * @type {string}
+     * @default ""
+     *
+     * @prop alt!
+     * @description The alt text for the ImageFilter.
+     * @type {string}
+     * @default ""
+     *
+     * @prop shape
+     * @description The shape of the image can be "square", "rounded", or "circ".
+     * @type {"circ" | "rounded" | "square"}
+     * @default "square"
+     *
+     * @prop filter
+     * @description The filter prop determines the filter applied to the image. It can be one of the following values: "none", "gray", "sepia", "invert", "blur", "contrast", "hue-rotate", "saturate", "hue-rotate-saturate".
+     * @type {"none" | "gray" | "sepia" | "invert" | "blur" | "contrast" | "hue-rotate" | "saturate" | "hue-rotate-saturate"}
+     * @default "none"
+     *
+     * @prop width
+     * @description The width of the image. You can specify any valid CSS length unit.
+     * @type {string}
+     * @default "auto"
+     *
+     * @prop height
+     * @description The height of the image. You can specify any valid CSS length unit.
+     * @type {string}
+     * @default "auto"
+     *
+     * @prop aspectRatio
+     * @description The aspect ratio of the image. This is specified as a string with a ratio of width to height.
+     * @type {string}
+     * @default "auto"
+     *
+     * @prop style
+     * @description The CSS style for the image container.
+     * @type {string}
+     * @default ""
+     */
+
     export let image: string;
     export let alt: string;
     export let shape: "circ" | "rounded" | "square" = "square";

@@ -17,6 +17,7 @@ export const avatars: AvatarDisplayData[] = [
         props: {
           image: image1,
           alt: 'Avatar',
+          size: 'xlarge'
         },
         code: [
           `<Avatar {image} alt="Avatar" />`,

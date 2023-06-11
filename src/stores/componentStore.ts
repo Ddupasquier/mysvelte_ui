@@ -12,7 +12,7 @@ import { parallaxes } from '../routes/components/parallaxes/constants';
 import { avatars } from '../../docs/Avatar_docs';
 import { accordions } from '../../docs/Accordion_docs';
 import { toggles } from '../routes/components/toggles/constants';
-import { imageFilters } from '../routes/components/imagefilters/constants';
+import { imageFilters } from '../../docs/ImageFilter_docs';
 import { textareas } from '../../docs/Textarea_docs';
 
 // Component mapping
