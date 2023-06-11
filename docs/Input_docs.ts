@@ -1,4 +1,5 @@
-import { Input, Spacer } from '$lib';
+import { Input, Spacer } from '../src/lib';
+import type { InputDisplayData, NumberProps } from '../src/app.d.ts';
 
 export const inputs: InputDisplayData[] = [
   {
@@ -47,6 +48,50 @@ export const inputs: InputDisplayData[] = [
           placeholder: '#ff3579'
         },
         code: '<Input background="#ff3579" />',
+      },
+    ],
+  },
+  {
+    id: 'input_size',
+    header: 'Input Size',
+    description: 'The size of the InputField. Can be \"xsmall\", \"small\", \"medium\", \"large\", or \"xlarge\".',
+    type: 'components',
+    examples: [
+      {
+        component: Input,
+        props: {
+          size: 'xsmall',
+          placeholder: 'xsmall',
+        },
+        code: '<Input {size} />',
+      },
+      {
+        component: Input,
+        props: {
+          size: 'small',
+          placeholder: 'small',
+        },
+      },
+      {
+        component: Input,
+        props: {
+          size: 'medium',
+          placeholder: 'medium',
+        },
+      },
+      {
+        component: Input,
+        props: {
+          size: 'large',
+          placeholder: 'large',
+        },
+      },
+      {
+        component: Input,
+        props: {
+          size: 'xlarge',
+          placeholder: 'xlarge',
+        },
       },
     ],
   },
@@ -183,7 +228,7 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
-    id: 'input_variants',
+    id: 'input_variant',
     header: 'Variants',
     description:
       `There are 3 variants of input: outline, line, and default. (default: default)`,
@@ -219,6 +264,40 @@ export const inputs: InputDisplayData[] = [
       },
     ],
   },
+  {
+    id: 'input_state',
+    header: 'Input State',
+    description:
+      'Inputs can be in different states including "disabled", "isLoading", and "isError", each affecting its appearance and functionality. The "disabled" state makes the Input unresponsive, while "isLoading" indicates background processing. The "isError" state is used to highlight incorrect input. If the Input is disabled, any custom background is nullified. To change the background color in the disabled state, use the "background-color" property.',
+    type: 'components',
+    examples: [
+      {
+        component: Input,
+        props: {
+          disabled: true,
+          placeholder: 'Disabled Input',
+        },
+        code: '<Input disabled placeholder="Disabled Input"/>',
+      },
+      {
+        component: Input,
+        props: {
+          isLoading: true,
+          placeholder: 'Loading Input',
+        },
+        code: '<Input isLoading={true} placeholder="Loading Input"/>',
+      },
+      {
+        component: Input,
+        props: {
+          isError: true,
+          placeholder: 'Error Input',
+        },
+        code: '<Input isError={true} placeholder="Error Input"/>',
+      },
+    ],
+  },
+
   {
     id: 'input_prefix',
     header: 'Prefix',
@@ -438,73 +517,118 @@ export const inputs: InputDisplayData[] = [
     ],
   },
   {
-    id: 'input_props',
-    header: 'Props',
-    description: 'Input accepts all native input props.',
+    id: `input_props`,
+    header: `Input Props`,
+    description: 'Input Props',
     type: 'table',
     table: {
-      tableName: 'inputs',
+      tableName: 'input',
       rows: [
         {
-          name: 'input_background',
-          description: 'Accepts a string value for the background color of the input.',
-          default: '#fff',
-          nav: true
+          name: `input_variant`,
+          description: 'The style variant for the InputField. Can be \"default\", \"line\", or \"outline\".',
+          type: '{"default" | "line" | "outline"}',
+          default: '\"default\"',
+          nav: true,
         },
         {
-          name: 'input_color',
-          description: 'Accepts a string value for the color of the input.',
-          default: '#000',
-          nav: true
+          name: `input_size`,
+          description: 'The size of the InputField. Can be \"xsmall\", \"small\", \"medium\", \"large\", or \"xlarge\".',
+          type: '{"xsmall" | "small" | "medium" | "large" | "xlarge"}',
+          default: '\"medium\"',
+          nav: true,
         },
         {
-          name: 'input_label',
-          description: 'Accepts a boolean value for the label of the input.',
+          name: `input_type`,
+          description: 'The type of the input. Can be \"text\" or \"password\".',
+          type: '{"text" | "password"}',
+          default: '\"text\"',
+          nav: true,
+        },
+        {
+          name: `input_background`,
+          description: 'The background color of the InputField.',
+          type: '{string}',
+          default: '\"white\"',
+          nav: true,
+        },
+        {
+          name: `input_color`,
+          description: 'The text color of the InputField.',
+          type: '{string}',
+          default: '\"#000\"',
+          nav: true,
+        },
+        {
+          name: `input_placeholder`,
+          description: 'The placeholder text in the InputField.',
+          type: '{string}',
+          default: '\"Search\"',
+          nav: false,
+        },
+        {
+          name: `input_value`,
+          description: 'The current value of the InputField.',
+          type: '{string}',
+          default: '\"\"',
+          nav: false,
+        },
+        {
+          name: `input_style`,
+          description: 'Inline CSS styles to apply to the InputField.',
+          type: '{string}',
+          default: '\"\"',
+          nav: false,
+        },
+        {
+          name: `input_label`,
+          description: 'If true, the InputField will display a label.',
+          type: '{boolean}',
           default: 'false',
-          nav: true
+          nav: true,
         },
         {
-          name: 'input_labelIn',
-          description: 'Accepts a boolean value for the label to be inside the input.',
+          name: `input_labelIn`,
+          description: 'If true, the label will be displayed inside the InputField.',
+          type: '{boolean}',
           default: 'false',
-          nav: false
+          nav: false,
         },
         {
-          name: 'input_placeholder',
-          description: 'Accepts a string value for the placeholder of the input.',
-          default: '""',
-          nav: true
+          name: `input_labelColor`,
+          description: 'The color of the label text.',
+          type: '{string}',
+          default: '\"#000\"',
+          nav: false,
         },
         {
-          name: 'input_variants',
-          description: 'Accepts a string value for the variant of the input. Variants include: default, outline, and line.',
-          default: 'default',
-          nav: true
+          name: `input_clearable`,
+          description: 'If true, the InputField will display a clear button when it has input.',
+          type: '{boolean}',
+          default: 'false',
+          nav: true,
         },
         {
-          name: 'input_prefix',
-          description: 'You can use dot notation to change the input to the prefixed input component. Use: Input.Prefix',
-          default: '',
-          nav: true
+          name: `input_disabled`,
+          description: 'If true, the InputField will be disabled and users cannot interact with it.',
+          type: '{boolean}',
+          default: 'false',
+          nav: false,
         },
         {
-          name: 'input_date',
-          description: 'You can use dot notation to change the input to the date input component. Use: Input.Date',
-          default: '',
-          nav: true
+          name: `input_isError`,
+          description: 'If true, the InputField will display in an error state.',
+          type: '{boolean}',
+          default: 'false',
+          nav: false,
         },
         {
-          name: 'input_time',
-          description: 'You can use dot notation to change the input to the time input component. Use: Input.Time',
-          default: '',
-          nav: true
-        },
-        {
-          name: 'input_dateTime',
-          description: 'You can use dot notation to change the input to the date and time input component. Use: Input.DateTime',
-          default: '',
-          nav: true
-        },
+          name: `input_isLoading`,
+          description: 'If true, the InputField will display a loading spinner.',
+          type: '{boolean}',
+          default: 'false',
+          nav: false,
+        }
       ],
     },
     examples: [
@@ -513,5 +637,5 @@ export const inputs: InputDisplayData[] = [
         props: {},
       },
     ],
-  }
+  },
 ];

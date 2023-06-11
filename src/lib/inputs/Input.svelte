@@ -3,6 +3,85 @@
   import { fade } from "svelte/transition";
 
   // Props
+  /**
+   * @component InputField
+   *
+   * @prop variant
+   * @description The style variant for the InputField. Can be "default", "line", or "outline".
+   * @type {"default" | "line" | "outline"}
+   * @default "default"
+   *
+   * @prop size
+   * @description The size of the InputField. Can be "xsmall", "small", "medium", "large", or "xlarge".
+   * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+   * @default "medium"
+   *
+   * @prop type
+   * @description The type of the input. Can be "text" or "password".
+   * @type {"text" | "password"}
+   * @default "text"
+   *
+   * @prop background
+   * @description The background color of the InputField.
+   * @type {string}
+   * @default "white"
+   *
+   * @prop color
+   * @description The text color of the InputField.
+   * @type {string}
+   * @default "#000"
+   *
+   * @prop placeholder
+   * @description The placeholder text in the InputField.
+   * @type {string}
+   * @default "Search"
+   *
+   * @prop value
+   * @description The current value of the InputField.
+   * @type {string}
+   * @default ""
+   *
+   * @prop style
+   * @description Inline CSS styles to apply to the InputField.
+   * @type {string}
+   * @default ""
+   *
+   * @prop label
+   * @description If true, the InputField will display a label.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop labelIn
+   * @description If true, the label will be displayed inside the InputField.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop labelColor
+   * @description The color of the label text.
+   * @type {string}
+   * @default "#000"
+   *
+   * @prop disabled
+   * @description If true, the InputField will be disabled and users cannot interact with it.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop clearable
+   * @description If true, the InputField will display a clear button when it has input.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop isError
+   * @description If true, the InputField will display in an error state.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop isLoading
+   * @description If true, the InputField will display a loading spinner.
+   * @type {boolean}
+   * @default false
+   */
+
   export let variant: "default" | "line" | "outline" = "default";
   export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
     "medium";
@@ -43,7 +122,7 @@
 
     if (type === "password") passwordView = true;
 
-    if (autoFocus) inputRef.focus()
+    if (autoFocus) inputRef.focus();
   });
 
   // Reactive Statements
