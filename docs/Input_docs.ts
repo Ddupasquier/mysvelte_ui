@@ -1,7 +1,10 @@
 import { Input, Spacer } from '../src/lib';
 import type { InputDisplayData, NumberProps } from '../src/app.d.ts';
+import { inputcolors, inputcolorProps } from './InputColor_docs';
 
 export const inputs: InputDisplayData[] = [
+  inputcolors,
+  inputcolorProps,
   {
     id: 'input_basics',
     header: 'Input Basics',
@@ -467,51 +470,6 @@ export const inputs: InputDisplayData[] = [
           color: '#ff3579',
           variant: "line",
           background: "transparent"
-        },
-      },
-    ],
-  },
-  {
-    id: 'input_colorPicker',
-    header: 'Color Picker',
-    description:
-      'You can easily add a color picker to your input by adding the Input.Color component.',
-    type: 'components',
-    examples: [
-      {
-        component: Input.Color,
-        props: {
-          size: 'xlarge',
-          value: '#c50eff',
-        },
-        code: ['let value', '<Input.Color bind:{value} />'],
-      },
-      {
-        component: Input.Color,
-        props: {
-          size: 'large',
-          value: '#ff00d9',
-        },
-      },
-      {
-        component: Input.Color,
-        props: {
-          size: 'medium',
-          value: '#ff3579',
-        },
-      },
-      {
-        component: Input.Color,
-        props: {
-          size: 'small',
-          value: '#ff8c4c',
-        },
-      },
-      {
-        component: Input.Color,
-        props: {
-          size: 'xsmall',
-          value: '#ffc844',
         },
       },
     ],

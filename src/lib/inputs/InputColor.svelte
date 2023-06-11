@@ -2,6 +2,38 @@
     import { createEventDispatcher, onMount } from "svelte";
 
     // Props
+    /**
+     * @prop size
+     * @description Determines the size of the component. Options are "xsmall", "small", "medium", "large", or "xlarge".
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+     * @default "medium"
+     *
+     * @prop value
+     * @description Sets the value of the component.
+     * @type {string}
+     * @default "#000000"
+     *
+     * @prop style
+     * @description Customizes the style of the component.
+     * @type {string}
+     * @default ""
+     *
+     * @prop label
+     * @description If true, a label is displayed.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop labelColor
+     * @description Sets the color of the label.
+     * @type {string}
+     * @default "#000"
+     *
+     * @prop disabled
+     * @description If true, the component is disabled and users cannot interact with it.
+     * @type {boolean}
+     * @default false
+     */
+
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
         "medium";
     export let value: string = "#000000";
