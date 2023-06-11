@@ -2,118 +2,39 @@ import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'fs';
 import pluralize from 'pluralize';
 import { checkFileExists } from './create_doc.js';
 
-// Get the component name from the command line argument
 const componentName = process.argv[2];
 
-// Check if componentName exists
 if (!componentName) {
   console.error('Component name must be provided as a command line argument.');
   process.exit(1);
 }
 
-// Capitalize the first letter of the component name
-const componentUpper =
-  componentName.charAt(0).toUpperCase() + componentName.slice(1);
-
-// Convert the component name to lowercase
+const componentUpper = componentName.charAt(0).toUpperCase() + componentName.slice(1);
 const componentLower = componentName.toLowerCase();
 
-console.log(`Creating a new component called ${componentName}`);
+const paths = {
+  libComponentDir: `./src/lib/${pluralize(componentLower)}`,
+  routesComponentDir: `./src/routes/components/${pluralize(componentLower)}`,
+  componentStore: './src/stores/componentStore.ts',
+  page: './src/routes/components/+page.svelte',
+  constants: './src/ui_components/constants.ts',
+  index: './src/lib/index.ts',
+  app: './src/app.d.ts'
+};
 
-try {
-  await createLibComponent();
-  console.log(`Created a new component called ${componentName} in lib directory`);
-
-  await createRoutesComponent();
-  console.log(
-    `Created a new component called ${componentName} in routes directory`,
-  );
-
-  await addComponent();
-  console.log(`Added ${componentName} to componentStore.ts`);
-
-  await addToPage();
-  console.log(`Added ${componentName} to components/+page.svelte`);
-
-  await addToConstants();
-  console.log(`Added ${componentName} to ./src/ui_components/constants.ts`);
-
-  await addComponentToIndexFile();
-  console.log(`Added ${componentName} to the index.ts file`);
-
-  await addToApp();
-  console.log(`Added ${componentName} to app.d.ts`);
-
-  console.log(
-    '\x1b[32m%s\x1b[0m', // green
-    `${componentName} has been added to the library!`
-  );
-
-  checkFileExists(`src/lib/${pluralize(componentLower)}/${componentName}.svelte`);
-
-} catch (error) {
-  console.error('An error occurred:', error);
-}
-
-async function createLibComponent() {
-  try {
-    const dir = `./src/lib/${pluralize(componentLower)}`;
-
-    // Check if directory already exists
-    if (existsSync(dir)) {
-      console.error('Directory already exists. Please choose a different component name.');
-      process.exit(1);
-    }
-
-    mkdirSync(dir);
-
-    const filePath = `./src/lib/${pluralize(componentLower)}/${componentUpper}.svelte`;
-
-    // Check if file already exists
-    if (existsSync(filePath)) {
-      console.error('File already exists. Please choose a different component name.');
-      process.exit(1);
-    }
-
-    writeFileSync(filePath, `<script lang="ts">
-      // Imports\n// Props\n// Variables\n// Constants\n// Lifecycle Hooks\n// Functions\n// Reactive Statements\n// Refs
-      </script>
-      
-      <h1>${componentName}</h1>
-      
-      <style lang="scss">
-      
-      </style>`
-    );
-
-  } catch (error) {
-    throw error;
-  }
-}
-
-async function createRoutesComponent() {
-  try {
-    const dir = `./src/routes/components/${pluralize(componentLower)}`;
-
-    // Check if directory already exists
-    if (existsSync(dir)) {
-      console.error('Directory already exists. Please choose a different component name.');
-      process.exit(1);
-    }
-
-    mkdirSync(dir);
-
-    const filePath = `./src/routes/components/${pluralize(componentLower)}/${pluralize(componentUpper)}.svelte`;
-
-    // Check if file already exists
-    if (existsSync(filePath)) {
-      console.error('File already exists. Please choose a different component name.');
-      process.exit(1);
-    }
-
-    writeFileSync(filePath, `<script>
-      import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-      import { ${pluralize(componentLower)}} from '../../../../docs/${componentUpper}_docs';
+const templates = {
+  libComponent: `<script lang="ts">
+    // Imports\n// Props\n// Variables\n// Constants\n// Lifecycle Hooks\n// Functions\n// Reactive Statements\n// Refs
+    </script>
+    
+    <h1>${componentName}</h1>
+    
+    <style lang="scss">
+    
+    </style>`,
+  routesComponent: `<script>
+    import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
+    import { ${pluralize(componentLower)}} from '../../../../docs/${componentUpper}_docs';
     </script>
 
     <h1>${pluralize(componentUpper)}</h1>
@@ -131,93 +52,97 @@ async function createRoutesComponent() {
         table={${componentLower}.table}
         type={${componentLower}.type}
       />
-    {/each}`
-    );
+    {/each}`,
 
-  } catch (error) {
-    throw error;
-  }
-}
+  componentStoreImport: `\nimport { ${pluralize(componentLower)} } from '../../docs/${componentUpper}_docs';`,
+  componentStoreMapping: `\n  ${pluralize(componentLower)},`,
 
-async function addComponent() {
+  pageImport: `\nimport ${pluralize(componentUpper)} from './${pluralize(componentLower)}/${pluralize(componentUpper)}.svelte';`,
+  pageIfElse: `{:else if items === '${pluralize(componentLower)}'}\n<${pluralize(componentUpper)} />\n`,
+
+  constantsNewConstant: `\n  {\n    name: '${pluralize(componentUpper)}',\n    path: '?items=${pluralize(componentLower)}',\n },`,
+
+  indexComponentImport: `import ${componentUpper}Default from './${pluralize(componentLower)}/${componentUpper}.svelte';\n`,
+  indexComponentExport: `export const ${componentUpper} = Object.assign(${componentUpper}Default, {});\n`,
+
+  appNewType: `\n\n// * ${componentUpper} TYPES\nexport interface ${componentUpper}DisplayData extends BaseDisplayData {\n  examples: ${componentUpper}Example[];\n}`
+};
+
+async function main() {
   try {
-    const filePath = './src/stores/componentStore.ts';
-    const fileContent = readFileSync(filePath, 'utf-8');
-
-    const newImport = `\nimport { ${pluralize(componentLower)} } from '../../docs/${componentUpper}_docs';`;
-    const addToComponentMapping = `\n  ${pluralize(componentLower)},`;
-
-    const newContent = fileContent.replace("constants';", `constants';${newImport}`).replace('componentMapping = {', `componentMapping = {${addToComponentMapping}`);
-
-    writeFileSync(filePath, newContent);
-
+    console.log(`Creating a new component called ${componentName}`);
+    await createDirectory(paths.libComponentDir);
+    await createDirectory(paths.routesComponentDir);
+    await createFile(paths.libComponentDir, componentUpper, templates.libComponent);
+    await createFile(paths.routesComponentDir, pluralize(componentUpper), templates.routesComponent);
+    await updateComponentStore(paths.componentStore, componentUpper, componentLower);
+    await updatePage(paths.page, componentUpper, componentLower);
+    await updateConstants(paths.constants, componentUpper, componentLower);
+    await updateIndex(paths.index, componentUpper, componentLower);
+    await updateApp(paths.app, componentUpper);
+    console.log('\x1b[32m%s\x1b[0m', `${componentName} has been added to the library!`);
+    checkFileExists(`src/lib/${pluralize(componentLower)}/${componentName}.svelte`);
   } catch (error) {
-    throw error;
+    console.error('An error occurred:', error);
   }
 }
 
-async function addToPage() {
-  try {
-    const filePath = './src/routes/components/+page.svelte';
-    const fileContent = readFileSync(filePath, 'utf-8');
-
-    const newImport = `\nimport ${pluralize(componentUpper)} from './${pluralize(componentLower)}/${pluralize(componentUpper)}.svelte';`;
-    const newIfElse = `{:else if items === '${pluralize(componentLower)}'}\n<${pluralize(componentUpper)} />\n`;
-
-    const updatedContent = fileContent.replace("import Cards from \"./cards/Cards.svelte\";", `import Cards from "./cards/Cards.svelte";${newImport}`).replace("{:else}", `${newIfElse}{:else}`);
-
-    writeFileSync(filePath, updatedContent);
-
-  } catch (error) {
-    throw error;
+const createDirectory = async (dirPath) => {
+  if (!existsSync(dirPath)) {
+    mkdirSync(dirPath);
   }
-}
+};
 
-async function addToConstants() {
-  try {
-    const filePath = './src/ui_components/constants.ts';
-    const fileContent = readFileSync(filePath, 'utf-8');
-
-    const newConstant = `\n  {\n    name: '${pluralize(componentUpper)}',\n    path: '?items=${pluralize(componentLower)}',\n },`;
-
-    const newContent = fileContent.replace('[', `[${newConstant}`);
-
-    writeFileSync(filePath, newContent);
-
-  } catch (error) {
-    throw error;
+const createFile = async (dirPath, fileName, content) => {
+  const filePath = `${dirPath}/${fileName}.svelte`;
+  if (!existsSync(filePath)) {
+    writeFileSync(filePath, content);
   }
-}
+};
 
-async function addComponentToIndexFile() {
-  try {
-    const filePath = './src/lib/index.ts';
-    const fileContent = readFileSync(filePath, 'utf-8');
+const updateComponentStore = async (filePath, componentName, componentLower) => {
+  const fileContent = readFileSync(filePath, 'utf-8');
+  const newImport = `\nimport { ${pluralize(componentLower)} } from '../../docs/${componentName}_docs';`;
+  const addToComponentMapping = `\n  ${pluralize(componentLower)},`;
 
-    const newComponentImport = `import ${componentUpper}Default from './${pluralize(componentLower)}/${componentUpper}.svelte';\n`;
-    const newComponentExport = `export const ${componentUpper} = Object.assign(${componentUpper}Default, {});\n`;
+  const newContent = fileContent.replace("constants';", `constants';${newImport}`)
+    .replace('componentMapping = {', `componentMapping = {${addToComponentMapping}`);
+  writeFileSync(filePath, newContent);
+};
 
-    const newContent = `${fileContent}${newComponentImport}${newComponentExport}`;
+const updatePage = async (filePath, componentName, componentLower) => {
+  const fileContent = readFileSync(filePath, 'utf-8');
+  const newImport = `\nimport ${pluralize(componentName)} from './${pluralize(componentLower)}/${pluralize(componentName)}.svelte';`;
+  const newIfElse = `{:else if items === '${pluralize(componentLower)}'}\n<${pluralize(componentName)} />\n`;
 
-    writeFileSync(filePath, newContent);
+  const updatedContent = fileContent.replace("import Cards from \"./cards/Cards.svelte\";", `import Cards from "./cards/Cards.svelte";${newImport}`)
+    .replace("{:else}", `${newIfElse}{:else}`);
+  writeFileSync(filePath, updatedContent);
+};
 
-  } catch (error) {
-    throw error;
-  }
-}
+const updateConstants = async (filePath, componentName, componentLower) => {
+  const fileContent = readFileSync(filePath, 'utf-8');
+  const newConstant = `\n  {\n    name: '${pluralize(componentName)}',\n    path: '?items=${pluralize(componentLower)}',\n },`;
 
-async function addToApp() {
-  try {
-    const filePath = './src/app.d.ts';
-    const fileContent = readFileSync(filePath, 'utf-8');
+  const newContent = fileContent.replace('[', `[${newConstant}`);
+  writeFileSync(filePath, newContent);
+};
 
-    const newType = `\n\n// * ${componentUpper} TYPES\nexport interface ${componentUpper}DisplayData extends BaseDisplayData {\n  examples: ${componentUpper}Example[];\n}`;
+const updateIndex = async (filePath, componentName, componentLower) => {
+  const fileContent = readFileSync(filePath, 'utf-8');
+  const newComponentImport = `import ${componentName}Default from './${pluralize(componentLower)}/${componentName}.svelte';\n`;
+  const newComponentExport = `export const ${componentName} = Object.assign(${componentName}Default, {});\n`;
 
-    const newContent = `${fileContent}${newType}`;
+  const newContent = `${fileContent}${newComponentImport}${newComponentExport}`;
+  writeFileSync(filePath, newContent);
+};
 
-    writeFileSync(filePath, newContent);
+const updateApp = async (filePath, componentName) => {
+  const fileContent = readFileSync(filePath, 'utf-8');
+  const newType = `\n\n// * ${componentName} TYPES\nexport interface ${componentName}DisplayData extends BaseDisplayData {\n  examples: ${componentName}Example[];\n}`;
 
-  } catch (error) {
-    throw error;
-  }
-}
+  const newContent = `${fileContent}${newType}`;
+  writeFileSync(filePath, newContent);
+};
+
+main();
