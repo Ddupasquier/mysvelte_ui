@@ -5,15 +5,36 @@
     // Props
     /**
      * @component Avatar
-     * @type {string} image - The URL of the avatar image. Provide the path to the image you want to display as the avatar. , ""
-     * @type {string} alt - The alternative text for the avatar image. This text is displayed when the image cannot be loaded or accessed by screen readers. , ""
-     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"} size - The size of the avatar. Choose from "xsmall", "small", "medium", "large", or "xlarge" to control the dimensions of the avatar. , "medium"
-     * @type {"circ" | "rounded" | "square"} shape - The shape of the avatar. Select either "circ", "rounded", or "square" to define the border shape of the avatar. , "rounded"
-     * @type {"none" | "gray" | "sepia" | "invert"} filter - The filter applied to the avatar image. Apply visual effects such as "gray" for grayscale, "sepia" for a vintage look, or "invert" for an inverted color scheme. , "none"
+     *
+     * @prop image
+     * @description The URL of the avatar image. Provide the path to the image you want to display as the avatar.
+     * @type {string}
+     * @default: ""
+     *
+     * @prop alt
+     * @description The alternative text for the avatar image. This text is displayed when the image cannot be loaded or accessed by screen readers.
+     * @type {string}
+     * @default: ""
+     *
+     * @prop size
+     * @description The size of the avatar. Choose from "xsmall", "small", "medium", "large", or "xlarge" to control the dimensions of the avatar.
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+     * @default: "medium"
+     *
+     * @prop shape
+     * @description The shape of the avatar. Select either "circ", "rounded", or "square" to define the border shape of the avatar.
+     * @type {"circ" | "rounded" | "square"}
+     * @default: "rounded"
+     *
+     * @prop filter
+     * @description The filter applied to the avatar image. Apply visual effects such as "gray" for grayscale, "sepia" for a vintage look, or "invert" for an inverted color scheme.
+     * @type {"none" | "gray" | "sepia" | "invert"}
+     * @default: "none"
      */
     export let image: string;
     export let alt: string;
-    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
+    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
+        "medium";
     export let shape: "circ" | "rounded" | "square" = "rounded";
     export let filter: "none" | "gray" | "sepia" | "invert" = "none";
 
@@ -33,9 +54,11 @@
     // Reactive statements
     $: classString = classList.join(" ");
 </script>
+
 <div class={classString}>
     <img src={image} {alt} />
 </div>
+
 <style lang="scss">
     .avatar {
         display: flex;

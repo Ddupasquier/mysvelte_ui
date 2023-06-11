@@ -4,14 +4,43 @@
   // Props
   /**
    * @component Checkbox
-   * @type {string} name - The name attribute of the checkbox. , "" 
-   * @type {string} label - The text that appears next to the checkbox. , ""
-   * @type {string} labelColor - The color of the label. Accepts any valid CSS color. , "#000"
-   * @type {boolean} checked - Determines if the checkbox is checked or not. , false
-   * @type {string} color - The color of the checkbox. Accepts any valid CSS color. , "#000"
-   * @type {string} size - The size of the checkbox. Choose from 'small', 'medium', or 'large'. , "medium"
-   * @type {boolean} disabled - Determines if the checkbox is disabled or not. , false
+   *
+   * @prop name
+   * @description Specifies the name attribute for the checkbox. It's used for form submission and in the DOM.
+   * @type {string}
+   * @default: ""
+   *
+   * @prop label
+   * @description Represents the text that appears next to the checkbox. It can be used to describe the purpose of the checkbox to the user.
+   * @type {string}
+   * @default: ""
+   *
+   * @prop labelColor
+   * @description Determines the color of the label text. It accepts any valid CSS color, giving you a wide range of options to match your UI's color scheme.
+   * @type {string}
+   * @default: "#000"
+   *
+   * @prop checked
+   * @description Controls whether the checkbox is checked or not by default. Set it to `true` if you want the checkbox to be checked on initial load.
+   * @type {boolean}
+   * @default: false
+   *
+   * @prop color
+   * @description Specifies the color of the checkbox itself. It accepts any valid CSS color, providing you with flexibility in styling.
+   * @type {string}
+   * @default: "#000"
+   *
+   * @prop size
+   * @description Dictates the size of the checkbox. Available options are 'small', 'medium', or 'large' to cater to different design needs.
+   * @type {string}
+   * @default: "medium"
+   *
+   * @prop disabled
+   * @description Controls whether the checkbox is disabled or not. When set to `true`, the checkbox appears grayed out and cannot be interacted with.
+   * @type {boolean}
+   * @default: false
    */
+
   export let name: string = "checkbox";
   export let label: string = "";
   export let labelColor: string = "#000";

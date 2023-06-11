@@ -196,55 +196,58 @@ export const avatars: AvatarDisplayData[] = [
     ],
   },
   {
-    id: 'avatar_props',
-    header: 'Avatar Props',
-    description: 'Here\'s a breakdown of the props you can pass into the Avatar component.',
+    id: `avatar_props`,
+    header: `Avatar Props`,
+    description: 'Avatar Props',
     type: 'table',
     table: {
-      tableName: 'avatars',
+      tableName: 'avatar',
       rows: [
         {
-          name: 'avatar_image!',
-          description: 'The image source for the avatar. Provide the path to the image you want to display as the avatar.',
-          default: '""',
-          nav: true
+          name: `avatar_image!`,
+          description: 'The URL of the avatar image. Provide the path to the image you want to display as the avatar.',
+          type: '{string}',
+          default: '\"\"',
+          nav: true,
         },
         {
-          name: 'button_alt!',
-          description: 'The alt text for the avatar. This text is displayed when the image cannot be loaded or accessed by screen readers.',
-          default: '""',
-          nav: false
+          name: `avatar_alt!`,
+          description: 'The alternative text for the avatar image. This text is displayed when the image cannot be loaded or accessed by screen readers.',
+          type: '{string}',
+          default: '\"\"',
+          nav: false,
         },
         {
-          name: 'avatar_size',
-          description: 'The size prop determines the size of the avatar. Choose from "xsmall", "small", "medium", "large", or "xlarge" to control the dimensions of the avatar.',
-          default: '"medium"',
-          nav: true
+          name: `avatar_size`,
+          description: 'The size of the avatar. Choose from \"xsmall\", \"small\", \"medium\", \"large\", or \"xlarge\" to control the dimensions of the avatar.',
+          type: '{"xsmall" | "small" | "medium" | "large" | "xlarge"}',
+          default: '\"medium\"',
+          nav: true,
         },
         {
-          name: 'avatar_shape',
-          description: 'The shape of the avatar can be "square", "rounded", or "circ". Select one of these options to define the border shape of the avatar.',
-          default: '"rounded"',
-          nav: true
+          name: `avatar_shape`,
+          description: 'The shape of the avatar. Select either \"circ\", \"rounded\", or \"square\" to define the border shape of the avatar.',
+          type: '{"circ" | "rounded" | "square"}',
+          default: '\"rounded\"',
+          nav: true,
         },
         {
-          name: 'avatar_filter',
-          description
-
-            : 'The filter prop determines the filter applied to the avatar image. Apply visual effects such as "gray" for grayscale, "sepia" for a vintage look, or "invert" for an inverted color scheme.',
-          default: '"none"',
-          nav: true
-        },
-      ]
+          name: `avatar_filter`,
+          description: 'The filter applied to the avatar image. Apply visual effects such as \"gray\" for grayscale, \"sepia\" for a vintage look, or \"invert\" for an inverted color scheme.',
+          type: '{"none" | "gray" | "sepia" | "invert"}',
+          default: '\"none\"',
+          nav: true,
+        }
+      ],
     },
     examples: [
       {
         component: null,
         props: {
-          image: image1,
-          alt: 'Avatar',
+          image: '',
+          alt: '',
         },
       },
     ],
-  }
+  },
 ];

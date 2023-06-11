@@ -162,86 +162,97 @@ export const accordions: AccordionDisplayData[] = [
     ],
   },
   {
-    id: 'accordion_props',
-    header: 'Accordion Props',
-    description: 'Here\'s a breakdown of the props you can pass into the Accordion component.',
+    id: `accordion_props`,
+    header: `Accordion Props`,
+    description: 'Accordion Props',
     type: 'table',
     table: {
-      tableName: 'accordions',
+      tableName: 'accordion',
       rows: [
         {
-          name: 'accordion_data!',
+          name: `accordion_data!`,
           description: 'The array of accordion items. Each item should have a `title`, `details`, and a `content`.',
+          type: '{Array}',
           default: '[]',
-          nav: false
+          nav: false,
         },
         {
-          name: 'accordion_collapse',
+          name: `accordion_collapse`,
           description: 'If true, only one item can be expanded at a time. Expanding another item will collapse the currently expanded item.',
+          type: '{boolean}',
           default: 'true',
-          nav: true
+          nav: true,
         },
         {
-          name: 'accordion_animated',
+          name: `accordion_animated`,
           description: 'If true, the accordion transitions will be animated.',
+          type: '{boolean}',
           default: 'false',
-          nav: true
+          nav: true,
         },
         {
-          name: 'accordion_disabled',
-          description: 'If true, the accordion will be disabled and users cannot interact with it.',
-          default: 'false',
-          nav: true
-        },
-        {
-          name: 'accordion_headerStyle',
-          description: 'The CSS style for the accordion item headers.',
-          default: '""',
-          nav: false
-        },
-        {
-          name: 'accordion_contentStyle',
-          description: 'The CSS style for the accordion item content.',
-          default: '""',
-          nav: false
-        },
-        {
-          name: 'tabBg',
-          description: 'The background color for the tab.',
-          default: '"#c50eff"',
-          nav: false
-        },
-        {
-          name: 'tabColor',
-          description: 'The text color for the tab.',
-          default: '"#fff"',
-          nav: false
-        },
-        {
-          name: 'background',
-          description: 'The background color for the accordion.',
-          default: '"#fff"',
-          nav: false
-        },
-        {
-          name: 'color',
-          description: 'The text color for the accordion.',
-          default: '"#000"',
-          nav: false
-        },
-        {
-          name: 'divider',
+          name: `accordion_divider`,
           description: 'If true, a divider will be added between each accordion item.',
+          type: '{boolean}',
           default: 'false',
-          nav: true
+          nav: true,
         },
-      ]
+        {
+          name: `accordion_disabled`,
+          description: 'If true, the accordion will be disabled and users cannot interact with it.',
+          type: '{boolean}',
+          default: 'false',
+          nav: true,
+        },
+        {
+          name: `accordion_headerStyle`,
+          description: 'The CSS style for the accordion item headers.',
+          type: '{string}',
+          default: '\"\"',
+          nav: false,
+        },
+        {
+          name: `accordion_contentStyle`,
+          description: 'The CSS style for the accordion item content.',
+          type: '{string}',
+          default: '\"\"',
+          nav: false,
+        },
+        {
+          name: `accordion_tabBg`,
+          description: 'The background color for the tab.',
+          type: '{string}',
+          default: '\"#c50eff\"',
+          nav: false,
+        },
+        {
+          name: `accordion_tabColor`,
+          description: 'The text color for the tab.',
+          type: '{string}',
+          default: '\"#fff\"',
+          nav: false,
+        },
+        {
+          name: `accordion_background`,
+          description: 'The background color for the accordion.',
+          type: '{string}',
+          default: '\"#fff\"',
+          nav: false,
+        },
+        {
+          name: `accordion_color`,
+          description: 'The text color for the accordion.',
+          type: '{string}',
+          default: '\"#000\"',
+          nav: false,
+        },
+      ],
     },
     examples: [
       {
         component: null,
         props: {
-          data: accordionData,
+          data: [],
         },
       },
     ],
