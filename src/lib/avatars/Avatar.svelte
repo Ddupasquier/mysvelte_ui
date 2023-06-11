@@ -7,7 +7,7 @@
      * @component Avatar
      *
      * @prop image
-     * @description The URL of the avatar image. Provide the path to the image you want to display as the avatar.
+     * @description NEW The URL of the avatar image. Provide the path to the image you want to display as the avatar.
      * @type {string}
      * @default: ""
      *

@@ -30,12 +30,18 @@ export async function createDocumentationFile(componentPathInput) {
         output: process.stdout
       });
 
-      rl.question('File already exists. Do you want to overwrite it? (Y/n) ', async (answer) => {
+      rl.question('That file already exists. Would you like to completely overwrite the file? or just update the props table? (full/props) ', async (answer) => {
         rl.close();
+        const componentContent = await readFile(componentPath, 'utf8');
 
-        if (answer.toLowerCase() === 'y') {
-          const componentContent = await readFile(componentPath, 'utf8');
+        if (answer.toLowerCase() === 'full') {
           await createFile(docFilePath, generateTSCode(componentContent));
+        } else if (answer.toLowerCase() === 'props') {
+          const existingContent = await readFile(docFilePath, 'utf8');
+          const updatedContent = existingContent.replace(/rows: \[\s*(\{[\s\S]*?\})\s*\]/, `rows: [${generatePropRows(componentContent)}]`);
+          await createFile(docFilePath, updatedContent);
+        } else {
+          console.log('Invalid response. Please enter either "full" or "props".');
         }
       });
     } catch {
@@ -50,6 +56,9 @@ export async function createDocumentationFile(componentPathInput) {
     try {
       await writeFile(path, content);
       console.log(`Created documentation file for ${componentName} at ${path}`);
+      console.log('\x1b[32m%s\x1b[0m', 'YOU WILL NEED TO MANUALLY UPDATE THE NAVIGATION BOOLS AND THE REQUIRED FIELDS IN THE DOCS TEMPORARILY!');
+      console.log('\x1b[33m%s\x1b[0m', 'To require a prop, add "!" to the end of the row name in the props table.');
+      console.log('\x1b[33m%s\x1b[0m', 'The nav key determines whether or not the user is able to click the name to navigate to the usage summary.');
     } catch (err) {
       console.error(err);
     }
@@ -68,6 +77,55 @@ export async function createDocumentationFile(componentPathInput) {
   }
 
   function generateTSCode(componentContent) {
+    const commentBlock = componentContent.match(/\/\*\*([\s\S]*?)\*\//)?.[0];
+
+    if (!commentBlock) {
+      throw new Error('No comment block found in the component file.');
+    }
+
+    const propRows = generatePropRows(componentContent);
+
+    const code = `import { ${componentName} } from '../src/lib';
+  import type { ${componentName}DisplayData } from '../src/app.d.ts';
+
+  export const ${pluralize(componentNameLower)}: ${componentName}DisplayData[] = [
+    {
+      id: \`${componentNameLower}_basics\`,
+      header: '${componentName} Basics',
+      description: '',
+      type: 'components',
+      examples: [
+        {
+          component: ${componentName},
+          props: {},
+          code: [''],
+        },
+      ],
+    },
+    {
+      id: \`${componentNameLower}_props\`,
+      header: \`${componentName} Props\`,
+      description: '${componentName} Props',
+      type: 'table',
+      table: {
+        tableName: '${componentNameLower}',
+        rows: [
+          ${propRows}
+        ],
+      },
+      examples: [
+        {
+          component: null,
+          props: {},
+        },
+      ],
+    },
+  ];`;
+
+    return code;
+  }
+
+  function generatePropRows(componentContent) {
     const commentBlock = componentContent.match(/\/\*\*([\s\S]*?)\*\//)?.[0];
 
     if (!commentBlock) {
@@ -124,47 +182,8 @@ export async function createDocumentationFile(componentPathInput) {
   }`;
     });
 
-
-    const code = `import { ${componentName} } from '../src/lib';
-  import type { ${componentName}DisplayData } from '../src/app.d.ts';
-
-  export const ${pluralize(componentNameLower)}: ${componentName}DisplayData[] = [
-    {
-      id: \`${componentNameLower}_basics\`,
-      header: '${componentName} Basics',
-      description: '',
-      type: 'components',
-      examples: [
-        {
-          component: ${componentName},
-          props: {},
-          code: [''],
-        },
-      ],
-    },
-    {
-      id: \`${componentNameLower}_props\`,
-      header: \`${componentName} Props\`,
-      description: '${componentName} Props',
-      type: 'table',
-      table: {
-        tableName: '${componentNameLower}',
-        rows: [
-          ${propRows.join(',\n          ')}
-        ],
-      },
-      examples: [
-        {
-          component: null,
-          props: {},
-        },
-      ],
-    },
-  ];`;
-
-    return code;
+    return propRows.join(',\n          ');
   }
-
 
 }
 
