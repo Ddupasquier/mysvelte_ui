@@ -164,9 +164,9 @@ async function addToPage() {
     const newImport = `\nimport ${pluralize(componentUpper)} from './${pluralize(componentLower)}/${pluralize(componentUpper)}.svelte';`;
     const newIfElse = `{:else if items === '${pluralize(componentLower)}'}\n<${pluralize(componentUpper)} />\n`;
 
-    const newContent = fileContent.replace("constants';", `constants';${newImport}`).replace('{:else}', `${newIfElse}{:else}`);
+    const updatedContent = fileContent.replace("import Cards from \"./cards/Cards.svelte\";", `import Cards from "./cards/Cards.svelte";${newImport}`).replace("{:else}", `${newIfElse}{:else}`);
 
-    writeFileSync(filePath, newContent);
+    writeFileSync(filePath, updatedContent);
 
   } catch (error) {
     throw error;

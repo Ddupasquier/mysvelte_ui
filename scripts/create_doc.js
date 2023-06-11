@@ -3,6 +3,23 @@ import { resolve, basename } from 'path';
 import readline from 'readline';
 import pluralize from 'pluralize';
 
+let fileCreated = false;
+
+export async function checkFileExists(componentPath) {
+  if (fileCreated) {
+    return;
+  }
+
+  try {
+    await access(componentPath); // Check if component file exists
+    await createDocumentationFile(componentPath); // if it exists, call createDocumentationFile
+    fileCreated = true; // Set the flag to true after file is created
+  } catch {
+    // if it doesn't exist, wait for 1 second and check again
+    setTimeout(() => checkFileExists(componentPath), 1000);
+  }
+}
+
 export async function createDocumentationFile(componentPathInput) {
   const componentPath = componentPathInput;
   const pathComponents = componentPath.split(/[\\\/]/);
@@ -79,11 +96,7 @@ export async function createDocumentationFile(componentPathInput) {
   function generateTSCode(componentContent) {
     const commentBlock = componentContent.match(/\/\*\*([\s\S]*?)\*\//)?.[0];
 
-    if (!commentBlock) {
-      throw new Error('No comment block found in the component file.');
-    }
-
-    const propRows = generatePropRows(componentContent);
+    const propRows = commentBlock ? generatePropRows(componentContent) : [];
 
     const code = `import { ${componentName} } from '../src/lib';
   import type { ${componentName}DisplayData } from '../src/app.d.ts';
@@ -124,6 +137,7 @@ export async function createDocumentationFile(componentPathInput) {
 
     return code;
   }
+
 
   function generatePropRows(componentContent) {
     const commentBlock = componentContent.match(/\/\*\*([\s\S]*?)\*\//)?.[0];
@@ -187,7 +201,8 @@ export async function createDocumentationFile(componentPathInput) {
 
 }
 
-createDocumentationFile(process.argv[2])
+// createDocumentationFile(process.argv[2])
+checkFileExists(process.argv[2])
 
 // usage example
 // createDocumentationFile('./path/to/component.ts');
