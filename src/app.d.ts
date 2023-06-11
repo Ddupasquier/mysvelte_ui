@@ -15,7 +15,7 @@ type tableRow = {
 interface BaseDisplayData {
   id: string;
   header: string;
-  description: string;
+  description?: string;
   type: 'gallery' | 'components' | 'nested' | 'table';
   table?: PropsTable;
 }

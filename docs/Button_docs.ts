@@ -350,7 +350,6 @@ export const buttons: ButtonDisplayData[] = [
   {
     id: `button_props`,
     header: `Button Props`,
-    description: 'Button Props',
     type: 'table',
     table: {
       tableName: 'button',

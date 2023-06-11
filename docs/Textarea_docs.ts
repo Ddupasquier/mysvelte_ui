@@ -18,7 +18,6 @@ export const textareas: TextareaDisplayData[] = [
   {
     id: `textarea_props`,
     header: `Textarea Props`,
-    description: 'Textarea Props',
     type: 'table',
     table: {
       tableName: 'textarea',

@@ -164,7 +164,6 @@ export const accordions: AccordionDisplayData[] = [
   {
     id: `accordion_props`,
     header: `Accordion Props`,
-    description: 'Accordion Props',
     type: 'table',
     table: {
       tableName: 'accordion',

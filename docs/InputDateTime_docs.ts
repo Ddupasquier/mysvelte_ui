@@ -104,7 +104,6 @@ export const inputdateProps: InputDisplayData =
 {
   id: `inputDate/Time_props`,
   header: `Input Date/Time Props`,
-  description: 'Input data/time Props',
   type: 'table',
   table: {
     tableName: 'inputdate',

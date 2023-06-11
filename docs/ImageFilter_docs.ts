@@ -187,7 +187,6 @@ export const imageFilters: ImageFilterDisplayData[] = [
   {
     id: `imagefilter_props`,
     header: `Imagefilter Props`,
-    description: 'Imagefilter Props',
     type: 'table',
     table: {
       tableName: 'imagefilter',

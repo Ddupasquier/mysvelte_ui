@@ -191,7 +191,6 @@ export const checkboxes: CheckboxDisplayData[] = [
   {
     id: `checkbox_props`,
     header: `Checkbox Props`,
-    description: 'Checkbox Props',
     type: 'table',
     table: {
       tableName: 'checkbox',

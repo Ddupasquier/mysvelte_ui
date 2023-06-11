@@ -199,7 +199,6 @@ export const avatars: AvatarDisplayData[] = [
   {
     id: `avatar_props`,
     header: `Avatar Props`,
-    description: 'Avatar Props',
     type: 'table',
     table: {
       tableName: 'avatar',

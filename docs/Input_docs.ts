@@ -302,7 +302,6 @@ export const inputs: InputDisplayData[] = [
   {
     id: `input_props`,
     header: `Input Props`,
-    description: 'Input Props',
     type: 'table',
     table: {
       tableName: 'input',

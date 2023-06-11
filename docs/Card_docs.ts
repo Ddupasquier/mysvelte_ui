@@ -371,7 +371,6 @@ export const cards: CardDisplayData[] = [
   {
     id: `card_props`,
     header: `Card Props`,
-    description: 'Card Props',
     type: 'table',
     table: {
       tableName: 'card',

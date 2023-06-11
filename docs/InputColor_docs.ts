@@ -52,8 +52,7 @@ export const inputcolors: InputDisplayData =
 export const inputcolorProps: InputDisplayData =
 {
   id: `inputColorPicker_props`,
-  header: `Inputcolor Props`,
-  description: 'Inputcolor Props',
+  header: `Input Colorpicker Props`,
   type: 'table',
   table: {
     tableName: 'inputcolor',
