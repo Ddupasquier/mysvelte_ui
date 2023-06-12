@@ -6,12 +6,12 @@
     /**
      * @component Avatar
      *
-     * @prop image
-     * @description NEW The URL of the avatar image. Provide the path to the image you want to display as the avatar.
+     * @prop image!
+     * @description The URL of the avatar image. Provide the path to the image you want to display as the avatar.
      * @type {string}
      * @default ""
      *
-     * @prop alt
+     * @prop alt!
      * @description The alternative text for the avatar image. This text is displayed when the image cannot be loaded or accessed by screen readers.
      * @type {string}
      * @default ""

@@ -1,46 +1,125 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
+  import { fade } from "svelte/transition";
 
   // Props
-  export let prefix: string = '@';
-  export let variant: 'default' | 'line' | 'outline' = 'default';
-  export let size: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' =
-    'medium';
-  export let background: string = 'white';
-  export let color: string = '#000';
-  export let placeholder: string = 'Search';
-  export let value: string = '';
-  export let style: string = '';
+  /**
+   * @component Input.Prefix
+   *
+   * @prop prefix
+   * @description Specify a prefix that appears before the input. Useful for indicating the input purpose, such as '@' for mentioning users.
+   * @type {string}
+   * @default "@"
+   *
+   * @prop variant
+   * @description Choose the appearance of the search input field. Pick from "default", "line", or "outline" to fit your design needs.
+   * @type {"default" | "line" | "outline"}
+   * @default "default"
+   *
+   * @prop size
+   * @description Select the size of the search input field. Options range from "xsmall" to "xlarge", with "small", "medium", and "large" available too.
+   * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+   * @default "medium"
+   *
+   * @prop background
+   * @description Define the background color of the search input field to match your UI theme.
+   * @type {string}
+   * @default "white"
+   *
+   * @prop color
+   * @description Define the text color inside the search input field.
+   * @type {string}
+   * @default "#000"
+   *
+   * @prop placeholder
+   * @description Specify the placeholder text that appears in the search input field when it is empty.
+   * @type {string}
+   * @default "Search"
+   *
+   * @prop value
+   * @description Set the default value of the search input field.
+   * @type {string}
+   * @default ""
+   *
+   * @prop style
+   * @description Apply additional inline CSS styles to the search input field.
+   * @type {string}
+   * @default ""
+   *
+   * @prop label
+   * @description Decide whether or not to display a label with the search input field. If set to true, you must also provide an associated 'id' for accessibility.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop labelIn
+   * @description Decide whether to display the label within the search input field. Only applicable if a label is used.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop labelColor
+   * @description Specify the color of the label text, if a label is used.
+   * @type {string}
+   * @default "#000"
+   *
+   * @prop disabled
+   * @description Enable or disable the search input field. When set to true, the field becomes read-only and users cannot interact with it.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop clearable
+   * @description Enable or disable the clear button in the search input field. When set to true, users can clear the input with a single click.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop isError
+   * @description Set this to true to show the search input field in an error state, such as when validation fails.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop isLoading
+   * @description Set this to true to show a loading state in the search input field, useful when waiting for an action to complete.
+   * @type {boolean}
+   * @default false
+   */
+
+  export let prefix: string = "@";
+  export let variant: "default" | "line" | "outline" = "default";
+  export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
+    "medium";
+  export let background: string = "white";
+  export let color: string = "#000";
+  export let placeholder: string = "Search";
+  export let value: string = "";
+  export let style: string = "";
   export let label: boolean = false;
   export let labelIn: boolean = false;
-  export let labelColor: string = '#000';
+  export let labelColor: string = "#000";
   export let disabled: boolean = false;
   export let clearable: boolean = false;
   export let isError: boolean = false;
   export let isLoading: boolean = false;
 
   // Local state
-  const type = 'text';
-  let inputStyle = '';
+  const type = "text";
+  let inputStyle = "";
   let inputRef: HTMLInputElement;
 
   // Size values
   const sizeValues: Record<typeof size, string> = {
-    xsmall: '0.125rem 0.25rem 0.125rem 0.1rem',
-    small: '0.25rem 0.5rem 0.25rem 0.2rem',
-    medium: '0.5rem 1rem 0.5rem 0.4rem',
-    large: '0.75rem 1.5rem 0.75rem 0.6rem',
-    xlarge: '1rem 2rem 1rem 0.8rem',
+    xsmall: "0.125rem 0.25rem 0.125rem 0.1rem",
+    small: "0.25rem 0.5rem 0.25rem 0.2rem",
+    medium: "0.5rem 1rem 0.5rem 0.4rem",
+    large: "0.75rem 1.5rem 0.75rem 0.6rem",
+    xlarge: "1rem 2rem 1rem 0.8rem",
   };
 
   // Utility functions
   const removeBackgroundStyle = (styleString: string): string => {
-    return styleString.replace(/background:\s*[^;]+;?/, '');
+    return styleString.replace(/background:\s*[^;]+;?/, "");
   };
 
   const updateInputStyle = () => {
     let baseStyle = `background: ${background}; color: ${color}; padding: ${sizeValues[size]}; ${style};`;
-    let additionalStyle = '';
+    let additionalStyle = "";
 
     if (disabled) {
       additionalStyle = `background: #eee; pointer-events: none; padding: ${
@@ -60,7 +139,7 @@
   // Reactive statements
   $: {
     updateInputStyle();
-    labelIn && (placeholder = '');
+    labelIn && (placeholder = "");
   }
 
   // Event handlers
@@ -70,32 +149,28 @@
   };
 
   const clearInput = () => {
-    value = '';
+    value = "";
   };
 </script>
 
 <div class="input-container">
   {#if label}
-        {#if labelIn}
-            <label
-                class="label-in"
-                for={$$restProps.id}
-                style="color: {labelColor}">{$$restProps.id}</label
-            >
-        {:else}
-            <label
-                class="label"
-                for={$$restProps.id}
-                style="color: {labelColor}">{$$restProps.id}</label
-            >
-        {/if}
+    {#if labelIn}
+      <label class="label-in" for={$$restProps.id} style="color: {labelColor}"
+        >{$$restProps.id}</label
+      >
+    {:else}
+      <label class="label" for={$$restProps.id} style="color: {labelColor}"
+        >{$$restProps.id}</label
+      >
     {/if}
+  {/if}
   <div
     style={inputStyle}
-    class={(isLoading ? 'loading' : isError ? 'error' : '') + variant}
+    class={(isLoading ? "loading" : isError ? "error" : "") + variant}
     on:click={() => inputRef.focus()}
     on:keydown={(event) => {
-      if (event.key === 'Enter') {
+      if (event.key === "Enter") {
         inputRef.blur();
       }
     }}
@@ -120,7 +195,7 @@
     />
   </div>
   <div class="options">
-    {#if clearable && value !== ''}
+    {#if clearable && value !== ""}
       <button
         class="clear-button"
         on:click={clearInput}
@@ -212,7 +287,7 @@
       border-radius: 50rem;
       border: none;
       cursor: default;
-      font-size: .8rem;
+      font-size: 0.8rem;
       color: #666666;
       transition: opacity 0.2s ease-in-out;
     }

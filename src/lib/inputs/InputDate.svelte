@@ -3,72 +3,70 @@
 
     // Props
     /**
-     * @file Input.tsx
-     *
-     * Props:
+     * @component Input.Date, Input.DateTime, Input.Time
      *
      * @prop variant
-     * @description Determines the variant style of the component. Options are "default", "line", or "outline".
+     * @description Choose the appearance of the input field. Pick from "default", "line", or "outline" to fit your design needs.
      * @type {"default" | "line" | "outline"}
      * @default "default"
      *
      * @prop size
-     * @description Determines the size of the component. Options are "xsmall", "small", "medium", "large", or "xlarge".
+     * @description Select the size of the input field. It can be as small as "xsmall" or as large as "xlarge", with "small", "medium", and "large" options available.
      * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
      * @default "medium"
      *
      * @prop background
-     * @description Sets the background color of the component.
+     * @description Define the background color of the input field, suiting your UI theme.
      * @type {string}
      * @default "white"
      *
      * @prop color
-     * @description Sets the text color of the component.
+     * @description Define the text color inside the input field.
      * @type {string}
      * @default "#000"
      *
      * @prop value
-     * @description Sets the value of the component.
+     * @description Specify the default value of the input field. For date and time components, this should be in a recognized date or time format.
      * @type {string}
      * @default ""
      *
      * @prop style
-     * @description Customizes the style of the component.
+     * @description Apply additional inline CSS styles to the input field.
      * @type {string}
      * @default ""
      *
      * @prop label
-     * @description If true, a label is displayed.
+     * @description Decide whether or not to display a label along with the input field. If set to true, you must also provide an associated 'id' for accessibility.
      * @type {boolean}
      * @default false
      *
      * @prop labelColor
-     * @description Sets the color of the label.
+     * @description Specify the color of the label text, if a label is used.
      * @type {string}
      * @default "#000"
      *
      * @prop disabled
-     * @description If true, the component is disabled and users cannot interact with it.
+     * @description Enable or disable the input field. When set to true, the field becomes read-only and cannot be interacted with.
      * @type {boolean}
      * @default false
      *
      * @prop isError
-     * @description If true, the component displays an error state.
+     * @description Set this to true to show the input field in an error state, such as when validation fails.
      * @type {boolean}
      * @default false
      *
      * @prop isLoading
-     * @description If true, the component displays a loading state.
+     * @description Set this to true to show a loading state in the input field, useful when waiting for an action to complete.
      * @type {boolean}
      * @default false
      *
      * @prop min
-     * @description Sets the minimum value for numeric inputs.
+     * @description Specify the minimum value that can be inputted for numeric inputs. For date and time components, this should be in a recognized date or time format.
      * @type {string}
      * @default ""
      *
      * @prop max
-     * @description Sets the maximum value for numeric inputs.
+     * @description Specify the maximum value that can be inputted for numeric inputs. For date and time components, this should be in a recognized date or time format.
      * @type {string}
      * @default ""
      */

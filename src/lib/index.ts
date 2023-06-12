@@ -11,7 +11,7 @@ export { default as Spacer } from './Spacer.svelte';
 
 // * INPUTS
 import DefaultInput from './inputs/Input.svelte';
-import Prefix from './inputs/Prefix.svelte';
+import Prefix from './inputs/InputPrefix.svelte';
 import InputColor from './inputs/InputColor.svelte';
 import InputNumber from './inputs/InputNumber.svelte';
 import InputDateTime from './inputs/InputDateTime.svelte';

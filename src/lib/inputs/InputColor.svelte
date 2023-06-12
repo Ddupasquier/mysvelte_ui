@@ -3,33 +3,35 @@
 
     // Props
     /**
+     * @component Input.Color
+     * 
      * @prop size
-     * @description Determines the size of the component. Options are "xsmall", "small", "medium", "large", or "xlarge".
+     * @description Choose the size of the color input field. You have options from "xsmall" up to "xlarge", with "small", "medium", and "large" in between.
      * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
      * @default "medium"
      *
      * @prop value
-     * @description Sets the value of the component.
+     * @description Set the default color value for the color input field. This should be in a recognized color format, such as hex code.
      * @type {string}
      * @default "#000000"
      *
      * @prop style
-     * @description Customizes the style of the component.
+     * @description Apply additional inline CSS styles to the color input field.
      * @type {string}
      * @default ""
      *
      * @prop label
-     * @description If true, a label is displayed.
+     * @description Decide whether to display a label with the color input field. If set to true, you must also provide an associated 'id' for accessibility.
      * @type {boolean}
      * @default false
      *
      * @prop labelColor
-     * @description Sets the color of the label.
+     * @description Specify the color of the label text, if a label is used.
      * @type {string}
      * @default "#000"
      *
      * @prop disabled
-     * @description If true, the component is disabled and users cannot interact with it.
+     * @description Enable or disable the color input field. When set to true, the field becomes read-only and users can't interact with it.
      * @type {boolean}
      * @default false
      */

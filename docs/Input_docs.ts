@@ -2,6 +2,8 @@ import { Input, Spacer } from '../src/lib';
 import type { InputDisplayData, NumberProps } from '../src/app.d.ts';
 import { inputcolors, inputcolorProps } from './InputColor_docs';
 import { inputdates, inputtimes, inputdatetimes, inputdateProps } from './InputDateTime_docs';
+import { inputnumbers, inputnumberProps } from './InputNumber_docs';
+import { inputprefixes, inputprefixProps } from './InputPrefix_docs';
 
 export const inputs: InputDisplayData[] = [
   {
@@ -420,86 +422,10 @@ export const inputs: InputDisplayData[] = [
       },
     ],
   },
-  {
-    id: 'input_prefix',
-    header: 'Prefix',
-    description:
-      `You can add a prefix the this input by using dot notation IE. Input.Prefix. 
-    You can also change the prefix from the default using the prefix prop. (default: @)
-    
-    const prefix = "@" 
-    let val = "example"
-    
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log(\`\${prefix}@{val}\`); // @example
-    };
-    
-    <form on:submit={handleSubmit}>
-    <Input.Prefix {prefix} bind:value={val} />
-    </form>`,
-    type: 'components',
-    examples: [
-      {
-        component: Input.Prefix,
-        props: {
-          prefix: '@',
-          placeholder: 'Woah',
-        },
-        code: '<Input.Prefix prefix="@" />',
-      },
-      {
-        component: Input.Prefix,
-        props: {
-          prefix: '#',
-          placeholder: 'Pretty',
-        },
-        code: '<Input.Prefix prefix="#" />',
-      },
-      {
-        component: Input.Prefix,
-        props: {
-          prefix: '¯_(ツ)_/¯',
-          placeholder: 'Cool',
-        },
-        code: '<Input.Prefix prefix="¯_(ツ)_/¯" />',
-      },
-    ],
-  },
-  {
-    id: 'input_number',
-    header: 'Number',
-    description:
-      `The number input can be accessed by using dot notation IE. Input.Number.
-    You can also add a min, max, and step prop to the input.
-      (default: min: -10,000, max: 10,000, step: 1)`,
-    type: 'components',
-    examples: [
-      {
-        component: Input.Number,
-        props: {
-          color: '#c50eff',
-        } as NumberProps,
-        code: '<Input.Number {min} {max} {step} />',
-      },
-      {
-        component: Input.Number,
-        props: {
-          color: '#ff00d9',
-          min: 20,
-        } as NumberProps,
-      },
-      {
-        component: Input.Number,
-        props: {
-          color: '#ff3579',
-          min: -10,
-          max: 10,
-          step: 0.5,
-        } as NumberProps,
-      },
-    ],
-  },
+  inputprefixes,
+  inputprefixProps,
+  inputnumbers,
+  inputnumberProps,
   inputdates,
   inputtimes,
   inputdatetimes,

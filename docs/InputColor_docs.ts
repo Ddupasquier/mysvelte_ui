@@ -3,8 +3,8 @@ import type { InputDisplayData } from '../src/app';
 
 export const inputcolors: InputDisplayData =
 {
-  id: 'input_colorpicker',
-  header: 'Color Picker',
+  id: 'input.color_',
+  header: 'Input.Color',
   description:
     'You can easily add a color picker to your input by adding the Input.Color component.',
   type: 'components',
@@ -51,53 +51,53 @@ export const inputcolors: InputDisplayData =
 
 export const inputcolorProps: InputDisplayData =
 {
-  id: `inputColorPicker_props`,
-  header: `Input Colorpicker Props`,
+  id: `input.color_props`,
+  header: `Input.Color Props`,
   type: 'table',
   table: {
     tableName: 'inputcolor',
     rows: [{
-      name: `inputcolor_size`,
-      description: 'Determines the size of the component. Options are \"xsmall\", \"small\", \"medium\", \"large\", or \"xlarge\".',
-      type: '{"xsmall" | "small" | "medium" | "large" | "xlarge"}',
-      default: '\"medium\"',
-      nav: false,
-    },
-    {
-      name: `inputcolor_value`,
-      description: 'Sets the value of the component.',
-      type: '{string}',
-      default: '\"#000000\"',
-      nav: false,
-    },
-    {
-      name: `inputcolor_style`,
-      description: 'Customizes the style of the component.',
-      type: '{string}',
-      default: '\"\"',
-      nav: false,
-    },
-    {
-      name: `inputcolor_label`,
-      description: 'If true, a label is displayed.',
-      type: '{boolean}',
-      default: 'false',
-      nav: false,
-    },
-    {
-      name: `inputcolor_labelColor`,
-      description: 'Sets the color of the label.',
-      type: '{string}',
-      default: '\"#000\"',
-      nav: false,
-    },
-    {
-      name: `inputcolor_disabled`,
-      description: 'If true, the component is disabled and users cannot interact with it.',
-      type: '{boolean}',
-      default: 'false',
-      nav: false,
-    }],
+    name: `inputcolor_size`,
+    description: 'Choose the size of the color input field. You have options from \"xsmall\" up to \"xlarge\", with \"small\", \"medium\", and \"large\" in between.',
+    type: '{"xsmall" | "small" | "medium" | "large" | "xlarge"}',
+    default: '\"medium\"',
+    nav: false,
+  },
+          {
+    name: `inputcolor_value`,
+    description: 'Set the default color value for the color input field. This should be in a recognized color format, such as hex code.',
+    type: '{string}',
+    default: '\"#000000\"',
+    nav: false,
+  },
+          {
+    name: `inputcolor_style`,
+    description: 'Apply additional inline CSS styles to the color input field.',
+    type: '{string}',
+    default: '\"\"',
+    nav: false,
+  },
+          {
+    name: `inputcolor_label`,
+    description: 'Decide whether to display a label with the color input field. If set to true, you must also provide an associated \'id\' for accessibility.',
+    type: '{boolean}',
+    default: 'false',
+    nav: false,
+  },
+          {
+    name: `inputcolor_labelColor`,
+    description: 'Specify the color of the label text, if a label is used.',
+    type: '{string}',
+    default: '\"#000\"',
+    nav: false,
+  },
+          {
+    name: `inputcolor_disabled`,
+    description: 'Enable or disable the color input field. When set to true, the field becomes read-only and users can\'t interact with it.',
+    type: '{boolean}',
+    default: 'false',
+    nav: false,
+  }],
   },
   examples: [
     {

@@ -205,7 +205,7 @@ export const avatars: AvatarDisplayData[] = [
       rows: [
         {
           name: 'avatar_image!',
-          description: 'NEW The URL of the avatar image. Provide the path to the image you want to display as the avatar.',
+          description: 'The URL of the avatar image. Provide the path to the image you want to display as the avatar.',
           type: '{string}',
           default: '\"\"',
           nav: true,
