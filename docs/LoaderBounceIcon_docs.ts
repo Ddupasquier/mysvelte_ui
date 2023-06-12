@@ -3,7 +3,7 @@ import type { LoaderDisplayData, BounceLoaderProps } from '../src/app';
 
 export const loaderbounceicons: LoaderDisplayData =
 {
-  id: 'loader.bounce_',
+  id: 'loader.bounceicon_',
   header: 'Loader.BounceIcon',
   description: 'A loader with a bouncing icon. \nThe same props as the loaders before, but with the addition of an icon prop. \n(default size: medium, default color: #c50eff, default speed: medium, default icon: svelte logo)',
   type: 'components',
@@ -65,7 +65,7 @@ export const loaderBounceProps: LoaderDisplayData =
         name: `loaderbounceicon_icon`,
         description: 'The icon of the loader can be changed to any SVG icon. Just paste any SVG code into the icon prop.',
         type: '{string}',
-        default: '\"The Svelte logo\"',
+        default: 'Svelte logo',
         nav: true,
       }
     ],

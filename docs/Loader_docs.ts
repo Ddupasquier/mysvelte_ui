@@ -4,7 +4,7 @@ import { loaderbounceicons, loaderBounceProps } from './LoaderBounceIcon_docs';
 
 export const loaders: LoaderDisplayData[] = [
   {
-    id: 'loader_basic',
+    id: 'loader_basics',
     header: 'Loader',
     description:
       'A simple loader component. The props available are size, speed and color. \nThe size prop can be set to small, medium or large. The speed prop can be fast, medium, or slow. The color prop can be set to any valid CSS color value. \n(default size: medium, default color: #c50eff, default speed: medium)',
@@ -51,8 +51,6 @@ export const loaders: LoaderDisplayData[] = [
   {
     id: 'loader.elips_',
     header: 'Loader.Elips',
-    description:
-      'Similar to the default loader, but with a different animation. \nThe size prop can be set to small, medium or large. The speed prop can be fast, medium, or slow. The color prop can be set to any valid CSS color value. \n(default size: medium, default color: #c50eff, default speed: medium)',
     type: 'components',
     examples: [
       {
@@ -94,9 +92,8 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader_progress',
+    id: 'loader.progress_',
     header: 'Loader.Progress',
-    description: 'This progress bar in no more complex than the rest. Coming with the same props as the rest of the loaders.',
     type: 'components',
     examples: [
       {
@@ -123,9 +120,8 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader_ring',
+    id: 'loader.pie_',
     header: 'Loader.Pie',
-    description: '',
     type: 'components',
     examples: [
       {
@@ -167,7 +163,6 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   loaderbounceicons,
-  loaderBounceProps,
   {
     id: `loader_props`,
     header: `Loader Props`,
@@ -210,4 +205,5 @@ export const loaders: LoaderDisplayData[] = [
       },
     ],
   },
+  loaderBounceProps,
 ];
