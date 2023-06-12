@@ -13,7 +13,7 @@
   $: searchTerm = "";
   $: searchResults =
     searchTerm.toLowerCase() === "all"
-      ? $componentIds.sort((a, b) => a.localeCompare(b))
+      ? $componentIds.sort((a, b) => (a > b ? 1 : -1))
       : $componentIds.filter((id) =>
           id.toLowerCase().includes(searchTerm.toLowerCase())
         );
@@ -42,30 +42,26 @@
       if (searchInputRef) {
         searchInputRef.focus();
       }
-    } else {
-      isOpen = false;
     }
   };
-  
-const moveFocusDown = (focusedResultIndex: number) => {
+
+  const moveFocusDown = (focusedResultIndex: number) => {
     if (focusedResultIndex === -1) {
       document.getElementById(searchResults[0])?.focus();
     } else if (focusedResultIndex < searchResults.length - 1) {
       const nextElementId = searchResults[focusedResultIndex + 1];
       document.getElementById(nextElementId)?.focus();
     }
-  }
+  };
 
   const moveFocusUp = (focusedResultIndex: number) => {
     if (focusedResultIndex === -1) {
-      document
-        .getElementById(searchResults[searchResults.length - 1])
-        ?.focus();
+      document.getElementById(searchResults[searchResults.length - 1])?.focus();
     } else if (focusedResultIndex > 0) {
       const prevElementId = searchResults[focusedResultIndex - 1];
       document.getElementById(prevElementId)?.focus();
     }
-  }
+  };
 
   const handleArrowKeys = (e: KeyboardEvent) => {
     if (
@@ -85,20 +81,19 @@ const moveFocusDown = (focusedResultIndex: number) => {
         moveFocusUp(focusedResultIndex);
       }
     }
-  }
+  };
 
   const handleKeyDown = (e: KeyboardEvent) => {
     closeSearchIfEscPressed(e);
     openSearchIfCtrlShiftS(e);
     handleArrowKeys(e);
-  }
+  };
 </script>
 
 <svelte:window
   on:click={closeSearchIfClickedOutside}
   on:keydown={handleKeyDown}
 />
-
 
 <div
   class={isOpen ? "outer expanded" : "outer"}
