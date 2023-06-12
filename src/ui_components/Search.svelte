@@ -13,7 +13,7 @@
   $: searchTerm = "";
   $: searchResults =
     searchTerm.toLowerCase() === "all"
-      ? $componentIds
+      ? $componentIds.sort((a, b) => a.localeCompare(b))
       : $componentIds.filter((id) =>
           id.toLowerCase().includes(searchTerm.toLowerCase())
         );
@@ -134,17 +134,23 @@
             href={`/components?items=${pluralize(
               componentId
             )}#${componentId}_${component}`}
-            id={id}
+            {id}
             role="option"
             aria-selected="false"
           >
-            <div class="result">
-              <span class="component">{componentId}</span>:
-              <span class="hash">#</span>
-              <span class="property">
-                {component}
-              </span>
-            </div>
+            {#if component}
+              <div class="result">
+                <span class="component">{componentId}:</span>
+                <span class="hash">#</span>
+                <span class="property">
+                  {component}
+                </span>
+              </div>
+            {:else}
+              <div class="result">
+                <span class="component">{componentId}</span>
+              </div>
+            {/if}
           </a>
         {/each}
       </div>
