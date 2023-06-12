@@ -18,22 +18,23 @@
           id.toLowerCase().includes(searchTerm.toLowerCase())
         );
   $: if (!isOpen) searchTerm = "";
-</script>
 
-<svelte:window
-  on:click={(e) => {
+  const closeSearchIfClickedOutside = (e: MouseEvent) => {
     if (e.target instanceof HTMLElement) {
       if (!searchRef.contains(e.target)) {
         isOpen = false;
       }
     }
-  }}
-  on:keydown={(e) => {
+  };
+
+  const closeSearchIfEscPressed = (e: KeyboardEvent) => {
     if (e.key === "Escape") {
       isOpen = false;
     }
+  };
 
-    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "s") {
+  const openSearchIfCtrlShiftS = (e: KeyboardEvent) => {
+    if (!isOpen && e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "s") {
       e.preventDefault();
       window.scrollTo(0, 0);
       isOpen = true;
@@ -41,10 +42,32 @@
       if (searchInputRef) {
         searchInputRef.focus();
       }
+    } else {
+      isOpen = false;
     }
+  };
+  
+const moveFocusDown = (focusedResultIndex: number) => {
+    if (focusedResultIndex === -1) {
+      document.getElementById(searchResults[0])?.focus();
+    } else if (focusedResultIndex < searchResults.length - 1) {
+      const nextElementId = searchResults[focusedResultIndex + 1];
+      document.getElementById(nextElementId)?.focus();
+    }
+  }
 
-    let focusedResultIndex = -1;
+  const moveFocusUp = (focusedResultIndex: number) => {
+    if (focusedResultIndex === -1) {
+      document
+        .getElementById(searchResults[searchResults.length - 1])
+        ?.focus();
+    } else if (focusedResultIndex > 0) {
+      const prevElementId = searchResults[focusedResultIndex - 1];
+      document.getElementById(prevElementId)?.focus();
+    }
+  }
 
+  const handleArrowKeys = (e: KeyboardEvent) => {
     if (
       isOpen &&
       searchResults.length > 0 &&
@@ -52,29 +75,30 @@
     ) {
       e.preventDefault();
       const activeElementId = document.activeElement?.id;
-      focusedResultIndex = searchResults.findIndex(
+      const focusedResultIndex = searchResults.findIndex(
         (id) => id === activeElementId
       );
+
       if (e.key === "ArrowDown") {
-        if (focusedResultIndex === -1) {
-          document.getElementById(searchResults[0])?.focus();
-        } else if (focusedResultIndex < searchResults.length - 1) {
-          const nextElementId = searchResults[focusedResultIndex + 1];
-          document.getElementById(nextElementId)?.focus();
-        }
+        moveFocusDown(focusedResultIndex);
       } else if (e.key === "ArrowUp") {
-        if (focusedResultIndex === -1) {
-          document
-            .getElementById(searchResults[searchResults.length - 1])
-            ?.focus();
-        } else if (focusedResultIndex > 0) {
-          const prevElementId = searchResults[focusedResultIndex - 1];
-          document.getElementById(prevElementId)?.focus();
-        }
+        moveFocusUp(focusedResultIndex);
       }
     }
-  }}
+  }
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    closeSearchIfEscPressed(e);
+    openSearchIfCtrlShiftS(e);
+    handleArrowKeys(e);
+  }
+</script>
+
+<svelte:window
+  on:click={closeSearchIfClickedOutside}
+  on:keydown={handleKeyDown}
 />
+
 
 <div
   class={isOpen ? "outer expanded" : "outer"}
@@ -124,7 +148,9 @@
         aria-expanded={isOpen}
         transition:slide
       >
-        <div class="result" aria-label="No results found">No results found</div>
+        <div class="result no-result" aria-label="No results found">
+          No results found 😓
+        </div>
       </div>
     {:else}
       <div class="search-results" transition:slide>
@@ -240,6 +266,11 @@
   .result {
     padding: 0.1rem 0.5rem;
     cursor: pointer;
+  }
+
+  .result.no-result {
+    padding: 0.5rem;
+    text-align: center;
   }
 
   a {
