@@ -1,5 +1,6 @@
 <script lang="ts">
   import lost from "../assets/you_must_be_lost.mp4";
+import Textareas from './textareas/Textareas.svelte';
 import ImageFilters from './imagefilters/ImageFilters.svelte';
 import Toggles from './toggles/Toggles.svelte';
 import Accordions from './accordions/Accordions.svelte';
@@ -64,6 +65,8 @@ import Avatars from './avatars/Avatars.svelte';
 <Toggles />
 {:else if items === 'imagefilters'}
 <ImageFilters />
+{:else if items === 'textareas'}
+<Textareas />
 {:else}
   <div class="oops">
     <h1>Oops</h1>

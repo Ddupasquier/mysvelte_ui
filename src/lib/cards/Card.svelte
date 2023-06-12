@@ -4,11 +4,28 @@
   // Props
   /**
    * @component Card
-   * @type {string} background - Background, Card background color, "transparent"
-   * @type {string} style - Style, Card style, ""
-   * @type {string} color - Color, Card text color, "#000"
-   * @type {boolean} hover - Hover, Card hover effect, false
+   *
+   * @prop background
+   * @description Defines the background color of the Card component. This can be any valid CSS color. The default color is transparent, allowing the Card to seamlessly blend into any background.
+   * @type {string}
+   * @default "transparent"
+   *
+   * @prop style
+   * @description Sets additional custom CSS styles for the Card component. This can be used to further customize the Card's appearance beyond the provided props.
+   * @type {string}
+   * @default ""
+   *
+   * @prop color
+   * @description Specifies the text color within the Card component. This can be any valid CSS color, offering full flexibility over the Card's text styling.
+   * @type {string}
+   * @default "#000"
+   *
+   * @prop hover
+   * @description Activates a hover effect on the Card component when set to true. This effect includes a subtle shadow and a slight upwards shift to give a floating impression, adding depth and interactivity to your interface.
+   * @type {boolean}
+   * @default false
    */
+
   export let background: string = "transparent";
   export let style: string = "";
   export let color: string = "#000";

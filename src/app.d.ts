@@ -15,7 +15,7 @@ type tableRow = {
 interface BaseDisplayData {
   id: string;
   header: string;
-  description: string;
+  description?: string;
   type: 'gallery' | 'components' | 'nested' | 'table';
   table?: PropsTable;
 }
@@ -382,3 +382,9 @@ interface ImageFilterProps {
   title?: string;
 }
 
+
+
+// * Textarea TYPES
+export interface TextareaDisplayData extends BaseDisplayData {
+  examples: TextareaExample[];
+}

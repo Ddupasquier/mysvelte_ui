@@ -6,16 +6,56 @@
   // Props
   /**
    * @component Button
-   * @type {boolean} disabled - Determines if the button is clickable or not. When true, the button appears grayed out., false
-   * @type {string} size - Sets the size of the button. Choose from 'xsmall', 'small', 'medium', 'large', or 'xlarge'. Default is 'medium'. , "medium"
-   * @type {string} background - Lets you personalize the button's background color with any valid CSS color. Default is '#c50eff'. , "#c50eff"
-   * @type {string} color - Changes the color of the button's text. Use any valid CSS color. Default is '#fff'. , "#fff"
-   * @type {boolean} isLoading - If set to true, the button displays a loading spinner and becomes disabled. Great for indicating processing times! , false
-   * @type {boolean} isError - Switches the button to an error state when set to true. The button is disabled and displays an error border. , false
-   * @type {string} events - Allows you to add event listeners to the button such as on:click, on:mouseover, etc. The first argument passed to your event listener will be the event object. , ""
-   * @type {string} style - A versatile prop that accepts any valid CSS as a string. This way, you can add any additional styling you need. , ""
-   * @type {boolean} animated - Setting this to true makes the button animate on click. Adds a touch of dynamism to your UI. , false
-   * @type {string} icon - Use this to add an icon to your button. Accepts a valid html/xml string. Alternatively, use the `icon` slot. , null
+   *
+   * @prop size
+   * @description Sets the size of the button. Choose from 'xsmall', 'small', 'medium', 'large', or 'xlarge'.
+   * @type {string}
+   * @default "medium"
+   *
+   * @prop background
+   * @description Lets you personalize the button's background color with any valid CSS color.
+   * @type {string}
+   * @default "#c50eff"
+   *
+   * @prop color
+   * @description Changes the color of the button's text. Use any valid CSS color.
+   * @type {string}
+   * @default "#fff"
+   *
+   * @prop disabled
+   * @description Determines if the button is clickable or not. When true, the button appears grayed out.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop isLoading
+   * @description If set to true, the button displays a loading spinner and becomes disabled. Great for indicating processing times!
+   * @type {boolean}
+   * @default false
+   *
+   * @prop isError
+   * @description Switches the button to an error state when set to true. The button is disabled and displays an error border.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop events
+   * @description Allows you to add event listeners to the button such as on:click, on:mouseover, etc. The first argument passed to your event listener will be the event object.
+   * @type {string}
+   * @default ""
+   *
+   * @prop style
+   * @description A versatile prop that accepts any valid CSS as a string. This way, you can add any additional styling you need.
+   * @type {string}
+   * @default ""
+   *
+   * @prop animated
+   * @description Setting this to true makes the button animate on click. Adds a touch of dynamism to your UI.
+   * @type {boolean}
+   * @default false
+   *
+   * @prop icon
+   * @description Use this to add an icon to your button. Accepts a valid html/xml string. Alternatively, use the `icon` slot.
+   * @type {string}
+   * @default null
    */
 
   export let disabled: boolean = false;

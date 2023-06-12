@@ -1,5 +1,9 @@
 export const NavComponentOptions = [
   {
+    name: 'Textareas',
+    path: '?items=textareas',
+ },
+  {
     name: 'ImageFilters',
     path: '?items=imagefilters',
   },

@@ -2,6 +2,40 @@
     import { createEventDispatcher, onMount } from "svelte";
 
     // Props
+    /**
+     * @component Input.Color
+     * 
+     * @prop size
+     * @description Choose the size of the color input field. You have options from "xsmall" up to "xlarge", with "small", "medium", and "large" in between.
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+     * @default "medium"
+     *
+     * @prop value
+     * @description Set the default color value for the color input field. This should be in a recognized color format, such as hex code.
+     * @type {string}
+     * @default "#000000"
+     *
+     * @prop style
+     * @description Apply additional inline CSS styles to the color input field.
+     * @type {string}
+     * @default ""
+     *
+     * @prop label
+     * @description Decide whether to display a label with the color input field. If set to true, you must also provide an associated 'id' for accessibility.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop labelColor
+     * @description Specify the color of the label text, if a label is used.
+     * @type {string}
+     * @default "#000"
+     *
+     * @prop disabled
+     * @description Enable or disable the color input field. When set to true, the field becomes read-only and users can't interact with it.
+     * @type {boolean}
+     * @default false
+     */
+
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
         "medium";
     export let value: string = "#000000";

@@ -1,6 +1,6 @@
 <script>
   import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-  import { imageFilters} from './constants';
+  import { imageFilters} from '../../../../docs/ImageFilter_docs';
 </script>
 
 <h1>ImageFilters</h1>
