@@ -17,7 +17,7 @@ export const checkboxes: CheckboxDisplayData[] = [
           value: 'checkbox',
           label: 'Checkbox',
           style: '',
-          color: 'black',
+          color: '#000',
         },
         code: [
           `$: val`,
@@ -58,7 +58,7 @@ export const checkboxes: CheckboxDisplayData[] = [
     id: 'checkbox_color',
     header: 'Checkbox Color',
     description:
-      'Easily change the color of the checkbox by adding the color attribute. \nThe color attribute can be set to any valid CSS color. (default: black)',
+      'Easily change the color of the checkbox by adding the color attribute. \nThe color attribute can be set to any valid CSS color. (default: #000)',
     type: 'components',
     examples: [
       {
@@ -108,7 +108,7 @@ export const checkboxes: CheckboxDisplayData[] = [
     id: 'checkbox_label',
     header: 'Checkbox Label',
     description:
-      'You can add a label to the checkbox by adding the label attribute. \nThe label attribute can be set to any valid string. (default: "")\nThe label color can be changed with the labelColor attribute. \nThe labelColor attribute can be set to any valid CSS color. (default: black)',
+      'You can add a label to the checkbox by adding the label attribute. \nThe label attribute can be set to any valid string. (default: "")\nThe label color can be changed with the labelColor attribute. \nThe labelColor attribute can be set to any valid CSS color. (default: #000)',
     type: 'components',
     examples: [
       {

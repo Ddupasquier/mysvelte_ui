@@ -92,10 +92,10 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        fill: white;
+        fill: #fff;
         opacity: 0.5;
         cursor: pointer;
-        background: black;
+        background: #000;
         border-radius: 50rem;
         transition: opacity 0.2s ease-in-out;
         &:hover {

@@ -18,7 +18,7 @@
      * @prop background
      * @description Define the background color of the input field to match your UI theme.
      * @type {string}
-     * @default "white"
+     * @default "#fff"
      *
      * @prop color
      * @description Define the text color inside the input field.
@@ -78,7 +78,7 @@
     export let variant: "default" | "line" | "outline" = "default";
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
         "medium";
-    export let background: string = "white";
+    export let background: string = "#fff";
     export let color: string = "#000";
     export let value: number = 0;
     export let style: string = "";

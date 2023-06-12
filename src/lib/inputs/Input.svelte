@@ -24,7 +24,7 @@
    * @prop background
    * @description The background color of the InputField.
    * @type {string}
-   * @default "white"
+   * @default "#fff"
    *
    * @prop color
    * @description The text color of the InputField.
@@ -86,7 +86,7 @@
   export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
     "medium";
   export let type: "text" | "password" = "text";
-  export let background: string = "white";
+  export let background: string = "#fff";
   export let color: string = "#000";
   export let placeholder: string = "Search";
   export let value: string = "";

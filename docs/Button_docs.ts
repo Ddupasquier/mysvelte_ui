@@ -164,13 +164,13 @@ export const buttons: ButtonDisplayData[] = [
     id: 'button_color',
     header: 'Button Text Color',
     description:
-      'You can easily change the color of the text by adding the color prop. (default: white)',
+      'You can easily change the color of the text by adding the color prop. (default: #fff)',
     type: 'components',
     examples: [
       {
         component: Button,
         props: {
-          color: 'black',
+          color: '#000',
           text: 'Color',
         },
         code: '<Button {color}>Color</Button>',
@@ -178,7 +178,7 @@ export const buttons: ButtonDisplayData[] = [
       {
         component: Button,
         props: {
-          color: 'white',
+          color: '#fff',
           text: 'Color',
         },
       },
@@ -202,7 +202,7 @@ export const buttons: ButtonDisplayData[] = [
         component: Button,
         props: {
           text: 'Custom',
-          style: 'border: 1px solid black; border-radius: 5px; padding: 10px;',
+          style: 'border: 1px solid #000; border-radius: 5px; padding: 10px;',
         },
         code: '<Button {style}>Custom</Button>',
       },
@@ -218,7 +218,7 @@ export const buttons: ButtonDisplayData[] = [
         props: {
           text: 'Custom',
           style:
-            'border-radius: 5px; padding: .4rem; height: 4rem; width: 6rem; background: #F9F871; color: black; display: flex; justify-content: flex-end; align-items: flex-start;',
+            'border-radius: 5px; padding: .4rem; height: 4rem; width: 6rem; background: #F9F871; color: #000; display: flex; justify-content: flex-end; align-items: flex-start;',
         },
       },
     ],
@@ -337,7 +337,7 @@ export const buttons: ButtonDisplayData[] = [
                       stroke="none"
                     />
                 </svg>`,
-          color: "white",
+          color: "#fff",
         } as ButtonIconProps,
         code: [
           '<Button.Icon>',

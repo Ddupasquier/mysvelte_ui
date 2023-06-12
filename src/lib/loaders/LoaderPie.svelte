@@ -2,7 +2,7 @@
   // Props
   export let size: "small" | "medium" | "large" = "medium";
   export let color = "#ff00d9";
-  export let background: string = "white";
+  export let background: string = "#fff";
   export let speed: "fast" | "medium" | "slow" = "medium";
 
   // Size Values

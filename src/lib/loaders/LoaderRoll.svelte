@@ -1,12 +1,12 @@
 <script lang="ts">
     import { onMount } from "svelte";
     export let cats: any[] = [
-        "https://i0.hippopx.com/photos/324/623/626/cat-black-and-white-animals-black-preview.jpg",
-        "https://i0.hippopx.com/photos/405/86/365/cat-black-cat-thoughtful-pet-preview.jpg",
+        "https://i0.hippopx.com/photos/324/623/626/cat-#000-and-#fff-animals-#000-preview.jpg",
+        "https://i0.hippopx.com/photos/405/86/365/cat-#000-cat-thoughtful-pet-preview.jpg",
 
         "https://img.rawpixel.com/private/static/images/website/2022-05/upwk61856994-wikimedia-image-kowduagi.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=2e3d9ade5e2b744c4b8c2f2a44c6294a",
 
-        "https://i0.hippopx.com/photos/149/81/199/cat-black-cat-snow-black-color-preview.jpg",
+        "https://i0.hippopx.com/photos/149/81/199/cat-#000-cat-snow-#000-color-preview.jpg",
         "https://images.pexels.com/photos/37337/cat-silhouette-cats-silhouette-cat-s-eyes.jpg",
     ];
 
@@ -35,7 +35,7 @@
             style="transform: rotateY({i *
                 (360 / cats.length)}deg) translateZ(100px);"
         >
-            <img src={cat} alt="cat"/>
+            <img src={cat} alt="cat" />
         </div>
     {/each}
 </div>

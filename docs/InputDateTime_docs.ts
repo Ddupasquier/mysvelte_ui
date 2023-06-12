@@ -127,7 +127,7 @@ export const inputdateProps: InputDisplayData =
         name: `inputdate_background`,
         description: 'Define the background color of the input field, suiting your UI theme.',
         type: '{string}',
-        default: '\"white\"',
+        default: '\"#fff\"',
         nav: false,
       },
       {

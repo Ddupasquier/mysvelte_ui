@@ -4,7 +4,7 @@
     // Props
     /**
      * @component Input.Color
-     * 
+     *
      * @prop size
      * @description Choose the size of the color input field. You have options from "xsmall" up to "xlarge", with "small", "medium", and "large" in between.
      * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
@@ -139,7 +139,7 @@
             width: 2.5rem;
         }
 
-        // Fix for white box
+        // Fix for #fff box
         &::-webkit-color-swatch-wrapper {
             padding: 0;
             border: none;

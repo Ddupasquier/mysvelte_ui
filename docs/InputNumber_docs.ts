@@ -62,7 +62,7 @@ export const inputnumberProps: InputDisplayData =
       name: `inputnumber_background`,
       description: 'Define the background color of the input field to match your UI theme.',
       type: '{string}',
-      default: '\"white\"',
+      default: '\"#fff\"',
       nav: false,
     },
     {

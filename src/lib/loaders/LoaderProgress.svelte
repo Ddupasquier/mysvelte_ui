@@ -1,7 +1,7 @@
 <script lang="ts">
     // Props
     export let color: string = "#c50eff";
-    export let background: string = "white";
+    export let background: string = "#fff";
     export let size: "small" | "medium" | "large" = "medium";
     export let style: string = "";
     export let speed: "fast" | "medium" | "slow" = "medium";
@@ -65,7 +65,7 @@
         width: 300px;
         height: 30px;
         border-radius: 8px;
-        background: white;
+        background: #fff;
         overflow: hidden;
     }
     .loader {
@@ -74,7 +74,8 @@
         background: #c50eff;
         outline: 5px double currentColor;
         outline-offset: 2px;
-        animation: progress var(--animation-duration) var(--animation-timing-function) infinite;
+        animation: progress var(--animation-duration)
+            var(--animation-timing-function) infinite;
         transform: skew(10deg);
         transform-origin: bottom left;
     }
