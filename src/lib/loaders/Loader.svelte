@@ -1,5 +1,28 @@
 <script lang="ts">
     // Props
+    /**
+     * @component Loader
+     *
+     * @prop color
+     * @description Choose the color of the loader. This should be in a recognized color format, such as hex code.
+     * @type {string}
+     *  @default "#c50eff"
+     *
+     * @prop size
+     * @description Choose the size of the loader. You have options from "small" up to "large", with "medium" in between.
+     * @type {"small" | "medium" | "large"}
+     * @default "medium"
+     *
+     * @prop style
+     * @description Apply additional inline CSS styles to the loader.
+     * @type {string}
+     * @default ""
+     *
+     * @prop speed
+     * @description Choose the speed of the loader. You have options from "fast" up to "slow", with "medium" in between.
+     * @type {"fast" | "medium" | "slow"}
+     * @default "medium"
+     */
     export let color: string = "#c50eff";
     export let size: "small" | "medium" | "large" = "medium";
     export let style: string = "";

@@ -11,7 +11,7 @@ export { default as Spacer } from './Spacer.svelte';
 
 // * INPUTS
 import DefaultInput from './inputs/Input.svelte';
-import Prefix from './inputs/Prefix.svelte';
+import Prefix from './inputs/InputPrefix.svelte';
 import InputColor from './inputs/InputColor.svelte';
 import InputNumber from './inputs/InputNumber.svelte';
 import InputDateTime from './inputs/InputDateTime.svelte';
@@ -56,11 +56,11 @@ export const Checkbox = Object.assign(CheckboxDefault, {
 
 // * LOADERS
 import LoaderDefault from './loaders/Loader.svelte';
-import Elips from './loaders/Elips.svelte';
-import Roll from './loaders/Roll.svelte';
-import BounceIcon from './loaders/BounceIcon.svelte';
-import Progress from './loaders/Progress.svelte';
-import Pie from './loaders/Pie.svelte';
+import Elips from './loaders/LoaderElips.svelte';
+import Roll from './loaders/LoaderRoll.svelte';
+import BounceIcon from './loaders/LoaderBounceIcon.svelte';
+import Progress from './loaders/LoaderProgress.svelte';
+import Pie from './loaders/LoaderPie.svelte';
 
 export const Loader = Object.assign(LoaderDefault, {
   Elips,
@@ -102,4 +102,5 @@ import ToggleDefault from './toggles/Toggle.svelte';
 
 export const Toggle = Object.assign(ToggleDefault, {
   // Animated: ToggleAnimated,
-});
+});import TextareaDefault from './textareas/Textarea.svelte';
+export const Textarea = Object.assign(TextareaDefault, {});

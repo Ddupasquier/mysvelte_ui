@@ -4,91 +4,84 @@
 
   // Props
   /**
-   * @component InputField
+   * @component Textarea
    *
    * @prop variant
-   * @description The style variant for the InputField. Can be "default", "line", or "outline".
+   * @description Determines the style variant of the textarea. Choose from "default", "line", or "outline" to customize the appearance.
    * @type {"default" | "line" | "outline"}
    * @default "default"
    *
    * @prop size
-   * @description The size of the InputField. Can be "xsmall", "small", "medium", "large", or "xlarge".
+   * @description Specifies the size of the textarea. Options include "xsmall", "small", "medium", "large", or "xlarge" to control its dimensions.
    * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
    * @default "medium"
    *
-   * @prop type
-   * @description The type of the input. Can be "text" or "password".
-   * @type {"text" | "password"}
-   * @default "text"
-   *
    * @prop background
-   * @description The background color of the InputField.
+   * @description Sets the background color of the textarea. Accepts any valid CSS color value.
    * @type {string}
    * @default "white"
    *
    * @prop color
-   * @description The text color of the InputField.
+   * @description Determines the text color of the textarea. Accepts any valid CSS color value.
    * @type {string}
    * @default "#000"
    *
    * @prop placeholder
-   * @description The placeholder text in the InputField.
+   * @description Specifies the placeholder text displayed in the textarea. Enter any valid string value.
    * @type {string}
-   * @default "Search"
+   * @default "Enter text"
    *
    * @prop value
-   * @description The current value of the InputField.
+   * @description Sets the initial value of the textarea. Provide any valid string value.
    * @type {string}
    * @default ""
    *
    * @prop style
-   * @description Inline CSS styles to apply to the InputField.
+   * @description Applies custom CSS styles to the textarea. Use any valid CSS value to customize its appearance.
    * @type {string}
    * @default ""
    *
    * @prop label
-   * @description If true, the InputField will display a label.
+   * @description Determines whether to display a label for the textarea. Provide a boolean value to control its visibility.
    * @type {boolean}
    * @default false
    *
    * @prop labelIn
-   * @description If true, the label will be displayed inside the InputField.
+   * @description Determines the position of the label within the textarea. Provide a boolean value to control its placement.
    * @type {boolean}
    * @default false
    *
    * @prop labelColor
-   * @description The color of the label text.
+   * @description Sets the color of the label text in the textarea. Accepts any valid CSS color value.
    * @type {string}
    * @default "#000"
    *
    * @prop disabled
-   * @description If true, the InputField will be disabled and users cannot interact with it.
+   * @description Disables the textarea if set to `true`. Provide a boolean value to control its availability.
    * @type {boolean}
    * @default false
    *
    * @prop clearable
-   * @description If true, the InputField will display a clear button when it has input.
+   * @description Enables the clearable feature for the textarea. If `true`, a clear button will be displayed to remove the text.
    * @type {boolean}
    * @default false
    *
    * @prop isError
-   * @description If true, the InputField will display in an error state.
+   * @description Indicates whether the textarea has an error. If `true`, it visually highlights the input as erroneous.
    * @type {boolean}
    * @default false
    *
    * @prop isLoading
-   * @description If true, the InputField will display a loading spinner.
+   * @description Indicates whether the textarea is in a loading state. If `true`, it displays a loading spinner.
    * @type {boolean}
    * @default false
    */
-
   export let variant: "default" | "line" | "outline" = "default";
   export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
     "medium";
-  export let type: "text" | "password" = "text";
   export let background: string = "white";
   export let color: string = "#000";
-  export let placeholder: string = "Search";
+  export let placeholder: string = "Enter text";
   export let value: string = "";
   export let style: string = "";
   export let label: boolean = false;
@@ -106,7 +99,6 @@
   // Variables
   let containerClassList = ["input"];
   let containerClassString = "";
-  let passwordView: boolean = false;
   let readOnly: boolean = false;
 
   // Lifecycle Hooks
@@ -119,8 +111,6 @@
       containerClassList.push("error");
     }
     containerClassString = containerClassList.join(" ");
-
-    if (type === "password") passwordView = true;
 
     if (autoFocus) inputRef.focus();
   });
@@ -138,7 +128,7 @@
     readOnly = disabled || isLoading || isError;
   }
 
-  $: inputStyle = `
+  $: textareaStyle = `
  background: ${disabled || isError || isLoading ? "#ccc" : background};
   --color: ${color};
   color: ${color};
@@ -153,7 +143,7 @@
 
   // Handle input event
   const handleInput = (e: Event) => {
-    if (e.target instanceof HTMLInputElement) {
+    if (e.target instanceof HTMLTextAreaElement) {
       value = e.target.value;
       dispatch("input", e);
     }
@@ -163,13 +153,8 @@
     value = "";
   };
 
-  const toggleType = () => {
-    if (type === "password") type = "text";
-    else type = "password";
-  };
-
   // Refs
-  let inputRef: HTMLInputElement;
+  let inputRef: HTMLTextAreaElement;
 </script>
 
 <div class={containerClassString}>
@@ -184,16 +169,14 @@
       >
     {/if}
   {/if}
-  <input
+  <textarea
     bind:this={inputRef}
     id={label ? $$restProps.id : undefined}
-    {type}
-    {color}
     placeholder={label ? "" : placeholder}
     {value}
     {disabled}
     {...$$restProps}
-    style={inputStyle}
+    style={textareaStyle}
     readonly={readOnly}
     aria-disabled={readOnly}
     on:input={handleInput}
@@ -206,44 +189,6 @@
     on:keyup
   />
   <div class="options">
-    {#if passwordView}
-      <button class="eye-button" on:click={() => toggleType()}>
-        <svg
-          stroke="currentColor"
-          fill="none"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          {#if type === "password"}
-            <title>Show Password</title>
-            <path
-              d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
-              transition:fade={{ duration: 100 }}
-            /><circle
-              cx="12"
-              cy="12"
-              r="3"
-              transition:fade={{ duration: 100 }}
-            />
-          {:else}
-            <title>Hide Password</title>
-            <path
-              d="M9.76404 5.29519C10.4664 5.10724 11.2123 5 12 5C15.7574 5 18.564 7.4404 20.2326 9.43934C21.4848 10.9394 21.4846 13.0609 20.2324 14.5609C20.0406 14.7907 19.8337 15.0264 19.612 15.2635M12.5 9.04148C13.7563 9.25224 14.7478 10.2437 14.9585 11.5M3 3L21 21M11.5 14.9585C10.4158 14.7766 9.52884 14.0132 9.17072 13M4.34914 8.77822C4.14213 9.00124 3.94821 9.22274 3.76762 9.43907C2.51542 10.9391 2.51523 13.0606 3.76739 14.5607C5.43604 16.5596 8.24263 19 12 19C12.8021 19 13.5608 18.8888 14.2744 18.6944"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              transition:fade={{ duration: 100 }}
-            />
-          {/if}
-        </svg>
-      </button>
-    {/if}
     {#if clearable && value !== ""}
       <button
         class="clear-button"
@@ -256,7 +201,7 @@
           xmlns="http://www.w3.org/2000/svg"
           ><title>Clear Input</title><path
             fill="currentColor"
-            d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z"
+            d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1 0-90.496z"
           /></svg
         ></button
       >
@@ -312,14 +257,11 @@
       .clear-button {
         @include option-button;
       }
-      .eye-button {
-        @include option-button;
-      }
     }
   }
 
-  input {
-    border-radius: 50rem;
+  textarea {
+    border-radius: 0.25rem;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -327,13 +269,13 @@
     border: none;
     background: inherit;
     color: inherit;
-    transition: all 0.1s ease-in-out;
+    // transition: all 0.1s ease-in-out;
     &:focus {
       outline: 3px solid currentColor;
     }
   }
 
-  .line input {
+  .line textarea {
     border-radius: 0;
     border-bottom: 3px solid rgba(131, 131, 131, 0.5);
     transition: border-color 0.3s ease-in-out;
@@ -344,8 +286,8 @@
     }
   }
 
-  .outline input {
-    border-radius: 50rem;
+  .outline textarea {
+    border-radius: 0.25rem;
     border: 3px solid rgba(131, 131, 131, 0.5);
     transition: all 0.1s ease-in-out;
     &:focus {
@@ -355,39 +297,39 @@
   }
 
   // Sizes
-  .xsmall input {
+  .xsmall textarea {
     padding: 0.125rem 0.25rem;
   }
 
-  .small input {
+  .small textarea {
     padding: 0.25rem 0.5rem;
   }
 
-  .medium input {
+  .medium textarea {
     padding: 0.5rem 1rem;
   }
 
-  .large input {
+  .large textarea {
     padding: 0.75rem 1.5rem;
   }
 
-  .xlarge input {
+  .xlarge textarea {
     padding: 1rem 2rem;
   }
 
   // Loading and error styles
-  .loading input,
-  .error input {
+  .loading textarea,
+  .error textarea {
     color: #fff;
   }
 
-  .loading input {
+  .loading textarea {
     outline: 3px solid var(--color);
     outline-offset: -3px;
     animation: double-pulse-gray 1.5s infinite ease-in-out;
   }
 
-  .error input {
+  .error textarea {
     animation: double-pulse-red 1.5s infinite ease-in-out;
   }
 

@@ -1,21 +1,23 @@
 import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
 import { buttons } from '../../docs/Button_docs';
-import { inputs } from '../routes/components/inputs/constants';
+import { inputs } from '../../docs/Input_docs';
 import { cards } from '../../docs/Card_docs';
 import { popovers } from '../routes/components/popovers/constants';
 import { radios } from '../routes/components/radios/constants';
 import { dropdowns } from '../routes/components/dropdowns/constants';
-import { loaders } from '../routes/components/loaders/constants';
+import { loaders } from '../../docs/Loader_docs';
 import { checkboxes } from '../../docs/Checkbox_docs';
 import { parallaxes } from '../routes/components/parallaxes/constants';
 import { avatars } from '../../docs/Avatar_docs';
 import { accordions } from '../../docs/Accordion_docs';
 import { toggles } from '../routes/components/toggles/constants';
-import { imageFilters } from '../routes/components/imagefilters/constants';
+import { imageFilters } from '../../docs/ImageFilter_docs';
+import { textareas } from '../../docs/Textarea_docs';
 
 // Component mapping
 const componentMapping = {
+  textareas,
   buttons,
   inputs,
   cards,
@@ -33,10 +35,9 @@ const componentMapping = {
 
 interface ComponentType {
   id: string;
-  [key: string]: any;  // This line allows other properties
+  [key: string]: any;
 }
 
-// High order function to push ids
 const pushIds = (arr: ComponentType[], suffix: string): string[] =>
   arr.map(({ id }) => `${id}_${suffix}`);
 
