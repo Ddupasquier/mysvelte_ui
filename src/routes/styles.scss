@@ -28,7 +28,8 @@
   --dark-gray: #00000000;
 }
 
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
   width: 100vw;
@@ -38,18 +39,14 @@ body {
   background-attachment: fixed;
   background-color: var(--color-bg-1);
   background-size: 100vw 100vh;
-  background-image: radial-gradient(
-      50% 50% at 50% 50%,
+  background-image: radial-gradient(50% 50% at 50% 50%,
       rgba(255, 255, 255, 0.75) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    linear-gradient(
-      180deg,
+      rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg,
       var(--color-bg-0) 0%,
       var(--color-bg-1) 15%,
-      var(--color-bg-2) 50%
-    );
-    scroll-behavior: smooth;
+      var(--color-bg-2) 50%);
+  scroll-behavior: smooth;
 }
 
 h1,

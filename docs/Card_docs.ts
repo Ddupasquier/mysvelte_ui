@@ -18,13 +18,13 @@ export const cards: CardDisplayData[] = [
               props: {
                 slot: 'Card.Head',
                 background: '#c50eff',
-                color: 'white',
+                color: '#fff',
               },
             },
             {
               component: Card.Content,
               props: {
-                color: 'black',
+                color: '#000',
                 background: 'rgb(246, 237, 247, .9)',
                 slot: 'Card.Content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas urna ut posuere condimentum. Ut molestie vel mi nec lobortis. Nam ac elit interdum, rhoncus enim ut, posuere nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed bibendum libero.',
                 style: 'max-height: 150px; overflow: auto;',
@@ -35,7 +35,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 background: '#c50eff',
                 slot: 'Card.Foot',
-                color: 'white',
+                color: '#fff',
               },
             },
           ],
@@ -57,14 +57,14 @@ export const cards: CardDisplayData[] = [
               props: {
                 background: '#ff00d9',
                 slot: 'Card.Head',
-                color: 'white',
+                color: '#fff',
               },
             },
             {
               component: Card.Content,
               props: {
                 background: 'rgb(246, 237, 247, .9)',
-                color: 'black',
+                color: '#000',
                 slot: 'Card.Content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas urna ut posuere condimentum. Ut molestie vel mi nec lobortis. Nam ac elit interdum, rhoncus enim ut, posuere nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed bibendum libero.',
                 style: 'max-height: 150px; overflow: auto;',
               },
@@ -74,7 +74,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 slot: 'Card.Foot',
                 background: '#ff00d9',
-                color: 'white',
+                color: '#fff',
               },
             },
           ],
@@ -98,13 +98,13 @@ export const cards: CardDisplayData[] = [
               props: {
                 slot: 'Card.Head',
                 background: 'linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);',
-                color: 'white',
+                color: '#fff',
               },
             },
             {
               component: Card.Content,
               props: {
-                color: 'black',
+                color: '#000',
                 background: 'rgb(246, 237, 247, )',
                 slot: 'Card.Content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas urna ut posuere condimentum. Ut molestie vel mi nec lobortis. Nam ac elit interdum, rhoncus enim ut, posuere nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed bibendum libero.',
                 style: 'max-height: 150px; overflow: auto;',
@@ -115,7 +115,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 background: 'linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);',
                 slot: 'Card.Foot',
-                color: 'white',
+                color: '#fff',
               },
             },
           ],
@@ -155,13 +155,13 @@ export const cards: CardDisplayData[] = [
               props: {
                 slot: 'Card.Head',
                 background: '#FF3579',
-                color: 'white',
+                color: '#fff',
               },
             },
             {
               component: Card.Content,
               props: {
-                color: 'black',
+                color: '#000',
                 background: 'rgb(246, 237, 247, )',
                 slot: 'Card.Content: Hover over me!',
                 style: 'max-height: 150px; overflow: auto;',
@@ -172,7 +172,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 background: '#FF3579',
                 slot: 'Card.Foot',
-                color: 'white',
+                color: '#fff',
               },
             },
           ],
@@ -198,7 +198,7 @@ export const cards: CardDisplayData[] = [
         component: Card.Image,
         props: {
           image:
-            'https://i0.hippopx.com/photos/324/623/626/cat-black-and-white-animals-black-preview.jpg',
+            'https://i0.hippopx.com/photos/324/623/626/cat-#000-and-#fff-animals-#000-preview.jpg',
           nested: [
             {
               component: Card.Head,
@@ -206,7 +206,7 @@ export const cards: CardDisplayData[] = [
                 background:
                   'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6474964985994398) 100%)',
                 slot: 'Purrlock Holmes',
-                color: 'white',
+                color: '#fff',
               },
             },
             {
@@ -221,7 +221,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 style: 'backdrop-filter: blur(.2rem)',
                 slot: 'Card.Foot',
-                color: 'white',
+                color: '#fff',
               },
             },
           ],
@@ -238,7 +238,7 @@ export const cards: CardDisplayData[] = [
         component: Card.Image,
         props: {
           image:
-            'https://i0.hippopx.com/photos/405/86/365/cat-black-cat-thoughtful-pet-preview.jpg',
+            'https://i0.hippopx.com/photos/405/86/365/cat-#000-cat-thoughtful-pet-preview.jpg',
           nested: [
             {
               component: Card.Head,
@@ -246,7 +246,7 @@ export const cards: CardDisplayData[] = [
                 background:
                   'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6474964985994398) 100%)',
                 slot: 'Catserole Delight',
-                color: 'white',
+                color: '#fff',
               },
             },
             {
@@ -261,7 +261,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 style: 'backdrop-filter: blur(.2rem)',
                 slot: 'Card.Foot',
-                color: 'white',
+                color: '#fff',
               },
             },
           ],
@@ -279,7 +279,7 @@ export const cards: CardDisplayData[] = [
                 background:
                   'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6474964985994398) 100%)',
                 slot: 'Whiskerella Fuzzypaws',
-                color: 'white',
+                color: '#fff',
               },
             },
             {
@@ -294,7 +294,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 style: 'backdrop-filter: blur(.2rem)',
                 slot: 'Card.Foot',
-                color: 'white',
+                color: '#fff',
               },
             },
           ],
@@ -304,7 +304,7 @@ export const cards: CardDisplayData[] = [
         component: Card.Image,
         props: {
           image:
-            'https://i0.hippopx.com/photos/149/81/199/cat-black-cat-snow-black-color-preview.jpg',
+            'https://i0.hippopx.com/photos/149/81/199/cat-#000-cat-snow-#000-color-preview.jpg',
           nested: [
             {
               component: Card.Head,
@@ -312,7 +312,7 @@ export const cards: CardDisplayData[] = [
                 background:
                   'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6474964985994398) 100%)',
                 slot: 'Sir Fluffington Meowster',
-                color: 'white',
+                color: '#fff',
               },
             },
             {
@@ -327,7 +327,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 style: 'backdrop-filter: blur(.2rem)',
                 slot: 'Card.Foot',
-                color: 'white',
+                color: '#fff',
               },
             },
           ],
@@ -345,7 +345,7 @@ export const cards: CardDisplayData[] = [
                 background:
                   'linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.6474964985994398) 100%)',
                 slot: 'Kitty Purrfurst',
-                color: 'white',
+                color: '#fff',
               },
             },
             {
@@ -360,7 +360,7 @@ export const cards: CardDisplayData[] = [
               props: {
                 style: 'backdrop-filter: blur(.2rem)',
                 slot: 'Card.Foot',
-                color: 'white',
+                color: '#fff',
               },
             },
           ],

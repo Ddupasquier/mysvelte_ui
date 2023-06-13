@@ -23,13 +23,13 @@
 
   const checkDarkMode = (mode: boolean) => {
     if (mode) {
-      return "white";
+      return "#fff";
     } else {
-      return "black";
+      return "#000";
     }
   };
 
-  $: textColor = isDarkMode ? "white" : "black";
+  $: textColor = isDarkMode ? "#fff" : "#000";
 </script>
 
 {#if table}

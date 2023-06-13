@@ -27,7 +27,9 @@
     circle.classList.add("circle");
     circle.style.right = "10px";
     circle.style.top = "10px";
-    circle.style.background = isDarkMode ? "rgb(38, 34, 39)" : "rgb(252 247 255)";
+    circle.style.background = isDarkMode
+      ? "rgb(38, 34, 39)"
+      : "rgb(252 247 255)";
     container.appendChild(circle);
 
     setTimeout(() => {
@@ -65,7 +67,7 @@
     {#if type === "components"}
       <DisplayComponents {examples} />
     {:else if type === "table"}
-      <DisplayPropsTable {table} {isDarkMode}/>
+      <DisplayPropsTable {table} {isDarkMode} />
     {:else if type === "gallery"}
       <DisplayGallery {examples} />
     {:else if type === "nested"}
@@ -99,13 +101,13 @@
     background: rgb(38, 34, 39);
     h2,
     p {
-      color: white;
+      color: #fff;
     }
   }
 
   .container.light {
     background: var(--menu-color);
-    color: black;
+    color: #000;
   }
 
   .toggle {
@@ -130,7 +132,7 @@
   }
 
   .description {
-    white-space: pre-line;
+    #fff-space: pre-line;
   }
 
   :global(.circle) {

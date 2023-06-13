@@ -26,7 +26,7 @@ export const inputs: InputDisplayData[] = [
     id: 'input_background',
     header: 'Background',
     description:
-      `You can easily change the background of a button by adding the background prop. (default: white)`,
+      `You can easily change the background of a button by adding the background prop. (default: #fff)`,
     type: 'components',
     examples: [
       {
@@ -103,7 +103,7 @@ export const inputs: InputDisplayData[] = [
     id: 'input_color',
     header: 'Color',
     description:
-      `You can easily change the color of a button by adding the color prop. (default: black)
+      `You can easily change the color of a button by adding the color prop. (default: #000)
     The outline of the input defaults to whatever color your text is. This can be overidden using the style tag.`,
     type: 'components',
     examples: [
@@ -333,7 +333,7 @@ export const inputs: InputDisplayData[] = [
           name: `input_background`,
           description: 'The background color of the InputField.',
           type: '{string}',
-          default: '\"white\"',
+          default: '\"#fff\"',
           nav: true,
         },
         {

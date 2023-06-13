@@ -3,8 +3,9 @@
 
     // Props
     export let variant: "default" | "line" | "outline" = "default";
-    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
-    export let background: string = "white";
+    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
+        "medium";
+    export let background: string = "#fff";
     export let color: string = "#000";
     export let value: string = "";
     export let style: string = "";
@@ -91,8 +92,8 @@
         on:click
         on:keydown
         on:keyup
-        min={min}
-        max={max}
+        {min}
+        {max}
     />
 </div>
 

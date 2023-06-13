@@ -238,7 +238,7 @@
     left: 1rem;
     width: 17rem;
     max-height: 10rem;
-    background: white;
+    background: #fff;
     border-radius: 0.5rem;
     border: 1px solid var(--color-bg-1);
     box-shadow: 0 0 0.5rem var(--color-bg-1);

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {fade} from 'svelte/transition';
+  import { fade } from "svelte/transition";
   import { copyToClipboard } from "./utils";
   import { onMount } from "svelte";
 
@@ -50,7 +50,11 @@
     {/each}
 
     {#if copyShown}
-      <button class="copy" on:click={() => copyToClipboard(code)} transition:fade>
+      <button
+        class="copy"
+        on:click={() => copyToClipboard(code)}
+        transition:fade
+      >
         Copy
       </button>
     {/if}
@@ -85,14 +89,14 @@
     font-weight: 600;
     letter-spacing: 0.05rem;
     line-height: 2;
-    padding: 0 .5rem;
-    margin-bottom: .3rem;
+    padding: 0 0.5rem;
+    margin-bottom: 0.3rem;
     transition: 0.5s;
   }
 
   .code.dark {
     background: rgb(38, 34, 39);
-    color: white;
+    color: #fff;
     border-bottom: 3px solid rgb(68, 68, 68);
     &:hover {
       border-bottom: 3px solid #b8b8b8;
@@ -101,7 +105,7 @@
 
   .code.light {
     background: var(--menu-color);
-    color: black;
+    color: #000;
     border-bottom: 3px solid rgb(234, 234, 234);
     &:hover {
       border-bottom: 3px solid #b8b8b8;

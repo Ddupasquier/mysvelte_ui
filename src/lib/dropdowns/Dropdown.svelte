@@ -6,7 +6,7 @@
     export let variant: "default" | "line" | "outline" = "default";
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
         "medium";
-    export let background: string = "white";
+    export let background: string = "#fff";
     export let color: string = "#000";
     export let placeholder: string = "Select";
     export let value: string = "";
@@ -164,7 +164,7 @@
         left: 0;
         display: flex;
         flex-direction: column;
-        background: white;
+        background: #fff;
         border-radius: 0.25rem;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         min-width: 100%;
@@ -174,7 +174,7 @@
     .dropdown-option {
         padding: 0.25rem 0.5rem;
         cursor: pointer;
-        white-space: nowrap;
+        #fff-space: nowrap;
 
         &:hover {
             background: rgba(0, 0, 0, 0.1);

@@ -4,64 +4,63 @@
 
     // Props
     /**
- * @component Accordion
- *
- * @prop data
- * @description The array of accordion items. Each item should have a `title`, `details`, and a `content`.
- * @type {Array}
- * @default []
- *
- * @prop collapse
- * @description If true, only one item can be expanded at a time. Expanding another item will collapse the currently expanded item.
- * @type {boolean}
- * @default true
- *
- * @prop animated
- * @description If true, the accordion transitions will be animated.
- * @type {boolean}
- * @default false
- *
- * @prop divider
- * @description If true, a divider will be added between each accordion item.
- * @type {boolean}
- * @default false
- *
- * @prop disabled
- * @description If true, the accordion will be disabled and users cannot interact with it.
- * @type {boolean}
- * @default false
- *
- * @prop headerStyle
- * @description The CSS style for the accordion item headers.
- * @type {string}
- * @default ""
- *
- * @prop contentStyle
- * @description The CSS style for the accordion item content.
- * @type {string}
- * @default ""
- *
- * @prop tabBg
- * @description The background color for the tab.
- * @type {string}
- * @default "#c50eff"
- *
- * @prop tabColor
- * @description The text color for the tab.
- * @type {string}
- * @default "#fff"
- *
- * @prop background
- * @description The background color for the accordion.
- * @type {string}
- * @default "#fff"
- *
- * @prop color
- * @description The text color for the accordion.
- * @type {string}
- * @default "#000"
- */
-
+     * @component Accordion
+     *
+     * @prop data
+     * @description The array of accordion items. Each item should have a `title`, `details`, and a `content`.
+     * @type {Array}
+     * @default []
+     *
+     * @prop collapse
+     * @description If true, only one item can be expanded at a time. Expanding another item will collapse the currently expanded item.
+     * @type {boolean}
+     * @default true
+     *
+     * @prop animated
+     * @description If true, the accordion transitions will be animated.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop divider
+     * @description If true, a divider will be added between each accordion item.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop disabled
+     * @description If true, the accordion will be disabled and users cannot interact with it.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop headerStyle
+     * @description The CSS style for the accordion item headers.
+     * @type {string}
+     * @default ""
+     *
+     * @prop contentStyle
+     * @description The CSS style for the accordion item content.
+     * @type {string}
+     * @default ""
+     *
+     * @prop tabBg
+     * @description The background color for the tab.
+     * @type {string}
+     * @default "#c50eff"
+     *
+     * @prop tabColor
+     * @description The text color for the tab.
+     * @type {string}
+     * @default "#fff"
+     *
+     * @prop background
+     * @description The background color for the accordion.
+     * @type {string}
+     * @default "#fff"
+     *
+     * @prop color
+     * @description The text color for the accordion.
+     * @type {string}
+     * @default "#000"
+     */
 
     export let data: { title: string; details?: string; content: string }[] =
         [];
@@ -213,6 +212,6 @@
     .accordion-content {
         width: 97%;
         padding: 1rem;
-        background: white;
+        background: #fff;
     }
 </style>

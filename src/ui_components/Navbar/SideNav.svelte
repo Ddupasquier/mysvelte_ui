@@ -113,7 +113,7 @@
     left: 0;
     right: calc(100% - var(--size));
     border: var(--size) solid transparent;
-    border-left: var(--size) solid black;
+    border-left: var(--size) solid #000;
   }
 
   aside a,

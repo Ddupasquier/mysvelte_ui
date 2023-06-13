@@ -19,7 +19,7 @@
    * @prop background
    * @description Sets the background color of the textarea. Accepts any valid CSS color value.
    * @type {string}
-   * @default "white"
+   * @default "#fff"
    *
    * @prop color
    * @description Determines the text color of the textarea. Accepts any valid CSS color value.
@@ -79,7 +79,7 @@
   export let variant: "default" | "line" | "outline" = "default";
   export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
     "medium";
-  export let background: string = "white";
+  export let background: string = "#fff";
   export let color: string = "#000";
   export let placeholder: string = "Enter text";
   export let value: string = "";
@@ -229,7 +229,7 @@
       align-items: center;
       justify-content: center;
       pointer-events: all;
-      height: 55%;
+      height: 1.5rem;
       aspect-ratio: 1/1;
       padding: 0.25rem;
       border-radius: 50rem;
@@ -242,14 +242,14 @@
     }
     .options {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 1rem;
+      right: 0;
       width: 100%;
       height: 100%;
       background: none;
       display: flex;
       justify-content: flex-end;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.5rem;
       padding-right: 5%;
       box-sizing: border-box;
