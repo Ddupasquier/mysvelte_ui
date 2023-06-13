@@ -1,14 +1,14 @@
 <script lang="ts">
   import { github, npm } from "./icons";
   import { links } from "./constants";
-  import { goto } from '$app/navigation';
+  import { goto } from "$app/navigation";
 
   function navigateToLink(link: string) {
     goto(link);
   }
 
   function handleKeyDown(event: KeyboardEvent, link: string) {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === "Enter" || event.key === " ") {
       navigateToLink(link);
     }
   }
@@ -19,7 +19,7 @@
 
   <div class="icon-container" role="presentation">
     {#each links as link}
-      {#if link.name.toLowerCase() === 'github'}
+      {#if link.name.toLowerCase() === "github"}
         <a
           href={link.link}
           class="icon-link"
@@ -30,7 +30,7 @@
         >
           <img src={github} alt="GitHub" class="icon" />
         </a>
-      {:else if link.name.toLowerCase() === 'npm'}
+      {:else if link.name.toLowerCase() === "npm"}
         <a
           href={link.link}
           class="icon-link"
@@ -41,6 +41,12 @@
         >
           <img src={npm} alt="NPM" class="icon" />
         </a>
+
+        <img
+          src={`https://img.shields.io/npm/v/mysvelte-ui.svg`}
+          alt="Latest Version"
+          class="version-badge"
+        />
       {/if}
     {/each}
   </div>
@@ -94,5 +100,10 @@
 
   img {
     height: 2.5rem;
+  }
+
+  .version-badge {
+    height: 1.5rem;
+    margin-left: 0.5rem;
   }
 </style>
