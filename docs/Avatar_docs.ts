@@ -197,47 +197,74 @@ export const avatars: AvatarDisplayData[] = [
     ],
   },
   {
+    id: 'avatar_loadObserver',
+    header: 'Avatar Load Observer',
+    description: 'You can use the loadObserver prop to display a loading indicator while the avatar image is loading. This is useful when the avatar image is being fetched from a remote source.',
+    type: 'components',
+    examples: [
+      {
+        component: Avatar,
+        props: {
+          image: image1,
+          alt: 'Avatar',
+          loadObserver: true,
+        },
+        code: [
+          `<Avatar {image} alt="Avatar" loadObserver={true}>`,
+          `indent<Spinner slot="loader" />`,
+          `</Avatar>`,
+        ],
+      },
+    ],
+  },
+  {
     id: `avatar_props`,
     header: `Avatar Props`,
     type: 'table',
     table: {
       tableName: 'avatar',
-      rows: [
-        {
-          name: 'avatar_image!',
-          description: 'The URL of the avatar image. Provide the path to the image you want to display as the avatar.',
-          type: '{string}',
-          default: '\"\"',
-          nav: true,
-        },
-        {
-          name: 'avatar_alt!',
-          description: 'The alternative text for the avatar image. This text is displayed when the image cannot be loaded or accessed by screen readers.',
-          type: '{string}',
-          default: '\"\"',
-          nav: false,
-        },
-        {
-          name: 'avatar_size',
-          description: 'The size of the avatar. Choose from \"xsmall\", \"small\", \"medium\", \"large\", or \"xlarge\" to control the dimensions of the avatar.',
-          type: '{"xsmall" | "small" | "medium" | "large" | "xlarge"}',
-          default: '\"medium\"',
-          nav: true,
-        },
-        {
-          name: 'avatar_shape',
-          description: 'The shape of the avatar. Select either \"circ\", \"rounded\", or \"square\" to define the border shape of the avatar.',
-          type: '{"circ" | "rounded" | "square"}',
-          default: '\"rounded\"',
-          nav: true,
-        },
-        {
-          name: 'avatar_filter',
-          description: 'The filter applied to the avatar image. Apply visual effects such as \"gray\" for grayscale, \"sepia\" for a vintage look, or \"invert\" for an inverted color scheme.',
-          type: '{"none" | "gray" | "sepia" | "invert"}',
-          default: '\"none\"',
-          nav: true,
-        }],
+      rows: [{
+    name: `avatar_image!`,
+    description: 'The URL of the avatar image. Provide the path to the image you want to display as the avatar.',
+    type: '{string}',
+    default: '\"\"',
+    nav: true,
+  },
+          {
+    name: `avatar_alt!`,
+    description: 'The alternative text for the avatar image. This text is displayed when the image cannot be loaded or accessed by screen readers.',
+    type: '{string}',
+    default: '\"\"',
+    nav: true,
+  },
+          {
+    name: `avatar_size`,
+    description: 'The size of the avatar. Choose from \"xsmall\", \"small\", \"medium\", \"large\", or \"xlarge\" to control the dimensions of the avatar.',
+    type: '{"xsmall" | "small" | "medium" | "large" | "xlarge"}',
+    default: '\"medium\"',
+    nav: true,
+  },
+          {
+    name: `avatar_shape`,
+    description: 'The shape of the avatar. Select either \"circ\", \"rounded\", or \"square\" to define the border shape of the avatar.',
+    type: '{"circ" | "rounded" | "square"}',
+    default: '\"rounded\"',
+    nav: true,
+  },
+          {
+    name: `avatar_filter`,
+    description: 'The filter applied to the avatar image. Apply visual effects such as \"gray\" for grayscale, \"sepia\" for a vintage look, or \"invert\" for an inverted color scheme.',
+    type: '{"none" | "gray" | "sepia" | "invert"}',
+    default: '\"none\"',
+    nav: true,
+  },
+          {
+    name: `avatar_loadObserver`,
+    description: 'Enable or disable the load observer for the avatar image. When enabled, a load observer will track the loading state of the image, allowing you to add a custom loader.',
+    type: '{boolean}',
+    default: 'false',
+    nav: true,
+  }],
     },
     examples: [
       {
