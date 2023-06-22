@@ -78,7 +78,7 @@
     />
     {#if loading && loadObserver}
         <div class="loader">
-            <slot name="loader"><Loader size="xsmall"/></slot>
+            <slot name="loader"><Loader size="xsmall" speed="fast"/></slot>
         </div>
     {/if}
 </div>
