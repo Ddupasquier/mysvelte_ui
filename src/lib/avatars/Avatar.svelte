@@ -34,7 +34,7 @@
      * @default "none"
      * *
      * @prop loadObserver
-     * @description Enable or disable the load observer for the avatar image. When enabled, a load observer will track the loading state of the image, allowing you to add a custom loader.
+     * @description Enable or disable the load observer for the avatar image. When enabled, a load observer will track the loading state of the image, allowing you to add a custom loader. This loader defaults to one of our loaders, but you can override it by adding a custom loader to the "loader" slot. 
      * @type {boolean}
      * @default false
      */

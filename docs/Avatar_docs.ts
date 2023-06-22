@@ -199,7 +199,8 @@ export const avatars: AvatarDisplayData[] = [
   {
     id: 'avatar_loadObserver',
     header: 'Avatar Load Observer',
-    description: 'You can use the loadObserver prop to display a loading indicator while the avatar image is loading. This is useful when the avatar image is being fetched from a remote source.',
+    description: `You can use the loadObserver prop to display a loading indicator while the avatar image is loading. This is useful when the avatar image is being fetched from a remote source.
+    When enabled, a load observer will track the loading state of the image, allowing you to add a custom loader. This loader defaults to one of our loaders, but you can override it by adding a custom loader to the \"loader\" slot.`,
     type: 'components',
     examples: [
       {
@@ -260,7 +261,7 @@ export const avatars: AvatarDisplayData[] = [
   },
           {
     name: `avatar_loadObserver`,
-    description: 'Enable or disable the load observer for the avatar image. When enabled, a load observer will track the loading state of the image, allowing you to add a custom loader.',
+    description: 'Enable or disable the load observer for the avatar image. When enabled, a load observer will track the loading state of the image, allowing you to add a custom loader. This loader defaults to one of our loaders, but you can override it by adding a custom loader to the \"loader\" slot.',
     type: '{boolean}',
     default: 'false',
     nav: true,
