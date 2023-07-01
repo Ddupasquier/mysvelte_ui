@@ -62,8 +62,8 @@ const templates = {
 
   constantsNewConstant: `\n  {\n    name: '${pluralize(componentUpper)}',\n    path: '?items=${pluralize(componentLower)}',\n },`,
 
-  indexComponentImport: `import ${componentUpper}Default from './${pluralize(componentLower)}/${componentUpper}.svelte';\n`,
-  indexComponentExport: `export const ${componentUpper} = Object.assign(${componentUpper}Default, {});\n`,
+  indexComponentImport: `\n \/\/ * ${componentName.toUpperCase()} \n \n import ${componentUpper}Default from './${pluralize(componentLower)}/${componentUpper}.svelte';\n`,
+  indexComponentExport: `\n export const ${componentUpper} = Object.assign(${componentUpper}Default, {});\n`,
 
   appNewType: `\n\n// * ${componentUpper} TYPES\nexport interface ${componentUpper}DisplayData extends BaseDisplayData {\n  examples: ${componentUpper}Example[];\n}`
 };
