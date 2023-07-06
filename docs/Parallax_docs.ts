@@ -125,7 +125,7 @@ export const parallaxes: ParallaxDisplayData[] = [
           position: [0, -40],
         },
         code: [
-          `<Parallax {height} {width} {image} {alt} {speed} position={[0, -40]} />`,
+          `<Parallax {height} {width} {image} {alt} {speed} position={[x, y]} />`,
         ],
       },
       {

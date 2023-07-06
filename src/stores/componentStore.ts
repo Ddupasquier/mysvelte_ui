@@ -8,7 +8,7 @@ import { radios } from '../routes/components/radios/constants';
 import { dropdowns } from '../routes/components/dropdowns/constants';
 import { loaders } from '../../docs/Loader_docs';
 import { checkboxes } from '../../docs/Checkbox_docs';
-import { parallaxes } from '../routes/components/parallaxes/constants';
+import { parallaxes } from '../../docs/Parallax_docs';
 import { avatars } from '../../docs/Avatar_docs';
 import { accordions } from '../../docs/Accordion_docs';
 import { toggles } from '../routes/components/toggles/constants';
