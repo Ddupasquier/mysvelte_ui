@@ -1,6 +1,8 @@
 <script lang="ts">
     // Imports
     import { onMount } from "svelte";
+    import { Loader } from "$lib";
+    import { createLoadObserver } from "$lib/utilities";
 
     // Props
     /**
@@ -30,6 +32,11 @@
      * @description The filter applied to the avatar image. Apply visual effects such as "gray" for grayscale, "sepia" for a vintage look, or "invert" for an inverted color scheme.
      * @type {"none" | "gray" | "sepia" | "invert"}
      * @default "none"
+     * *
+     * @prop loadObserver
+     * @description Enable or disable the load observer for the avatar image. When enabled, a load observer will track the loading state of the image, allowing you to add a custom loader. This loader defaults to one of our loaders, but you can override it by adding a custom loader to the "loader" slot. 
+     * @type {boolean}
+     * @default false
      */
     export let image: string;
     export let alt: string;
@@ -37,10 +44,16 @@
         "medium";
     export let shape: "circ" | "rounded" | "square" = "rounded";
     export let filter: "none" | "gray" | "sepia" | "invert" = "none";
+    export let loadObserver: boolean = false;
 
     // Variables
     let classList = ["avatar"];
     let classString = "";
+    let loading = true;
+
+    const onLoad = createLoadObserver(() => {
+        loading = false;
+    });
 
     // Lifecycle hooks
     onMount(() => {
@@ -56,7 +69,18 @@
 </script>
 
 <div class={classString}>
-    <img src={image} {alt} />
+    <img
+        src={image}
+        {alt}
+        on:load={loadObserver ? onLoad : null}
+        loading="lazy"
+        style="visibility: {loading && loadObserver ? 'hidden' : 'visible'}"
+    />
+    {#if loading && loadObserver}
+        <div class="loader">
+            <slot name="loader"><Loader size="xsmall" speed="fast"/></slot>
+        </div>
+    {/if}
 </div>
 
 <style lang="scss">
@@ -71,6 +95,17 @@
         img {
             width: 100%;
             object-fit: cover;
+        }
+
+        .loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 

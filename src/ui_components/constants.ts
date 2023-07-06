@@ -1,3 +1,5 @@
+import { github, discord } from "./icons"; 
+
 export const NavComponentOptions = [
   {
     name: 'Textareas',
@@ -60,10 +62,17 @@ export const NavComponentOptions = [
 export const links = [
   {
     name: 'Github',
+    icon: github,
     link: 'https://github.com/Ddupasquier/mysvelte_ui'
   },
   {
+    name: 'Discord',
+    icon: discord,
+    link: 'https://discord.gg/eNeKp3jh'
+  },
+  {
     name: 'NPM',
+    icon: 'https://img.shields.io/npm/v/mysvelte-ui.svg?colorB=FF3579',
     link: 'https://www.npmjs.com/package/mysvelte-ui'
-  }
+  },
 ]

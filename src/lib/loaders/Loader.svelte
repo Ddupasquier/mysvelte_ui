@@ -9,8 +9,8 @@
      *  @default "#c50eff"
      *
      * @prop size
-     * @description Choose the size of the loader. You have options from "small" up to "large", with "medium" in between.
-     * @type {"small" | "medium" | "large"}
+     * @description Choose the size of the loader. You have options from "xsmall" up to "xlarge", with "small", "medium" and "large" in between.
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
      * @default "medium"
      *
      * @prop style
@@ -24,7 +24,7 @@
      * @default "medium"
      */
     export let color: string = "#c50eff";
-    export let size: "small" | "medium" | "large" = "medium";
+    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
     export let style: string = "";
     export let speed: "fast" | "medium" | "slow" = "medium";
 
@@ -35,9 +35,11 @@
 
     // Size values
     const sizeValues: Record<typeof size, number> = {
+        xsmall: 10,
         small: 20,
         medium: 40,
         large: 60,
+        xlarge: 80,
     };
 
     // Speed Values
