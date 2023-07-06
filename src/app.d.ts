@@ -306,6 +306,7 @@ interface AvatarProps {
   style?: string;
   filter?: "none" | "gray" | "sepia" | "invert";
   shape?: "circ" | "square" | "rounded";
+  loadObserver?: boolean;
 }
 
 // * Accordion TYPES

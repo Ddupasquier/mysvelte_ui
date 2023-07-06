@@ -1,17 +1,5 @@
 <script lang="ts">
-  import { github, npm } from "./icons";
   import { links } from "./constants";
-  import { goto } from "$app/navigation";
-
-  function navigateToLink(link: string) {
-    goto(link);
-  }
-
-  function handleKeyDown(event: KeyboardEvent, link: string) {
-    if (event.key === "Enter" || event.key === " ") {
-      navigateToLink(link);
-    }
-  }
 </script>
 
 <footer>
@@ -19,34 +7,24 @@
 
   <div class="icon-container" role="presentation">
     {#each links as link}
-      {#if link.name.toLowerCase() === "github"}
+      {#if link.name === "NPM"}
         <a
           href={link.link}
           class="icon-link"
-          on:click|preventDefault={() => navigateToLink(link.link)}
-          on:keydown={(event) => handleKeyDown(event, link.link)}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={github} alt="GitHub" class="icon" />
+          <img src={link.icon} alt={link.name} class="npm" />
         </a>
-      {:else if link.name.toLowerCase() === "npm"}
+      {:else}
         <a
           href={link.link}
           class="icon-link"
-          on:click|preventDefault={() => navigateToLink(link.link)}
-          on:keydown={(event) => handleKeyDown(event, link.link)}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={npm} alt="NPM" class="icon" />
+          <img src={link.icon} alt={link.name} class="icon" />
         </a>
-
-        <img
-          src={`https://img.shields.io/npm/v/mysvelte-ui.svg`}
-          alt="Latest Version"
-          class="version-badge"
-        />
       {/if}
     {/each}
   </div>
@@ -84,7 +62,11 @@
   }
 
   .icon {
-    width: 30px;
+    width: 28px;
+  }
+
+  .npm {
+    height: 20px;
   }
 
   .icon-link {
