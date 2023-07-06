@@ -1,6 +1,6 @@
 <script>
   import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-  import { parallaxes} from './constants';
+  import { parallaxes} from '../../../../docs/Parallax_docs';
 </script>
 
 <h1>Parallaxes</h1>

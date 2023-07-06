@@ -269,14 +269,6 @@ interface ParallaxProps {
   width?: string;
   alt: string;
   speed?: number;
-}
-
-interface ParallaxProps {
-  image: string;
-  height?: string;
-  width?: string;
-  alt: string;
-  speed?: number;
   position?: [number, number];
 }
 
@@ -382,8 +374,6 @@ interface ImageFilterProps {
   aspectRatio?: string;
   title?: string;
 }
-
-
 
 // * Textarea TYPES
 export interface TextareaDisplayData extends BaseDisplayData {
