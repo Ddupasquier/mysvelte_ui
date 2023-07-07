@@ -4,6 +4,7 @@ import { buttons } from '../../docs/Button_docs';
 import { inputs } from '../../docs/Input_docs';
 import { cards } from '../../docs/Card_docs';
 import { popovers } from '../routes/components/popovers/constants';
+import { modals } from '../../docs/Modal_docs';
 import { radios } from '../routes/components/radios/constants';
 import { dropdowns } from '../routes/components/dropdowns/constants';
 import { loaders } from '../../docs/Loader_docs';
@@ -17,6 +18,7 @@ import { textareas } from '../../docs/Textarea_docs';
 
 // Component mapping
 const componentMapping = {
+  modals,
   textareas,
   buttons,
   inputs,

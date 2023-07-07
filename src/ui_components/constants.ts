@@ -2,6 +2,10 @@ import { github, discord } from "./icons";
 
 export const NavComponentOptions = [
   {
+    name: 'Modals',
+    path: '?items=modals',
+ },
+  {
     name: 'Textareas',
     path: '?items=textareas',
  },

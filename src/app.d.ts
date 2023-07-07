@@ -379,3 +379,8 @@ interface ImageFilterProps {
 export interface TextareaDisplayData extends BaseDisplayData {
   examples: TextareaExample[];
 }
+
+// * Modal TYPES
+export interface ModalDisplayData extends BaseDisplayData {
+  examples: ModalExample[];
+}
