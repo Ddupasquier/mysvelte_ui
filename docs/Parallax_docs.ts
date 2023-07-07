@@ -1,6 +1,7 @@
 import { Parallax } from '../src/lib';
-import type { ParallaxDisplayData, VideoParallaxProps } from '../src/app.d.ts';
-import { city, cityVideo, desert, flower, beach, boat, jungle, forest } from './assets';
+import type { ParallaxDisplayData } from '../src/app.d.ts';
+import { parallaxVideos, parallaxvideoProps } from './ParallaxVideo_docs';
+import { city, desert, flower, beach, boat, jungle, forest } from './assets';
 
 export const parallaxes: ParallaxDisplayData[] = [
   {
@@ -176,28 +177,28 @@ export const parallaxes: ParallaxDisplayData[] = [
       },
     ],
   },
-  {
-    id: 'parallax_video',
-    header: 'Parallax Video',
-    description: 'Parallax has a video component that you can use to create a parallax effect on a video element.',
-    type: 'components',
-    examples: [
-      {
-        component: Parallax.Video,
-        props: {
-          height: '300px',
-          width: '100%',
-          video: cityVideo,
-          alt: 'parallax video',
-          speed: 0.2,
-          position: [0, -35],
-        } as VideoParallaxProps,
-        code: [
-          `<Parallax.Video {video} {speed} />`,
-        ],
-      },
-    ],
-  },
+  // {
+  //   id: 'parallax_video',
+  //   header: 'Parallax Video',
+  //   description: 'Parallax has a video component that you can use to create a parallax effect on a video element.',
+  //   type: 'components',
+  //   examples: [
+  //     {
+  //       component: Parallax.Video,
+  //       props: {
+  //         height: '300px',
+  //         width: '100%',
+  //         video: cityVideo,
+  //         alt: 'parallax video',
+  //         speed: 0.2,
+  //         position: [0, -35],
+  //       } as VideoParallaxProps,
+  //       code: [
+  //         `<Parallax.Video {video} {speed} />`,
+  //       ],
+  //     },
+  //   ],
+  // },
   {
     id: `parallax_props`,
     header: `Parallax Props`,
@@ -265,4 +266,6 @@ export const parallaxes: ParallaxDisplayData[] = [
       },
     ],
   },
+  parallaxVideos,
+  parallaxvideoProps,
 ];

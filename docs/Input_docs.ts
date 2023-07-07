@@ -1,5 +1,5 @@
 import { Input, Spacer } from '../src/lib';
-import type { InputDisplayData, NumberProps } from '../src/app.d.ts';
+import type { InputDisplayData } from '../src/app.d.ts';
 import { inputcolors, inputcolorProps } from './InputColor_docs';
 import { inputdates, inputtimes, inputdatetimes, inputdateProps } from './InputDateTime_docs';
 import { inputnumbers, inputnumberProps } from './InputNumber_docs';
