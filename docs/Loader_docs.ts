@@ -49,7 +49,7 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader.elips_',
+    id: 'loader_elips',
     header: 'Loader.Elips',
     type: 'components',
     examples: [
@@ -92,7 +92,7 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader.progress_',
+    id: 'loader_progress',
     header: 'Loader.Progress',
     type: 'components',
     examples: [
@@ -120,7 +120,7 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader.pie_',
+    id: 'loader_pie',
     header: 'Loader.Pie',
     type: 'components',
     examples: [

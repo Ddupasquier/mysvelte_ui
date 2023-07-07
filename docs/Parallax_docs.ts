@@ -87,28 +87,6 @@ export const parallaxes: ParallaxDisplayData[] = [
     ],
   },
   {
-    id: 'parallax_video',
-    header: 'Parallax Video',
-    description: 'Parallax has a video component that you can use to create a parallax effect on a video element.',
-    type: 'components',
-    examples: [
-      {
-        component: Parallax.Video,
-        props: {
-          height: '300px',
-          width: '100%',
-          video: cityVideo,
-          alt: 'parallax video',
-          speed: 0.2,
-          position: [0, -35],
-        } as VideoParallaxProps,
-        code: [
-          `<Parallax.Video {video} {speed} />`,
-        ],
-      },
-    ],
-  },
-  {
     id: 'parallax_position',
     header: 'Parallax Position',
     description: 'The Parallax component allows for precise control over the starting position of the parallax image via the `position` prop. This prop takes in an array of two numbers representing the x and y coordinates. This is useful when you want to focus on a specific part of your image right from the start.',
@@ -194,6 +172,28 @@ export const parallaxes: ParallaxDisplayData[] = [
           `<Parallax {image} {alt} loadObserver={true}>`,
           `indent<Loader slot="loader" />`,
           `</Parallax>`,
+        ],
+      },
+    ],
+  },
+  {
+    id: 'parallax_video',
+    header: 'Parallax Video',
+    description: 'Parallax has a video component that you can use to create a parallax effect on a video element.',
+    type: 'components',
+    examples: [
+      {
+        component: Parallax.Video,
+        props: {
+          height: '300px',
+          width: '100%',
+          video: cityVideo,
+          alt: 'parallax video',
+          speed: 0.2,
+          position: [0, -35],
+        } as VideoParallaxProps,
+        code: [
+          `<Parallax.Video {video} {speed} />`,
         ],
       },
     ],

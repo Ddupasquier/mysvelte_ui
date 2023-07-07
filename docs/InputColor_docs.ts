@@ -3,7 +3,7 @@ import type { InputDisplayData } from '../src/app';
 
 export const inputcolors: InputDisplayData =
 {
-  id: 'input.color_',
+  id: 'input_colorpicker',
   header: 'Input.Color',
   description:
     'You can easily add a color picker to your input by adding the Input.Color component.',
@@ -51,7 +51,7 @@ export const inputcolors: InputDisplayData =
 
 export const inputcolorProps: InputDisplayData =
 {
-  id: `input.color_props`,
+  id: `input_colorpicker props_props`,
   header: `Input.Color Props`,
   type: 'table',
   table: {
