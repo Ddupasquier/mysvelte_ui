@@ -198,7 +198,7 @@ export const cards: CardDisplayData[] = [
         component: Card.Image,
         props: {
           image:
-            'https://i0.hippopx.com/photos/324/623/626/cat-#000-and-#fff-animals-#000-preview.jpg',
+            'https://i0.hippopx.com/photos/324/623/626/cat-black-and-white-animals-black-preview.jpg',
           nested: [
             {
               component: Card.Head,
@@ -238,7 +238,7 @@ export const cards: CardDisplayData[] = [
         component: Card.Image,
         props: {
           image:
-            'https://i0.hippopx.com/photos/405/86/365/cat-#000-cat-thoughtful-pet-preview.jpg',
+            'https://i0.hippopx.com/photos/405/86/365/cat-black-cat-thoughtful-pet-preview.jpg',
           nested: [
             {
               component: Card.Head,
@@ -304,7 +304,7 @@ export const cards: CardDisplayData[] = [
         component: Card.Image,
         props: {
           image:
-            'https://i0.hippopx.com/photos/149/81/199/cat-#000-cat-snow-#000-color-preview.jpg',
+            'https://i0.hippopx.com/photos/149/81/199/cat-black-cat-snow-black-color-preview.jpg',
           nested: [
             {
               component: Card.Head,
