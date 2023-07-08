@@ -380,7 +380,62 @@ export interface TextareaDisplayData extends BaseDisplayData {
   examples: TextareaExample[];
 }
 
+interface TextareaExample {
+  component: SvelteComponentTyped;
+  props: TextareaProps;
+  code?: string[];
+}
+
+interface TextareaProps {
+  id?: string;
+  variant?: "default" | "line" | "outline";
+  size?: "xsmall" | "small" | "medium" | "large" | "xlarge";
+  background?: string;
+  color?: string;
+  placeholder?: string;
+  value?: string;
+  style?: string;
+  label?: boolean;
+  labelIn?: boolean;
+  labelColor?: string;
+  disabled?: boolean;
+  clearable?: boolean;
+  isError?: boolean;
+  isLoading?: boolean;
+  autoFocus?: boolean;
+}
+
 // * Modal TYPES
 export interface ModalDisplayData extends BaseDisplayData {
   examples: ModalExample[];
+}
+
+interface ModalExample {
+  component: SvelteComponentTyped;
+  props: ModalProps;
+  code?: string[];
+}
+
+interface ModalProps {
+  open?: boolean;
+  size?: "small" | "medium" | "large" | "auto";
+  position?:
+  | "center"
+  | "top"
+  | "bottom"
+  | "left"
+  | "right"
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right";
+  background?: string;
+  color?: string;
+  title?: string;
+  outsideClick?: boolean;
+  animated?: boolean;
+  overlayColor?: string;
+  btnText?: string;
+  modalText?: string;
+  btnColor?: string;
 }

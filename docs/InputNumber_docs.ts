@@ -14,14 +14,14 @@ export const inputnumbers: InputDisplayData =
     {
       component: Input.Number,
       props: {
-        color: '#c50eff',
+        color: '#C50EFF',
       } as NumberProps,
       code: '<Input.Number {min} {max} {step} />',
     },
     {
       component: Input.Number,
       props: {
-        color: '#ff00d9',
+        color: '#FF00D9',
         min: 20,
       } as NumberProps,
     },

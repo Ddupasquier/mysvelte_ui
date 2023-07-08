@@ -6,7 +6,7 @@
      * @prop color
      * @description Choose the color of the loader. This should be in a recognized color format, such as hex code.
      * @type {string}
-     *  @default "#c50eff"
+     *  @default "#C50EFF"
      *
      * @prop size
      * @description Choose the size of the loader. You have options from "xsmall" up to "xlarge", with "small", "medium" and "large" in between.
@@ -23,8 +23,9 @@
      * @type {"fast" | "medium" | "slow"}
      * @default "medium"
      */
-    export let color: string = "#c50eff";
-    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
+    export let color: string = "#C50EFF";
+    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
+        "medium";
     export let style: string = "";
     export let speed: "fast" | "medium" | "slow" = "medium";
 

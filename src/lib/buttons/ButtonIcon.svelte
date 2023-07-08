@@ -7,7 +7,7 @@
     export let disabled: boolean = false;
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
         "medium";
-    export let background: string = "#c50eff";
+    export let background: string = "#C50EFF";
     export let animated: boolean = false;
     export let color: string = "#fff";
     export let text: string = "";

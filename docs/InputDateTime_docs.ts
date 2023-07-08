@@ -12,14 +12,14 @@ export const inputdates: InputDisplayData =
     {
       component: Input.Date,
       props: {
-        color: '#c50eff',
+        color: '#C50EFF',
       },
       code: '<Input.Date {min} {max} />',
     },
     {
       component: Input.Date,
       props: {
-        color: '#ff00d9',
+        color: '#FF00D9',
         variant: "outline"
       },
     },
@@ -45,14 +45,14 @@ export const inputtimes: InputDisplayData =
     {
       component: Input.Time,
       props: {
-        color: '#c50eff',
+        color: '#C50EFF',
       },
       code: '<Input.Time {min} {max} />',
     },
     {
       component: Input.Time,
       props: {
-        color: '#ff00d9',
+        color: '#FF00D9',
         variant: "outline"
       },
     },
@@ -78,14 +78,14 @@ export const inputdatetimes: InputDisplayData =
     {
       component: Input.DateTime,
       props: {
-        color: '#c50eff',
+        color: '#C50EFF',
       },
       code: '<Input.DateTime {min} {max} />',
     },
     {
       component: Input.DateTime,
       props: {
-        color: '#ff00d9',
+        color: '#FF00D9',
         variant: "outline"
       },
     },

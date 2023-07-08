@@ -37,7 +37,7 @@ export const toggles: ToggleDisplayData[] = [
           size: 'xsmall',
           disabled: false,
           isChecked: true,
-          color: '#c50eff',
+          color: '#C50EFF',
           id: 'toggle_size_xsmall'
         },
       },
@@ -47,7 +47,7 @@ export const toggles: ToggleDisplayData[] = [
           size: 'small',
           disabled: false,
           isChecked: true,
-          color: '#ff00d9',
+          color: '#FF00D9',
           id: 'toggle_size_small'
         },
         code: [
@@ -98,7 +98,7 @@ export const toggles: ToggleDisplayData[] = [
           size: 'medium',
           disabled: false,
           isChecked: true,
-          color: '#c50eff',
+          color: '#C50EFF',
           id: 'toggle_color_purple'
         },
       },
@@ -108,7 +108,7 @@ export const toggles: ToggleDisplayData[] = [
           size: 'medium',
           disabled: false,
           isChecked: true,
-          color: '#ff00d9',
+          color: '#FF00D9',
           id: 'toggle_color_pink'
         },
       },

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; z-index: 1; position: relative; shape-rendering: auto;" preserveAspectRatio="xMidYMid" viewBox="0 0 3000 1074">
 <g transform="translate(1500,537) scale(-1,1) translate(-1500,-537)"><linearGradient id="lg-0.7786151091574351" x1="0" x2="1" y1="0" y2="0">
-  <stop stop-color="#c50eff" offset="0"></stop>
+  <stop stop-color="#C50EFF" offset="0"></stop>
   <stop stop-color="#ffc844" offset="1"></stop>
 </linearGradient><path d="" fill="url(#lg-0.7786151091574351)" opacity="0.1">
   <animate attributeName="d" dur="25s" repeatCount="indefinite" keyTimes="0;0.333;0.667;1" calcMode="spline" keySplines="0.5 0 0.5 1;0.5 0 0.5 1;0.5 0 0.5 1" begin="0s" values="M0 0L 0 946.5760572434494Q 500 511.87440458955086  1000 489.8569340186549T 2000 581.2958353975253T 3000 494.4420773058927L 3000 0 Z;M0 0L 0 1089.8007398628308Q 500 586.5590861313913  1000 553.1910278864273T 2000 336.43841220281T 3000 317.45957753583383L 3000 0 Z;M0 0L 0 994.0200512780473Q 500 911.275544281405  1000 889.7241585629897T 2000 375.9527302773039T 3000 192.2638404118478L 3000 0 Z;M0 0L 0 946.5760572434494Q 500 511.87440458955086  1000 489.8569340186549T 2000 581.2958353975253T 3000 494.4420773058927L 3000 0 Z"></animate>

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import type { PropsTable } from "../../../app";
+
   export let table: PropsTable | undefined;
   export let isDarkMode: boolean;
 
@@ -21,14 +23,6 @@
     return str.substring(underscoreIndex + 1);
   };
 
-  const checkDarkMode = (mode: boolean) => {
-    if (mode) {
-      return "#fff";
-    } else {
-      return "#000";
-    }
-  };
-
   $: textColor = isDarkMode ? "#fff" : "#000";
 </script>
 
@@ -47,7 +41,7 @@
           <td
             class="left-col"
             style="color: {table.rows[key].name.includes('!')
-              ? '#c50eff'
+              ? '#C50EFF'
               : textColor}"
           >
             {#if table.rows[key].nav === true}
@@ -79,7 +73,7 @@
   </table>
   <div class="key">
     <span class="key-item">
-      <span class="key-item-color" style="background-color: #c50eff" />
+      <span class="key-item-color" style="background-color: #C50EFF" />
       <span style="color: {textColor}" class="key-item-text">Required</span>
     </span>
   </div>

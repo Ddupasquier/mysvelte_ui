@@ -1,6 +1,6 @@
 <script>
-  import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-  import { toggles} from './constants';
+  import DisplayCard from "../../ui_components/displayCard/DisplayCard.svelte";
+  import { toggles } from "./constants";
 </script>
 
 <h1>Toggles</h1>

@@ -5,7 +5,7 @@
     export let disabled: boolean = false;
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
         "medium";
-    export let color: string = "#c50eff";
+    export let color: string = "#C50EFF";
     export let style: string = "";
     export let isChecked: boolean = false;
     export let id: string = ""; // Added an id prop for accessibility
@@ -35,17 +35,17 @@
     $: toggleStyle = `
     color: ${color};
     ${style}
-    --toggle-color: ${isChecked ? color : '#ccc'};
+    --toggle-color: ${isChecked ? color : "#ccc"};
   `;
 </script>
 
 <label for={id} class={classString} style={toggleStyle} {...$$restProps}>
-    <input 
-        id={id} 
-        type="checkbox" 
-        {disabled} 
-        bind:checked={isChecked} 
-        aria-checked={isChecked} 
+    <input
+        {id}
+        type="checkbox"
+        {disabled}
+        bind:checked={isChecked}
+        aria-checked={isChecked}
     />
     <span class="slider" />
 </label>

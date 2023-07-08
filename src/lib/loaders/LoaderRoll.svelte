@@ -57,7 +57,7 @@
         position: absolute;
         width: 140px;
         height: 200px;
-        // background-color: #c50eff;
+        // background-color: #C50EFF;
         opacity: 0;
         transition: opacity 0.5s ease;
         img {

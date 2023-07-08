@@ -1,6 +1,6 @@
 <script lang="ts">
   import { fade, scale } from 'svelte/transition';
-  import { defaultModalShown } from '../../../src/stores/modalStore';
+  import { defaultModalShown } from '../../../../src/stores/modalStore';
 </script>
 
 <div class="modal" transition:fade>

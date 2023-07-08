@@ -26,7 +26,7 @@ export const textareas: TextareaDisplayData[] = [
       {
         component: Textarea,
         props: {
-          background: '#c50eff',
+          background: '#C50EFF',
           placeholder: 'Purple background',
         },
         code: ['<Textarea {background} />'],
@@ -34,7 +34,7 @@ export const textareas: TextareaDisplayData[] = [
       {
         component: Textarea,
         props: {
-          background: '#ff00d9',
+          background: '#FF00D9',
           placeholder: 'Pink background',
         },
       },
@@ -77,7 +77,7 @@ export const textareas: TextareaDisplayData[] = [
       {
         component: Textarea,
         props: {
-          color: '#c50eff',
+          color: '#C50EFF',
           placeholder: 'Purple text',
         },
         code: ['<Textarea {color} />'],
@@ -85,7 +85,7 @@ export const textareas: TextareaDisplayData[] = [
       {
         component: Textarea,
         props: {
-          color: '#ff00d9',
+          color: '#FF00D9',
           placeholder: 'Pink text',
         },
       },

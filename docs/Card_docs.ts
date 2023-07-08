@@ -17,7 +17,7 @@ export const cards: CardDisplayData[] = [
               component: Card.Head,
               props: {
                 slot: 'Card.Head',
-                background: '#c50eff',
+                background: '#C50EFF',
                 color: '#fff',
               },
             },
@@ -33,7 +33,7 @@ export const cards: CardDisplayData[] = [
             {
               component: Card.Foot,
               props: {
-                background: '#c50eff',
+                background: '#C50EFF',
                 slot: 'Card.Foot',
                 color: '#fff',
               },
@@ -55,7 +55,7 @@ export const cards: CardDisplayData[] = [
             {
               component: Card.Head,
               props: {
-                background: '#ff00d9',
+                background: '#FF00D9',
                 slot: 'Card.Head',
                 color: '#fff',
               },
@@ -73,7 +73,7 @@ export const cards: CardDisplayData[] = [
               component: Card.Foot,
               props: {
                 slot: 'Card.Foot',
-                background: '#ff00d9',
+                background: '#FF00D9',
                 color: '#fff',
               },
             },

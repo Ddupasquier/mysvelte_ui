@@ -65,7 +65,7 @@ export const checkboxes: CheckboxDisplayData[] = [
         component: Checkbox,
         props: {
           label: 'Color',
-          color: '#c50eff',
+          color: '#C50EFF',
           checked: true,
         },
         code: [`<Checkbox label="Color" {color} />`],
@@ -74,7 +74,7 @@ export const checkboxes: CheckboxDisplayData[] = [
         component: Checkbox,
         props: {
           label: 'Color',
-          color: '#ff00d9',
+          color: '#FF00D9',
           checked: true,
         },
       },
@@ -115,7 +115,7 @@ export const checkboxes: CheckboxDisplayData[] = [
         component: Checkbox,
         props: {
           label: 'Label',
-          labelColor: '#c50eff',
+          labelColor: '#C50EFF',
           checked: true,
         },
         code: [`<Checkbox label="Label" {labelColor} />`],
@@ -124,7 +124,7 @@ export const checkboxes: CheckboxDisplayData[] = [
         component: Checkbox,
         props: {
           label: 'Label',
-          labelColor: '#ff00d9',
+          labelColor: '#FF00D9',
           checked: true,
         },
       },

@@ -4,16 +4,16 @@
 
   import { banner, waveBg } from "./assets";
   // import { TopNav, SideNav } from "../ui_components/navbar";
-  import SideNav from "../ui_components/Navbar/SideNav.svelte";
-  import TopNav from "../ui_components/Navbar/TopNav.svelte";
-  import Footer from "../ui_components/Footer.svelte";
-  import DefaultModal from "../ui_components/modals/DefaultModal.svelte";
+  import SideNav from "./ui_components/Navbar/SideNav.svelte";
+  import TopNav from "./ui_components/Navbar/TopNav.svelte";
+  import Footer from "./ui_components/Footer.svelte";
+  import DefaultModal from "./ui_components/modals/DefaultModal.svelte";
 
   import {
     defaultModalShown,
     defaultModalSlot,
   } from "../../src/stores/modalStore";
-  import Analytics from "../ui_components/Analytics.svelte";
+  import Analytics from "./ui_components/Analytics.svelte";
 
   let currentLayout: "row" | "column" = "row";
   let bgShown: boolean = true;

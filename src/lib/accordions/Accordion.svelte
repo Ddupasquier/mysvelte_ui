@@ -44,7 +44,7 @@
      * @prop tabBg
      * @description The background color for the tab.
      * @type {string}
-     * @default "#c50eff"
+     * @default "#C50EFF"
      *
      * @prop tabColor
      * @description The text color for the tab.
@@ -69,7 +69,7 @@
     export let disabled: boolean = false;
     export let headerStyle: string = "";
     export let contentStyle: string = "";
-    export let tabBg: string = "#c50eff";
+    export let tabBg: string = "#C50EFF";
     export let tabColor: string = "#fff";
     export let background: string = "#fff";
     export let color: string = "#000";
