@@ -164,6 +164,7 @@
             bind:this={modal}
             {...$$restProps}
             style={modalStyle}
+            on:click={(event) => event.stopPropagation()}
         >
             <div class="modal-header">
                 <h2>{title}</h2>
