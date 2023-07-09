@@ -11,6 +11,7 @@ export const modals: ModalDisplayData[] = [
       {
         component: Modal,
         props: {
+          open: true,
           btnText: 'Check it out',
           btnColor: '#C50EFF',
           modalText: 'Oooooooooooo... Aaaaaaaaahhhhh!!!',
@@ -222,7 +223,7 @@ export const modals: ModalDisplayData[] = [
           btnText: 'Overlay Color',
           btnColor: '#C50EFF',
         },
-        code: ['<Modal {overlayColor} />'],
+        code: ['<Modal overlayColor="linear-gradient(rgba(255, 53, 121, .5), rgba(0, 0, 0, .7))" />'],
       },
     ],
   },
@@ -238,7 +239,7 @@ export const modals: ModalDisplayData[] = [
         description: 'Controls whether the modal is visible or not.',
         type: '{boolean}',
         default: 'false',
-        nav: true,
+        nav: false,
       },
       {
         name: `modal_size`,
@@ -293,7 +294,7 @@ export const modals: ModalDisplayData[] = [
         name: `modal_overlayColor`,
         description: 'Lets you personalize the overlay\'s background color. Accepts any valid CSS color or gradient.',
         type: '{string}',
-        default: '\"linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .7))\"',
+        default: '\"rgba(0, 0, 0, .5)\"',
         nav: true,
       }],
     },

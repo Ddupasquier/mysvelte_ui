@@ -67,7 +67,7 @@
         | "bottom-right" = "center";
     export let background = "#fff";
     export let color = "#000";
-    export let title = "Modal Title";
+    export let title = "Modal";
     export let outsideClick = true;
     export let animated = true;
     export let overlayColor: string = `linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .7))`;
