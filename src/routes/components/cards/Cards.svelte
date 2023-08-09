@@ -1,6 +1,6 @@
 <script lang="ts">
-  import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-  import { cards } from '../../../../docs/Card_docs';
+  import DisplayCard from "../../ui_components/displayCard/DisplayCard.svelte";
+  import { cards } from "../../../../docs/Card_docs";
 </script>
 
 <h1>Cards</h1>

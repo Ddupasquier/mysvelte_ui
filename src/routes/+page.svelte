@@ -23,7 +23,7 @@
     background="#fff"
     hover={true}
   >
-    <Card.Head background="#c50eff" color="#fff">
+    <Card.Head background="#C50EFF" color="#fff">
       <h2>Streamline Your Workflow with Our Svelte Component Library</h2>
     </Card.Head>
     <Card.Content>
@@ -44,7 +44,7 @@
     background="#fff"
     hover={true}
   >
-    <Card.Head background="#c50eff" color="#fff">
+    <Card.Head background="#C50EFF" color="#fff">
       <h2>
         Our Svelte Component Library is Designed for Beginners and Experienced
         Developers Alike
@@ -69,7 +69,7 @@
     background="#fff"
     hover={true}
   >
-    <Card.Head background="#c50eff" color="#fff">
+    <Card.Head background="#C50EFF" color="#fff">
       <h2>
         Our Svelte Component Library is a Great Choice for Anyone Looking to
         Save Time and Effort in Their Development Process

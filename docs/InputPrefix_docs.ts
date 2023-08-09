@@ -3,7 +3,7 @@ import type { InputDisplayData } from '../src/app';
 
 export const inputprefixes: InputDisplayData = 
   {
-    id: 'input.prefix_',
+    id: 'input_prefix',
     header: 'Input.Prefix',
     description:
       `You can add a prefix the this input by using dot notation IE. Input.Prefix. 
@@ -51,7 +51,7 @@ export const inputprefixes: InputDisplayData =
 
 export const inputprefixProps: InputDisplayData =
   {
-    id: `input.prefix_props`,
+    id: `input_prefix props_props`,
     header: `Input.Prefix Props`,
     description: 'Input.Prefix shares the same props with Input, besides the addition of the prefix prop.',
     type: 'table',

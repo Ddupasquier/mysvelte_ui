@@ -1,5 +1,5 @@
 import { Input, Spacer } from '../src/lib';
-import type { InputDisplayData, NumberProps } from '../src/app.d.ts';
+import type { InputDisplayData } from '../src/app.d.ts';
 import { inputcolors, inputcolorProps } from './InputColor_docs';
 import { inputdates, inputtimes, inputdatetimes, inputdateProps } from './InputDateTime_docs';
 import { inputnumbers, inputnumberProps } from './InputNumber_docs';
@@ -32,18 +32,18 @@ export const inputs: InputDisplayData[] = [
       {
         component: Input,
         props: {
-          background: '#c50eff',
-          placeholder: '#c50eff'
+          background: '#C50EFF',
+          placeholder: '#C50EFF'
         },
-        code: '<Input background="#c50eff" />',
+        code: '<Input background="#C50EFF" />',
       },
       {
         component: Input,
         props: {
-          background: '#ff00d9',
-          placeholder: '#ff00d9'
+          background: '#FF00D9',
+          placeholder: '#FF00D9'
         },
-        code: '<Input background="#ff00d9" />',
+        code: '<Input background="#FF00D9" />',
       },
       {
         component: Input,
@@ -110,18 +110,18 @@ export const inputs: InputDisplayData[] = [
       {
         component: Input,
         props: {
-          color: '#c50eff',
-          placeholder: '#c50eff'
+          color: '#C50EFF',
+          placeholder: '#C50EFF'
         },
-        code: '<Input color="#c50eff" />',
+        code: '<Input color="#C50EFF" />',
       },
       {
         component: Input,
         props: {
-          color: '#ff00d9',
-          placeholder: '#ff00d9'
+          color: '#FF00D9',
+          placeholder: '#FF00D9'
         },
-        code: '<Input color="#ff00d9" />',
+        code: '<Input color="#FF00D9" />',
       },
       {
         component: Input,
@@ -243,7 +243,7 @@ export const inputs: InputDisplayData[] = [
         props: {
           placeholder: 'Default',
           variant: 'default',
-          color: '#c50eff',
+          color: '#C50EFF',
         },
         code: '<Input variant="default" />',
       },
@@ -252,9 +252,9 @@ export const inputs: InputDisplayData[] = [
         props: {
           placeholder: 'Outline',
           variant: 'outline',
-          color: '#ff00d9',
+          color: '#FF00D9',
         },
-        code: '<Input variant="outline" color="#ff00d9" />',
+        code: '<Input variant="outline" color="#FF00D9" />',
       },
       {
         component: Input,

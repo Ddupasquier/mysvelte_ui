@@ -72,7 +72,6 @@
     font-size: 1rem;
     color: #ccc;
     cursor: pointer;
-    z-index: 1;
     transition: color 0.2s ease-in-out;
     &:hover {
       color: #000;

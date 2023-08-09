@@ -1,7 +1,7 @@
 <script>
-  import { Popover } from '$lib';
-  import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
-  import { popovers } from './constants';
+  import { Popover } from "$lib";
+  import DisplayCard from "../../ui_components/displayCard/DisplayCard.svelte";
+  import { popovers } from "./constants";
 </script>
 
 <h1>Popovers</h1>

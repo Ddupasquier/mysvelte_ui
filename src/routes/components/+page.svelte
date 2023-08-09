@@ -17,6 +17,7 @@ import Avatars from './avatars/Avatars.svelte';
   import Buttons from "./buttons/Buttons.svelte";
   import Inputs from "./inputs/Inputs.svelte";
   import Cards from "./cards/Cards.svelte";
+import Modals from './modals/Modals.svelte';
 
   $: items = $page.url.searchParams.get("items");
   $: capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
@@ -67,6 +68,8 @@ import Avatars from './avatars/Avatars.svelte';
 <ImageFilters />
 {:else if items === 'textareas'}
 <Textareas />
+{:else if items === 'modals'}
+<Modals />
 {:else}
   <div class="oops">
     <h1>Oops</h1>

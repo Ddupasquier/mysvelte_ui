@@ -1,4 +1,33 @@
 <script lang="ts">
+
+    /**
+     * @component Parallax.Video
+     *
+     * @prop video!
+     * @description The URL of the image you want to use for the parallax effect.
+     * @type {string}
+     * @default ""
+     *
+     * @prop height
+     * @description The height of the parallax area on your page.
+     * @type {string}
+     * @default "300px"
+     *
+     * @prop width
+     * @description The width of the parallax area. It defaults to full width.
+     * @type {string}
+     * @default "100%"
+     *
+     * @prop speed
+     * @description Controls the rate at which the parallax effect takes place. Adjust this to get the right feel for your design.
+     * @type {number}
+     * @default 0.5
+     *
+     * @prop position
+     * @description Sets the starting position of the parallax image. Useful for making sure the focus of the image is visible.
+     * @type {[number, number]}
+     * @default [0, 0]
+     */
     export let video: string = "";
     export let height: string = "300px";
     export let width: string = "100%";

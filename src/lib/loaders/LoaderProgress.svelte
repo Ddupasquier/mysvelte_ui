@@ -1,6 +1,6 @@
 <script lang="ts">
     // Props
-    export let color: string = "#c50eff";
+    export let color: string = "#C50EFF";
     export let background: string = "#fff";
     export let size: "small" | "medium" | "large" = "medium";
     export let style: string = "";

@@ -39,7 +39,7 @@ export const radios: RadioDisplayData[] = [
         component: Radio,
         props: {
           options: ["apple", "banana", "grape"],
-          color: '#c50eff',
+          color: '#C50EFF',
           groupId: 'color1'
         },
       },
@@ -47,7 +47,7 @@ export const radios: RadioDisplayData[] = [
         component: Radio,
         props: {
           options: ["red", "green", "blue"],
-          color: '#ff00d9',
+          color: '#FF00D9',
           groupId: 'color2'
         },
       },
@@ -90,7 +90,7 @@ export const radios: RadioDisplayData[] = [
         component: Radio,
         props: {
           options: ['red', 'green', 'blue'],
-          labelColor: '#c50eff',
+          labelColor: '#C50EFF',
           groupId: 'labelColor1'
         }
       },
@@ -98,7 +98,7 @@ export const radios: RadioDisplayData[] = [
         component: Radio,
         props: {
           options: ['circle', 'square', 'triangle'],
-          labelColor: '#ff00d9',
+          labelColor: '#FF00D9',
           groupId: 'labelColor2'
         }
       },

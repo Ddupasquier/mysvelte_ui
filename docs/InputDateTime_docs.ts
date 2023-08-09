@@ -3,7 +3,7 @@ import type { InputDisplayData } from '../src/app';
 
 export const inputdates: InputDisplayData =
 {
-  id: 'input.date_',
+  id: 'input_date',
   header: 'Input.Date',
   description: `The date input can be accessed by using dot notation IE. Input.Date. 
     The 'min' and 'max' props should be in the format 'YYYY-MM-DD' (e.g., '2023-06-01').`,
@@ -12,14 +12,14 @@ export const inputdates: InputDisplayData =
     {
       component: Input.Date,
       props: {
-        color: '#c50eff',
+        color: '#C50EFF',
       },
       code: '<Input.Date {min} {max} />',
     },
     {
       component: Input.Date,
       props: {
-        color: '#ff00d9',
+        color: '#FF00D9',
         variant: "outline"
       },
     },
@@ -36,7 +36,7 @@ export const inputdates: InputDisplayData =
 
 export const inputtimes: InputDisplayData =
 {
-  id: 'input.time_',
+  id: 'input_time',
   header: 'Input.Time',
   description: `The time input can be accessed by using dot notation IE. Input.Time.
     The 'min' and 'max' props should be in the format 'HH:MM' (e.g., '13:30').`,
@@ -45,14 +45,14 @@ export const inputtimes: InputDisplayData =
     {
       component: Input.Time,
       props: {
-        color: '#c50eff',
+        color: '#C50EFF',
       },
       code: '<Input.Time {min} {max} />',
     },
     {
       component: Input.Time,
       props: {
-        color: '#ff00d9',
+        color: '#FF00D9',
         variant: "outline"
       },
     },
@@ -69,7 +69,7 @@ export const inputtimes: InputDisplayData =
 
 export const inputdatetimes: InputDisplayData =
 {
-  id: 'input.date/time_',
+  id: 'input_date/time',
   header: 'Input.Date/Time',
   description: `The date time input can be accessed by using dot notation IE. Input.DateTime.
     The 'min' and 'max' props should be in the format 'YYYY-MM-DDTHH:MM' (e.g., '2023-06-01T13:30').`,
@@ -78,14 +78,14 @@ export const inputdatetimes: InputDisplayData =
     {
       component: Input.DateTime,
       props: {
-        color: '#c50eff',
+        color: '#C50EFF',
       },
       code: '<Input.DateTime {min} {max} />',
     },
     {
       component: Input.DateTime,
       props: {
-        color: '#ff00d9',
+        color: '#FF00D9',
         variant: "outline"
       },
     },
@@ -102,7 +102,7 @@ export const inputdatetimes: InputDisplayData =
 
 export const inputdateProps: InputDisplayData =
 {
-  id: `input.date/time_props`,
+  id: `input_date/time props_props`,
   header: `Input.Date/Time Props`,
   description: 'These props are the same for Input.Date, Input.Time, and Input.DateTime.',
   type: 'table',

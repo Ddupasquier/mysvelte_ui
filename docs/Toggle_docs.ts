@@ -1,4 +1,5 @@
-import { Toggle } from '$lib';
+import { Toggle } from '../src/lib';
+import type { ToggleDisplayData } from '../src/app.d.ts';
 
 export const toggles: ToggleDisplayData[] = [
   {
@@ -37,7 +38,7 @@ export const toggles: ToggleDisplayData[] = [
           size: 'xsmall',
           disabled: false,
           isChecked: true,
-          color: '#c50eff',
+          color: '#C50EFF',
           id: 'toggle_size_xsmall'
         },
       },
@@ -47,7 +48,7 @@ export const toggles: ToggleDisplayData[] = [
           size: 'small',
           disabled: false,
           isChecked: true,
-          color: '#ff00d9',
+          color: '#FF00D9',
           id: 'toggle_size_small'
         },
         code: [
@@ -98,7 +99,7 @@ export const toggles: ToggleDisplayData[] = [
           size: 'medium',
           disabled: false,
           isChecked: true,
-          color: '#c50eff',
+          color: '#C50EFF',
           id: 'toggle_color_purple'
         },
       },
@@ -108,7 +109,7 @@ export const toggles: ToggleDisplayData[] = [
           size: 'medium',
           disabled: false,
           isChecked: true,
-          color: '#ff00d9',
+          color: '#FF00D9',
           id: 'toggle_color_pink'
         },
       },
@@ -165,53 +166,61 @@ export const toggles: ToggleDisplayData[] = [
     ],
   },
   {
-    id: 'toggle_props',
-    header: 'Toggle Props',
-    description: 'Here\'s a breakdown of the props you can pass into the Toggle component.',
+    id: `toggle_props`,
+    header: `Toggle Props`,
+    description: 'Toggle Props',
     type: 'table',
     table: {
-      tableName: 'toggles',
+      tableName: 'toggle',
       rows: [
         {
-          name: 'toggle_size',
-          description: 'Determines the size of the toggle. Options are: "xsmall", "small", "medium", "large", "xlarge".',
-          default: '"medium"',
-          nav: true,
-        },
-        {
-          name: 'toggle_disabled',
-          description: 'If true, the toggle will be disabled and can\'t be interacted with.',
+          name: `toggle_disabled`,
+          description: 'Disables the toggle if set to `true`. Provide a boolean value to control its availability.',
+          type: '{boolean}',
           default: 'false',
           nav: true,
         },
         {
-          name: 'toggle_isChecked',
-          description: 'Determines the state of the toggle. If true, toggle will be in "checked" state.',
-          default: 'false',
+          name: `toggle_size`,
+          description: 'Specifies the size of the toggle. Options include \"xsmall\", \"small\", \"medium\", \"large\", or \"xlarge\" to control its dimensions.',
+          type: '{"xsmall" | "small" | "medium" | "large" | "xlarge"}',
+          default: '\"medium\"',
           nav: true,
         },
         {
-          name: 'toggle_style',
-          description: 'Enables inline styles to be passed to the component.',
-          default: '""',
+          name: `toggle_color`,
+          description: 'Determines the color of the toggle handle. Accepts any valid CSS color value.',
+          type: '{string}',
+          default: '\"#C50EFF\"',
+          nav: true,
+        },
+        {
+          name: `toggle_style`,
+          description: 'Applies custom CSS styles to the toggle. Use any valid CSS value to customize its appearance.',
+          type: '{string}',
+          default: '\"\"',
           nav: false,
         },
         {
-          name: 'toggle_color',
-          description: 'Sets the color of the toggle when it\'s checked.',
-          default: '"#fff"',
-          nav: true,
+          name: `toggle_isChecked`,
+          description: 'Indicates the checked state of the toggle. If `true`, the toggle will be in the \"on\" position by default.',
+          type: '{boolean}',
+          default: 'false',
+          nav: false,
         },
+        {
+          name: `toggle_id`,
+          description: 'Provides a unique identifier for the toggle. Enter any valid string value.',
+          type: '{string}',
+          default: '\"\"',
+          nav: false,
+        }
       ],
     },
     examples: [
       {
         component: null,
-        props: {
-          size: 'medium',
-          disabled: false,
-          isChecked: false,
-        },
+        props: {},
       },
     ],
   },

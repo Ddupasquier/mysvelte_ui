@@ -4,6 +4,7 @@ import { buttons } from '../../docs/Button_docs';
 import { inputs } from '../../docs/Input_docs';
 import { cards } from '../../docs/Card_docs';
 import { popovers } from '../routes/components/popovers/constants';
+import { modals } from '../../docs/Modal_docs';
 import { radios } from '../routes/components/radios/constants';
 import { dropdowns } from '../routes/components/dropdowns/constants';
 import { loaders } from '../../docs/Loader_docs';
@@ -11,12 +12,13 @@ import { checkboxes } from '../../docs/Checkbox_docs';
 import { parallaxes } from '../../docs/Parallax_docs';
 import { avatars } from '../../docs/Avatar_docs';
 import { accordions } from '../../docs/Accordion_docs';
-import { toggles } from '../routes/components/toggles/constants';
+import { toggles } from '../../docs/Toggle_docs';
 import { imageFilters } from '../../docs/ImageFilter_docs';
 import { textareas } from '../../docs/Textarea_docs';
 
 // Component mapping
 const componentMapping = {
+  modals,
   textareas,
   buttons,
   inputs,

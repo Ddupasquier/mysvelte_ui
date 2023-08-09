@@ -17,7 +17,7 @@ export const cards: CardDisplayData[] = [
               component: Card.Head,
               props: {
                 slot: 'Card.Head',
-                background: '#c50eff',
+                background: '#C50EFF',
                 color: '#fff',
               },
             },
@@ -33,7 +33,7 @@ export const cards: CardDisplayData[] = [
             {
               component: Card.Foot,
               props: {
-                background: '#c50eff',
+                background: '#C50EFF',
                 slot: 'Card.Foot',
                 color: '#fff',
               },
@@ -55,7 +55,7 @@ export const cards: CardDisplayData[] = [
             {
               component: Card.Head,
               props: {
-                background: '#ff00d9',
+                background: '#FF00D9',
                 slot: 'Card.Head',
                 color: '#fff',
               },
@@ -73,7 +73,7 @@ export const cards: CardDisplayData[] = [
               component: Card.Foot,
               props: {
                 slot: 'Card.Foot',
-                background: '#ff00d9',
+                background: '#FF00D9',
                 color: '#fff',
               },
             },
@@ -198,7 +198,7 @@ export const cards: CardDisplayData[] = [
         component: Card.Image,
         props: {
           image:
-            'https://i0.hippopx.com/photos/324/623/626/cat-#000-and-#fff-animals-#000-preview.jpg',
+            'https://i0.hippopx.com/photos/324/623/626/cat-black-and-white-animals-black-preview.jpg',
           nested: [
             {
               component: Card.Head,
@@ -238,7 +238,7 @@ export const cards: CardDisplayData[] = [
         component: Card.Image,
         props: {
           image:
-            'https://i0.hippopx.com/photos/405/86/365/cat-#000-cat-thoughtful-pet-preview.jpg',
+            'https://i0.hippopx.com/photos/405/86/365/cat-black-cat-thoughtful-pet-preview.jpg',
           nested: [
             {
               component: Card.Head,
@@ -304,7 +304,7 @@ export const cards: CardDisplayData[] = [
         component: Card.Image,
         props: {
           image:
-            'https://i0.hippopx.com/photos/149/81/199/cat-#000-cat-snow-#000-color-preview.jpg',
+            'https://i0.hippopx.com/photos/149/81/199/cat-black-cat-snow-black-color-preview.jpg',
           nested: [
             {
               component: Card.Head,

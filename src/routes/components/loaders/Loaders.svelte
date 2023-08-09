@@ -1,5 +1,5 @@
 <script>
-  import DisplayCard from "../../../ui_components/displayCard/DisplayCard.svelte";
+  import DisplayCard from "../../ui_components/displayCard/DisplayCard.svelte";
   import { loaders } from "../../../../docs/Loader_docs";
 </script>
 

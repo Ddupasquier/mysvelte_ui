@@ -3,7 +3,7 @@ import type { InputDisplayData, NumberProps } from '../src/app';
 
 export const inputnumbers: InputDisplayData =
 {
-  id: 'input.number_',
+  id: 'input_number',
   header: 'Input.Number',
   description:
     `The number input can be accessed by using dot notation IE. Input.Number.
@@ -14,14 +14,14 @@ export const inputnumbers: InputDisplayData =
     {
       component: Input.Number,
       props: {
-        color: '#c50eff',
+        color: '#C50EFF',
       } as NumberProps,
       code: '<Input.Number {min} {max} {step} />',
     },
     {
       component: Input.Number,
       props: {
-        color: '#ff00d9',
+        color: '#FF00D9',
         min: 20,
       } as NumberProps,
     },
@@ -39,7 +39,7 @@ export const inputnumbers: InputDisplayData =
 
 export const inputnumberProps: InputDisplayData =
 {
-  id: `input.number_props`,
+  id: `input_number props_props`,
   header: `Input.Number Props`,
   type: 'table',
   table: {

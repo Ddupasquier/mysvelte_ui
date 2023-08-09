@@ -7,13 +7,13 @@ export const loaders: LoaderDisplayData[] = [
     id: 'loader_basics',
     header: 'Loader',
     description:
-      'A simple loader component. The props available are size, speed and color. \nThe size prop can be set to small, medium or large. The speed prop can be fast, medium, or slow. The color prop can be set to any valid CSS color value. \n(default size: medium, default color: #c50eff, default speed: medium)',
+      'A simple loader component. The props available are size, speed and color. \nThe size prop can be set to small, medium or large. The speed prop can be fast, medium, or slow. The color prop can be set to any valid CSS color value. \n(default size: medium, default color: #C50EFF, default speed: medium)',
     type: 'components',
     examples: [
       {
         component: Loader,
         props: {
-          color: '#c50eff',
+          color: '#C50EFF',
           size: 'small',
         },
         code: [`<Loader {size} {color} {speed} />`],
@@ -21,7 +21,7 @@ export const loaders: LoaderDisplayData[] = [
       {
         component: Loader,
         props: {
-          color: '#ff00d9',
+          color: '#FF00D9',
           size: 'medium',
         },
       },
@@ -49,14 +49,14 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader.elips_',
+    id: 'loader_elips',
     header: 'Loader.Elips',
     type: 'components',
     examples: [
       {
         component: Loader.Elips,
         props: {
-          color: '#c50eff',
+          color: '#C50EFF',
           size: 'small',
         },
         code: [`<Loader.Elips {size} {color} {speed} />`],
@@ -64,7 +64,7 @@ export const loaders: LoaderDisplayData[] = [
       {
         component: Loader.Elips,
         props: {
-          color: '#ff00d9',
+          color: '#FF00D9',
           size: 'medium',
         },
       },
@@ -92,7 +92,7 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader.progress_',
+    id: 'loader_progress',
     header: 'Loader.Progress',
     type: 'components',
     examples: [
@@ -106,7 +106,7 @@ export const loaders: LoaderDisplayData[] = [
       {
         component: Loader.Progress,
         props: {
-          color: '#ff00d9',
+          color: '#FF00D9',
           size: 'medium',
         },
       },
@@ -120,7 +120,7 @@ export const loaders: LoaderDisplayData[] = [
     ],
   },
   {
-    id: 'loader.pie_',
+    id: 'loader_pie',
     header: 'Loader.Pie',
     type: 'components',
     examples: [
@@ -128,7 +128,7 @@ export const loaders: LoaderDisplayData[] = [
         component: Loader.Pie,
         props: {
           size: 'small',
-          color: '#c50eff',
+          color: '#C50EFF',
         },
         code: [`<Loader.Pie {size} {color} {speed} />`],
       },
@@ -162,7 +162,6 @@ export const loaders: LoaderDisplayData[] = [
       }
     ],
   },
-  loaderbounceicons,
   {
     id: `loader_props`,
     header: `Loader Props`,
@@ -173,7 +172,7 @@ export const loaders: LoaderDisplayData[] = [
         name: `loader_color`,
         description: 'Choose the color of the loader. This should be in a recognized color format, such as hex code.',
         type: '{string}',
-        default: '\"#c50eff\"',
+        default: '\"#C50EFF\"',
         nav: true,
       },
       {
@@ -205,5 +204,6 @@ export const loaders: LoaderDisplayData[] = [
       },
     ],
   },
+  loaderbounceicons,
   loaderBounceProps,
 ];

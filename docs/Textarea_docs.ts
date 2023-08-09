@@ -26,7 +26,7 @@ export const textareas: TextareaDisplayData[] = [
       {
         component: Textarea,
         props: {
-          background: '#c50eff',
+          background: '#C50EFF',
           placeholder: 'Purple background',
         },
         code: ['<Textarea {background} />'],
@@ -34,7 +34,7 @@ export const textareas: TextareaDisplayData[] = [
       {
         component: Textarea,
         props: {
-          background: '#ff00d9',
+          background: '#FF00D9',
           placeholder: 'Pink background',
         },
       },
@@ -77,7 +77,7 @@ export const textareas: TextareaDisplayData[] = [
       {
         component: Textarea,
         props: {
-          color: '#c50eff',
+          color: '#C50EFF',
           placeholder: 'Purple text',
         },
         code: ['<Textarea {color} />'],
@@ -85,7 +85,7 @@ export const textareas: TextareaDisplayData[] = [
       {
         component: Textarea,
         props: {
-          color: '#ff00d9',
+          color: '#FF00D9',
           placeholder: 'Pink text',
         },
       },
@@ -165,22 +165,6 @@ export const textareas: TextareaDisplayData[] = [
           placeholder: 'Textarea with label inside and custom label color'
         },
         code: ['<Textarea id="myTextareaIn" label={true} labelIn={true} labelColor="#FF3579" />'],
-      },
-    ],
-  },
-  {
-    id: 'textarea_labelColor',
-    header: 'Textarea with custom label color',
-    description: 'This is an example of a textarea with a custom label color.',
-    type: 'components',
-    examples: [
-      {
-        component: Textarea,
-        props: {
-          labelColor: '#F57F17',
-          placeholder: 'Textarea with custom label color'
-        },
-        code: ['<Textarea labelColor="#F57F17" />'],
       },
     ],
   },

@@ -33,7 +33,7 @@ export const buttons: ButtonDisplayData[] = [
       {
         component: Button,
         props: {
-          background: '#c50eff',
+          background: '#C50EFF',
           text: 'Purple'
         },
         code: '<Button {background}>Purple</Button>',
@@ -41,7 +41,7 @@ export const buttons: ButtonDisplayData[] = [
       {
         component: Button,
         props: {
-          background: '#ff00d9',
+          background: '#FF00D9',
           text: 'Pink',
         },
       },
@@ -114,7 +114,7 @@ export const buttons: ButtonDisplayData[] = [
         props: {
           size: 'large',
           text: 'Large',
-          background: '#ff00d9',
+          background: '#FF00D9',
         },
         code: '<Button size="large">Large</Button>',
       },
@@ -131,7 +131,7 @@ export const buttons: ButtonDisplayData[] = [
         props: {
           size: 'large',
           text: 'Large',
-          background: '#ff00d9'
+          background: '#FF00D9'
         },
       },
       {
@@ -365,7 +365,7 @@ export const buttons: ButtonDisplayData[] = [
           name: `button_background`,
           description: 'Lets you personalize the button\'s background color with any valid CSS color.',
           type: '{string}',
-          default: '\"#c50eff\"',
+          default: '\"#C50EFF\"',
           nav: true,
         },
         {

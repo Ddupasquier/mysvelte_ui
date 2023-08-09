@@ -77,7 +77,7 @@ export const accordions: AccordionDisplayData[] = [
         props: {
           data: accordionData,
           collapse: false,
-          tabBg: '#ff00d9'
+          tabBg: '#FF00D9'
         },
         code: [
           '<Accordion {data} collapse={false} />',
@@ -222,7 +222,7 @@ export const accordions: AccordionDisplayData[] = [
           name: 'accordion_tabBg',
           description: 'The background color for the tab.',
           type: '{string}',
-          default: '\"#c50eff\"',
+          default: '\"#C50EFF\"',
           nav: false,
         },
         {

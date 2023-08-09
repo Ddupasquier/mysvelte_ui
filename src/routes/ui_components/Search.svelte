@@ -3,7 +3,7 @@
   import { fade, slide } from "svelte/transition";
   import Input from "$lib/inputs/Input.svelte";
   import { MagnifyingGlassIcon } from "./icons";
-  import { componentIds } from "../stores/componentStore";
+  import { componentIds } from "../../stores/componentStore";
   import { splitSearchResult } from "./utils";
 
   $: isOpen = false;
