@@ -1,7 +1,7 @@
 <script lang="ts">
   // Props
   export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
-        "medium";
+    "medium";
   export let color = "#FF00D9";
   export let background: string = "#fff";
   export let speed: "fast" | "medium" | "slow" = "medium";
