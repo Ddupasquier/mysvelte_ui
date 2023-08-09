@@ -57,14 +57,12 @@ export const Checkbox = Object.assign(CheckboxDefault, {
 // * LOADERS
 import LoaderDefault from './loaders/Loader.svelte';
 import Elips from './loaders/LoaderElips.svelte';
-import Roll from './loaders/LoaderRoll.svelte';
 import BounceIcon from './loaders/LoaderBounceIcon.svelte';
 import Progress from './loaders/LoaderProgress.svelte';
 import Pie from './loaders/LoaderPie.svelte';
 
 export const Loader = Object.assign(LoaderDefault, {
   Elips,
-  Roll,
   BounceIcon,
   Progress,
   Pie

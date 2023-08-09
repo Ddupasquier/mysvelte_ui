@@ -63,10 +63,10 @@ export const loaderBounceProps: LoaderDisplayData =
     rows: [
       {
         name: `loaderbounceicon_icon`,
-        description: 'The icon of the loader can be changed to any SVG icon. Just paste any SVG code into the icon prop.',
+        description: 'The icon of the loader can be changed to any SVG icon. You can use the <a href="https://www.flaticon.com/" target="_blank">Flaticon</a> website to find an icon you like, and then copy the SVG code into this prop.',
         type: '{string}',
         default: 'Svelte logo',
-        nav: true,
+        nav: false,
       }
     ],
   },

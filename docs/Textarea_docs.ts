@@ -169,22 +169,6 @@ export const textareas: TextareaDisplayData[] = [
     ],
   },
   {
-    id: 'textarea_labelColor',
-    header: 'Textarea with custom label color',
-    description: 'This is an example of a textarea with a custom label color.',
-    type: 'components',
-    examples: [
-      {
-        component: Textarea,
-        props: {
-          labelColor: '#F57F17',
-          placeholder: 'Textarea with custom label color'
-        },
-        code: ['<Textarea labelColor="#F57F17" />'],
-      },
-    ],
-  },
-  {
     id: 'textarea_variant',
     header: 'Textarea Variant',
     description: 'The \'variant\' prop is used to determine the style variant of the textarea. It can be set to "default", "line", or "outline".',

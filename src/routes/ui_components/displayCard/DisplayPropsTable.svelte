@@ -62,7 +62,7 @@
             {/if}
           </td>
           <td>
-            {table.rows[key].description}
+            {@html table.rows[key].description}
           </td>
           <td class="defaults">
             {table.rows[key].default}

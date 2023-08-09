@@ -1,4 +1,5 @@
-import { Toggle } from '$lib';
+import { Toggle } from '../src/lib';
+import type { ToggleDisplayData } from '../src/app.d.ts';
 
 export const toggles: ToggleDisplayData[] = [
   {

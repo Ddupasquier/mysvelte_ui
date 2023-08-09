@@ -2,13 +2,47 @@
     import { onMount } from "svelte";
 
     // Props
+    /**
+     * @component Toggle
+     *
+     * @prop disabled
+     * @description Disables the toggle if set to `true`. Provide a boolean value to control its availability.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop size
+     * @description Specifies the size of the toggle. Options include "xsmall", "small", "medium", "large", or "xlarge" to control its dimensions.
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+     * @default "medium"
+     *
+     * @prop color
+     * @description Determines the color of the toggle handle. Accepts any valid CSS color value.
+     * @type {string}
+     * @default "#C50EFF"
+     *
+     * @prop style
+     * @description Applies custom CSS styles to the toggle. Use any valid CSS value to customize its appearance.
+     * @type {string}
+     * @default ""
+     *
+     * @prop isChecked
+     * @description Indicates the checked state of the toggle. If `true`, the toggle will be in the "on" position by default.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop id
+     * @description Provides a unique identifier for the toggle. Enter any valid string value.
+     * @type {string}
+     * @default ""
+     */
+
     export let disabled: boolean = false;
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
         "medium";
     export let color: string = "#C50EFF";
     export let style: string = "";
     export let isChecked: boolean = false;
-    export let id: string = ""; // Added an id prop for accessibility
+    export let id: string = "";
 
     // Variables
     let classList = ["toggle"];

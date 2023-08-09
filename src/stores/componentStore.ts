@@ -12,7 +12,7 @@ import { checkboxes } from '../../docs/Checkbox_docs';
 import { parallaxes } from '../../docs/Parallax_docs';
 import { avatars } from '../../docs/Avatar_docs';
 import { accordions } from '../../docs/Accordion_docs';
-import { toggles } from '../routes/components/toggles/constants';
+import { toggles } from '../../docs/Toggle_docs';
 import { imageFilters } from '../../docs/ImageFilter_docs';
 import { textareas } from '../../docs/Textarea_docs';
 

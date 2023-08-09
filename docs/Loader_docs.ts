@@ -162,7 +162,6 @@ export const loaders: LoaderDisplayData[] = [
       }
     ],
   },
-  loaderbounceicons,
   {
     id: `loader_props`,
     header: `Loader Props`,
@@ -205,5 +204,6 @@ export const loaders: LoaderDisplayData[] = [
       },
     ],
   },
+  loaderbounceicons,
   loaderBounceProps,
 ];
