@@ -2,7 +2,8 @@
     // Props
     export let color: string = "#C50EFF";
     export let background: string = "#fff";
-    export let size: "small" | "medium" | "large" = "medium";
+    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
+        "medium";
     export let style: string = "";
     export let speed: "fast" | "medium" | "slow" = "medium";
 
@@ -14,9 +15,11 @@
 
     // Size values
     const widthValues: Record<typeof size, number> = {
+        xsmall: 50,
         small: 100,
         medium: 200,
         large: 300,
+        xlarge: 400,
     };
 
     // Speed Values

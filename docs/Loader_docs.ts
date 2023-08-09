@@ -177,7 +177,7 @@ export const loaders: LoaderDisplayData[] = [
       },
       {
         name: `loader_size`,
-        description: 'Choose the size of the loader. You have options from \"small\" up to \"large\", with \"medium\" in between.',
+        description: 'Choose the size of the loader. Your options are \"xsmall\", \"small\", \"medium\", \"large\", and \"xlarge\".',
         type: '{"small" | "medium" | "large"}',
         default: '\"medium\"',
         nav: true,

@@ -1,7 +1,7 @@
 <script lang="ts">
     // Props
     export let color: string = "#C50EFF";
-    export let size: "small" | "medium" | "large" = "medium";
+    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
     export let speed: "fast" | "medium" | "slow" = "medium";
 
     // Local state
@@ -9,9 +9,11 @@
 
     // Size values
     const sizeValues: Record<typeof size, number> = {
+        xsmall: 2,
         small: 5,
         medium: 10,
         large: 15,
+        xlarge: 20,
     };
 
     // Speed Values

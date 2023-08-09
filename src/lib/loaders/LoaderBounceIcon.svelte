@@ -12,8 +12,8 @@
      *  @default "#C50EFF"
      *
      * @prop size
-     * @description Choose the size of the loader. You have options from "small" up to "large", with "medium" in between.
-     * @type {"small" | "medium" | "large"}
+     * @description Choose the size of the loader. You have options from "xsmall" up to "xlarge", with "small", "medium" and "large" in between.
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
      * @default "medium"
      *
      * @prop style
@@ -32,7 +32,7 @@
      * @default "The Svelte logo"
      */
     export let color: string = "#C50EFF";
-    export let size: "small" | "medium" | "large" = "medium";
+    export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
     export let style: string = "";
     export let icon: string = svelteIcon;
     export let speed: "fast" | "medium" | "slow" = "medium";
@@ -44,9 +44,11 @@
 
     // Size values
     const sizeValues: Record<typeof size, number> = {
+        xsmall: 15,
         small: 25,
         medium: 35,
         large: 55,
+        xlarge: 75,
     };
 
     // Speed values

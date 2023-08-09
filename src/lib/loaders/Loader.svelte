@@ -9,7 +9,7 @@
      *  @default "#C50EFF"
      *
      * @prop size
-     * @description Choose the size of the loader. You have options from "xsmall" up to "xlarge", with "small", "medium" and "large" in between.
+     * @description Choose the size of the loader. Your options are \"xsmall\", \"small\", \"medium\", \"large\", and \"xlarge\".
      * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
      * @default "medium"
      *
