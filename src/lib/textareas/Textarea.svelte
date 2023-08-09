@@ -195,10 +195,9 @@
         class="clear-button"
         on:click={clearInput}
         transition:fade={{ duration: 100 }}
-        >
-         <CloseIcon />
-        </button
       >
+        <CloseIcon />
+      </button>
     {/if}
   </div>
 </div>
