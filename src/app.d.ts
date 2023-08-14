@@ -176,6 +176,7 @@ interface RadioProps {
   disabled?: boolean;
   groupId: string;
   use?: 'one' | 'many';
+  checkbox?: boolean;
 }
 
 // * Dropdown TYPES

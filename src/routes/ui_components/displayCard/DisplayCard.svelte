@@ -19,13 +19,15 @@
   let isDarkMode: boolean = false;
 
   onMount(() => {
-    codes = examples.map((example) => example.code);
+    if (examples) codes = examples.map((example) => example.code);
   });
 </script>
 
 <div
   {id}
-  class={isDarkMode ? "display-card-container dark" : "display-card-container light"}
+  class={isDarkMode
+    ? "display-card-container dark"
+    : "display-card-container light"}
 >
   <button
     class="toggle"
@@ -113,7 +115,7 @@
   .content-wrapper {
     position: relative;
   }
-  
+
   .description {
     white-space: pre-line;
   }

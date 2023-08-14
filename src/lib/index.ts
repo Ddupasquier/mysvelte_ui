@@ -1,3 +1,6 @@
+// * MISC
+export { default as Spacer } from './Spacer.svelte';
+
 // * BUTTONS
 import ButtonDefault from './buttons/Button.svelte';
 import ButtonIcon from './buttons/ButtonIcon.svelte';
@@ -5,9 +8,6 @@ import ButtonIcon from './buttons/ButtonIcon.svelte';
 export const Button = Object.assign(ButtonDefault, {
   Icon: ButtonIcon,
 });
-
-// * MISC
-export { default as Spacer } from './Spacer.svelte';
 
 // * INPUTS
 import DefaultInput from './inputs/Input.svelte';
@@ -26,11 +26,6 @@ export const Input = Object.assign(DefaultInput, {
   Time: InputTime,
   Date: InputDate,
 });
-
-// // * DROPDOWNS
-// import Dropdown from './dropdowns/Dropdown.svelte';
-
-// export { Dropdown };
 
 // * CARDS
 import CardDefault from './cards/Card.svelte';
@@ -107,3 +102,8 @@ export const Textarea = Object.assign(TextareaDefault, {});
 
 import ModalDefault from './modals/Modal.svelte';
 export const Modal = Object.assign(ModalDefault, {});
+
+// * RADIO
+import RadioDefault from './radios/Radio.svelte';
+
+export const Radio = Object.assign(RadioDefault, {});

@@ -224,7 +224,7 @@ export const radios: RadioDisplayData[] = [
   {
     id: 'radio_groupId',
     header: 'Group Identification',
-    description: 'Assign a unique identifier to a radio or checkbox group.',
+    description: 'Assign a unique identifier to a radio or checkbox group. This is a required prop.',
     type: 'components',
     examples: [
       {
@@ -235,6 +235,28 @@ export const radios: RadioDisplayData[] = [
         },
         code: [
           '<Radio groupId="customGroupId" {options} />'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'radio_checkbox',
+    header: 'Checkbox',
+    description: `You can use the radio component as a checkbox. 
+    Note: use prop must be set to 'many' to use as a checkbox. 
+    (default: false)`,
+    type: 'components',
+    examples: [
+      {
+        component: Radio,
+        props: {
+          options: ['red', 'green', 'blue'],
+          checkbox: true,
+          groupId: 'checkboxExample',
+          use: 'many',
+        },
+        code: [
+          '<Radio {checkbox} {options} use={"many"} />'
         ]
       }
     ]
@@ -282,13 +304,13 @@ export const radios: RadioDisplayData[] = [
       },
       {
         name: `radio_selected`,
-        description: 'An array of currently selected options.',
+        description: 'An array of currently selected options. For \"one\" use, this will contain zero or one option. For \"many\" use, this can contain multiple options.',
         type: '{string[]}',
         default: '[]',
         nav: true,
       },
       {
-        name: `radio_groupId`,
+        name: `radio_groupId!`,
         description: 'A unique identifier for the group of radio buttons or checkboxes.',
         type: '{string}',
         default: '\"radio-group\"',
@@ -299,6 +321,13 @@ export const radios: RadioDisplayData[] = [
         description: 'Determines if the component should behave as a group of radio buttons (\"one\") or checkboxes (\"many\").',
         type: '{"one" | "many"}',
         default: '\"one\"',
+        nav: true,
+      },
+      {
+        name: `radio_checkbox`,
+        description: 'Determines if the visual representation of the selection is a checkbox (true) or radio (false) when in \"many\" mode. This property only affects visual styling and does not change functionality.',
+        type: '{boolean}',
+        default: 'true',
         nav: true,
       }],
     },

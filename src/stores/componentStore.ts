@@ -5,7 +5,7 @@ import { inputs } from '../../docs/Input_docs';
 import { cards } from '../../docs/Card_docs';
 import { popovers } from '../routes/components/popovers/constants';
 import { modals } from '../../docs/Modal_docs';
-import { radios } from '../routes/components/radios/constants';
+import { radios } from '../../docs/Radio_docs';
 import { dropdowns } from '../routes/components/dropdowns/constants';
 import { loaders } from '../../docs/Loader_docs';
 import { checkboxes } from '../../docs/Checkbox_docs';

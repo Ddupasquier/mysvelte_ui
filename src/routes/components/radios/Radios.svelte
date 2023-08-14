@@ -1,6 +1,6 @@
 <script lang="ts">
   import DisplayCard from "../../ui_components/displayCard/DisplayCard.svelte";
-  import { radios } from "./constants";
+  import { radios } from "../../../../docs/Radio_docs";
 </script>
 
 <h1>Radios</h1>
