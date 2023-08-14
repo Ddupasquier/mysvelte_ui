@@ -405,11 +405,6 @@ export const cards: CardDisplayData[] = [
         }
       ],
     },
-    examples: [
-      {
-        component: null,
-        props: {},
-      },
-    ],
+    examples: null,
   },
 ];

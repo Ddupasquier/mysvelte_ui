@@ -99,10 +99,5 @@ export const inputcolorProps: InputDisplayData =
       nav: false,
     }],
   },
-  examples: [
-    {
-      component: null,
-      props: {},
-    },
-  ],
+  examples: null,
 }

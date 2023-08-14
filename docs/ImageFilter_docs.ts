@@ -247,14 +247,6 @@ export const imageFilters: ImageFilterDisplayData[] = [
         nav: false,
       }],
     },
-    examples: [
-      {
-        component: null,
-        props: {
-          image: '',
-          alt: '',
-        },
-      },
-    ],
+    examples: null,
   },
 ];

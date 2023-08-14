@@ -217,11 +217,6 @@ export const toggles: ToggleDisplayData[] = [
         }
       ],
     },
-    examples: [
-      {
-        component: null,
-        props: {},
-      },
-    ],
+    examples: null,
   },
 ];

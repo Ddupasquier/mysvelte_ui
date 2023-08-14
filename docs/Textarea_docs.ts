@@ -371,11 +371,6 @@ export const textareas: TextareaDisplayData[] = [
         }
       ],
     },
-    examples: [
-      {
-        component: null,
-        props: {},
-      },
-    ],
+    examples: null,
   },
 ];

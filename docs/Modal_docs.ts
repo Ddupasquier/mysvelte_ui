@@ -298,11 +298,6 @@ export const modals: ModalDisplayData[] = [
         nav: true,
       }],
     },
-    examples: [
-      {
-        component: null,
-        props: {},
-      },
-    ],
+    examples: null,
   },
 ];

@@ -126,12 +126,7 @@ export async function createDocumentationFile(componentPathInput) {
           ${propRows}
         ],
       },
-      examples: [
-        {
-          component: null,
-          props: {},
-        },
-      ],
+      examples: null,
     },
   ];`;
 

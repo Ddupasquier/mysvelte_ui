@@ -139,7 +139,7 @@ const updateIndex = async (filePath, componentName, componentLower) => {
 
 const updateApp = async (filePath, componentName) => {
   const fileContent = readFileSync(filePath, 'utf-8');
-  const newType = `\n\n// * ${componentName} TYPES\nexport interface ${componentName}DisplayData extends BaseDisplayData {\n  examples: ${componentName}Example[];\n}`;
+  const newType = `\n\n// * ${componentName} TYPES\nexport interface ${componentName}DisplayData extends BaseDisplayData {\n  examples: ${componentName}Example[];\n} | null`;
 
   const newContent = `${fileContent}${newType}`;
   writeFileSync(filePath, newContent);

@@ -202,10 +202,5 @@ export const inputdateProps: InputDisplayData =
       }
     ],
   },
-  examples: [
-    {
-      component: null,
-      props: {},
-    },
-  ],
+  examples: null,
 }

@@ -143,10 +143,5 @@ export const inputnumberProps: InputDisplayData =
       nav: false,
     }],
   },
-  examples: [
-    {
-      component: null,
-      props: {},
-    },
-  ],
+  examples: null,
 }

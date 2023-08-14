@@ -70,10 +70,5 @@ export const loaderBounceProps: LoaderDisplayData =
       }
     ],
   },
-  examples: [
-    {
-      component: null,
-      props: {},
-    },
-  ],
+  examples: null,
 }

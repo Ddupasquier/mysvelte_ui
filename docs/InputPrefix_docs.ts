@@ -67,10 +67,5 @@ export const inputprefixProps: InputDisplayData =
         }
       ],
     },
-    examples: [
-      {
-        component: null,
-        props: {},
-      },
-    ],
+    examples: null,
   }

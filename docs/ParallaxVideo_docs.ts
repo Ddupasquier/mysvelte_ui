@@ -69,10 +69,5 @@ export const parallaxvideoProps: ParallaxDisplayData = {
       nav: false,
     }],
   },
-  examples: [
-    {
-      component: null,
-      props: {} as VideoParallaxProps,
-    },
-  ],
+  examples: null,
 }

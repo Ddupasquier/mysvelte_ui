@@ -415,12 +415,7 @@ export const inputs: InputDisplayData[] = [
         }
       ],
     },
-    examples: [
-      {
-        component: null,
-        props: {},
-      },
-    ],
+    examples: null,
   },
   inputprefixes,
   inputprefixProps,

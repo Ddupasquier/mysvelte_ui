@@ -248,13 +248,6 @@ export const accordions: AccordionDisplayData[] = [
         },
       ],
     },
-    examples: [
-      {
-        component: null,
-        props: {
-          data: [],
-        },
-      },
-    ],
+    examples: null,
   },
 ];

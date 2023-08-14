@@ -197,12 +197,7 @@ export const loaders: LoaderDisplayData[] = [
         nav: true,
       }],
     },
-    examples: [
-      {
-        component: null,
-        props: {},
-      },
-    ],
+    examples: null,
   },
   loaderbounceicons,
   loaderBounceProps,

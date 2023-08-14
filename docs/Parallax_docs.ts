@@ -256,15 +256,7 @@ export const parallaxes: ParallaxDisplayData[] = [
         nav: true,
       }],
     },
-    examples: [
-      {
-        component: null,
-        props: {
-          image: "",
-          alt: "",
-        },
-      },
-    ],
+    examples: null,
   },
   parallaxVideos,
   parallaxvideoProps,

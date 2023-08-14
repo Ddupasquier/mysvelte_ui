@@ -426,11 +426,6 @@ export const buttons: ButtonDisplayData[] = [
         }
       ],
     },
-    examples: [
-      {
-        component: null,
-        props: {},
-      },
-    ],
+    examples: null,
   },
 ];

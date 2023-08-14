@@ -246,11 +246,6 @@ export const checkboxes: CheckboxDisplayData[] = [
         }
       ],
     },
-    examples: [
-      {
-        component: null,
-        props: {},
-      },
-    ],
+    examples: null,
   },
 ];

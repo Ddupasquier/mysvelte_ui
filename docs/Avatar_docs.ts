@@ -267,14 +267,6 @@ export const avatars: AvatarDisplayData[] = [
     nav: true,
   }],
     },
-    examples: [
-      {
-        component: null,
-        props: {
-          image: '',
-          alt: '',
-        },
-      },
-    ],
+    examples: null,
   },
 ];
