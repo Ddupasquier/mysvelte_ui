@@ -11,7 +11,7 @@
   let codes: string[] = [];
   export let id: string = "";
   export let header: string = "";
-  export let examples: any[] = [];
+  export let examples: any = null
   export let description: string = "";
   export let table: PropsTable | undefined;
   export let type: string;
@@ -19,7 +19,7 @@
   let isDarkMode: boolean = false;
 
   onMount(() => {
-    if (examples) codes = examples.map((example) => example.code);
+    if (examples) codes = examples.map((example: { code: any; }) => example.code);
   });
 </script>
 
