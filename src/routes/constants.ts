@@ -1,14 +1,14 @@
-import { github, discord } from "./icons"; 
+import { github, discord } from "./ui_components/icons";
 
 export const NavComponentOptions = [
   {
     name: 'Modals',
     path: '?items=modals',
- },
+  },
   {
     name: 'Textareas',
     path: '?items=textareas',
- },
+  },
   {
     name: 'ImageFilters',
     path: '?items=imagefilters',
@@ -72,7 +72,7 @@ export const links = [
   {
     name: 'Discord',
     icon: discord,
-    link: 'https://discord.gg/eNeKp3jh'
+    link: 'https://discord.gg/5YV3ZVMnKX'
   },
   {
     name: 'NPM',

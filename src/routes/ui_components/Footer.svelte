@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { links } from "./constants";
+  import { links } from "../constants";
 </script>
 
 <footer>

@@ -92,7 +92,7 @@
       </svg></a
     >
 
-    <a href="https://discord.gg/eNeKp3jh"
+    <a href="https://discord.gg/5YV3ZVMnKX"
       >
       <svg fill="#000000" width={iconSize} viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <title>discord</title>

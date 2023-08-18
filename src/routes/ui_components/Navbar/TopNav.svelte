@@ -2,7 +2,7 @@
     import { page } from "$app/stores";
     import { slide } from "svelte/transition";
 
-    import { NavComponentOptions } from "../constants";
+    import { NavComponentOptions } from "../../constants";
     import { svelteLogo } from "../icons";
 
     import Search from "../Search.svelte";
