@@ -17,7 +17,7 @@ const paths = {
   routesComponentDir: `./src/routes/components/${pluralize(componentLower)}`,
   componentStore: './src/stores/componentStore.ts',
   page: './src/routes/components/+page.svelte',
-  constants: './src/ui_components/constants.ts',
+  constants: './src/routes/constants.ts',
   index: './src/lib/index.ts',
   app: './src/app.d.ts'
 };
