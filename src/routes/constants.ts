@@ -2,6 +2,10 @@ import { github, discord } from "./ui_components/icons";
 
 export const NavComponentOptions = [
   {
+    name: 'Tables',
+    path: '?items=tables',
+ },
+  {
     name: 'Modals',
     path: '?items=modals',
   },

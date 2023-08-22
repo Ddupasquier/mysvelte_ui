@@ -33,7 +33,7 @@ const templates = {
     
     </style>`,
   routesComponent: `<script>
-    import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
+    import DisplayCard from '../../ui_components/displayCard/DisplayCard.svelte';
     import { ${pluralize(componentLower)}} from '../../../../docs/${componentUpper}_docs';
     </script>
 

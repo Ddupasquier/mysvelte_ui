@@ -440,3 +440,8 @@ interface ModalProps {
   modalText?: string;
   btnColor?: string;
 }
+
+// * Table TYPES
+export interface TableDisplayData extends BaseDisplayData {
+  examples: TableExample[];
+} | null

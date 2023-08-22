@@ -17,6 +17,7 @@ import Avatars from './avatars/Avatars.svelte';
   import Buttons from "./buttons/Buttons.svelte";
   import Inputs from "./inputs/Inputs.svelte";
   import Cards from "./cards/Cards.svelte";
+import Tables from './tables/Tables.svelte';
 import Modals from './modals/Modals.svelte';
 
   $: items = $page.url.searchParams.get("items");
@@ -70,6 +71,8 @@ import Modals from './modals/Modals.svelte';
 <Textareas />
 {:else if items === 'modals'}
 <Modals />
+{:else if items === 'tables'}
+<Tables />
 {:else}
   <div class="oops">
     <h1>Oops</h1>

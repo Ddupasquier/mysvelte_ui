@@ -106,4 +106,5 @@ export const Modal = Object.assign(ModalDefault, {});
 // * RADIO
 import RadioDefault from './radios/Radio.svelte';
 
-export const Radio = Object.assign(RadioDefault, {});
+export const Radio = Object.assign(RadioDefault, {});import TableDefault from './tables/TableBody.svelte';
+export const Table = Object.assign(TableDefault, {});
