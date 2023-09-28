@@ -70,7 +70,7 @@
   export let animated: boolean = false;
   export let color: string = "#fff";
   export let text: string = "";
-  export let rounded: boolean = true;
+  export let rounded: boolean = false;
   export let isLoading: boolean = false;
   export let isError: boolean = false;
   export let style: string = "";
