@@ -36,6 +36,7 @@ interface ButtonProps {
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   background?: string;
   color?: string;
+  rounded?: boolean;
   text?: string;
   isLoading?: boolean;
   isError?: boolean;
