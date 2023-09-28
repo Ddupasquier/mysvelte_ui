@@ -10,7 +10,7 @@
 <tbody>
     <slot>
         {#each rows as row, index}
-            <TableRow {index} {highlight}>
+            <TableRow {index} {highlight} {align}>
                 {#each Object.values(row) as value}
                     <TableCell {value} {align} />
                 {/each}

@@ -6,20 +6,27 @@
   import DisplayGallery from "./DisplayGallery.svelte";
   import DisplayNestedComponents from "./DisplayNestedComponents.svelte";
   import DisplayPropsTable from "./DisplayPropsTable.svelte";
+  import DisplayTableComp from "./DisplayTableComp.svelte";
+
   import type { PropsTable } from "../../../app";
 
-  let codes: string[] = [];
   export let id: string = "";
   export let header: string = "";
-  export let examples: any = null
+  export let examples: any = null;
   export let description: string = "";
   export let table: PropsTable | undefined;
   export let type: string;
+  export let rows: any[] = [];
+  export let columns: string[] = [];
+  export let pagination: boolean = false;
+  export let rowsPerPage: number | null = null;
 
+  let codes: string[] = [];
   let isDarkMode: boolean = false;
 
   onMount(() => {
-    if (examples) codes = examples.map((example: { code: any; }) => example.code);
+    if (examples)
+      codes = examples.map((example: { code: any }) => example.code);
   });
 </script>
 
@@ -31,7 +38,7 @@
 >
   <button
     class="toggle"
-    on:click={(e) => {
+    on:click={() => {
       isDarkMode = !isDarkMode;
     }}
     name="toggle dark mode"
@@ -49,15 +56,19 @@
       {description}
     </p>
 
-    {#if type === "components"}
-      <DisplayComponents {examples} />
-    {:else if type === "table"}
-      <DisplayPropsTable {table} {isDarkMode} />
-    {:else if type === "gallery"}
-      <DisplayGallery {examples} />
-    {:else if type === "nested"}
-      <DisplayNestedComponents {examples} />
-    {/if}
+    <slot name="override">
+      {#if type === "components"}
+        <DisplayComponents {examples} />
+      {:else if type === "table"}
+        <DisplayPropsTable {table} {isDarkMode} />
+      {:else if type === "gallery"}
+        <DisplayGallery {examples} />
+      {:else if type === "nested"}
+        <DisplayNestedComponents {examples} />
+      {:else if type === "tableComp"}
+        <DisplayTableComp {columns} {rows} {pagination} {rowsPerPage} />
+      {/if}
+    </slot>
 
     {#each codes as code}
       {#if code}

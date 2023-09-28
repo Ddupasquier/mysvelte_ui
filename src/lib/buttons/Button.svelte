@@ -134,7 +134,6 @@
     height: fit-content;
     width: fit-content;
     overflow: hidden;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
   }
 
   // Sizes

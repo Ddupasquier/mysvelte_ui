@@ -9,24 +9,42 @@
     // import TableFilter from "./TableFilter.svelte";
 
     // Props
-    export let rows: Array<any> = [];
-    export let columns: Array<string> = [];
+    export let rows: any[] = [];
+    export let columns: string[] = [];
     export let highlight: boolean = true;
     export let align: "left" | "center" | "right" = "left";
-    export let border: boolean = true;
+    export let border: boolean = false;
+    export let background: string = "rgba(250, 250, 250)";
+    export let color: string = "#000";
+    export let rowsPerPage: number | null = null;
+    export let pagination: boolean = false;
 
     // Variables
     let classList = ["table"];
     let classString = "";
 
     $: tableStyle = `
-        --border-collapse: ${border ? "collapse" : "separate"};`;
+        --border-collapse: ${!border ? "collapse" : "separate"};
+        --background: ${background};
+        --color: ${color};
+        border-radius: ${pagination ? ".25rem .25rem 0 0" : "0.25rem"};`;
 
     // Lifecycle hooks
     onMount(() => {
         if (highlight) classList.push("highlight");
         classString = classList.join(" ");
     });
+
+    // Pagination state
+    let currentPage = 1;
+    $: totalPages = rowsPerPage ? Math.ceil(rows.length / rowsPerPage) : 1;
+    $: displayedRows = rowsPerPage
+        ? rows.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage)
+        : rows;
+
+    const handlePageChange = (event: CustomEvent<number>) => {
+        currentPage = event.detail;
+    };
 
     // Reactive statements
     $: classString = classList.join(" ");
@@ -35,11 +53,21 @@
 <div class={classString}>
     <!-- <TableFilter />
     <TableSort /> -->
-    <table style={tableStyle}>
-        <TableHead {columns} {align} />
-        <TableBody {rows} {highlight} {align} />
-    </table>
-    <TablePagination />
+    <slot>
+        <table style={tableStyle}>
+            <TableHead {columns} {align} {background} />
+            <TableBody rows={displayedRows} {align} {highlight} />
+        </table>
+    </slot>
+    {#if pagination}
+        <TablePagination
+            {currentPage}
+            {totalPages}
+            {background}
+            {color}
+            on:pageChange={handlePageChange}
+        />
+    {/if}
 </div>
 
 <style lang="scss">
@@ -48,10 +76,14 @@
         flex-direction: column;
         overflow: auto;
         position: relative;
+        width: 100%;
 
         table {
+            border-radius: 0.25rem;
             width: 100%;
             border-collapse: var(--border-collapse);
+            background: var(--background);
+            color: var(--color);
         }
     }
 </style>

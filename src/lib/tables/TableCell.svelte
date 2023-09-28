@@ -1,19 +1,40 @@
 <script lang="ts">
-    export let value: unknown = "";
+    import TextCell from "./TableTextCell.svelte";
+    import LinkCell from "./TableLinkCell.svelte";
+    import ButtonCell from "./TableButtonCell.svelte";
+
+    export let value: any = "";
     export let align: "left" | "center" | "right" = "left";
 
-    $: tdStyle = `
-    --align: ${align};`;
+    let url: string,
+        action: ((e: MouseEvent) => void) | null | undefined,
+        text: any,
+        props: object | undefined;
+
+    $: {
+        if (typeof value === "object" && value.type) {
+            ({ url, action, text, props } = value);
+        }
+    }
 </script>
 
-<td style={tdStyle}>{value}</td>
+<td style={`text-align: ${align};`}>
+    {#if value.type === "text"}
+        <TextCell {text} />
+    {:else if value.type === "link"}
+        <LinkCell {url} {text} />
+    {:else if value.type === "button"}
+         <ButtonCell {action} {props} {text} />
+    {:else}
+        {value}
+    {/if}
+</td>
 
 <style lang="scss">
     td {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        text-align: var(--align);
-        padding: .5rem 1rem;
+        padding: 0.5rem 1rem;
     }
 </style>
