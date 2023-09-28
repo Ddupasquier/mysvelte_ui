@@ -1,9 +1,9 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte";
 
+    import { Button } from "$lib";
     import ChevronBack from "$lib/assets/ChevronBack.svelte";
     import ChevronForward from "$lib/assets/ChevronForward.svelte";
-    import Button from "$lib/buttons/Button.svelte";
 
     export let justify: "left" | "center" | "right" | "between" | "around" =
         "center";

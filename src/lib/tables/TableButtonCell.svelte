@@ -1,5 +1,6 @@
 <script lang="ts">
-    import Button from "$lib/buttons/Button.svelte";
+    import { Button } from "$lib";
+    
     export let action: ((e: MouseEvent) => void) | null | undefined;
     export let props:
         | {
