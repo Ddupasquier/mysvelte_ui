@@ -101,18 +101,6 @@
   {"import { Table } from 'mysvelte-ui';"}
 </h3>
 
-{#each tables as table}
-  <DisplayCard
-    id={table.id}
-    header={table.header}
-    description={table.description}
-    table={table.table}
-    type={table.type}
-    columns={table.columns}
-    rows={table.rows}
-  />
-{/each}
-
 <DisplayCard
   id="table"
   header="Table"
@@ -135,3 +123,16 @@
     {/each}
   </Table>
 </DisplayCard>
+
+{#each tables as table}
+  <DisplayCard
+    id={table.id}
+    header={table.header}
+    description={table.description}
+    table={table.table}
+    type={table.type}
+    columns={table.columns}
+    rows={table.rows}
+  />
+{/each}
+

@@ -446,6 +446,7 @@ interface ModalProps {
 export interface TableDisplayData extends BaseDisplayData {
   columns?: string[] = [];
   rows?: any[] = [];
+  examples?: TableExample[] = [];
 }
 
 interface TableExample {
@@ -456,7 +457,7 @@ interface TableExample {
 
 interface TableProps {
   columns?: TableColumn[];
-  rows: TableRow[];
+  rows: TableRow[] | null;
   nested?: TableNested[];
   align?: "left" | "center" | "right";
   background?: string;

@@ -56,8 +56,9 @@
 <nav style={navStyle}>
     <slot name="back">
         <Button
-            style="display: flex; align-items: center; justify-content: flex-start;"
+            style="display: flex; align-items: center; justify-content: flex-start; padding: .25rem;"
             size="small"
+            rounded
             on:click={prevPage}
         >
             <ChevronBack />
@@ -68,8 +69,9 @@
 
     <slot name="forward">
         <Button
-            style="display: flex; align-items: center; justify-content: flex-end"
+            style="display: flex; align-items: center; justify-content: flex-end; padding: .25rem;"
             size="small"
+            rounded
             on:click={nextPage}
         >
             <ChevronForward />

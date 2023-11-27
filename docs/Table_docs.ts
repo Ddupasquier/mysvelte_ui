@@ -1,4 +1,5 @@
 import type { TableDisplayData } from '../src/app.d.ts';
+import { Table } from '$lib'
 
 const sampleColumns = ["ID", "Name", "Email", "Role"];
 const sampleRows = [
@@ -21,8 +22,7 @@ const sampleRows = [
         alert("Admin");
       },
       props: {
-        background: "#fff",
-        color: "red",
+        background: "#C50EFF",
         size: "small",
       },
     },
@@ -90,13 +90,72 @@ export const tables: TableDisplayData[] = [
   {
     id: `table_props`,
     header: `Table Props`,
-    description: 'Table Props',
     type: 'table',
     table: {
       tableName: 'table',
-      rows: [
-
-      ],
+      rows: [{
+        name: `table_rows!`,
+        description: 'An array of row data to be displayed in the table.',
+        type: '{any[]}',
+        default: '[]',
+        nav: true,
+      },
+      {
+        name: `table_columns`,
+        description: 'An array of column headers for the table.',
+        type: '{string[]}',
+        default: '[]',
+        nav: true,
+      },
+      {
+        name: `table_highlight`,
+        description: 'A boolean value that determines if rows should be highlighted on hover.',
+        type: '{boolean}',
+        default: 'true',
+        nav: true,
+      },
+      {
+        name: `table_align`,
+        description: 'Sets the text alignment for the cells of the table. Choose from \'left\', \'center\', or \'right\'.',
+        type: '{"left" | "center" | "right"}',
+        default: '\"left\"',
+        nav: true,
+      },
+      {
+        name: `table_border`,
+        description: 'A boolean value that determines if the table should have borders or not.',
+        type: '{boolean}',
+        default: 'false',
+        nav: true,
+      },
+      {
+        name: `table_background`,
+        description: 'Lets you personalize the table\'s background color with any valid CSS color.',
+        type: '{string}',
+        default: '\"rgba(250, 250, 250)\"',
+        nav: true,
+      },
+      {
+        name: `table_color`,
+        description: 'Changes the color of the table\'s text. Use any valid CSS color.',
+        type: '{string}',
+        default: '\"#000\"',
+        nav: true,
+      },
+      {
+        name: `table_rowsPerPage`,
+        description: 'Specifies the number of rows to be displayed per page when pagination is enabled. Set to null for displaying all rows on one page.',
+        type: '{number | null}',
+        default: 'null',
+        nav: true,
+      },
+      {
+        name: `table_pagination`,
+        description: 'A boolean value that determines if the table should have pagination controls or not.',
+        type: '{boolean}',
+        default: 'false',
+        nav: true,
+      }],
     },
   },
 ];
