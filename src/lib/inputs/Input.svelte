@@ -106,7 +106,6 @@
   const dispatch = createEventDispatcher();
 
   // Variables
-  let containerClassList = ["input"];
   let containerClassString = "";
   let passwordView: boolean = false;
   let readOnly: boolean = false;
@@ -128,21 +127,20 @@
   });
 
   // Reactive Statements
-  $: {
-    containerClassList = ["input", size, variant];
-    if (isLoading) {
-      containerClassList.push("loading");
-    } else if (isError) {
-      containerClassList.push("error");
-    }
-    containerClassString = containerClassList.join(" ");
+  $: containerClassList = [
+    "input",
+    size,
+    variant,
+    isLoading && "loading",
+    isError && "error",
+  ].filter(Boolean);
 
-    readOnly = disabled || isLoading || isError;
-  }
+  $: containerClassString = containerClassList.join(" ");
+
+  $: readOnly = disabled || isLoading || isError;
 
   $: inputStyle = `
- background: ${disabled || isError || isLoading ? "#ccc" : background};
-  --color: ${color};
+  background: ${disabled || isError || isLoading ? "#ccc" : background};
   color: ${color};
   ${style}
 `;
