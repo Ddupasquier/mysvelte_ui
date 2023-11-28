@@ -112,15 +112,6 @@
 
   // Lifecycle Hooks
   onMount(() => {
-    containerClassList.push(size);
-    containerClassList.push(variant);
-    if (isLoading) {
-      containerClassList.push("loading");
-    } else if (isError) {
-      containerClassList.push("error");
-    }
-    containerClassString = containerClassList.join(" ");
-
     if (type === "password") passwordView = true;
 
     if (autoFocus) inputRef.focus();
