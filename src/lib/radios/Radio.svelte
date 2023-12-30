@@ -1,6 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { createEventDispatcher } from "svelte";
+    import { writable } from "svelte/store";
 
     // Props
     /**
@@ -9,8 +10,25 @@
      * A flexible component to display a group of radio buttons or checkboxes.
      *
      * @prop options!
-     * @description An array of string values to be used as the labels for each radio button or checkbox.
-     * @type {string[]}
+     * @description An array of options where each option is an object with a mandatory 'label' property and any other custom properties. The 'label' property is used as the display text for each radio button or checkbox.
+     *              Here is the structure of OptionType:
+     *
+     *              type OptionType<T> = T & {
+     *                  label: string; // The text to be displayed for the option
+     *                  // ...any other properties relevant to the option
+     *              };
+     *
+     *              Example:
+     *              [
+     *                  { label: 'Option 1', value: 'opt1', extraInfo: 'Additional data' },
+     *                  { label: 'Option 2', value: 'opt2', extraInfo: 'Additional data' }
+     *              ]
+     * @type {OptionType<any>[]}
+     * @default []
+     *
+     * @prop selected!
+     * @description The currently selected option(s). For "one" use, this will be a single option object or null. For "many" use, this can be an array of option objects.
+     * @type {any | any[]}
      * @default []
      *
      * @prop labelColor
@@ -33,10 +51,6 @@
      * @type {boolean}
      * @default false
      *
-     * @prop selected
-     * @description An array of currently selected options. For "one" use, this will contain zero or one option. For "many" use, this can contain multiple options.
-     * @type {string[]}
-     * @default []
      *
      * @prop groupId
      * @description A unique identifier for the group of radio buttons or checkboxes.
@@ -56,15 +70,19 @@
      * Events:
      * @event updateSelected
      * This event is dispatched whenever the selected options change.
-     * It sends out an array of currently selected options.
+     * It sends out the current value of the selected prop, which can be a single option object or an array of option objects.
      */
 
-    export let options: string[] = [];
+    type OptionType<T> = T & {
+        label: string;
+    };
+
+    export let options: OptionType<any>[] = [];
+    export let selected: any | any[] = [];
     export let labelColor: string = "#000";
     export let color: string = "#000";
     export let size: "small" | "medium" | "large" = "medium";
     export let disabled: boolean = false;
-    export let selected: string[] = [];
     export let groupId: string = "radio-group";
     export let use: "one" | "many" = "one";
     export let checkbox: boolean = false;
@@ -89,24 +107,34 @@
     // Event dispatcher
     const dispatch = createEventDispatcher();
 
+    // Convert selected to a writable store for reactivity
+    const selectedStore = writable(selected);
+
     // Event handlers
-    const handleInput = (event: Event, option: string) => {
+    const handleInput = (event: Event, optionValue: OptionType<any>) => {
         const target = event.target as HTMLInputElement;
-        if (target.checked) {
-            if (use === "one") {
-                selected = [option];
-            } else {
-                selected.push(option);
-            }
+        let newValue: any | any[];
+
+        if (use === "one") {
+            newValue = target.checked ? optionValue : null;
         } else {
-            const index = selected.indexOf(option);
-            if (index > -1) {
-                selected.splice(index, 1);
+            let currentValue: any[] = $selectedStore as any[];
+
+            if (target.checked) {
+                newValue = [...currentValue, optionValue];
+            } else {
+                newValue = currentValue.filter((item) => item !== optionValue);
             }
         }
-        selected = [...selected];
-        dispatch("updateSelected", selected);
+
+        selectedStore.set(newValue);
+        dispatch("updateSelected", newValue);
     };
+
+    // Sync the store with the selected prop
+    selectedStore.subscribe((value) => {
+        selected = Array.isArray(value) ? value : value ? [value] : [];
+    });
 </script>
 
 <div class={classString} role="radiogroup" {...$$restProps}>

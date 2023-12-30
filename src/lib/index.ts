@@ -97,13 +97,34 @@ export const Toggle = Object.assign(ToggleDefault, {
   // Animated: ToggleAnimated,
 });
 
+// * TEXTAREAS
 import TextareaDefault from './textareas/Textarea.svelte';
 export const Textarea = Object.assign(TextareaDefault, {});
 
+// * MODALS
 import ModalDefault from './modals/Modal.svelte';
 export const Modal = Object.assign(ModalDefault, {});
 
-// * RADIO
+// * RADIOS
 import RadioDefault from './radios/Radio.svelte';
-
 export const Radio = Object.assign(RadioDefault, {});
+
+// * TABLES
+import TableDefault from './tables/Table.svelte';
+import TableHead from './tables/TableHead.svelte';
+import TableBody from './tables/TableBody.svelte';
+import TableRow from './tables/TableRow.svelte';
+import TableCell from './tables/TableCell.svelte';
+import TablePagination from './tables/TablePagination.svelte';
+import TableFilter from './tables/TableFilter.svelte';
+import TableSort from './tables/TableSort.svelte';
+
+export const Table = Object.assign(TableDefault, {
+  Head: TableHead,
+  Body: TableBody,
+  Row: TableRow,
+  Cell: TableCell,
+  Pagination: TablePagination,
+  Filter: TableFilter,
+  Sort: TableSort,
+});

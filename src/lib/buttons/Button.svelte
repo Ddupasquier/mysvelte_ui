@@ -22,6 +22,11 @@
    * @type {string}
    * @default "#fff"
    *
+   * @prop rounded
+   * @description Determines if the button has rounded corners or not.
+   * @type {boolean}
+   * @default false
+   *
    * @prop disabled
    * @description Determines if the button is clickable or not. When true, the button appears grayed out.
    * @type {boolean}
@@ -65,6 +70,7 @@
   export let animated: boolean = false;
   export let color: string = "#fff";
   export let text: string = "";
+  export let rounded: boolean = false;
   export let isLoading: boolean = false;
   export let isError: boolean = false;
   export let style: string = "";
@@ -76,6 +82,9 @@
   // Lifecycle Hooks
   onMount(() => {
     classList.push(size);
+    if (rounded) {
+      classList.push("rounded");
+    }
     if (isLoading) {
       classList.push("loading");
     } else if (isError) {
@@ -134,7 +143,6 @@
     height: fit-content;
     width: fit-content;
     overflow: hidden;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
   }
 
   // Sizes
@@ -156,6 +164,25 @@
 
   .xlarge {
     padding: 1rem 2rem;
+  }
+
+  .rounded {
+    border-radius: 50rem;
+    &.xsmall {
+      padding: 0.125rem 0.375rem; // Increased left and right padding
+    }
+    &.small {
+      padding: 0.25rem 0.75rem; // Increased left and right padding
+    }
+    &.medium {
+      padding: 0.5rem 1.25rem; // Increased left and right padding
+    }
+    &.large {
+      padding: 0.75rem 1.75rem; // Increased left and right padding
+    }
+    &.xlarge {
+      padding: 1rem 2.25rem; // Increased left and right padding
+    }
   }
 
   // Loading and error styles

@@ -3,20 +3,20 @@ type ComponentPropertyString = `${string}_${string}`;
 type PropsTable = {
   tableName: string;
   rows: Record<string, TableRow>
-};
+}
 
 type tableRow = {
   name: string;
   description: string;
   default: string;
   nav: boolean;
-};
+}
 
 interface BaseDisplayData {
   id: string;
   header: string;
   description?: string;
-  type: 'gallery' | 'components' | 'nested' | 'table';
+  type: 'gallery' | 'components' | 'nested' | 'table' | 'tableComp';
   table?: PropsTable;
 }
 
@@ -36,6 +36,7 @@ interface ButtonProps {
   size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
   background?: string;
   color?: string;
+  rounded?: boolean;
   text?: string;
   isLoading?: boolean;
   isError?: boolean;
@@ -439,4 +440,28 @@ interface ModalProps {
   btnText?: string;
   modalText?: string;
   btnColor?: string;
+}
+
+// * Table TYPES
+export interface TableDisplayData extends BaseDisplayData {
+  columns?: string[] = [];
+  rows?: any[] = [];
+}
+
+interface TableExample {
+  component: SvelteComponentTyped;
+  props: TableProps;
+  code?: string[];
+}
+
+interface TableProps {
+  columns?: TableColumn[];
+  rows: TableRow[];
+  nested?: TableNested[];
+  align?: "left" | "center" | "right";
+  background?: string;
+  color?: string;
+  style?: string;
+  hover?: boolean;
+  highlight?: boolean;
 }

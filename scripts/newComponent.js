@@ -17,7 +17,7 @@ const paths = {
   routesComponentDir: `./src/routes/components/${pluralize(componentLower)}`,
   componentStore: './src/stores/componentStore.ts',
   page: './src/routes/components/+page.svelte',
-  constants: './src/ui_components/constants.ts',
+  constants: './src/routes/constants.ts',
   index: './src/lib/index.ts',
   app: './src/app.d.ts'
 };
@@ -33,7 +33,7 @@ const templates = {
     
     </style>`,
   routesComponent: `<script>
-    import DisplayCard from '../../../ui_components/displayCard/DisplayCard.svelte';
+    import DisplayCard from '../../ui_components/displayCard/DisplayCard.svelte';
     import { ${pluralize(componentLower)}} from '../../../../docs/${componentUpper}_docs';
     </script>
 
