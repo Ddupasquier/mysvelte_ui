@@ -163,7 +163,11 @@
                         size
                     ]})"
                 />
-                {option}
+                {#if option.label}
+                    {option.label}
+                {:else}
+                    {option}
+                {/if}
             </label>
         </div>
     {/each}
