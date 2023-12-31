@@ -168,9 +168,11 @@ interface RadioExample {
   code?: string[];
 }
 
+type OptionType = string | { label: string;[key: string]: any };
+
 interface RadioProps {
-  options: string[];
-  selected?: string[];
+  options: OptionType[];
+  selected?: OptionType[];
   labelColor?: string;
   color?: string;
   size?: 'small' | 'medium' | 'large';

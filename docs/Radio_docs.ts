@@ -250,7 +250,20 @@ export const radios: RadioDisplayData[] = [
       {
         component: Radio,
         props: {
-          options: ['red', 'green', 'blue'],
+          options: [
+            {
+              id: 'red',
+              label: 'red'
+            },
+            {
+              id: 'green',
+              label: 'green'
+            },
+            {
+              id: 'blue',
+              label: 'blue'
+            }
+          ],
           checkbox: true,
           groupId: 'checkboxExample',
           use: 'many',
@@ -269,15 +282,15 @@ export const radios: RadioDisplayData[] = [
       tableName: 'radio',
       rows: [{
     name: `radio_options!`,
-    description: 'An array of options where each option is an object with a mandatory \'label\' property and any other custom properties. The \'label\' property is used as the display text for each radio button or checkbox.',
-    type: '{OptionType<any>[]}',
+    description: 'An array of options where each option can be a string or an object. If an option is an object, it must have a \'label\' property which is used as the display text for the radio button or checkbox. The object can have any other custom properties.',
+    type: '{OptionType[] | OptionType}',
     default: '[]',
     nav: true,
   },
           {
     name: `radio_selected!`,
     description: 'The currently selected option(s). For \"one\" use, this will be a single option object or null. For \"many\" use, this can be an array of option objects.',
-    type: '{any | any[]}',
+    type: '{OptionType[] | OptionType}',
     default: '[]',
     nav: true,
   },

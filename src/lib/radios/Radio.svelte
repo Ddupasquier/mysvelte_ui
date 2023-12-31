@@ -10,25 +10,13 @@
      * A flexible component to display a group of radio buttons or checkboxes.
      *
      * @prop options!
-     * @description An array of options where each option is an object with a mandatory 'label' property and any other custom properties. The 'label' property is used as the display text for each radio button or checkbox.
-     *              Here is the structure of OptionType:
-     *
-     *              type OptionType<T> = T & {
-     *                  label: string; // The text to be displayed for the option
-     *                  // ...any other properties relevant to the option
-     *              };
-     *
-     *              Example:
-     *              [
-     *                  { label: 'Option 1', value: 'opt1', extraInfo: 'Additional data' },
-     *                  { label: 'Option 2', value: 'opt2', extraInfo: 'Additional data' }
-     *              ]
-     * @type {OptionType<any>[]}
+     * @description An array of options where each option can be a string or an object. If an option is an object, it must have a 'label' property which is used as the display text for the radio button or checkbox. The object can have any other custom properties.
+     * @type {OptionType[] | OptionType}
      * @default []
      *
      * @prop selected!
      * @description The currently selected option(s). For "one" use, this will be a single option object or null. For "many" use, this can be an array of option objects.
-     * @type {any | any[]}
+     * @type {OptionType[] | OptionType}
      * @default []
      *
      * @prop labelColor
@@ -73,12 +61,10 @@
      * It sends out the current value of the selected prop, which can be a single option object or an array of option objects.
      */
 
-    type OptionType<T> = T & {
-        label: string;
-    };
+    type OptionType = string | { label: string; [key: string]: any };
 
-    export let options: OptionType<any>[] = [];
-    export let selected: any | any[] = [];
+    export let options: OptionType[] = [];
+    export let selected: OptionType[] = [];
     export let labelColor: string = "#000";
     export let color: string = "#000";
     export let size: "small" | "medium" | "large" = "medium";
@@ -111,7 +97,7 @@
     const selectedStore = writable(selected);
 
     // Event handlers
-    const handleInput = (event: Event, optionValue: OptionType<any>) => {
+    const handleInput = (event: Event, optionValue: OptionType) => {
         const target = event.target as HTMLInputElement;
         let newValue: any | any[];
 
@@ -138,19 +124,27 @@
 </script>
 
 <div class={classString} role="radiogroup" {...$$restProps}>
-    {#each options as option (option)}
+    {#each options as option}
         <div class="radio-option">
             <label
                 class="label"
                 style="color: {labelColor}"
-                id={`label-${option}`}
+                id={`label-${
+                    typeof option === "object" && option.label
+                        ? option.label
+                        : option
+                }`}
             >
                 <input
                     type={use === "one" ? "radio" : "checkbox"}
                     role={use === "one" ? "radio" : "checkbox"}
                     name={groupId}
                     aria-checked={selected.includes(option)}
-                    aria-labelledby={`label-${option}`}
+                    aria-labelledby={`label-${
+                        typeof option === "object" && option.label
+                            ? option.label
+                            : option
+                    }`}
                     {disabled}
                     checked={selected.includes(option)}
                     on:change={(e) => handleInput(e, option)}
@@ -163,7 +157,7 @@
                         size
                     ]})"
                 />
-                {#if option.label}
+                {#if typeof option === "object" && option.label}
                     {option.label}
                 {:else}
                     {option}
