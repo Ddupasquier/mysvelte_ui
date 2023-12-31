@@ -93,34 +93,24 @@
     // Event dispatcher
     const dispatch = createEventDispatcher();
 
-    // Convert selected to a writable store for reactivity
-    const selectedStore = writable(selected);
-
     // Event handlers
-    const handleInput = (event: Event, optionValue: OptionType) => {
+    const handleInput = (event: Event, option: string | OptionType) => {
         const target = event.target as HTMLInputElement;
-        let newValue: any | any[];
-
-        if (use === "one") {
-            newValue = target.checked ? optionValue : null;
-        } else {
-            let currentValue: any[] = $selectedStore as any[];
-
-            if (target.checked) {
-                newValue = [...currentValue, optionValue];
+        if (target.checked) {
+            if (use === "one") {
+                selected = [option];
             } else {
-                newValue = currentValue.filter((item) => item !== optionValue);
+                selected.push(option);
+            }
+        } else {
+            const index = selected.indexOf(option);
+            if (index > -1) {
+                selected.splice(index, 1);
             }
         }
-
-        selectedStore.set(newValue);
-        dispatch("updateSelected", newValue);
+        selected = [...selected];
+        dispatch("updateSelected", selected);
     };
-
-    // Sync the store with the selected prop
-    selectedStore.subscribe((value) => {
-        selected = Array.isArray(value) ? value : value ? [value] : [];
-    });
 </script>
 
 <div class={classString} role="radiogroup" {...$$restProps}>
