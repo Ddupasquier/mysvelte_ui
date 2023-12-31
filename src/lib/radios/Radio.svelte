@@ -100,16 +100,26 @@
             if (use === "one") {
                 selected = [option];
             } else {
-                selected.push(option);
+                if (!isSelected(option)) {
+                    selected.push(option);
+                }
             }
         } else {
-            const index = selected.indexOf(option);
-            if (index > -1) {
-                selected.splice(index, 1);
-            }
+            selected = selected.filter((sel) => !isEqual(sel, option));
         }
         selected = [...selected];
         dispatch("updateSelected", selected);
+    };
+
+    const isEqual = (option1: OptionType, option2: OptionType): boolean => {
+        if (typeof option1 === "string" || typeof option2 === "string") {
+            return option1 === option2;
+        }
+        return option1.label === option2.label;
+    };
+
+    const isSelected = (option: OptionType): boolean => {
+        return selected.some((sel) => isEqual(sel, option));
     };
 </script>
 
@@ -129,14 +139,14 @@
                     type={use === "one" ? "radio" : "checkbox"}
                     role={use === "one" ? "radio" : "checkbox"}
                     name={groupId}
-                    aria-checked={selected.includes(option)}
+                    aria-checked={isSelected(option)}
+                    checked={isSelected(option)}
                     aria-labelledby={`label-${
                         typeof option === "object" && option.label
                             ? option.label
                             : option
                     }`}
                     {disabled}
-                    checked={selected.includes(option)}
                     on:change={(e) => handleInput(e, option)}
                 />
                 <span
