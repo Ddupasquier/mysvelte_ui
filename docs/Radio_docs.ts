@@ -282,15 +282,8 @@ export const radios: RadioDisplayData[] = [
       tableName: 'radio',
       rows: [{
     name: `radio_options!`,
-    description: 'An array of options where each option can be a string or an object. If an option is an object, it must have a \'label\' property which is used as the display text for the radio button or checkbox. The object can have any other custom properties.',
-    type: '{OptionType[] | OptionType}',
-    default: '[]',
-    nav: true,
-  },
-          {
-    name: `radio_selected!`,
-    description: 'The currently selected option(s). For \"one\" use, this will be a single option object or null. For \"many\" use, this can be an array of option objects.',
-    type: '{OptionType[] | OptionType}',
+    description: 'An array of options where each option can be a string or an object with a `label` property.',
+    type: '{OptionType[]}',
     default: '[]',
     nav: true,
   },
@@ -323,6 +316,13 @@ export const radios: RadioDisplayData[] = [
     nav: true,
   },
           {
+    name: `radio_selected`,
+    description: 'An array of currently selected options. For \"one\" use, this will contain zero or one option. For \"many\" use, this can contain multiple options.',
+    type: '{OptionType[]}',
+    default: '[]',
+    nav: true,
+  },
+          {
     name: `radio_groupId`,
     description: 'A unique identifier for the group of radio buttons or checkboxes.',
     type: '{string}',
@@ -338,7 +338,7 @@ export const radios: RadioDisplayData[] = [
   },
           {
     name: `radio_checkbox`,
-    description: 'Determines if the visual representation of the selection is a checkbox (true) or radio (false) when in \"many\" mode. This property only affects visual styling and does not change functionality.',
+    description: 'Determines if the visual representation of the selection is a checkbox (true) or radio (false) when in \"many\" mode.',
     type: '{boolean}',
     default: 'false',
     nav: true,

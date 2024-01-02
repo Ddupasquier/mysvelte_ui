@@ -1,22 +1,18 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { createEventDispatcher } from "svelte";
-    import { writable } from "svelte/store";
+    import { createEventDispatcher, onMount } from "svelte";
+    import RadioGroupSingle from "./RadioGroupSingle.svelte";
+    import RadioGroupMultiple from "./RadioGroupMultiple.svelte";
 
-    // Props
     /**
      * @component Radio
      *
      * A flexible component to display a group of radio buttons or checkboxes.
      *
      * @prop options!
-     * @description An array of options where each option can be a string or an object. If an option is an object, it must have a 'label' property which is used as the display text for the radio button or checkbox. The object can have any other custom properties.
-     * @type {OptionType[] | OptionType}
-     * @default []
-     *
-     * @prop selected!
-     * @description The currently selected option(s). For "one" use, this will be a single option object or null. For "many" use, this can be an array of option objects.
-     * @type {OptionType[] | OptionType}
+     * @description An array of options where each option can be a string or an object with a `label` property.
+     *              The string value or the `label` property of the object is used as the display text for each radio button or checkbox.
+     *              Objects can also contain any other properties needed for additional logic or rendering.
+     * @type {OptionType[]}
      * @default []
      *
      * @prop labelColor
@@ -39,6 +35,11 @@
      * @type {boolean}
      * @default false
      *
+     * @prop selected
+     * @description An array of currently selected options. For "one" use, this will contain zero or one option. For "many" use, this can contain multiple options.
+     *              If options are objects, each selected option will be the object itself.
+     * @type {OptionType[]}
+     * @default []
      *
      * @prop groupId
      * @description A unique identifier for the group of radio buttons or checkboxes.
@@ -51,20 +52,17 @@
      * @default "one"
      *
      * @prop checkbox
-     * @description Determines if the visual representation of the selection is a checkbox (true) or radio (false) when in "many" mode. This property only affects visual styling and does not change functionality.
+     * @description Determines if the visual representation of the selection is a checkbox (true) or radio (false) when in "many" mode.
+     *              This property only affects visual styling and does not change functionality.
      * @type {boolean}
      * @default false
      *
      * Events:
      * @event updateSelected
      * This event is dispatched whenever the selected options change.
-     * It sends out the current value of the selected prop, which can be a single option object or an array of option objects.
+     * It sends out an array of currently selected options.
      */
 
-    type OptionType = string | { label: string; [key: string]: any };
-
-    export let options: OptionType[] = [];
-    export let selected: OptionType[] = [];
     export let labelColor: string = "#000";
     export let color: string = "#000";
     export let size: "small" | "medium" | "large" = "medium";
@@ -72,17 +70,14 @@
     export let groupId: string = "radio-group";
     export let use: "one" | "many" = "one";
     export let checkbox: boolean = false;
+    export let options: OptionType[] = [];
+    export let selected: SelectedType = [];
 
-    // Local state
+    type OptionType = string | { label: string; [key: string]: any };
+    type SelectedType = OptionType[];
+
     let classList = ["radio-container"];
     let classString = "";
-
-    // Size values
-    const sizeValues: Record<typeof size, string> = {
-        small: ".65",
-        medium: ".9",
-        large: "1.15",
-    };
 
     onMount(() => {
         classString = classList.join(" ");
@@ -90,191 +85,50 @@
 
     $: classString = classList.join(" ");
 
-    // Event dispatcher
     const dispatch = createEventDispatcher();
 
-    // Event handlers
-    const handleInput = (event: Event, option: string | OptionType) => {
-        const target = event.target as HTMLInputElement;
-        if (target.checked) {
-            if (use === "one") {
-                selected = [option];
-            } else {
-                if (!isSelected(option)) {
-                    selected.push(option);
-                }
-            }
-        } else {
-            selected = selected.filter((sel) => !isEqual(sel, option));
-        }
-        selected = [...selected];
+    const handleSelectionChange = (event: {
+        detail: {
+            selected: (string | { [key: string]: any; label: string })[];
+        };
+    }) => {
+        selected = event.detail.selected;
+        console.log("Radio component selection changed:", selected);
         dispatch("updateSelected", selected);
-    };
-
-    const isEqual = (option1: OptionType, option2: OptionType): boolean => {
-        if (typeof option1 === "string" || typeof option2 === "string") {
-            return option1 === option2;
-        }
-        return option1.label === option2.label;
-    };
-
-    const isSelected = (option: OptionType): boolean => {
-        return selected.some((sel) => isEqual(sel, option));
     };
 </script>
 
-<div class={classString} role="radiogroup" {...$$restProps}>
-    {#each options as option}
-        <div class="radio-option">
-            <label
-                class="label"
-                style="color: {labelColor}"
-                id={`label-${
-                    typeof option === "object" && option.label
-                        ? option.label
-                        : option
-                }`}
-            >
-                <input
-                    type={use === "one" ? "radio" : "checkbox"}
-                    role={use === "one" ? "radio" : "checkbox"}
-                    name={groupId}
-                    aria-checked={isSelected(option)}
-                    checked={isSelected(option)}
-                    aria-labelledby={`label-${
-                        typeof option === "object" && option.label
-                            ? option.label
-                            : option
-                    }`}
-                    {disabled}
-                    on:change={(e) => handleInput(e, option)}
-                />
-                <span
-                    class={checkbox && use === "many"
-                        ? "checkmark"
-                        : "radio-mark"}
-                    style="border-color: {color}; transform: scale({sizeValues[
-                        size
-                    ]})"
-                />
-                {#if typeof option === "object" && option.label}
-                    {option.label}
-                {:else}
-                    {option}
-                {/if}
-            </label>
-        </div>
-    {/each}
+<div class={classString} role="radiogroup" aria-labelledby={`label-${groupId}`}>
+    {#if use === "one"}
+        <RadioGroupSingle
+            {options}
+            selectedOption={selected.length > 0 ? selected[0] : null}
+            {labelColor}
+            {color}
+            {size}
+            {disabled}
+            {groupId}
+            on:selectionChange={handleSelectionChange}
+        />
+    {:else}
+        <RadioGroupMultiple
+            {options}
+            selectedOptions={selected}
+            {labelColor}
+            {color}
+            {size}
+            {disabled}
+            {groupId}
+            {checkbox}
+            on:selectionChange={handleSelectionChange}
+        />
+    {/if}
 </div>
 
-<style>
+<style lang="scss">
     .radio-container {
         display: flex;
         flex-direction: column;
         width: fit-content;
-    }
-
-    .radio-option {
-        margin-bottom: 0.5rem;
-    }
-
-    .label {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        margin-right: 1rem;
-        font-size: 1rem;
-        cursor: pointer;
-    }
-
-    .label input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-    }
-
-    .label input:disabled {
-        visibility: hidden;
-    }
-
-    .radio-mark {
-        position: relative;
-        display: inline-block;
-        width: 1.25em;
-        height: 1.25em;
-        margin-right: 0.5em;
-        border: 2px solid #ccc;
-        border-radius: 50%;
-        background-color: transparent;
-    }
-
-    .checkmark {
-        position: relative;
-        display: inline-block;
-        width: 1.25em;
-        height: 1.25em;
-        margin-right: 0.5em;
-        border: 2px solid #ccc;
-        border-radius: 3px;
-        background-color: transparent;
-        transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
-    }
-
-    .radio-mark::before {
-        content: "";
-        position: absolute;
-        display: none;
-        left: 0.375em;
-        top: 0.375em;
-        width: 0.5em;
-        height: 0.5em;
-        border-radius: 50%;
-        background-color: rgb(129, 129, 129);
-    }
-
-    .checkmark::before {
-        content: "";
-        position: absolute;
-        display: none;
-        left: 0.25em;
-        width: 1em;
-        height: 0.5em;
-        border: solid rgb(129, 129, 129);
-        border-width: 0 0.3em 0.2em 0;
-        transform: rotate(130deg) scaleY(-1);
-    }
-
-    .label input:checked ~ .radio-mark::before {
-        display: block;
-    }
-
-    .label:hover input:not(:disabled) ~ .radio-mark {
-        border-color: #000;
-    }
-
-    .label:hover input:not(:disabled) ~ .radio-mark::before {
-        border-color: inherit;
-        filter: brightness(0.5);
-    }
-
-    .label input:disabled ~ .radio-mark {
-        opacity: 0.5;
-    }
-
-    .label input:checked ~ .checkmark::before {
-        display: block;
-    }
-
-    .label:hover input:not(:disabled) ~ .checkmark {
-        border-color: #000;
-    }
-
-    .label:hover input:not(:disabled) ~ .checkmark::before {
-        border-color: inherit;
-        filter: brightness(0.5);
-    }
-
-    .label input:disabled ~ .checkmark {
-        opacity: 0.5;
     }
 </style>
