@@ -2,6 +2,9 @@
   "name": "mysvelte-ui",
   "version": "0.0.38",
   "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "files": [
     "dist/*"
   ],
@@ -29,35 +32,38 @@
     }
   },
   "peerDependencies": {
-    "svelte": "^4.2.7"
+    "svelte": "^5.0.0"
   },
   "types": "./dist/index.d.ts",
   "svelte": "./dist/index.js",
   "devDependencies": {
-    "@fontsource/fira-mono": "^5.0.8",
-    "@sveltejs/adapter-auto": "^2.0.0",
-    "@sveltejs/kit": "^1.27.4",
-    "@sveltejs/package": "^2.2.3",
-    "@types/cookie": "^0.5.1",
+    "@fontsource/fira-mono": "^5.2.7",
+    "@playwright/test": "^1.56.1",
+    "@sveltejs/adapter-auto": "^7.0.0",
+    "@sveltejs/kit": "^2.49.0",
+    "@sveltejs/package": "^2.5.6",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
     "@types/pluralize": "^0.0.33",
-    "@typescript-eslint/eslint-plugin": "^6.13.0",
-    "@typescript-eslint/parser": "^6.13.0",
-    "eslint": "^8.54.0",
-    "eslint-plugin-storybook": "^0.6.15",
-    "eslint-plugin-svelte": "^2.30.0",
-    "fs": "^0.0.1-security",
-    "mdsvex": "^0.11.0",
-    "publint": "^0.2.5",
-    "sass": "^1.69.5",
-    "svelte": "^4.2.7",
-    "svelte-check": "^3.6.0",
-    "tslib": "^2.6.2",
-    "typescript": "^5.3.2",
-    "vite": "^4.4.2",
-    "pluralize": "^8.0.0"
+    "@typescript-eslint/eslint-plugin": "^8.47.0",
+    "@typescript-eslint/parser": "^8.47.0",
+    "eslint": "^9.39.1",
+    "eslint-plugin-storybook": "^10.0.8",
+    "eslint-plugin-svelte": "^3.13.0",
+    "mdsvex": "^0.12.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.4.0",
+    "publint": "^0.3.15",
+    "sass": "^1.94.2",
+    "svelte": "^5.43.14",
+    "svelte-check": "^4.3.4",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4",
+    "vitest": "^4.0.13"
   },
   "type": "module",
   "dependencies": {
-    "@types/gtag.js": "^0.0.18"
+    "@types/gtag.js": "^0.0.20",
+    "pluralize": "^8.0.0"
   }
 }

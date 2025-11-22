@@ -64,7 +64,7 @@
 </aside>
 
 <style lang="scss">
-  @use "src/routes/breakpoints.scss" as breakpoints;
+  @use "../../breakpoints.scss" as breakpoints;
   .sidebar {
     position: fixed;
     display: flex;

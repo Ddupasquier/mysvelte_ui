@@ -82,7 +82,7 @@
 {/if}
 
 <style lang="scss">
-  @use "src/routes/breakpoints.scss" as breakpoints;
+  @use "./breakpoints.scss" as breakpoints;
   .app {
     display: flex;
     flex-direction: column;

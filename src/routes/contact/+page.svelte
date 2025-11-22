@@ -118,7 +118,7 @@
 </div>
 
 <style lang="scss">
-  @use "src/routes/breakpoints.scss" as breakpoints;
+  @use "../breakpoints.scss" as breakpoints;
   .contact-container {
     background-color: var(--menu-color);
     padding: 40px;

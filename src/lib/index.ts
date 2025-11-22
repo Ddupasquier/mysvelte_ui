@@ -42,10 +42,12 @@ export const Card = Object.assign(CardDefault, {
 });
 
 // * CHECKBOXES
+import CheckboxGroup from './checkboxes/CheckboxGroup.svelte';
 import CheckboxDefault from './checkboxes/Checkbox.svelte';
 import CheckboxAnimated from './checkboxes/CheckboxAnimated.svelte';
 
 export const Checkbox = Object.assign(CheckboxDefault, {
+  Group: CheckboxGroup,
   Animated: CheckboxAnimated,
 });
 

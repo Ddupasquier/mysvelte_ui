@@ -180,7 +180,7 @@
 </div>
 
 <style lang="scss">
-  @use "src/routes/breakpoints.scss" as breakpoints;
+  @use "../breakpoints.scss" as breakpoints;
 
   @mixin shared {
     display: flex;

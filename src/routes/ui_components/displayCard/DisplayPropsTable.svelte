@@ -80,7 +80,7 @@
 {/if}
 
 <style lang="scss">
-  @use "src/routes/breakpoints.scss" as breakpoints;
+  @use "../../breakpoints.scss" as breakpoints;
   table {
     width: 100%;
     border-collapse: collapse;

@@ -83,7 +83,7 @@
 </nav>
 
 <style lang="scss">
-    @use "src/routes/breakpoints.scss" as breakpoints;
+    @use "../../breakpoints.scss" as breakpoints;
     .nav-top {
         position: relative;
         display: flex;

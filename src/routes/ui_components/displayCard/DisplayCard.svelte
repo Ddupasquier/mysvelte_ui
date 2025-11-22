@@ -79,7 +79,7 @@
 </div>
 
 <style lang="scss">
-  @use "src/routes/breakpoints.scss" as breakpoints;
+  @use "../../breakpoints.scss" as breakpoints;
   .display-card-container {
     position: relative;
     margin: 1rem 0;

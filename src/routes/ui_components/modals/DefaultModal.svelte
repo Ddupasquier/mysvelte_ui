@@ -21,7 +21,7 @@
 </div>
 
 <style lang="scss">
-  @use 'src/routes/breakpoints.scss' as breakpoints;
+  @use '../../breakpoints.scss' as breakpoints;
   .modal {
     position: fixed;
     top: 0;

@@ -90,7 +90,7 @@
 </section>
 
 <style lang="scss">
-  @use "src/routes/breakpoints.scss" as breakpoints;
+  @use "./breakpoints.scss" as breakpoints;
   section {
     display: flex;
     flex-direction: row;

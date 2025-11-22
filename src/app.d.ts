@@ -1,3 +1,7 @@
+/// <reference types="@sveltejs/kit" />
+
+import type { SvelteComponentTyped } from 'svelte';
+
 type ComponentPropertyString = `${string}_${string}`;
 
 type PropsTable = {
@@ -467,3 +471,5 @@ interface TableProps {
   hover?: boolean;
   highlight?: boolean;
 }
+
+export {};
