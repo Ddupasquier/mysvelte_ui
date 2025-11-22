@@ -1,5 +1,7 @@
 import { Loader } from '../src/lib';
 import type { LoaderDisplayData } from '../src/app.d.ts';
+import { LoaderPiePropRows } from './generated/LoaderPie.props';
+import { LoaderProgressPropRows } from './generated/LoaderProgress.props';
 import { LoaderElipsPropRows } from './generated/LoaderElips.props';
 import { LoaderPropRows } from './generated/Loader.props';
 import { loaderbounceicons, loaderBounceProps } from './LoaderBounceIcon_docs';

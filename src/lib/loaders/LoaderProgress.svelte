@@ -1,11 +1,45 @@
 <script lang="ts">
     // Props
+    /**
+     * @component Loader.Progress
+     *
+     * @prop color
+     * @description Fill color of the progress bar.
+     * @type {string}
+     * @default "#C50EFF"
+     *
+     * @prop background
+     * @description Background color of the track.
+     * @type {string}
+     * @default "#fff"
+     *
+     * @prop size
+     * @description Width preset of the bar.
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+     * @default "medium"
+     *
+     * @prop style
+     * @description Additional inline styles for the track container.
+     * @type {string}
+     * @default ""
+     *
+     * @prop speed
+     * @description Animation speed preset.
+     * @type {"fast" | "medium" | "slow"}
+     * @default "medium"
+     *
+     * @prop ariaLabel
+     * @description Accessible label for screen readers.
+     * @type {string}
+     * @default "Loading"
+     */
     export let color: string = "#C50EFF";
     export let background: string = "#fff";
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
         "medium";
     export let style: string = "";
     export let speed: "fast" | "medium" | "slow" = "medium";
+    export let ariaLabel: string = "Loading";
 
     // Local state
     let containerStyle = "";
@@ -56,7 +90,7 @@
     }
 </script>
 
-<div class="loader-container" style={containerStyle}>
+<div class="loader-container" style={containerStyle} role="status" aria-live="polite" aria-label={ariaLabel}>
     <div class="loader" style={loaderStyle} bind:this={loaderRef} />
 </div>
 

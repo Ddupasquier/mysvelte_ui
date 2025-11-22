@@ -4,38 +4,44 @@
 
     // Props
     /**
-     * @component Loader
+     * @component Loader.BounceIcon
      *
      * @prop color
-     * @description Choose the color of the loader. This should be in a recognized color format, such as hex code.
+     * @description Color applied to the SVG icon.
      * @type {string}
-     *  @default "#C50EFF"
+     * @default "#C50EFF"
      *
      * @prop size
-     * @description Choose the size of the loader. You have options from "xsmall" up to "xlarge", with "small", "medium" and "large" in between.
+     * @description Icon size preset.
      * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
      * @default "medium"
      *
      * @prop style
-     * @description Apply additional inline CSS styles to the loader.
+     * @description Additional inline styles on the container.
      * @type {string}
      * @default ""
      *
      * @prop speed
-     * @description Choose the speed of the loader. You have options from "fast" up to "slow", with "medium" in between.
+     * @description Bounce animation speed preset.
      * @type {"fast" | "medium" | "slow"}
      * @default "medium"
      *
      * @prop icon
-     * @description The icon of the loader can be changed to any SVG icon. You can use the <a href="https://www.flaticon.com/" target="_blank">Flaticon</a> website to find an icon you like, and then copy the SVG code into this prop.
+     * @description SVG markup for the icon; defaults to Svelte logo.
      * @type {string}
-     * @default "The Svelte logo"
+     * @default "Svelte logo"
+     *
+     * @prop ariaLabel
+     * @description Accessible label for screen readers.
+     * @type {string}
+     * @default "Loading"
      */
     export let color: string = "#C50EFF";
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
     export let style: string = "";
     export let icon: string = svelteIcon;
     export let speed: "fast" | "medium" | "slow" = "medium";
+    export let ariaLabel: string = "Loading";
 
     // Local state
     let containerStyle = "";
@@ -92,7 +98,7 @@
     });
 </script>
 
-<div class="loader-container" style={containerStyle}>
+<div class="loader-container" style={containerStyle} role="status" aria-live="polite" aria-label={ariaLabel}>
     <div bind:this={iconRef} style={loaderStyle} class="icon">
         <slot name="icon">{@html icon}</slot>
     </div>

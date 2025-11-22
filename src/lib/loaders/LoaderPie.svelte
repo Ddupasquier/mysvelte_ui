@@ -1,10 +1,39 @@
 <script lang="ts">
   // Props
+  /**
+   * @component Loader.Pie
+   *
+   * @prop size
+   * @description Diameter preset for the pie spinner.
+   * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+   * @default "medium"
+   *
+   * @prop color
+   * @description Stroke color for the spinner arc.
+   * @type {string}
+   * @default "#FF00D9"
+   *
+   * @prop background
+   * @description Fill color for the circle background.
+   * @type {string}
+   * @default "#fff"
+   *
+   * @prop speed
+   * @description Animation speed preset.
+   * @type {"fast" | "medium" | "slow"}
+   * @default "medium"
+   *
+   * @prop ariaLabel
+   * @description Accessible label for screen readers.
+   * @type {string}
+   * @default "Loading"
+   */
   export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
     "medium";
   export let color = "#FF00D9";
   export let background: string = "#fff";
   export let speed: "fast" | "medium" | "slow" = "medium";
+  export let ariaLabel: string = "Loading";
 
   // Size Values
   const sizeValues: Record<typeof size, number> = {
@@ -32,6 +61,9 @@
   width={sizeInPx}
   height={sizeInPx}
   viewBox="0 0 50 50"
+  role="status"
+  aria-live="polite"
+  aria-label={ariaLabel}
   xmlns="http://www.w3.org/2000/svg"
 >
   <circle

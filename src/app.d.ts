@@ -240,6 +240,27 @@ interface LoaderElipsProps {
   ariaLabel?: string;
 }
 
+interface LoaderBounceIconProps extends LoaderProps {
+  icon?: string;
+}
+
+interface LoaderProgressProps {
+  color?: string;
+  background?: string;
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  style?: string;
+  speed?: 'fast' | 'medium' | 'slow';
+  ariaLabel?: string;
+}
+
+interface LoaderPieProps {
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  color?: string;
+  background?: string;
+  speed?: 'fast' | 'medium' | 'slow';
+  ariaLabel?: string;
+}
+
 interface BounceLoaderProps extends LoaderProps {
   icon?: string;
 }
