@@ -1,6 +1,7 @@
 import { Button } from '../src/lib';
 import type { ButtonDisplayData, ButtonIconProps } from '../src/app.d.ts';
 
+import { ButtonPropRows } from './generated/Button.props';
 import {
   defaultModalShown,
   defaultModalSlot,
@@ -377,83 +378,7 @@ export const buttons: ButtonDisplayData[] = [
     type: 'table',
     table: {
       tableName: 'button',
-      rows: [{
-        name: `button_size`,
-        description: 'Sets the size of the button. Choose from \'xsmall\', \'small\', \'medium\', \'large\', or \'xlarge\'.',
-        type: '{string}',
-        default: '\"medium\"',
-        nav: true,
-      },
-      {
-        name: `button_background`,
-        description: 'Lets you personalize the button\'s background color with any valid CSS color.',
-        type: '{string}',
-        default: '\"#C50EFF\"',
-        nav: true,
-      },
-      {
-        name: `button_color`,
-        description: 'Changes the color of the button\'s text. Use any valid CSS color.',
-        type: '{string}',
-        default: '\"#fff\"',
-        nav: true,
-      },
-      {
-        name: `button_rounded`,
-        description: 'Determines if the button has rounded corners or not.',
-        type: '{boolean}',
-        default: 'false',
-        nav: true,
-      },
-      {
-        name: `button_disabled`,
-        description: 'Determines if the button is clickable or not. When true, the button appears grayed out.',
-        type: '{boolean}',
-        default: 'false',
-        nav: true,
-      },
-      {
-        name: `button_isLoading`,
-        description: 'If set to true, the button displays a loading spinner and becomes disabled. Great for indicating processing times!',
-        type: '{boolean}',
-        default: 'false',
-        nav: true,
-      },
-      {
-        name: `button_isError`,
-        description: 'Switches the button to an error state when set to true. The button is disabled and displays an error border.',
-        type: '{boolean}',
-        default: 'false',
-        nav: true,
-      },
-      {
-        name: `button_events`,
-        description: 'Allows you to add event listeners to the button such as on:click, on:mouseover, etc. The first argument passed to your event listener will be the event object.',
-        type: '{string}',
-        default: '\"\"',
-        nav: true,
-      },
-      {
-        name: `button_style`,
-        description: 'A versatile prop that accepts any valid CSS as a string. This way, you can add any additional styling you need.',
-        type: '{string}',
-        default: '\"\"',
-        nav: true,
-      },
-      {
-        name: `button_animated`,
-        description: 'Setting this to true makes the button animate on click. Adds a touch of dynamism to your UI.',
-        type: '{boolean}',
-        default: 'false',
-        nav: true,
-      },
-      {
-        name: `button_icon`,
-        description: 'Use this to add an icon to your button. Accepts a valid html\/xml string. Alternatively, use the `icon` slot.',
-        type: '{string}',
-        default: 'null',
-        nav: true,
-      }],
+      rows: ButtonPropRows,
     },
     examples: null,
   },
