@@ -1,6 +1,7 @@
 import { Checkbox } from '../src/lib';
 import type { CheckboxDisplayData } from '../src/app.d.ts';
 import { CheckboxPropRows } from './generated/Checkbox.props';
+import { CheckboxAnimatedPropRows } from './generated/CheckboxAnimated.props';
 
 export const checkboxes: CheckboxDisplayData[] = [
   {
@@ -186,6 +187,23 @@ export const checkboxes: CheckboxDisplayData[] = [
           size: 'large',
           checked: true,
         },
+      },
+    ],
+  },
+  {
+    id: 'checkbox_animated',
+    header: 'Checkbox Animated',
+    description: 'Animated checkbox variant.',
+    type: 'components',
+    examples: [
+      {
+        component: Checkbox.Animated,
+        props: {
+          label: 'Animated',
+          color: '#C50EFF',
+          checked: true,
+        },
+        code: [`<Checkbox.Animated label="Animated" color="#C50EFF" checked />`],
       },
     ],
   },

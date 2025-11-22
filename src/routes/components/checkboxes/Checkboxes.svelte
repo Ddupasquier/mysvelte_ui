@@ -6,7 +6,8 @@
 <h1>Checkboxes</h1>
 
 <h3>
-  {"import { Checkbox } from 'mysvelte-ui';"}
+  {"import { Checkbox } from 'mysvelte-ui';"}<br/>
+  [.Animated]
 </h3>
 
 {#each checkboxes as checkbox}

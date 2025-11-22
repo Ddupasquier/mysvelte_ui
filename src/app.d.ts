@@ -484,4 +484,4 @@ interface SpacerExample {
   code?: string | string[];
 }
 
-export {};
+export { type ButtonIconProps };
