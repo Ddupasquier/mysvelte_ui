@@ -74,14 +74,16 @@
   export let isLoading: boolean = false;
   export let isError: boolean = false;
   export let style: string = "";
+  export let type: "button" | "submit" | "reset" = "button";
 
   // Variables
   let classList = ["button"];
   let classString = "";
+  const baseClass = ["button"];
 
   // Lifecycle Hooks
   onMount(() => {
-    classList.push(size);
+    classList = [...baseClass, size];
     if (rounded) {
       classList.push("rounded");
     }
@@ -95,7 +97,10 @@
 
   // Reactive Statements
   $: {
-    classList = ["button", size];
+    classList = [...baseClass, size];
+    if (rounded) {
+      classList.push("rounded");
+    }
     if (isLoading) {
       classList.push("loading");
     } else if (isError) {
@@ -104,8 +109,10 @@
     classString = classList.join(" ");
   }
 
+  $: isDisabled = disabled || isLoading || isError;
+
   $: buttonStyle = `
-    background: ${disabled || isError || isLoading ? "#ccc" : background};
+    background: ${isDisabled ? "#ccc" : background};
     --bg-color: ${background};
     color: ${color};
     ${style}
@@ -116,17 +123,16 @@
 </script>
 
 <button
-  {disabled}
+  type={type}
+  disabled={isDisabled}
   {...$$restProps}
   class={classString}
   style={buttonStyle}
-  on:click
-  on:click={(e) => createAndAnimateCircle(buttonRef, animated, e)}
-  on:mouseover
-  on:mouseenter
-  on:mouseleave
-  on:focus
-  on:blur
+  aria-busy={isLoading}
+  aria-disabled={isDisabled}
+  data-state={isError ? "error" : isLoading ? "loading" : "default"}
+  on:click={(e) =>
+    createAndAnimateCircle(buttonRef, animated && !isDisabled, e)}
   bind:this={buttonRef}
 >
   <slot>{text}</slot>
@@ -164,6 +170,11 @@
 
   .xlarge {
     padding: 1rem 2rem;
+  }
+
+  .button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
   }
 
   .rounded {

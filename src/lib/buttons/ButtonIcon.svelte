@@ -16,10 +16,12 @@
     export let isError: boolean = false;
     export let style: string = "";
     export let icon: string = svelteIcon;
+    export let type: "button" | "submit" | "reset" = "button";
 
     // Variables
     let classList = ["button"];
     let classString = "";
+    const baseClass = ["button"];
 
     // Sizing Calc
     let iconSizeMap = {
@@ -34,7 +36,7 @@
 
     // Lifecycle hooks
     onMount(() => {
-        classList.push(size);
+        classList = [...baseClass, size];
         if (isLoading) {
             classList.push("loading");
         } else if (isError) {
@@ -50,7 +52,7 @@
 
     // Reactive statements
     $: {
-        classList = ["button", size];
+        classList = [...baseClass, size];
         if (isLoading) {
             classList.push("loading");
         } else if (isError) {
@@ -59,13 +61,15 @@
         classString = classList.join(" ");
     }
 
+    $: isDisabled = disabled || isLoading || isError;
+
     $: buttonStyle = `
     color: ${color};
     ${style}
   `;
 
     $: wrapperStyle = `
-    background: ${disabled || isError || isLoading ? "#ccc" : background};
+    background: ${isDisabled ? "#ccc" : background};
     --bg-color: ${background};
   `;
 
@@ -104,17 +108,17 @@
         </div>
     {/if}
     <button
-        {disabled}
+        type={type}
+        disabled={isDisabled}
         {...$$restProps}
         style={buttonStyle}
         class={classString}
-        on:click
-        on:click={(e) => createAndAnimateCircle(buttonRef, animated, e)}
-        on:mouseover
-        on:mouseenter
-        on:mouseleave
-        on:focus
-        on:blur
+        aria-busy={isLoading}
+        aria-disabled={isDisabled}
+        aria-label={text || undefined}
+        data-state={isError ? "error" : isLoading ? "loading" : "default"}
+        on:click={(e) =>
+            createAndAnimateCircle(buttonRef, animated && !isDisabled, e)}
         bind:this={buttonRef}
     >
         <slot name="text">{text}</slot>
@@ -168,6 +172,11 @@
 
     .xlarge {
         padding: 1rem 2rem;
+    }
+
+    .button:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 3px;
     }
 
     // Loading and error styles

@@ -11,7 +11,7 @@ export const buttons: ButtonDisplayData[] = [
     id: 'button_basics',
     header: 'Button Basics',
     description:
-      'Buttons are used to trigger actions. They can be used in forms, in dialogs, or in standalone actions. They can be used as links, or used to submit forms. They can be styled in a variety of ways.',
+      'Buttons trigger actions. Keep labels clear (avoid “Click here”) and, if you hide text or use an icon-only button, pass an `aria-label` for screen readers. In forms, set `type="button"` unless you intend to submit.',
     type: 'components',
     examples: [
       {
