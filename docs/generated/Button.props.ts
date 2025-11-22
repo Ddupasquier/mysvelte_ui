@@ -2,7 +2,7 @@
 export const ButtonPropRows = [
   {
     name: 'button_size',
-    description: '!Sets the size of the button. Choose from \'xsmall\', \'small\', \'medium\', \'large\', or \'xlarge\'.',
+    description: 'Sets the size of the button. Choose from \'xsmall\', \'small\', \'medium\', \'large\', or \'xlarge\'.',
     type: '{string}',
     default: '\"medium\"',
     nav: true,
