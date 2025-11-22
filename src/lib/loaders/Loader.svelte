@@ -4,12 +4,12 @@
      * @component Loader
      *
      * @prop color
-     * @description Choose the color of the loader. This should be in a recognized color format, such as hex code.
+     * @description Color of the loader (any valid CSS color).
      * @type {string}
      *  @default "#C50EFF"
      *
      * @prop size
-     * @description Choose the size of the loader. Your options are \"xsmall\", \"small\", \"medium\", \"large\", and \"xlarge\".
+     * @description Size preset: xsmall, small, medium, large, or xlarge.
      * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
      * @default "medium"
      *
@@ -19,7 +19,7 @@
      * @default ""
      *
      * @prop speed
-     * @description Choose the speed of the loader. You have options from "fast" up to "slow", with "medium" in between.
+     * @description Animation speed preset: fast, medium, or slow.
      * @type {"fast" | "medium" | "slow"}
      * @default "medium"
      *
@@ -65,7 +65,15 @@
             );
         }
 
-        loaderStyle = `border-top-color: ${color}; border-left-color: ${color}; width: ${sizeValues[size]}px; height: ${sizeValues[size]}px;`;
+        const borderWidth = Math.max(2, sizeValues[size] / 6);
+
+        loaderStyle = `
+          border-top-color: ${color};
+          border-left-color: ${color};
+          width: ${sizeValues[size]}px;
+          height: ${sizeValues[size]}px;
+          border-width: ${borderWidth}px;
+        `;
 
         containerStyle = `display: flex; align-items: center; justify-content: center; ${style}`;
     }
@@ -84,11 +92,8 @@
 
     .loader {
         position: relative;
-        width: 0;
-        height: 0;
         border-style: solid;
         border-radius: 50%;
-        border-width: 5px;
         border-right-color: transparent;
         border-bottom-color: transparent;
         animation: rotate var(--animation-duration) linear infinite;

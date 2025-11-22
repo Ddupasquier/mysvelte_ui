@@ -1,5 +1,6 @@
 import { Loader } from '../src/lib';
 import type { LoaderDisplayData } from '../src/app.d.ts';
+import { LoaderElipsPropRows } from './generated/LoaderElips.props';
 import { LoaderPropRows } from './generated/Loader.props';
 import { loaderbounceicons, loaderBounceProps } from './LoaderBounceIcon_docs';
 

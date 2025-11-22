@@ -233,6 +233,13 @@ interface LoaderProps {
   ariaLabel?: string;
 }
 
+interface LoaderElipsProps {
+  color?: string;
+  size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+  speed?: 'fast' | 'medium' | 'slow';
+  ariaLabel?: string;
+}
+
 interface BounceLoaderProps extends LoaderProps {
   icon?: string;
 }

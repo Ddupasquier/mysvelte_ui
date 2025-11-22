@@ -1,8 +1,32 @@
 <script lang="ts">
     // Props
+    /**
+     * @component Loader.Elips
+     *
+     * @prop color
+     * @description Color of the dots.
+     * @type {string}
+     * @default "#C50EFF"
+     *
+     * @prop size
+     * @description Dot size preset.
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+     * @default "medium"
+     *
+     * @prop speed
+     * @description Animation speed preset.
+     * @type {"fast" | "medium" | "slow"}
+     * @default "medium"
+     *
+     * @prop ariaLabel
+     * @description Accessible label for screen readers.
+     * @type {string}
+     * @default "Loading"
+     */
     export let color: string = "#C50EFF";
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" = "medium";
     export let speed: "fast" | "medium" | "slow" = "medium";
+    export let ariaLabel: string = "Loading";
 
     // Local state
     let loaderStyle = "";
@@ -32,7 +56,7 @@
     $: animationDuration = speedToDuration[speed];
 </script>
 
-<div class="loader-container">
+<div class="loader-container" role="status" aria-live="polite" aria-label={ariaLabel}>
     <div
         class="dot"
         style={`${loaderStyle}; animation-duration: ${animationDuration}`}
