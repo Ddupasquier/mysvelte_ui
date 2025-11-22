@@ -230,6 +230,7 @@ interface LoaderProps {
   color?: string;
   style?: string;
   speed?: 'slow' | 'medium' | 'fast';
+  ariaLabel?: string;
 }
 
 interface BounceLoaderProps extends LoaderProps {
