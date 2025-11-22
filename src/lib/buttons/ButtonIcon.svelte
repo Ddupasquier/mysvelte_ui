@@ -4,7 +4,64 @@
     import { onMount, afterUpdate } from "svelte";
     import svelteIcon from "../assets/svelte.svg";
 
-    // Props
+    /**
+     * @component Button.Icon
+     *
+     * @prop size
+     * @description Sets the size of the button. Choose from 'xsmall', 'small', 'medium', 'large', or 'xlarge'.
+     * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
+     * @default "medium"
+     *
+     * @prop background
+     * @description Background color for the icon wrapper.
+     * @type {string}
+     * @default "#C50EFF"
+     *
+     * @prop color
+     * @description Text/icon color.
+     * @type {string}
+     * @default "#fff"
+     *
+     * @prop text
+     * @description Visible label for the button (also used as the aria-label when provided).
+     * @type {string}
+     * @default ""
+     *
+     * @prop icon
+     * @description HTML/SVG string to render as the icon. You can also pass an element via the `icon` slot.
+     * @type {string}
+     * @default svelteIcon
+     *
+     * @prop disabled
+     * @description Disables the button.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop isLoading
+     * @description Shows loading state and disables interaction.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop isError
+     * @description Shows error state and disables interaction.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop animated
+     * @description Enables click ripple animation.
+     * @type {boolean}
+     * @default false
+     *
+     * @prop type
+     * @description Native button type.
+     * @type {"button" | "submit" | "reset"}
+     * @default "button"
+     *
+     * @prop style
+     * @description Inline CSS for the button.
+     * @type {string}
+     * @default ""
+     */
     export let disabled: boolean = false;
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
         "medium";

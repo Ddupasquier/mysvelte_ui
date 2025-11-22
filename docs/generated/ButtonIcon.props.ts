@@ -1,0 +1,80 @@
+// Auto-generated from src/lib/buttons/ButtonIcon.svelte JSDoc. Do not edit by hand.
+export const ButtonIconPropRows = [
+  {
+    name: 'buttonicon_size',
+    description: 'Sets the size of the button. Choose from \'xsmall\', \'small\', \'medium\', \'large\', or \'xlarge\'.',
+    type: '{"xsmall" | "small" | "medium" | "large" | "xlarge"}',
+    default: '\"medium\"',
+    nav: true,
+  },
+  {
+    name: 'buttonicon_background',
+    description: 'Background color for the icon wrapper.',
+    type: '{string}',
+    default: '\"#C50EFF\"',
+    nav: true,
+  },
+  {
+    name: 'buttonicon_color',
+    description: 'Text\/icon color.',
+    type: '{string}',
+    default: '\"#fff\"',
+    nav: true,
+  },
+  {
+    name: 'buttonicon_text',
+    description: 'Visible label for the button (also used as the aria-label when provided).',
+    type: '{string}',
+    default: '\"\"',
+    nav: true,
+  },
+  {
+    name: 'buttonicon_icon',
+    description: 'HTML\/SVG string to render as the icon. You can also pass an element via the `icon` slot.',
+    type: '{string}',
+    default: 'svelteIcon',
+    nav: true,
+  },
+  {
+    name: 'buttonicon_disabled',
+    description: 'Disables the button.',
+    type: '{boolean}',
+    default: 'false',
+    nav: true,
+  },
+  {
+    name: 'buttonicon_isLoading',
+    description: 'Shows loading state and disables interaction.',
+    type: '{boolean}',
+    default: 'false',
+    nav: true,
+  },
+  {
+    name: 'buttonicon_isError',
+    description: 'Shows error state and disables interaction.',
+    type: '{boolean}',
+    default: 'false',
+    nav: true,
+  },
+  {
+    name: 'buttonicon_animated',
+    description: 'Enables click ripple animation.',
+    type: '{boolean}',
+    default: 'false',
+    nav: true,
+  },
+  {
+    name: 'buttonicon_type',
+    description: 'Native button type.',
+    type: '{"button" | "submit" | "reset"}',
+    default: '\"button\"',
+    nav: true,
+  },
+  {
+    name: 'buttonicon_style',
+    description: 'Inline CSS for the button.',
+    type: '{string}',
+    default: '\"\"',
+    nav: true,
+  }
+];

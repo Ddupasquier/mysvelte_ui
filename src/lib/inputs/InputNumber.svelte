@@ -6,73 +6,73 @@
      * @component Input.Number
      *
      * @prop variant
-     * @description Choose the appearance of the input field. You can choose between "default", "line", or "outline" to best suit your design needs.
+     * @description Style variant: "default", "line", or "outline".
      * @type {"default" | "line" | "outline"}
      * @default "default"
      *
      * @prop size
-     * @description Select the size of the input field. It can be as small as "xsmall" or as large as "xlarge", with "small", "medium", and "large" options in between.
+     * @description Size of the field.
      * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
      * @default "medium"
      *
      * @prop background
-     * @description Define the background color of the input field to match your UI theme.
+     * @description Background color.
      * @type {string}
      * @default "#fff"
      *
      * @prop color
-     * @description Define the text color inside the input field.
+     * @description Text color.
      * @type {string}
      * @default "#000"
      *
      * @prop value
-     * @description Specify the default numerical value of the input field.
+     * @description Current numeric value.
      * @type {number}
      * @default 0
      *
      * @prop style
-     * @description Apply additional inline CSS styles to the input field.
+     * @description Inline CSS for the input.
      * @type {string}
      * @default ""
      *
      * @prop label
-     * @description Decide whether or not to display a label along with the input field. If set to true, you must also provide an associated 'id' for accessibility.
+     * @description Show an external label. Provide an id for accessibility.
      * @type {boolean}
      * @default false
      *
      * @prop labelColor
-     * @description Specify the color of the label text, if a label is used.
+     * @description Label color.
      * @type {string}
      * @default "#000"
      *
      * @prop disabled
-     * @description Use this to enable or disable the input field. When disabled, the input field can't be interacted with.
+     * @description Disable interaction.
      * @type {boolean}
      * @default false
      *
      * @prop isError
-     * @description Set this to true if you want to show the input field in an error state, such as when validation fails.
+     * @description Error state (also marks aria-invalid).
      * @type {boolean}
      * @default false
      *
      * @prop isLoading
-     * @description Set this to true to show a loading state in the input field, useful when waiting for an action to complete.
+     * @description Loading state (sets aria-busy and disables).
      * @type {boolean}
      * @default false
      *
      * @prop min
-     * @description Set the minimum value that can be entered into the input field.
+     * @description Minimum allowed value.
      * @type {number}
      * @default -10000
      *
      * @prop max
-     * @description Set the maximum value that can be entered into the input field.
+     * @description Maximum allowed value.
      * @type {number}
      * @default 10000
      *
      * @prop step
-     * @description Define the increments for the numeric input field. For example, a step of 2 will increase or decrease the value by 2 with each step. "any" allows any numeric input.
-     * @type {number | "any"}
+     * @description Increment/decrement step; use \"any\" to allow any numeric input.
+     * @type {number | \"any\"}
      * @default 1
      */
     export let variant: "default" | "line" | "outline" = "default";

@@ -1,5 +1,6 @@
 import { Input } from '../src/lib';
 import type { InputDisplayData } from '../src/app';
+import { InputPrefixPropRows } from './generated/InputPrefix.props';
 
 export const inputprefixes: InputDisplayData = 
   {
@@ -57,15 +58,7 @@ export const inputprefixProps: InputDisplayData =
     type: 'table',
     table: {
       tableName: 'inputprefix',
-      rows: [
-        {
-          name: `input.prefix_prefix`,
-          description: 'Specify a prefix that appears before the input. Useful for indicating the input purpose, such as \'@\' for mentioning users.',
-          type: '{string}',
-          default: '\"@\"',
-          nav: false,
-        }
-      ],
+      rows: InputPrefixPropRows,
     },
     examples: null,
   }

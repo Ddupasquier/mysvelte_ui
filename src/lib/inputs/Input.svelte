@@ -9,77 +9,87 @@
    * @component InputField
    *
    * @prop variant
-   * @description The style variant for the InputField. Can be "default", "line", or "outline".
+   * @description Style variant: "default", "line", or "outline".
    * @type {"default" | "line" | "outline"}
    * @default "default"
    *
    * @prop size
-   * @description The size of the InputField. Can be "xsmall", "small", "medium", "large", or "xlarge".
+   * @description Size of the input.
    * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
    * @default "medium"
    *
    * @prop type
-   * @description The type of the input. Can be "text" or "password".
+   * @description Input type.
    * @type {"text" | "password"}
    * @default "text"
    *
    * @prop background
-   * @description The background color of the InputField.
+   * @description Background color.
    * @type {string}
    * @default "#fff"
    *
    * @prop color
-   * @description The text color of the InputField.
+   * @description Text color.
    * @type {string}
    * @default "#000"
    *
    * @prop placeholder
-   * @description The placeholder text in the InputField.
+   * @description Placeholder text.
    * @type {string}
    * @default "Search"
    *
    * @prop value
-   * @description The current value of the InputField.
+   * @description Current value.
    * @type {string}
    * @default ""
    *
    * @prop style
-   * @description Inline CSS styles to apply to the InputField.
+   * @description Inline CSS for the input.
    * @type {string}
    * @default ""
    *
    * @prop label
-   * @description If true, the InputField will display a label.
+   * @description Show an external label. Provide an id for accessibility.
    * @type {boolean}
    * @default false
    *
    * @prop labelIn
-   * @description If true, the label will be displayed inside the InputField.
+   * @description Show the label inside the field.
    * @type {boolean}
    * @default false
    *
+   * @prop labelText
+   * @description Custom label text (falls back to id/placeholder).
+   * @type {string}
+   * @default ""
+   *
    * @prop labelColor
-   * @description The color of the label text.
+   * @description Label color.
    * @type {string}
    * @default "#000"
    *
    * @prop disabled
-   * @description If true, the InputField will be disabled and users cannot interact with it.
+   * @description Disable interaction.
    * @type {boolean}
    * @default false
    *
    * @prop clearable
-   * @description If true, the InputField will display a clear button when it has input.
+   * @description Show a clear button when there is content.
    * @type {boolean}
    * @default false
    *
    * @prop isError
-   * @description If true, the InputField will display in an error state.
+   * @description Error state (also marks aria-invalid).
    * @type {boolean}
    * @default false
    *
    * @prop isLoading
-   * @description If true, the InputField will display a loading spinner.
+   * @description Loading state (sets aria-busy and disables).
+   * @type {boolean}
+   * @default false
+   *
+   * @prop autoFocus
+   * @description Auto focus on mount.
    * @type {boolean}
    * @default false
    */

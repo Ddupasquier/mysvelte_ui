@@ -1,3 +1,4 @@
+<!-- Spacer: full-width block element to create vertical rhythm -->
 <div class="spacer"></div>
 
 <style lang="scss">
