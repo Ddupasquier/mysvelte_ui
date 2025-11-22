@@ -101,6 +101,7 @@
   export let isError: boolean = false;
   export let isLoading: boolean = false;
   export let autoFocus: boolean = false;
+  export let labelText: string = "";
 
   // Event dispatcher
   const dispatch = createEventDispatcher();
@@ -142,6 +143,9 @@
     }
   }
 
+  const inputId = $$restProps.id ?? undefined;
+  const labelContent = labelText || inputId || placeholder;
+
   // Handle input event
   const handleInput = (e: Event) => {
     if (e.target instanceof HTMLInputElement) {
@@ -166,18 +170,18 @@
 <div class={containerClassString}>
   {#if label}
     {#if labelIn}
-      <label class="label-in" for={$$restProps.id} style="color: {labelColor}"
-        >{$$restProps.id}</label
+      <label class="label-in" for={inputId} style="color: {labelColor}"
+        >{labelContent}</label
       >
     {:else}
-      <label class="label" for={$$restProps.id} style="color: {labelColor}"
-        >{$$restProps.id}</label
+      <label class="label" for={inputId} style="color: {labelColor}"
+        >{labelContent}</label
       >
     {/if}
   {/if}
   <input
     bind:this={inputRef}
-    id={label ? $$restProps.id : undefined}
+    id={label ? inputId : undefined}
     {type}
     {color}
     placeholder={label ? "" : placeholder}
@@ -187,24 +191,21 @@
     style={inputStyle}
     readonly={readOnly}
     aria-disabled={readOnly}
+    aria-invalid={isError}
+    aria-busy={isLoading}
     on:input={handleInput}
-    on:input
-    on:focus
-    on:blur
-    on:change
-    on:click
-    on:keydown
-    on:keyup
   />
   <div class="options">
     {#if passwordView}
-      <button class="eye-button" on:click={() => toggleType()}>
+      <button class="eye-button" type="button" aria-label={type === "password" ? "Show password" : "Hide password"} on:click={() => toggleType()}>
         <ShowHidePasswordIcon {type} />
       </button>
     {/if}
     {#if clearable && value !== ""}
       <button
         class="clear-button"
+        type="button"
+        aria-label="Clear input"
         on:click={clearInput}
         transition:fade={{ duration: 100 }}
       >

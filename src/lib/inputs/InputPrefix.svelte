@@ -98,11 +98,15 @@
   export let clearable: boolean = false;
   export let isError: boolean = false;
   export let isLoading: boolean = false;
+  export let labelText: string = "";
 
   // Local state
   const type = "text";
   let inputStyle = "";
   let inputRef: HTMLInputElement;
+  const stateClass = () => (isLoading ? "loading" : isError ? "error" : "");
+  const inputId = $$restProps.id ?? undefined;
+  const labelContent = labelText || inputId || placeholder;
 
   // Size values
   const sizeValues: Record<typeof size, string> = {
@@ -157,26 +161,20 @@
 <div class="input-container">
   {#if label}
     {#if labelIn}
-      <label class="label-in" for={$$restProps.id} style="color: {labelColor}"
-        >{$$restProps.id}</label
+      <label class="label-in" for={inputId} style="color: {labelColor}"
+        >{labelContent}</label
       >
     {:else}
-      <label class="label" for={$$restProps.id} style="color: {labelColor}"
-        >{$$restProps.id}</label
+      <label class="label" for={inputId} style="color: {labelColor}"
+        >{labelContent}</label
       >
     {/if}
   {/if}
   <div
     style={inputStyle}
-    class={(isLoading ? "loading" : isError ? "error" : "") + variant}
-    on:click={() => inputRef.focus()}
-    on:keydown={(event) => {
-      if (event.key === "Enter") {
-        inputRef.blur();
-      }
-    }}
+    class={`input ${variant} ${stateClass()}`}
   >
-    <div class="prefix">
+    <div class="prefix" aria-hidden="true">
       {prefix}
     </div>
     <input
@@ -184,14 +182,11 @@
       {type}
       {placeholder}
       {value}
+      id={label ? inputId : undefined}
       {...$$restProps}
       on:input={handleInput}
-      on:focus
-      on:blur
-      on:change
-      on:click
-      on:keydown
-      on:keyup
+      aria-invalid={isError}
+      aria-busy={isLoading}
       bind:this={inputRef}
     />
   </div>
@@ -200,6 +195,8 @@
       <button
         class="clear-button"
         on:click={clearInput}
+        type="button"
+        aria-label="Clear input"
         transition:fade={{ duration: 100 }}
         >
           <CloseIcon />

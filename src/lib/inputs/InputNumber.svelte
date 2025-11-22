@@ -243,8 +243,9 @@
     />
     <div class="controls">
         <button
-            tabIndex={-1}
             class="control up"
+            type="button"
+            aria-label="Increase value"
             on:click={incrementValue}
             on:mousedown={startIncrementing}
             on:mouseup={stopIncrementing}
@@ -266,8 +267,9 @@
             </svg>
         </button>
         <button
-            tabIndex={-1}
             class="control down"
+            type="button"
+            aria-label="Decrease value"
             on:click={decrementValue}
             on:mousedown={startDecrementing}
             on:mouseup={stopDecrementing}
