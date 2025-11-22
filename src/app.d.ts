@@ -41,6 +41,8 @@ interface ButtonProps {
   isLoading?: boolean;
   isError?: boolean;
   style?: string;
+   type?: 'button' | 'submit' | 'reset';
+   'aria-label'?: string;
   'on:click'?: () => void;
   animated?: boolean;
 }
@@ -69,7 +71,9 @@ interface CommonInputProps {
   placeholder?: string;
   style?: string;
   label?: boolean;
+  labelText?: string;
   labelColor?: string;
+  'aria-label'?: string;
   disabled?: boolean;
   isError?: boolean;
   isLoading?: boolean;

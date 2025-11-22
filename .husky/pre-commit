@@ -1,0 +1,25 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Load nvm if available and prefer Node 22 for tooling
+if [ -z "$NVM_DIR" ]; then
+  export NVM_DIR="$HOME/.nvm"
+fi
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+  nvm use 22 >/dev/null 2>&1 || true
+fi
+
+# Find staged Svelte components
+changed_files=$(git diff --cached --name-only --diff-filter=ACM | grep '^src/lib/.*\.svelte' || true)
+
+[ -z "$changed_files" ] && exit 0
+
+echo "Generating docs for staged components:"
+for file in $changed_files; do
+  echo " - $file"
+  npm run createdoc -- "$file" || exit $?
+done
+
+# Stage generated outputs so the commit includes them
+git add docs/generated || true
