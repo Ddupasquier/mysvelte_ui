@@ -1,5 +1,6 @@
 import { Parallax } from '../src/lib';
 import type { ParallaxDisplayData } from '../src/app.d.ts';
+import { ParallaxPropRows } from './generated/Parallax.props';
 import { parallaxVideos, parallaxvideoProps } from './ParallaxVideo_docs';
 import { city, desert, flower, beach, boat, jungle, forest } from './assets';
 
@@ -206,55 +207,7 @@ export const parallaxes: ParallaxDisplayData[] = [
     type: 'table',
     table: {
       tableName: 'parallax',
-      rows: [{
-        name: `parallax_image!`,
-        description: 'The URL of the image you want to use for the parallax effect.',
-        type: '{string}',
-        default: '\"\"',
-        nav: false,
-      },
-      {
-        name: `parallax_alt!`,
-        description: 'Alternative text for the parallax image for better accessibility and SEO.',
-        type: '{string}',
-        default: '\"\"',
-        nav: false,
-      },
-      {
-        name: `parallax_height`,
-        description: 'The height of the parallax area on your page.',
-        type: '{string}',
-        default: '\"300px\"',
-        nav: false,
-      },
-      {
-        name: `parallax_width`,
-        description: 'The width of the parallax area. It defaults to full width.',
-        type: '{string}',
-        default: '\"100%\"',
-        nav: false,
-      },
-      {
-        name: `parallax_speed`,
-        description: 'Controls the rate at which the parallax effect takes place. Adjust this to get the right feel for your design.',
-        type: '{number}',
-        default: '0.5',
-        nav: true,
-      },
-      {
-        name: `parallax_position`,
-        description: 'Sets the starting position of the parallax image. Useful for making sure the focus of the image is visible.',
-        type: '{[number, number]}',
-        default: '[0, 0]',
-        nav: true,
-      },
-      {
-        name: `parallax_loadObserver`,
-        description: 'Option to use a load observer for the parallax image. This allows you to display a custom loader while the image is being loaded. If enabled, the default loader will be used unless you provide a custom loader in the \"loader\" slot.',
-        type: '{boolean}',
-        default: 'false',
-        nav: true,
-      }],
+      rows: ParallaxPropRows
     },
     examples: null,
   },

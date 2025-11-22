@@ -159,6 +159,7 @@ interface PopoverProps {
   flyIn?: boolean;
   content?: string;
   text?: string;
+  ariaLabel?: string;
 }
 
 // * Radio TYPES
@@ -308,6 +309,7 @@ interface ParallaxProps {
   alt: string;
   speed?: number;
   position?: [number, number];
+  ariaLabel?: string;
 }
 
 interface VideoParallaxProps {
@@ -316,6 +318,7 @@ interface VideoParallaxProps {
   width?: string;
   speed?: number;
   position?: [number, number];
+  ariaLabel?: string;
 }
 
 // * Avatar TYPES

@@ -6,39 +6,44 @@
      * @component Parallax
      *
      * @prop image!
-     * @description The URL of the image you want to use for the parallax effect.
+     * @description URL of the image used for the parallax effect.
      * @type {string}
      * @default ""
      *
      * @prop alt!
-     * @description Alternative text for the parallax image for better accessibility and SEO.
+     * @description Alt text for the image.
      * @type {string}
      * @default ""
      *
      * @prop height
-     * @description The height of the parallax area on your page.
+     * @description Height of the parallax viewport.
      * @type {string}
      * @default "300px"
      *
      * @prop width
-     * @description The width of the parallax area. It defaults to full width.
+     * @description Width of the parallax viewport.
      * @type {string}
      * @default "100%"
      *
      * @prop speed
-     * @description Controls the rate at which the parallax effect takes place. Adjust this to get the right feel for your design.
+     * @description Parallax speed multiplier (clamped between -2 and 2).
      * @type {number}
      * @default 0.5
      *
      * @prop position
-     * @description Sets the starting position of the parallax image. Useful for making sure the focus of the image is visible.
+     * @description Starting position of the image as [x%, y%].
      * @type {[number, number]}
      * @default [0, 0]
      *
      * @prop loadObserver
-     * @description Option to use a load observer for the parallax image. This allows you to display a custom loader while the image is being loaded. If enabled, the default loader will be used unless you provide a custom loader in the "loader" slot.
+     * @description Show loader slot until image load completes.
      * @type {boolean}
-     * @default false
+     * @default true
+     *
+     * @prop ariaLabel
+     * @description Accessible label for the image.
+     * @type {string}
+     * @default "Parallax image"
      */
 
     export let image: string = "";
@@ -48,6 +53,7 @@
     export let speed: number = 0.5;
     export let position: [number, number] = [0, 0];
     export let loadObserver: boolean = true;
+    export let ariaLabel: string = "Parallax image";
 
     let scroll: number;
     let loading = true;
@@ -72,6 +78,7 @@
         src={image}
         class="parallax"
         {alt}
+        aria-label={ariaLabel}
         {...$$restProps}
         on:load={loadObserver ? onLoad : null}
         style:transform={`translate(${position[0] - 50}%, ${

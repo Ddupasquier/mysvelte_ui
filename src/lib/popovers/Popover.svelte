@@ -3,17 +3,57 @@
   import { afterUpdate, onMount } from "svelte";
   import { fly } from "svelte/transition";
 
+  /**
+   * @component Popover
+   *
+   * @prop direction
+   * @description Popover placement relative to the trigger.
+   * @type {"top" | "bottom" | "left" | "right"}
+   * @default "right"
+   *
+   * @prop trigger
+   * @description Interaction mode: hover or click to toggle visibility.
+   * @type {"hover" | "click"}
+   * @default "hover"
+   *
+   * @prop flyIn
+   * @description Enables fly-in transition from the chosen direction.
+   * @type {boolean}
+   * @default true
+   *
+   * @prop style
+   * @description Inline styles applied to the popover container.
+   * @type {string}
+   * @default ""
+   *
+   * @prop content
+   * @description Default text content when no content slot is provided.
+   * @type {string}
+   * @default "Popover Content"
+   *
+   * @prop text
+   * @description Default trigger label when no trigger slot is provided.
+   * @type {string}
+   * @default "Popover"
+   *
+   * @prop ariaLabel
+   * @description Accessible label for the popover content.
+   * @type {string}
+   * @default "Popover"
+   */
   export let direction: "top" | "bottom" | "left" | "right" = "right";
   export let trigger: "hover" | "click" = "hover";
   export let flyIn: boolean = true;
   export let style: string = "";
   export let content: string = "Popover Content";
   export let text: string = "Popover";
+  export let ariaLabel: string = "Popover";
 
   let directionStyle: string = "";
   let isTriggered = false;
   let triggerEl: HTMLElement;
   let popoverEl: HTMLElement;
+  let popoverId = `popover-${Math.random().toString(36).slice(2, 7)}`;
 
   const positionPopover = () => {
     if (!triggerEl || !popoverEl) return;
@@ -90,11 +130,14 @@
     }
   };
 
-  const doEscape = (
-    e: KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement }
-  ) => {
-    if (trigger === "click" && e.key === "Escape") {
-      isTriggered = false;
+  const doKeydown = (e: KeyboardEvent) => {
+    if (trigger === "click") {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        isTriggered = !isTriggered;
+      } else if (e.key === "Escape") {
+        isTriggered = false;
+      }
     }
   };
 </script>
@@ -107,7 +150,12 @@
     on:mouseenter={doHover}
     on:mouseleave={doLeave}
     on:click={doClick}
-    on:keydown={(e) => doEscape(e)}
+    on:keydown={doKeydown}
+    role={trigger === "click" ? "button" : undefined}
+    tabindex={trigger === "click" ? 0 : undefined}
+    aria-haspopup="true"
+    aria-expanded={trigger === "click" ? isTriggered : undefined}
+    aria-controls={popoverId}
     bind:this={triggerEl}
   >
     <slot name="trigger">
@@ -120,6 +168,10 @@
       style={directionStyle + style}
       bind:this={popoverEl}
       in:fly={calcFly()}
+      role="tooltip"
+      id={popoverId}
+      aria-hidden={!isTriggered}
+      aria-label={ariaLabel}
     >
       <slot name="content">
         <span>{content}</span>

@@ -4,35 +4,41 @@
      * @component Parallax.Video
      *
      * @prop video!
-     * @description The URL of the image you want to use for the parallax effect.
+     * @description URL of the video used for the parallax effect.
      * @type {string}
      * @default ""
      *
      * @prop height
-     * @description The height of the parallax area on your page.
+     * @description Height of the parallax viewport.
      * @type {string}
      * @default "300px"
      *
      * @prop width
-     * @description The width of the parallax area. It defaults to full width.
+     * @description Width of the parallax viewport.
      * @type {string}
      * @default "100%"
      *
      * @prop speed
-     * @description Controls the rate at which the parallax effect takes place. Adjust this to get the right feel for your design.
+     * @description Parallax speed multiplier (clamped between -2 and 2).
      * @type {number}
      * @default 0.5
      *
      * @prop position
-     * @description Sets the starting position of the parallax image. Useful for making sure the focus of the image is visible.
+     * @description Starting position of the video as [x%, y%].
      * @type {[number, number]}
      * @default [0, 0]
+     *
+     * @prop ariaLabel
+     * @description Accessible label for the video.
+     * @type {string}
+     * @default "Parallax video"
      */
     export let video: string = "";
     export let height: string = "300px";
     export let width: string = "100%";
     export let speed: number = 0.5;
     export let position: [number, number] = [0, 0];
+    export let ariaLabel: string = "Parallax video";
 
     let scroll: number;
     let videoElement: HTMLVideoElement;
@@ -53,8 +59,9 @@
         }
     }
 
-    function handleClick() {
+    function handleClick(e: MouseEvent | KeyboardEvent) {
         if (videoElement) {
+            if (e instanceof KeyboardEvent && e.key !== "Enter" && e.key !== " ") return;
             if (videoElement.paused) {
                 videoElement.play();
             } else {
@@ -77,6 +84,7 @@
         loop
         muted
         playsinline
+        aria-label={ariaLabel}
         on:loadedmetadata={handleLoadedMetadata}
     >
         <source src={video} type="video/mp4" />
@@ -94,6 +102,9 @@
             xmlns="http://www.w3.org/2000/svg"
             on:click={handleClick}
             on:keydown={handleClick}
+            role="button"
+            tabindex="0"
+            aria-label="Toggle video playback"
         >
             <path d="M8 5v14l11-7z" />
             <path d="M0 0h24v24H0z" fill="none" />
