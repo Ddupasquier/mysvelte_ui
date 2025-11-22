@@ -471,3 +471,16 @@ interface TableProps {
   hover?: boolean;
   highlight?: boolean;
 }
+
+// * Spacer TYPES
+export interface SpacerDisplayData extends BaseDisplayData {
+  examples: SpacerExample[] | null;
+}
+
+interface SpacerExample {
+  component: SvelteComponentTyped;
+  props: Record<string, any>;
+  code?: string | string[];
+}
+
+export {};

@@ -1,12 +1,32 @@
 <script lang="ts">
+  /**
+   * @component Card.Head
+   *
+   * @prop background
+   * @description Background color for the card header.
+   * @type {string}
+   * @default "transparent"
+   *
+   * @prop color
+   * @description Text color for the header.
+   * @type {string}
+   * @default "#000"
+   *
+   * @prop style
+   * @description Inline styles applied to the header container.
+   * @type {string}
+   * @default ""
+   */
   export let background: string = 'transparent';
   export let style: string = '';
   export let color: string = '#000';
+
+  $: headStyle = `background: ${background}; color: ${color}; ${style}`;
 </script>
 
 <div
   class="head"
-  style="background: {background}; color: {color}; {style}"
+  style={headStyle}
   {...$$restProps}
 >
   <slot />

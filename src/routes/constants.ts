@@ -6,6 +6,10 @@ export const NavComponentOptions = [
     path: '?items=tables',
  },
   {
+    name: 'Spacers',
+    path: '?items=spacers',
+ },
+  {
     name: 'Modals',
     path: '?items=modals',
   },

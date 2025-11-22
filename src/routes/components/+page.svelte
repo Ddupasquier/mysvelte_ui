@@ -17,6 +17,7 @@ import Avatars from './avatars/Avatars.svelte';
   import Buttons from "./buttons/Buttons.svelte";
   import Inputs from "./inputs/Inputs.svelte";
   import Cards from "./cards/Cards.svelte";
+import Spacers from './spacers/Spacers.svelte';
 import Tables from './tables/Tables.svelte';
 import Modals from './modals/Modals.svelte';
 
@@ -73,6 +74,8 @@ import Modals from './modals/Modals.svelte';
 <Modals />
 {:else if items === 'tables'}
 <Tables />
+{:else if items === 'spacers'}
+<Spacers />
 {:else}
   <div class="oops">
     <h1>Oops</h1>

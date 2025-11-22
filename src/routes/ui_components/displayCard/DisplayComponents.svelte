@@ -8,8 +8,11 @@
       this={example.component}
       {...example.props}
       on:click={example.props['on:click']}
-      >{example.props.text}</svelte:component
     >
+      {#if example.props?.text}
+        {example.props.text}
+      {/if}
+    </svelte:component>
   {/each}
 </div>
 

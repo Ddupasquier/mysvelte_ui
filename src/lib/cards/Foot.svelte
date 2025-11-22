@@ -1,12 +1,32 @@
 <script lang="ts">
+  /**
+   * @component Card.Foot
+   *
+   * @prop background
+   * @description Background color for the footer area.
+   * @type {string}
+   * @default "transparent"
+   *
+   * @prop color
+   * @description Text color for the footer.
+   * @type {string}
+   * @default "#000"
+   *
+   * @prop style
+   * @description Inline styles applied to the footer container.
+   * @type {string}
+   * @default ""
+   */
   export let background: string = 'transparent';
   export let style: string = '';
   export let color: string = '#000';
+
+  $: footStyle = `background: ${background}; color: ${color}; ${style}`;
 </script>
 
 <div
   class="foot"
-  style="background: {background}; color: {color}; {style}"
+  style={footStyle}
   {...$$restProps}
 >
   <slot />

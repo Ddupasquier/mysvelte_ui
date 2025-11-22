@@ -16,6 +16,7 @@ import { accordions } from '../../docs/Accordion_docs';
 import { toggles } from '../../docs/Toggle_docs';
 import { imageFilters } from '../../docs/ImageFilter_docs';
 import { textareas } from '../../docs/Textarea_docs';
+import { spacers } from '../../docs/Spacer_docs';
 
 // Component mapping
 const componentMapping = {
@@ -35,6 +36,7 @@ const componentMapping = {
   accordions,
   toggles,
   imageFilters,
+  spacers,
 };
 
 interface ComponentType {

@@ -1,5 +1,9 @@
 import { Card } from '../src/lib';
 import type { CardDisplayData } from '../src/app.d.ts';
+import { HeadPropRows } from './generated/Head.props';
+import { ContentPropRows } from './generated/Content.props';
+import { FootPropRows } from './generated/Foot.props';
+import { CardPropRows } from './generated/Card.props';
 
 export const cards: CardDisplayData[] = [
   {
@@ -374,36 +378,7 @@ export const cards: CardDisplayData[] = [
     type: 'table',
     table: {
       tableName: 'card',
-      rows: [
-        {
-          name: `card_background`,
-          description: 'Defines the background color of the Card component. This can be any valid CSS color. The default color is transparent, allowing the Card to seamlessly blend into any background.',
-          type: '{string}',
-          default: '\"transparent\"',
-          nav: false,
-        },
-        {
-          name: `card_style`,
-          description: 'Sets additional custom CSS styles for the Card component. This can be used to further customize the Card\'s appearance beyond the provided props.',
-          type: '{string}',
-          default: '\"\"',
-          nav: true,
-        },
-        {
-          name: `card_color`,
-          description: 'Specifies the text color within the Card component. This can be any valid CSS color, offering full flexibility over the Card\'s text styling.',
-          type: '{string}',
-          default: '\"#000\"',
-          nav: false,
-        },
-        {
-          name: `card_hover`,
-          description: 'Activates a hover effect on the Card component when set to true. This effect includes a subtle shadow and a slight upwards shift to give a floating impression, adding depth and interactivity to your interface.',
-          type: '{boolean}',
-          default: 'false',
-          nav: true,
-        }
-      ],
+      rows: CardPropRows,
     },
     examples: null,
   },
