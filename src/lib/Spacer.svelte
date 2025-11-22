@@ -1,4 +1,4 @@
-<div class="spacer" />
+<div class="spacer"></div>
 
 <style lang="scss">
   .spacer {
