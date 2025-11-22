@@ -1,5 +1,6 @@
 import { Radio } from '../src/lib';
 import type { RadioDisplayData } from '../src/app.d.ts';
+import { RadioPropRows } from './generated/Radio.props';
 
 export const radios: RadioDisplayData[] = [
   {
@@ -280,55 +281,7 @@ export const radios: RadioDisplayData[] = [
     type: 'table',
     table: {
       tableName: 'radio',
-      rows: [{
-    name: `radio_options!`,
-    description: 'An array of options for the radio group. Each option can be a string or an object with a label property and any additional properties you might need.',
-    type: '{(string | { label: string; [key: string]: any })[]}',
-    default: '[]',
-    nav: true,
-  },
-          {
-    name: `radio_selected`,
-    description: 'The currently selected option. It can be either the string value of the selected option or an object representing the selected option from the options array.',
-    type: '{string | { label: string; [key: string]: any } | null}',
-    default: 'null',
-    nav: true,
-  },
-          {
-    name: `radio_labelColor`,
-    description: 'The color of the text label for each radio button.',
-    type: '{string}',
-    default: '\"#000\"',
-    nav: true,
-  },
-          {
-    name: `radio_color`,
-    description: 'The color for the border of the radio indicator.',
-    type: '{string}',
-    default: '\"#000\"',
-    nav: true,
-  },
-          {
-    name: `radio_size`,
-    description: 'Determines the size of the radio indicator. Can take on values \"small\", \"medium\", or \"large\".',
-    type: '{"small" | "medium" | "large"}',
-    default: '\"medium\"',
-    nav: true,
-  },
-          {
-    name: `radio_disabled`,
-    description: 'If set to true, all the radio buttons will be disabled.',
-    type: '{boolean}',
-    default: 'false',
-    nav: true,
-  },
-          {
-    name: `radio_groupId`,
-    description: 'A unique identifier for the group of radio buttons. This is used for the name attribute of each radio button to link them as a group.',
-    type: '{string}',
-    default: '\"radio-group\"',
-    nav: true,
-  }],
+      rows: RadioPropRows
     },
     examples: null,
   },

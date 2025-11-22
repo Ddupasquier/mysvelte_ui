@@ -1,0 +1,87 @@
+// Auto-generated from src/lib/accordions/Accordion.svelte JSDoc. Do not edit by hand.
+export const AccordionPropRows = [
+  {
+    name: 'accordion_data',
+    description: 'Array of items with `title`, optional `details`, and `content`.',
+    type: '{Array}',
+    default: '[]',
+    nav: true,
+  },
+  {
+    name: 'accordion_collapse',
+    description: 'Allow only one item open at a time.',
+    type: '{boolean}',
+    default: 'true',
+    nav: true,
+  },
+  {
+    name: 'accordion_animated',
+    description: 'Animate open\/close transitions.',
+    type: '{boolean}',
+    default: 'true',
+    nav: true,
+  },
+  {
+    name: 'accordion_divider',
+    description: 'Show dividers between items.',
+    type: '{boolean}',
+    default: 'false',
+    nav: true,
+  },
+  {
+    name: 'accordion_disabled',
+    description: 'Disable user interaction.',
+    type: '{boolean}',
+    default: 'false',
+    nav: true,
+  },
+  {
+    name: 'accordion_headerStyle',
+    description: 'Inline styles for headers.',
+    type: '{string}',
+    default: '\"\"',
+    nav: true,
+  },
+  {
+    name: 'accordion_contentStyle',
+    description: 'Inline styles for content areas.',
+    type: '{string}',
+    default: '\"\"',
+    nav: true,
+  },
+  {
+    name: 'accordion_tabBg',
+    description: 'Header background color.',
+    type: '{string}',
+    default: '\"#C50EFF\"',
+    nav: true,
+  },
+  {
+    name: 'accordion_tabColor',
+    description: 'Header text color.',
+    type: '{string}',
+    default: '\"#fff\"',
+    nav: true,
+  },
+  {
+    name: 'accordion_background',
+    description: 'Accordion background color.',
+    type: '{string}',
+    default: '\"#fff\"',
+    nav: true,
+  },
+  {
+    name: 'accordion_color',
+    description: 'Accordion text color.',
+    type: '{string}',
+    default: '\"#000\"',
+    nav: true,
+  },
+  {
+    name: 'accordion_ariaLabel',
+    description: 'Accessible label for the accordion container.',
+    type: '{string}',
+    default: '\"Accordion\"',
+    nav: true,
+  }
+];

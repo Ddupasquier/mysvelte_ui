@@ -185,6 +185,7 @@ interface RadioProps {
   groupId: string;
   use?: 'one' | 'many';
   checkbox?: boolean;
+  ariaLabel?: string;
 }
 
 // * Dropdown TYPES
@@ -340,6 +341,7 @@ interface AvatarProps {
   filter?: "none" | "gray" | "sepia" | "invert";
   shape?: "circ" | "square" | "rounded";
   loadObserver?: boolean;
+  ariaLabel?: string;
 }
 
 // * Accordion TYPES
@@ -365,6 +367,7 @@ interface AccordionProps {
   color?: string;
   disabled?: boolean;
   divider?: boolean;
+  ariaLabel?: string;
 }
 
 export interface AccordionData {
@@ -414,6 +417,7 @@ interface ImageFilterProps {
   height?: string;
   aspectRatio?: string;
   title?: string;
+  ariaLabel?: string;
 }
 
 // * Textarea TYPES

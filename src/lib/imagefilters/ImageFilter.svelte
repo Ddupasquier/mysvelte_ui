@@ -2,53 +2,58 @@
     // Imports
     import { onMount } from "svelte";
 
-    // Props
     /**
      * @component ImageFilter
      *
      * @prop image!
-     * @description The image source for the ImageFilter.
+     * @description Image source URL.
      * @type {string}
      * @default ""
      *
      * @prop alt!
-     * @description The alt text for the ImageFilter.
+     * @description Alt text for the image.
+     * @type {string}
+     * @default ""
+     *
+     * @prop ariaLabel
+     * @description Accessible label for screen readers (falls back to alt).
      * @type {string}
      * @default ""
      *
      * @prop shape
-     * @description The shape of the image can be "square", "rounded", or "circ".
+     * @description Image shape: square, rounded, or circ.
      * @type {"circ" | "rounded" | "square"}
      * @default "square"
      *
      * @prop filter
-     * @description The filter prop determines the filter applied to the image. It can be one of the following values: "none", "gray", "sepia", "invert", "blur", "contrast", "hue-rotate", "saturate", "hue-rotate-saturate".
+     * @description Visual filter applied to the image.
      * @type {"none" | "gray" | "sepia" | "invert" | "blur" | "contrast" | "hue-rotate" | "saturate" | "hue-rotate-saturate"}
      * @default "none"
      *
      * @prop width
-     * @description The width of the image. You can specify any valid CSS length unit.
+     * @description Image width (CSS length).
      * @type {string}
      * @default "auto"
      *
      * @prop height
-     * @description The height of the image. You can specify any valid CSS length unit.
+     * @description Image height (CSS length).
      * @type {string}
      * @default "auto"
      *
      * @prop aspectRatio
-     * @description The aspect ratio of the image. This is specified as a string with a ratio of width to height.
+     * @description Aspect ratio, e.g., "3/2".
      * @type {string}
      * @default "auto"
      *
      * @prop style
-     * @description The CSS style for the image container.
+     * @description Inline styles for the container.
      * @type {string}
      * @default ""
      */
 
     export let image: string;
     export let alt: string;
+    export let ariaLabel: string = "";
     export let shape: "circ" | "rounded" | "square" = "square";
     export let filter:
         | "none"
@@ -65,20 +70,8 @@
     export let aspectRatio: string = "auto";
     export let style: string = "";
 
-    // Variables
-    let classList = ["image-container"];
-    let classString = "";
-
-    // Lifecycle hooks
-    onMount(() => {
-        classList.push(shape);
-        classList.push(filter);
-
-        classString = classList.join(" ");
-    });
-
-    // Reactive statements
-    $: classString = classList.join(" ");
+    // Reactive class list
+    $: classString = ["image-container", shape, filter].join(" ");
 </script>
 
 <div
@@ -86,7 +79,12 @@
     style={`width: ${width}; height: ${height}; ${style}`}
     {...$$restProps}
 >
-    <img src={image} {alt} style={`aspect-ratio: ${aspectRatio};`} />
+    <img
+        src={image}
+        {alt}
+        aria-label={ariaLabel || alt}
+        style={`aspect-ratio: ${aspectRatio};`}
+    />
 </div>
 
 <style lang="scss">

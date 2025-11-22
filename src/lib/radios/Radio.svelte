@@ -6,47 +6,48 @@
     /**
      * @component Radio
      *
-     * A component designed to display a group of radio buttons, allowing the user to select a single option from the group.
-     *
      * @prop options!
-     * @description An array of options for the radio group. Each option can be a string or an object with a label property and any additional properties you might need.
+     * @description Options for the radio group (string or object with label).
      * @type {(string | { label: string; [key: string]: any })[]}
      * @default []
      *
      * @prop selected
-     * @description The currently selected option. It can be either the string value of the selected option or an object representing the selected option from the options array.
+     * @description Currently selected option.
      * @type {string | { label: string; [key: string]: any } | null}
      * @default null
      *
      * @prop labelColor
-     * @description The color of the text label for each radio button.
+     * @description Text color for labels.
      * @type {string}
      * @default "#000"
      *
      * @prop color
-     * @description The color for the border of the radio indicator.
+     * @description Border color for the indicator.
      * @type {string}
      * @default "#000"
      *
      * @prop size
-     * @description Determines the size of the radio indicator. Can take on values "small", "medium", or "large".
+     * @description Indicator size preset.
      * @type {"small" | "medium" | "large"}
      * @default "medium"
      *
      * @prop disabled
-     * @description If set to true, all the radio buttons will be disabled.
+     * @description Disable the radio group.
      * @type {boolean}
      * @default false
      *
      * @prop groupId
-     * @description A unique identifier for the group of radio buttons. This is used for the name attribute of each radio button to link them as a group.
+     * @description Name/id for grouping the radios.
      * @type {string}
      * @default "radio-group"
      *
-     * Events:
+     * @prop ariaLabel
+     * @description Accessible label for the radiogroup container.
+     * @type {string}
+     * @default "Radio group"
+     *
      * @event updateSelected
-     * This event is dispatched whenever the selected option changes.
-     * It sends out the value of the currently selected option, which can be a string or an object, depending on the type of options provided.
+     * @description Fired when selection changes; detail contains the new value.
      */
 
     export let labelColor: string = "#000";
@@ -56,6 +57,7 @@
     export let groupId: string = "radio-group";
     export let options: OptionType[] = [];
     export let selected: OptionType | null = null;
+    export let ariaLabel: string = "Radio group";
 
     type OptionType = string | { label: string; [key: string]: any };
     type SelectedType = OptionType[];
@@ -89,7 +91,7 @@
     };
 </script>
 
-<div class={classString} role="radiogroup" {...$$restProps}>
+<div class={classString} role="radiogroup" aria-label={ariaLabel} {...$$restProps}>
     {#each options as option (option)}
         <div class="radio-option">
             <label

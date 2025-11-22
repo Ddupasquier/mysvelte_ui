@@ -1,5 +1,6 @@
 import { ImageFilter } from '../src/lib';
 import type { ImageFilterDisplayData } from '../src/app';
+import { ImageFilterPropRows } from './generated/ImageFilter.props';
 
 const image1 = "https://images.unsplash.com/photo-1511352015382-902404d75843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80";
 const image2 = "https://images.unsplash.com/photo-1569406125624-98ee19b01d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80";
@@ -59,6 +60,9 @@ export const imageFilters: ImageFilterDisplayData[] = [
           width: '150px',
           height: '150px',
         },
+        code: [
+          `<ImageFilter {image} {alt} shape="circ" width="150px" height="150px" />`,
+        ],
       },
       {
         component: ImageFilter,
@@ -69,6 +73,9 @@ export const imageFilters: ImageFilterDisplayData[] = [
           width: '150px',
           height: '100px',
         },
+        code: [
+          `<ImageFilter {image} {alt} shape="rounded" width="150px" height="100px" />`,
+        ],
       },
     ],
   },
@@ -190,62 +197,7 @@ export const imageFilters: ImageFilterDisplayData[] = [
     type: 'table',
     table: {
       tableName: 'imagefilter',
-      rows: [{
-        name: `imagefilter_image!`,
-        description: 'The image source for the ImageFilter.',
-        type: '{string}',
-        default: '\"\"',
-        nav: false,
-      },
-      {
-        name: `imagefilter_alt!`,
-        description: 'The alt text for the ImageFilter.',
-        type: '{string}',
-        default: '\"\"',
-        nav: false,
-      },
-      {
-        name: `imagefilter_shape`,
-        description: 'The shape of the image can be \"square\", \"rounded\", or \"circ\".',
-        type: '{"circ" | "rounded" | "square"}',
-        default: '\"square\"',
-        nav: true,
-      },
-      {
-        name: `imagefilter_filter`,
-        description: 'The filter prop determines the filter applied to the image. It can be one of the following values: \"none\", \"gray\", \"sepia\", \"invert\", \"blur\", \"contrast\", \"hue-rotate\", \"saturate\", \"hue-rotate-saturate\".',
-        type: '{"none" | "gray" | "sepia" | "invert" | "blur" | "contrast" | "hue-rotate" | "saturate" | "hue-rotate-saturate"}',
-        default: '\"none\"',
-        nav: true,
-      },
-      {
-        name: `imagefilter_width`,
-        description: 'The width of the image. You can specify any valid CSS length unit.',
-        type: '{string}',
-        default: '\"auto\"',
-        nav: false,
-      },
-      {
-        name: `imagefilter_height`,
-        description: 'The height of the image. You can specify any valid CSS length unit.',
-        type: '{string}',
-        default: '\"auto\"',
-        nav: false,
-      },
-      {
-        name: `imagefilter_aspectRatio`,
-        description: 'The aspect ratio of the image. This is specified as a string with a ratio of width to height.',
-        type: '{string}',
-        default: '\"auto\"',
-        nav: false,
-      },
-      {
-        name: `imagefilter_style`,
-        description: 'The CSS style for the image container.',
-        type: '{string}',
-        default: '\"\"',
-        nav: false,
-      }],
+      rows: ImageFilterPropRows,
     },
     examples: null,
   },

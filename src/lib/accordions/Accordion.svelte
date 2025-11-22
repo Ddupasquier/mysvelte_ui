@@ -2,64 +2,68 @@
     import { onMount } from "svelte";
     import { slide } from "svelte/transition";
 
-    // Props
     /**
      * @component Accordion
      *
      * @prop data
-     * @description The array of accordion items. Each item should have a `title`, `details`, and a `content`.
+     * @description Array of items with `title`, optional `details`, and `content`.
      * @type {Array}
      * @default []
      *
      * @prop collapse
-     * @description If true, only one item can be expanded at a time. Expanding another item will collapse the currently expanded item.
+     * @description Allow only one item open at a time.
      * @type {boolean}
      * @default true
      *
      * @prop animated
-     * @description If true, the accordion transitions will be animated.
+     * @description Animate open/close transitions.
      * @type {boolean}
-     * @default false
+     * @default true
      *
      * @prop divider
-     * @description If true, a divider will be added between each accordion item.
+     * @description Show dividers between items.
      * @type {boolean}
      * @default false
      *
      * @prop disabled
-     * @description If true, the accordion will be disabled and users cannot interact with it.
+     * @description Disable user interaction.
      * @type {boolean}
      * @default false
      *
      * @prop headerStyle
-     * @description The CSS style for the accordion item headers.
+     * @description Inline styles for headers.
      * @type {string}
      * @default ""
      *
      * @prop contentStyle
-     * @description The CSS style for the accordion item content.
+     * @description Inline styles for content areas.
      * @type {string}
      * @default ""
      *
      * @prop tabBg
-     * @description The background color for the tab.
+     * @description Header background color.
      * @type {string}
      * @default "#C50EFF"
      *
      * @prop tabColor
-     * @description The text color for the tab.
+     * @description Header text color.
      * @type {string}
      * @default "#fff"
      *
      * @prop background
-     * @description The background color for the accordion.
+     * @description Accordion background color.
      * @type {string}
      * @default "#fff"
      *
      * @prop color
-     * @description The text color for the accordion.
+     * @description Accordion text color.
      * @type {string}
      * @default "#000"
+     *
+     * @prop ariaLabel
+     * @description Accessible label for the accordion container.
+     * @type {string}
+     * @default "Accordion"
      */
 
     export let data: { title: string; details?: string; content: string }[] =
@@ -76,6 +80,7 @@
     export let height: string = "fit-content";
     export let width: string = "100%";
     export let divider: boolean = false;
+    export let ariaLabel: string = "Accordion";
 
     // State
     let expandedIndexes: number[] = [];
@@ -136,7 +141,7 @@
     $: contentStyleComputed = `${contentStyle}`;
 </script>
 
-<div class={classString} style={accordionStyle}>
+<div class={classString} style={accordionStyle} role="presentation" aria-label={ariaLabel}>
     {#each data as { title, details, content }, i (i)}
         <div class="accordion-item">
             <button

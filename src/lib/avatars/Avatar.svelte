@@ -4,42 +4,47 @@
     import { Loader } from "$lib";
     import { createLoadObserver } from "$lib/utilities";
 
-    // Props
     /**
      * @component Avatar
      *
      * @prop image!
-     * @description The URL of the avatar image. Provide the path to the image you want to display as the avatar.
+     * @description URL of the avatar image.
      * @type {string}
      * @default ""
      *
      * @prop alt!
-     * @description The alternative text for the avatar image. This text is displayed when the image cannot be loaded or accessed by screen readers.
+     * @description Alt text for the image.
+     * @type {string}
+     * @default ""
+     *
+     * @prop ariaLabel
+     * @description Accessible label announced to screen readers.
      * @type {string}
      * @default ""
      *
      * @prop size
-     * @description The size of the avatar. Choose from "xsmall", "small", "medium", "large", or "xlarge" to control the dimensions of the avatar.
+     * @description Size preset: xsmall, small, medium, large, or xlarge.
      * @type {"xsmall" | "small" | "medium" | "large" | "xlarge"}
      * @default "medium"
      *
      * @prop shape
-     * @description The shape of the avatar. Select either "circ", "rounded", or "square" to define the border shape of the avatar.
+     * @description Border shape: circ, rounded, or square.
      * @type {"circ" | "rounded" | "square"}
      * @default "rounded"
      *
      * @prop filter
-     * @description The filter applied to the avatar image. Apply visual effects such as "gray" for grayscale, "sepia" for a vintage look, or "invert" for an inverted color scheme.
+     * @description Optional image filter: none, gray, sepia, or invert.
      * @type {"none" | "gray" | "sepia" | "invert"}
      * @default "none"
-     * *
+     *
      * @prop loadObserver
-     * @description Enable or disable the load observer for the avatar image. When enabled, a load observer will track the loading state of the image, allowing you to add a custom loader. This loader defaults to one of our loaders, but you can override it by adding a custom loader to the "loader" slot. 
+     * @description Show loader slot until the image finishes loading.
      * @type {boolean}
      * @default false
      */
     export let image: string;
     export let alt: string;
+    export let ariaLabel: string = "";
     export let size: "xsmall" | "small" | "medium" | "large" | "xlarge" =
         "medium";
     export let shape: "circ" | "rounded" | "square" = "rounded";
@@ -47,31 +52,21 @@
     export let loadObserver: boolean = false;
 
     // Variables
-    let classList = ["avatar"];
-    let classString = "";
     let loading = true;
 
     const onLoad = createLoadObserver(() => {
         loading = false;
     });
 
-    // Lifecycle hooks
-    onMount(() => {
-        classList.push(size);
-        classList.push(shape);
-        classList.push(filter);
-
-        classString = classList.join(" ");
-    });
-
-    // Reactive statements
-    $: classString = classList.join(" ");
+    // Derived classes
+    $: classString = ["avatar", size, shape, filter].join(" ");
 </script>
 
 <div class={classString}>
     <img
         src={image}
         {alt}
+        aria-label={ariaLabel || alt}
         on:load={loadObserver ? onLoad : null}
         loading="lazy"
         style="visibility: {loading && loadObserver ? 'hidden' : 'visible'}"

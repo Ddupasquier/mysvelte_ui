@@ -1,5 +1,6 @@
 import { Avatar } from '../src/lib';
 import type { AvatarDisplayData } from '../src/app.d.ts';
+import { AvatarPropRows } from './generated/Avatar.props';
 
 const image1 = 'https://images.unsplash.com/photo-1681052027179-5471edd589c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80';
 const image2 = 'https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80';
@@ -224,48 +225,7 @@ export const avatars: AvatarDisplayData[] = [
     type: 'table',
     table: {
       tableName: 'avatar',
-      rows: [{
-    name: `avatar_image!`,
-    description: 'The URL of the avatar image. Provide the path to the image you want to display as the avatar.',
-    type: '{string}',
-    default: '\"\"',
-    nav: true,
-  },
-          {
-    name: `avatar_alt!`,
-    description: 'The alternative text for the avatar image. This text is displayed when the image cannot be loaded or accessed by screen readers.',
-    type: '{string}',
-    default: '\"\"',
-    nav: true,
-  },
-          {
-    name: `avatar_size`,
-    description: 'The size of the avatar. Choose from \"xsmall\", \"small\", \"medium\", \"large\", or \"xlarge\" to control the dimensions of the avatar.',
-    type: '{"xsmall" | "small" | "medium" | "large" | "xlarge"}',
-    default: '\"medium\"',
-    nav: true,
-  },
-          {
-    name: `avatar_shape`,
-    description: 'The shape of the avatar. Select either \"circ\", \"rounded\", or \"square\" to define the border shape of the avatar.',
-    type: '{"circ" | "rounded" | "square"}',
-    default: '\"rounded\"',
-    nav: true,
-  },
-          {
-    name: `avatar_filter`,
-    description: 'The filter applied to the avatar image. Apply visual effects such as \"gray\" for grayscale, \"sepia\" for a vintage look, or \"invert\" for an inverted color scheme.',
-    type: '{"none" | "gray" | "sepia" | "invert"}',
-    default: '\"none\"',
-    nav: true,
-  },
-          {
-    name: `avatar_loadObserver`,
-    description: 'Enable or disable the load observer for the avatar image. When enabled, a load observer will track the loading state of the image, allowing you to add a custom loader. This loader defaults to one of our loaders, but you can override it by adding a custom loader to the \"loader\" slot.',
-    type: '{boolean}',
-    default: 'false',
-    nav: true,
-  }],
+      rows: AvatarPropRows,
     },
     examples: null,
   },
