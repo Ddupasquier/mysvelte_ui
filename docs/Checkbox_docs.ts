@@ -1,5 +1,6 @@
 import { Checkbox } from '../src/lib';
 import type { CheckboxDisplayData } from '../src/app.d.ts';
+import { CheckboxPropRows } from './generated/Checkbox.props';
 
 export const checkboxes: CheckboxDisplayData[] = [
   {
@@ -194,57 +195,7 @@ export const checkboxes: CheckboxDisplayData[] = [
     type: 'table',
     table: {
       tableName: 'checkbox',
-      rows: [
-        {
-          name: `checkbox_name`,
-          description: 'Specifies the name attribute for the checkbox. It\'s used for form submission and in the DOM.',
-          type: '{string}',
-          default: '\"\"',
-          nav: false,
-        },
-        {
-          name: `checkbox_label`,
-          description: 'Represents the text that appears next to the checkbox. It can be used to describe the purpose of the checkbox to the user.',
-          type: '{string}',
-          default: '\"\"',
-          nav: true,
-        },
-        {
-          name: `checkbox_labelColor`,
-          description: 'Determines the color of the label text. It accepts any valid CSS color, giving you a wide range of options to match your UI\'s color scheme.',
-          type: '{string}',
-          default: '\"#000\"',
-          nav: false,
-        },
-        {
-          name: `checkbox_checked`,
-          description: 'Controls whether the checkbox is checked or not by default. Set it to `true` if you want the checkbox to be checked on initial load.',
-          type: '{boolean}',
-          default: 'false',
-          nav: false,
-        },
-        {
-          name: `checkbox_color`,
-          description: 'Specifies the color of the checkbox itself. It accepts any valid CSS color, providing you with flexibility in styling.',
-          type: '{string}',
-          default: '\"#000\"',
-          nav: true,
-        },
-        {
-          name: `checkbox_size`,
-          description: 'Dictates the size of the checkbox. Available options are \'small\', \'medium\', or \'large\' to cater to different design needs.',
-          type: '{string}',
-          default: '\"medium\"',
-          nav: true,
-        },
-        {
-          name: `checkbox_disabled`,
-          description: 'Controls whether the checkbox is disabled or not. When set to `true`, the checkbox appears grayed out and cannot be interacted with.',
-          type: '{boolean}',
-          default: 'false',
-          nav: true,
-        }
-      ],
+      rows: CheckboxPropRows,
     },
     examples: null,
   },

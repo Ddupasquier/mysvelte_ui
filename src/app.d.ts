@@ -258,6 +258,7 @@ interface CheckboxProps {
   style?: string;
   color?: string;
   size?: 'small' | 'medium' | 'large';
+  ariaLabel?: string;
 }
 
 // * Parallax TYPES
